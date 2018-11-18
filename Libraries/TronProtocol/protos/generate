@@ -1,0 +1,5 @@
+protoc -I. --csharp_out ../Google --grpc_out ../Google --csharp_opt=file_extension=.g.cs ./google/api/annotations.proto ./google/api/http.proto --plugin=protoc-gen-grpc=./grpc_csharp_plugin
+
+protoc -I. --csharp_out ../Core --grpc_out ../Core --csharp_opt=file_extension=.g.cs ./core/Contract.proto ./core/Discover.proto ./core/Tron.proto --plugin=protoc-gen-grpc=./grpc_csharp_plugin
+
+protoc -I. --csharp_out ../Api --grpc_out ../Api --csharp_opt=file_extension=.g.cs ./api/api.proto --plugin=protoc-gen-grpc=./grpc_csharp_plugin

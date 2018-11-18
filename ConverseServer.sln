@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverseServer", "ConverseServer\ConverseServer.csproj", "{44FA2989-EEDF-42D1-AC8C-2AEC0819F368}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{146B2B6B-1939-4492-BAB2-11473A78B7C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Libraries\Client\Client.csproj", "{014F8C83-A344-4E7D-93A1-68CA73338CA4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crypto", "Libraries\Crypto\Crypto.csproj", "{86CC6D0A-307A-4705-91AB-82CEF950A8D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Libraries\Common\Common.csproj", "{4CAE3643-EE8F-4073-8E59-E68B74288062}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TronProtocol", "Libraries\TronProtocol\TronProtocol.csproj", "{1BAB5065-7455-408D-8FE1-5E6FA67D4178}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converse", "Converse\Converse.csproj", "{BAD8B3B8-E083-4FD2-9F2D-C840A57BC999}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +21,35 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{44FA2989-EEDF-42D1-AC8C-2AEC0819F368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44FA2989-EEDF-42D1-AC8C-2AEC0819F368}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44FA2989-EEDF-42D1-AC8C-2AEC0819F368}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44FA2989-EEDF-42D1-AC8C-2AEC0819F368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014F8C83-A344-4E7D-93A1-68CA73338CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014F8C83-A344-4E7D-93A1-68CA73338CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014F8C83-A344-4E7D-93A1-68CA73338CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014F8C83-A344-4E7D-93A1-68CA73338CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86CC6D0A-307A-4705-91AB-82CEF950A8D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86CC6D0A-307A-4705-91AB-82CEF950A8D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86CC6D0A-307A-4705-91AB-82CEF950A8D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86CC6D0A-307A-4705-91AB-82CEF950A8D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CAE3643-EE8F-4073-8E59-E68B74288062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CAE3643-EE8F-4073-8E59-E68B74288062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CAE3643-EE8F-4073-8E59-E68B74288062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CAE3643-EE8F-4073-8E59-E68B74288062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BAB5065-7455-408D-8FE1-5E6FA67D4178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BAB5065-7455-408D-8FE1-5E6FA67D4178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BAB5065-7455-408D-8FE1-5E6FA67D4178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BAB5065-7455-408D-8FE1-5E6FA67D4178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD8B3B8-E083-4FD2-9F2D-C840A57BC999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD8B3B8-E083-4FD2-9F2D-C840A57BC999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD8B3B8-E083-4FD2-9F2D-C840A57BC999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD8B3B8-E083-4FD2-9F2D-C840A57BC999}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{014F8C83-A344-4E7D-93A1-68CA73338CA4} = {146B2B6B-1939-4492-BAB2-11473A78B7C6}
+		{86CC6D0A-307A-4705-91AB-82CEF950A8D1} = {146B2B6B-1939-4492-BAB2-11473A78B7C6}
+		{4CAE3643-EE8F-4073-8E59-E68B74288062} = {146B2B6B-1939-4492-BAB2-11473A78B7C6}
+		{1BAB5065-7455-408D-8FE1-5E6FA67D4178} = {146B2B6B-1939-4492-BAB2-11473A78B7C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {667F1138-BFC6-414E-8DE0-F983A660806A}

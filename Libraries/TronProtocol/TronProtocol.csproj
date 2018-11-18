@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.6.1" />
+    <PackageReference Include="Grpc.Core" Version="1.16.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Api\Api.cs" />
+    <Compile Remove="Core\Contract.cs" />
+    <Compile Remove="Core\Discover.cs" />
+    <Compile Remove="protos\gen\Annotations.g.cs" />
+    <Compile Remove="protos\gen\Api.g.cs" />
+    <Compile Remove="protos\gen\Contract.g.cs" />
+    <Compile Remove="protos\gen\Discover.g.cs" />
+    <Compile Remove="protos\gen\Http.g.cs" />
+    <Compile Remove="protos\gen\Tron.g.cs" />
+    <Compile Remove="protos\gen\TronInventoryItems.g.cs" />
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="protos\api\api.proto" />
+    <None Remove="protos\core\Contract.proto" />
+    <None Remove="protos\core\Discover.proto" />
+    <None Remove="protos\core\Tron.proto" />
+    <None Remove="protos\core\TronInventoryItems.proto" />
+    <None Remove="protos\google\api\annotations.proto" />
+    <None Remove="protos\google\api\http.proto" />
+    <None Remove="protos\google\protobuf\any.proto" />
+    <None Remove="protos\google\protobuf\descriptor.proto" />
+  </ItemGroup>
+</Project>
