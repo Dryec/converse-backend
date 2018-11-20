@@ -7,11 +7,11 @@
   <ItemGroup>
     <Compile Remove="Migrations\20181118212127_InitialCreate.cs" />
     <Compile Remove="Migrations\20181118212127_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20181120211926_InitalizeDatabase.cs" />
+    <Compile Remove="Migrations\20181120211926_InitalizeDatabase.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
-    <Folder Include="Models\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -19,6 +19,16 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.1.4" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Libraries\Client\Client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System">
+      <HintPath>System</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

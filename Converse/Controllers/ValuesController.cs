@@ -12,7 +12,7 @@ namespace Converse.Controllers
 	[ApiController]
 	public class ValuesController : ControllerBase
 	{
-		private Service.DatabaseContext _databaseContext;
+		private readonly Service.DatabaseContext _databaseContext;
 
 		public ValuesController(Service.DatabaseContext databaseContext)
 		{
@@ -21,17 +21,9 @@ namespace Converse.Controllers
 
 		// GET api/values
 		[HttpGet]
-		public ActionResult<List<Service.Test>> Get()
+		public ActionResult<string> Get()
 		{
-			List<string> rtn = new List<string>();
-			Service.Test t = default(Service.Test);
-
-			var Tests = _databaseContext.Tests
-				.Include(at => at.Test1).ThenInclude(at => at.Tests)
-				.Include(at => at.Test1).ThenInclude(at => at.Test2)
-				.Include(at => at.Test2).ToList();
-
-			return Tests;
+			return "yep";
 		}
 
 		// GET api/values/5
