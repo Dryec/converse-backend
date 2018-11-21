@@ -38,6 +38,8 @@ namespace Converse.Migrations
 
                     b.Property<DateTime>("BlockCreatedAt");
 
+                    b.Property<long>("BlockId");
+
                     b.Property<int>("ChatId");
 
                     b.Property<DateTime>("CreatedAt");
@@ -45,6 +47,8 @@ namespace Converse.Migrations
                     b.Property<string>("Message");
 
                     b.Property<DateTime>("TransactionCreatedAt");
+
+                    b.Property<string>("TransactionHash");
 
                     b.HasKey("Id");
 
@@ -85,7 +89,7 @@ namespace Converse.Migrations
                     b.ToTable("Settings");
                 });
 
-			modelBuilder.Entity("Converse.Models.User", b =>
+            modelBuilder.Entity("Converse.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();

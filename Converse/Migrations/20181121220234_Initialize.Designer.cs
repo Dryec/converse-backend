@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Converse.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20181120213231_InitializeDatabase")]
-    partial class InitializeDatabase
+    [Migration("20181121220234_Initialize")]
+    partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,8 @@ namespace Converse.Migrations
 
                     b.Property<DateTime>("BlockCreatedAt");
 
+                    b.Property<long>("BlockId");
+
                     b.Property<int>("ChatId");
 
                     b.Property<DateTime>("CreatedAt");
@@ -47,6 +49,8 @@ namespace Converse.Migrations
                     b.Property<string>("Message");
 
                     b.Property<DateTime>("TransactionCreatedAt");
+
+                    b.Property<string>("TransactionHash");
 
                     b.HasKey("Id");
 

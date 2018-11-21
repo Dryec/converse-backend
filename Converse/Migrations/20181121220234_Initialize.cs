@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Converse.Migrations
 {
-    public partial class InitializeDatabase : Migration
+    public partial class Initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-			migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable(
                 name: "Chats",
                 columns: table => new
                 {
@@ -18,7 +18,7 @@ namespace Converse.Migrations
                 },
                 constraints: table =>
                 {
-					table.PrimaryKey("PK_Chats", x => x.Id);
+                    table.PrimaryKey("PK_Chats", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -34,9 +34,9 @@ namespace Converse.Migrations
                 {
                     table.PrimaryKey("PK_Settings", x => x.Id);
                 });
-	        migrationBuilder.InsertData("Settings", new [] { "Id", "Key", "Value" }, new[] { "1", "LastSyncedBlockId", "0" });
+	        migrationBuilder.InsertData("Settings", new[] {"Id", "Key", "Value"}, new[] {"1", "LastSyncedBlockId", "0"});
 
-            migrationBuilder.CreateTable(
+			migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -59,6 +59,8 @@ namespace Converse.Migrations
                     ChatId = table.Column<int>(nullable: false),
                     Address = table.Column<string>(nullable: true),
                     Message = table.Column<string>(nullable: true),
+                    BlockId = table.Column<long>(nullable: false),
+                    TransactionHash = table.Column<string>(nullable: true),
                     BlockCreatedAt = table.Column<DateTime>(nullable: false),
                     TransactionCreatedAt = table.Column<DateTime>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false)

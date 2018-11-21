@@ -11,5 +11,6 @@ namespace Converse.Configuration
 		public ushort Port { get; set; }
 		public ulong StartBlockId { get; set; }
 		public int BlockSyncTime { get; set; }
+		public string TokenName { get; set; }
 	}
 }

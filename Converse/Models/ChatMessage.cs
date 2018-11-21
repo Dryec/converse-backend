@@ -15,7 +15,7 @@ namespace Converse.Models
 		public string Address { get; set; }
 		public string Message { get; set; }
 
-		public string BlockId { get; set; }
+		public long BlockId { get; set; }
 		public string TransactionHash { get; set; }
 
 		public DateTime BlockCreatedAt { get; set; }

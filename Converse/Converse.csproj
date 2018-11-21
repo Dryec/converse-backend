@@ -9,6 +9,8 @@
     <Compile Remove="Migrations\20181118212127_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20181120211926_InitalizeDatabase.cs" />
     <Compile Remove="Migrations\20181120211926_InitalizeDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20181120213231_InitializeDatabase.cs" />
+    <Compile Remove="Migrations\20181120213231_InitializeDatabase.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
