@@ -51,7 +51,7 @@ namespace Converse.Service
 
 				if (token.OwnerAddress.Length == 0)
 				{
-					// @ToDo: Error log - token not found
+					// @ToDo: Error log - Token not found
 					Environment.Exit(0);
 					return;
 				}
@@ -67,7 +67,6 @@ namespace Converse.Service
 
 					if (blocks.Block.Count > 0)
 					{
-						var chatMessages = new List<ChatMessage>();
 						var lastSyncedId = lastSavedSyncedBlock;
 
 						foreach (var block in blocks.Block)
@@ -91,29 +90,45 @@ namespace Converse.Service
 									continue;
 								}
 
-								var x1 = transferAssetContract.OwnerAddress.ToByteArray();
-								var x2 = transferAssetContract.ToAddress.ToByteArray();
+								var senderAddress = Client.WalletAddress.Encode58Check(transferAssetContract.OwnerAddress.ToByteArray());
+								var receiverAddress = Client.WalletAddress.Encode58Check(transferAssetContract.ToAddress.ToByteArray());
+
+								databaseContext.CreateUserWhenNotExist(senderAddress);
+								databaseContext.CreateUserWhenNotExist(receiverAddress);
 
 								var message = transaction.Transaction.RawData.Data.ToStringUtf8();
 								var transactionHash = Common.Utils
 									.ToHexString(Crypto.Sha256.Hash(transaction.Transaction.RawData.ToByteArray()))
 									.ToLower();
+
+								var chat = databaseContext.GetChat(senderAddress, receiverAddress);
+								if (chat == null)
+								{
+									chat = new Chat
+									{
+										FirstAddress = senderAddress,
+										SecondAddress = receiverAddress,
+										CreatedAt = DateTime.Now
+									};
+
+									databaseContext.Chats.Add(chat);
+								}
 								var chatMessage = new ChatMessage()
 								{
-									ChatId = 0,
+									Chat = chat,
 
-									Address = "",
+									Address = senderAddress,
 									Message = message,
 
 									BlockId = block.BlockHeader.RawData.Number,
 									BlockCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(block.BlockHeader.RawData.Timestamp).DateTime,
 
 									TransactionHash = transactionHash,
-									TransactionCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(block.BlockHeader.RawData.Timestamp).DateTime,
+									TransactionCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(transaction.Transaction.RawData.Timestamp).DateTime,
 
 									CreatedAt = DateTime.Now,
 								};
-								chatMessages.Add(chatMessage);
+								databaseContext.ChatMessages.Add(chatMessage);
 							}
 
 							if (lastSyncedId < block.BlockHeader.RawData.Number) { 
@@ -130,8 +145,6 @@ namespace Converse.Service
 						catch (Exception e)
 						{
 							// @ToDo: Log Error - Couldn't save the changes
-							Console.WriteLine(e.Message);
-							Console.WriteLine(e.StackTrace);
 							dbLastSyncedBlock.Value = lastSavedSyncedBlock.ToString();
 							databaseContext = scope.ServiceProvider.GetService<DatabaseContext>();
 						}

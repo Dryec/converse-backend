@@ -24,6 +24,12 @@ namespace Converse.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
+                    b.Property<string>("FirstAddress")
+                        .HasMaxLength(150);
+
+                    b.Property<string>("SecondAddress")
+                        .HasMaxLength(150);
+
                     b.HasKey("Id");
 
                     b.ToTable("Chats");
@@ -34,7 +40,8 @@ namespace Converse.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .HasMaxLength(150);
 
                     b.Property<DateTime>("BlockCreatedAt");
 
@@ -57,24 +64,6 @@ namespace Converse.Migrations
                     b.ToTable("ChatMessages");
                 });
 
-            modelBuilder.Entity("Converse.Models.ChatUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address");
-
-                    b.Property<int>("ChatId");
-
-                    b.Property<DateTime>("CreatedAt");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ChatId");
-
-                    b.ToTable("ChatUsers");
-                });
-
             modelBuilder.Entity("Converse.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -94,7 +83,8 @@ namespace Converse.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .HasMaxLength(150);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -104,14 +94,6 @@ namespace Converse.Migrations
                 });
 
             modelBuilder.Entity("Converse.Models.ChatMessage", b =>
-                {
-                    b.HasOne("Converse.Models.Chat", "Chat")
-                        .WithMany()
-                        .HasForeignKey("ChatId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Converse.Models.ChatUser", b =>
                 {
                     b.HasOne("Converse.Models.Chat", "Chat")
                         .WithMany()

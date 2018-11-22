@@ -14,6 +14,8 @@ namespace Converse.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    FirstAddress = table.Column<string>(maxLength: 150, nullable: true),
+                    SecondAddress = table.Column<string>(maxLength: 150, nullable: true),
                     CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -34,15 +36,15 @@ namespace Converse.Migrations
                 {
                     table.PrimaryKey("PK_Settings", x => x.Id);
                 });
-	        migrationBuilder.InsertData("Settings", new[] {"Id", "Key", "Value"}, new[] {"1", "LastSyncedBlockId", "0"});
+	        migrationBuilder.InsertData("settings", new[] {"Id", "Key", "Value"}, new[] { "1", "LastSyncedBlockId", "0" });
 
-			migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Address = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(maxLength: 150, nullable: true),
                     CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -57,7 +59,7 @@ namespace Converse.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ChatId = table.Column<int>(nullable: false),
-                    Address = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(maxLength: 150, nullable: true),
                     Message = table.Column<string>(nullable: true),
                     BlockId = table.Column<long>(nullable: false),
                     TransactionHash = table.Column<string>(nullable: true),
@@ -76,35 +78,9 @@ namespace Converse.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "ChatUsers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ChatId = table.Column<int>(nullable: false),
-                    Address = table.Column<string>(nullable: true),
-                    CreatedAt = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChatUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ChatUsers_Chats_ChatId",
-                        column: x => x.ChatId,
-                        principalTable: "Chats",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_ChatMessages_ChatId",
                 table: "ChatMessages",
-                column: "ChatId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChatUsers_ChatId",
-                table: "ChatUsers",
                 column: "ChatId");
         }
 
@@ -112,9 +88,6 @@ namespace Converse.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ChatMessages");
-
-            migrationBuilder.DropTable(
-                name: "ChatUsers");
 
             migrationBuilder.DropTable(
                 name: "Settings");
