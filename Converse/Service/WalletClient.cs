@@ -28,6 +28,12 @@ namespace Converse.Service
 			_nodeConfiguration = nodeOptions.Value;
 			_walletClient = new Client.WalletClient(_nodeConfiguration.Ip + ":" + _nodeConfiguration.Port);
 
+			if (_nodeConfiguration.BlockSyncCount <= 0)
+			{
+				// @ToDo: Warning log - No sync because syncCount is zero
+				return;
+			}
+
 			syncBlocksThread.Start();
 		}
 
@@ -56,13 +62,15 @@ namespace Converse.Service
 					return;
 				}
 
+				var syncCount = _nodeConfiguration.BlockSyncCount;
+
 				while (true) {
 					var lastSavedSyncedBlock = Convert.ToInt64(dbLastSyncedBlock.Value);
 
 					var blocks = await _walletClient.GetBlockByLimitNextAsync(new BlockLimit()
 					{
 						StartNum = lastSavedSyncedBlock + 1,
-						EndNum = lastSavedSyncedBlock + 3,
+						EndNum = lastSavedSyncedBlock + 1 + syncCount,
 					});
 
 					if (blocks.Block.Count > 0)
@@ -101,34 +109,33 @@ namespace Converse.Service
 									.ToHexString(Crypto.Sha256.Hash(transaction.Transaction.RawData.ToByteArray()))
 									.ToLower();
 
-								var chat = databaseContext.GetChat(senderAddress, receiverAddress);
-								if (chat == null)
-								{
-									chat = new Chat
-									{
-										FirstAddress = senderAddress,
-										SecondAddress = receiverAddress,
-										CreatedAt = DateTime.Now
-									};
+								// ToDO: Parse new data
+								//var chat = databaseContext.GetChat(senderAddress, receiverAddress);
+								//if (chat == null)
+								//{
+								//	chat = new Chat
+								//	{
+								//		CreatedAt = DateTime.Now
+								//	};
 
-									databaseContext.Chats.Add(chat);
-								}
-								var chatMessage = new ChatMessage()
-								{
-									Chat = chat,
+								//	databaseContext.Chats.Add(chat);
+								//}
+								//var chatMessage = new ChatMessage()
+								//{
+								//	Chat = chat,
 
-									Address = senderAddress,
-									Message = message,
+								//	Address = senderAddress,
+								//	Message = message,
 
-									BlockId = block.BlockHeader.RawData.Number,
-									BlockCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(block.BlockHeader.RawData.Timestamp).DateTime,
+								//	BlockId = block.BlockHeader.RawData.Number,
+								//	BlockCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(block.BlockHeader.RawData.Timestamp).DateTime,
 
-									TransactionHash = transactionHash,
-									TransactionCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(transaction.Transaction.RawData.Timestamp).DateTime,
+								//	TransactionHash = transactionHash,
+								//	TransactionCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(transaction.Transaction.RawData.Timestamp).DateTime,
 
-									CreatedAt = DateTime.Now,
-								};
-								databaseContext.ChatMessages.Add(chatMessage);
+								//	CreatedAt = DateTime.Now,
+								//};
+								//databaseContext.ChatMessages.Add(chatMessage);
 							}
 
 							if (lastSyncedId < block.BlockHeader.RawData.Number) { 
@@ -142,7 +149,7 @@ namespace Converse.Service
 							databaseContext.SaveChanges();
 							lastSavedSyncedBlock = lastSyncedId;
 						}
-						catch (Exception e)
+						catch (Exception)
 						{
 							// @ToDo: Log Error - Couldn't save the changes
 							dbLastSyncedBlock.Value = lastSavedSyncedBlock.ToString();
@@ -150,7 +157,13 @@ namespace Converse.Service
 						}
 					}
 
-					Thread.Sleep(_nodeConfiguration.BlockSyncTime);
+					if ((blocks.Block.Count == 0 || blocks.Block.Count < syncCount) && syncCount > 3)	// try at least to sync 3 blocks
+					{
+						// Decrease when: ResourcesExhausted, Already up2date sync
+						syncCount--;
+					}
+
+					Thread.Sleep(_nodeConfiguration.BlockSyncSleepTime);
 				}
 			}
 		}

@@ -9,10 +9,11 @@ namespace Converse.Models
 {
 	public class User
 	{
-		[Key]
 		public int Id { get; set; }
-		[MaxLength(150)]
 		public string Address { get; set; }
+		public string Nickname { get; set; }
+		public string ProfilePictureUrl { get; set; }
+		public string Status { get; set; }
 		public DateTime CreatedAt { get; set; }
 	}
 }

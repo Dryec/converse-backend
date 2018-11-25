@@ -13,7 +13,6 @@ namespace Converse.Models
 		public int ChatId { get; set; }
 		public virtual Chat Chat { get; set; }
 
-		[MaxLength(150)]
 		public string Address { get; set; }
 		public string Message { get; set; }
 

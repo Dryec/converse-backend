@@ -1,0 +1,32 @@
+{
+    "ChangeNickname":
+    {
+        "type": 1,
+        "name": "..."
+    },
+    "ChangeStatus":
+    {
+        "type": 2,
+        "status": "..."
+    },
+    "ChangeProfilePicture":
+    {
+        "comment": "Wenn clear auf true, Profilbild entfernen. Image vielleicht Base64? Oder hier auch URL?",
+        "type": 3,
+        "clear": false,
+        "image": "..."
+    },
+    "BlockUser":
+    {
+        "comment": "Wenn is_blocked true dann blockieren, ansonsten entblocken",
+        "type": 4,
+        "is_blocked": true,
+        "address": "..."
+    },
+    "SendMessage":
+    {
+        "comment": "Message crypten mit receiver public key",
+        "type": 5,
+        "message": { }
+    }
+}

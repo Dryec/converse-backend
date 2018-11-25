@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Converse.Models
 {
-	public class Chat
+	public class ChatSetting
 	{
 		public int Id { get; set; }
-		public bool IsGroup { get; set; }
+		public int ChatId { get; set; }
+		public virtual Chat Chat { get; set; }
+		public string Name;
+		public string Description;
+		public string PictureUrl;
 		public DateTime CreatedAt { get; set; }
 	}
 }

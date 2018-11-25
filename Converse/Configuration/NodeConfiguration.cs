@@ -10,7 +10,8 @@ namespace Converse.Configuration
 		public string Ip { get; set; }
 		public ushort Port { get; set; }
 		public ulong StartBlockId { get; set; }
-		public int BlockSyncTime { get; set; }
+		public int BlockSyncSleepTime { get; set; }
+		public int BlockSyncCount { get; set; }
 		public string TokenName { get; set; }
 	}
 }
