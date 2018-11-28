@@ -1,0 +1,57 @@
+{
+    "Create": {
+        "comment": "Im Frontend neue Addresse erstellen",
+        "type": 50,
+        "address": "..."
+    },
+
+    "ChangeName": {
+        "type": 51,
+        "name": "..."
+    },
+
+    "ChangeDescription": {
+        "type": 52,
+        "name": "..."
+    },
+
+    "ChangePictureURL": {
+        "comment": "Wenn clear auf true, Profilbild entfernen",
+        "type": 53,
+        "clear": true,
+        "name": "..."
+    },
+
+    "AddUsers": {
+        "type": 54,
+        "users": [ "...", "...", "..." ]
+    },
+
+    "KickUsers": {
+        "type": 55,
+        "users": [ "...", "...", "..." ] 
+    },
+
+    "SetUserRank": {
+        "comment": "rank: 0 - Member, 1 - Admin",
+        "type": 56,
+        "rank": 0,
+        "user": []
+    },
+
+    "Join": {
+        "type": 57,
+        "group_address": "..."
+    },
+
+    "Leave": {
+        "type": 58,
+        "group_address": "..."
+    },
+
+    "Message": {
+        "type": 59,
+        "group_address": "...",
+        "message": ""
+    }
+}

@@ -19,6 +19,7 @@ namespace Converse
 
 		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 			WebHost.CreateDefaultBuilder(args)
+				.ConfigureAppConfiguration((context, builder) => { })
 				.UseStartup<Startup>();
 	}
 }

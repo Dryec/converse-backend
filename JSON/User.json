@@ -11,7 +11,7 @@
     },
     "ChangeProfilePicture":
     {
-        "comment": "Wenn clear auf true, Profilbild entfernen. Image vielleicht Base64? Oder hier auch URL?",
+        "comment": "Wenn clear auf true, Profilbild entfernen.",
         "type": 3,
         "clear": false,
         "image": "..."
