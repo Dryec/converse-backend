@@ -14,6 +14,7 @@ namespace Converse.Service
 		public DbSet<Models.Setting> Settings { get; set; }
 
 		public DbSet<Models.User> Users { get; set; }
+		public DbSet<Models.UserReceivedToken> UserReceivedTokens { get; set; }
 		public DbSet<Models.BlockedUser> BlockedUsers { get; set; }
 
 		public DbSet<Models.Chat> Chats { get; set; }
