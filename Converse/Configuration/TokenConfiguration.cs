@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace Converse.Configuration
 {
-	public class Node
+	public class Token
 	{
-		public string Ip { get; set; }
-		public ushort Port { get; set; }
+		public string Name { get; set; }
 	}
 }

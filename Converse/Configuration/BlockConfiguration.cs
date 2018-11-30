@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace Converse.Configuration
 {
-	public class Node
+	public class Block
 	{
-		public string Ip { get; set; }
-		public ushort Port { get; set; }
+		public ulong StartId { get; set; }
+		public int SyncSleepTime { get; set; }
+		public int SyncCount { get; set; }
 	}
 }

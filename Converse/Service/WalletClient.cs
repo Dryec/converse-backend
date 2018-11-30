@@ -10,7 +10,6 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Schema;
 using Protocol;
-using Node = Converse.Configuration.Node;
 
 namespace Converse.Service
 {
@@ -18,55 +17,88 @@ namespace Converse.Service
 	{
 		private readonly IServiceProvider _serviceProvider;
 		private readonly Client.WalletClient _walletClient;
-		private readonly Node _nodeConfiguration;
 
-		public WalletClient(IServiceProvider serviceProvider, IOptions<Node> nodeOptions)
+		private readonly Configuration.Node _nodeConfiguration;
+		private readonly Configuration.Token _tokenConfiguration;
+		private readonly Configuration.Block _blockConfiguration;
+
+		private AssetIssueContract _token = null;
+
+		public WalletClient(IServiceProvider serviceProvider, IOptions<Configuration.Node> nodeOptions, IOptions<Configuration.Token> tokenOptions, IOptions<Configuration.Block> blockOptions)
 		{
 			var syncBlocksThread = new Thread(SyncBlocksToDatabase);
 
 			_serviceProvider = serviceProvider;
+
 			_nodeConfiguration = nodeOptions.Value;
+			_tokenConfiguration = tokenOptions.Value;
+			_blockConfiguration = blockOptions.Value;
+
 			_walletClient = new Client.WalletClient(_nodeConfiguration.Ip + ":" + _nodeConfiguration.Port);
 
-			if (_nodeConfiguration.BlockSyncCount <= 0)
+			if (_blockConfiguration.SyncCount <= 0)
 			{
-				// @ToDo: Warning log - No sync because syncCount is zero
+				ErrorOutput("BlockSync is disabled because syncCount in 'blockchain.json' is zero!", false);
 				return;
 			}
 
 			syncBlocksThread.Start();
 		}
 
+		void ErrorOutput(string message, bool exit)
+		{
+			var oldColor = Console.ForegroundColor;
+
+			Console.ForegroundColor = ConsoleColor.DarkRed;
+			Console.WriteLine(message);
+
+			Console.ForegroundColor = oldColor;
+
+			if (exit)
+			{
+				Console.Write("Press enter to exit...");
+				Console.ReadLine();
+				Environment.Exit(0);
+			}
+		}
+
+		async Task UpdateTokenData()
+		{
+			if (_token != null)
+			{
+				return;
+			}
+
+			_token = await _walletClient.GetAssetIssueByNameAsync(new BytesMessage()
+			{
+				Value = ByteString.CopyFrom(_tokenConfiguration.Name, Encoding.ASCII)
+			});
+
+			if (_token.OwnerAddress.Length == 0)
+			{
+				// @ToDo: Error log - Token not found
+				Environment.Exit(0);
+			}
+		}
 
 		async void SyncBlocksToDatabase()
 		{
+			await UpdateTokenData();
+
 			using (var scope = _serviceProvider.CreateScope())
 			{
 				var databaseContext = scope.ServiceProvider.GetService<DatabaseContext>();
 				var dbLastSyncedBlock = databaseContext.Settings.First(s => s.Key == "LastSyncedBlockId");
 
-				if (Convert.ToUInt64(dbLastSyncedBlock.Value) < _nodeConfiguration.StartBlockId)
+				if (Convert.ToUInt64(dbLastSyncedBlock.Value) < _blockConfiguration.StartId)
 				{
-					dbLastSyncedBlock.Value = (_nodeConfiguration.StartBlockId - 1).ToString();
+					dbLastSyncedBlock.Value = (_blockConfiguration.StartId - 1).ToString();
 				}
 
-				var token = await _walletClient.GetAssetIssueByNameAsync(new BytesMessage()
-				{
-					Value = ByteString.CopyFrom(_nodeConfiguration.TokenName, Encoding.ASCII)
-				});
-
-				if (token.OwnerAddress.Length == 0)
-				{
-					// @ToDo: Error log - Token not found
-					Environment.Exit(0);
-					return;
-				}
-
-				var syncCount = _nodeConfiguration.BlockSyncCount;
+				var syncCount = _blockConfiguration.SyncCount;
 
 				while (true) {
 					var lastSavedSyncedBlock = Convert.ToInt64(dbLastSyncedBlock.Value);
-
 					var blocks = await _walletClient.GetBlockByLimitNextAsync(new BlockLimit()
 					{
 						StartNum = lastSavedSyncedBlock + 1,
@@ -81,61 +113,7 @@ namespace Converse.Service
 						{
 							foreach (var transaction in block.Transactions)
 							{
-								if (transaction.Transaction.RawData.Contract.Count <= 0)
-								{
-									continue;
-								}
-
-								var contract = transaction.Transaction.RawData.Contract[0];
-								if (contract.Type != Transaction.Types.Contract.Types.ContractType.TransferAssetContract)
-								{
-									continue;
-								}
-
-								var transferAssetContract = contract.Parameter.Unpack<TransferAssetContract>();
-								if (transferAssetContract.AssetName != token.Name)
-								{
-									continue;
-								}
-
-								var senderAddress = Client.WalletAddress.Encode58Check(transferAssetContract.OwnerAddress.ToByteArray());
-								var receiverAddress = Client.WalletAddress.Encode58Check(transferAssetContract.ToAddress.ToByteArray());
-
-								databaseContext.CreateUserWhenNotExist(senderAddress);
-								databaseContext.CreateUserWhenNotExist(receiverAddress);
-
-								var message = transaction.Transaction.RawData.Data.ToStringUtf8();
-								var transactionHash = Common.Utils
-									.ToHexString(Crypto.Sha256.Hash(transaction.Transaction.RawData.ToByteArray()))
-									.ToLower();
-
-								// ToDO: Parse new data
-								//var chat = databaseContext.GetChat(senderAddress, receiverAddress);
-								//if (chat == null)
-								//{
-								//	chat = new Chat
-								//	{
-								//		CreatedAt = DateTime.Now
-								//	};
-
-								//	databaseContext.Chats.Add(chat);
-								//}
-								//var chatMessage = new ChatMessage()
-								//{
-								//	Chat = chat,
-
-								//	Address = senderAddress,
-								//	Message = message,
-
-								//	BlockId = block.BlockHeader.RawData.Number,
-								//	BlockCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(block.BlockHeader.RawData.Timestamp).DateTime,
-
-								//	TransactionHash = transactionHash,
-								//	TransactionCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(transaction.Transaction.RawData.Timestamp).DateTime,
-
-								//	CreatedAt = DateTime.Now,
-								//};
-								//databaseContext.ChatMessages.Add(chatMessage);
+								this.ParseTransaction(transaction, block, databaseContext);
 							}
 
 							if (lastSyncedId < block.BlockHeader.RawData.Number) { 
@@ -147,7 +125,6 @@ namespace Converse.Service
 						{
 							dbLastSyncedBlock.Value = lastSyncedId.ToString();
 							databaseContext.SaveChanges();
-							lastSavedSyncedBlock = lastSyncedId;
 						}
 						catch (Exception)
 						{
@@ -157,15 +134,47 @@ namespace Converse.Service
 						}
 					}
 
-					if ((blocks.Block.Count == 0 || blocks.Block.Count < syncCount) && syncCount > 3)	// try at least to sync 3 blocks
+					// try at least to sync 3 blocks
+					if ((blocks.Block.Count == 0 || blocks.Block.Count < syncCount) && syncCount > 3)
 					{
 						// Decrease when: ResourcesExhausted, Already up2date sync
 						syncCount--;
 					}
 
-					Thread.Sleep(_nodeConfiguration.BlockSyncSleepTime);
+					Thread.Sleep(_blockConfiguration.SyncSleepTime);
 				}
 			}
+		}
+
+		void ParseTransaction(TransactionExtention transaction, BlockExtention block, DatabaseContext databaseContext)
+		{
+			if (transaction.Transaction.RawData.Contract.Count <= 0)
+			{
+				return;
+			}
+
+			var contract = transaction.Transaction.RawData.Contract[0];
+			if (contract.Type != Transaction.Types.Contract.Types.ContractType.TransferAssetContract)
+			{
+				return;
+			}
+
+			var transferAssetContract = contract.Parameter.Unpack<TransferAssetContract>();
+			if (transferAssetContract.AssetName != _token.Name)
+			{
+				return;
+			}
+
+			var senderAddress = Client.WalletAddress.Encode58Check(transferAssetContract.OwnerAddress.ToByteArray());
+			var receiverAddress = Client.WalletAddress.Encode58Check(transferAssetContract.ToAddress.ToByteArray());
+
+			databaseContext.CreateUserWhenNotExist(senderAddress);
+			databaseContext.CreateUserWhenNotExist(receiverAddress);
+
+			var message = transaction.Transaction.RawData.Data.ToStringUtf8();
+			var transactionHash = Common.Utils
+				.ToHexString(Crypto.Sha256.Hash(transaction.Transaction.RawData.ToByteArray()))
+				.ToLower();
 		}
 	}
 }

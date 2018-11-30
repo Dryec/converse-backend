@@ -35,6 +35,8 @@ namespace Converse
 
 			// Add Configurations
 			services.Configure<Configuration.Node>(Configuration.GetSection("Node"));
+			services.Configure<Configuration.Token>(Configuration.GetSection("Token"));
+			services.Configure<Configuration.Block>(Configuration.GetSection("Block"));
 
 			// Add Singletons
 			services.AddSingleton<WalletClient>();

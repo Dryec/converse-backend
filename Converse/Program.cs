@@ -19,7 +19,7 @@ namespace Converse
 
 		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 			WebHost.CreateDefaultBuilder(args)
-				.ConfigureAppConfiguration((context, builder) => { })
+				.ConfigureAppConfiguration((context, builder) => { builder.AddJsonFile("blockchain.json"); })
 				.UseStartup<Startup>();
 	}
 }

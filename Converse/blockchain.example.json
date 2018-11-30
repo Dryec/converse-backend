@@ -1,0 +1,14 @@
+{
+  "Node": {
+    "Ip": "grpc.shasta.trongrid.io",
+    "Port": 50051
+  },
+  "Token": {
+    "Name": "Chatter"
+  },
+  "Block": {
+    "StartId": 0,
+    "SyncSleepTime": 10,
+    "SyncCount": 100
+  }
+}
