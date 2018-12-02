@@ -59,10 +59,7 @@ namespace Converse.Service.WalletClient
 
 			try
 			{
-				var action = JsonConvert.DeserializeObject<Action.Action>(message, new JsonSerializerSettings()
-				{
-					MissingMemberHandling = MissingMemberHandling.Error,
-				});
+				var action = JsonConvert.DeserializeObject<Action.Action>(message);
 				switch (action.Type)
 				{
 					case Action.Type.UserChangeNickname:
@@ -75,7 +72,6 @@ namespace Converse.Service.WalletClient
 						break;
 					case Action.Type.UserSendMessage:
 						break;
-
 					case Action.Type.GroupCreate:
 						break;
 					case Action.Type.GroupChangeName:

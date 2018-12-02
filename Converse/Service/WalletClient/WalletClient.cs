@@ -141,7 +141,7 @@ namespace Converse.Service.WalletClient
 						try
 						{
 							lastSyncedBlockModel.Value = lastSyncedBlock.ToString();
-							databaseContext.SaveChanges();
+							//databaseContext.SaveChanges();
 						}
 						catch (Exception e)
 						{

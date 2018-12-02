@@ -2,15 +2,27 @@ TransferAsset receiverAddr tokenName Menge Message
 
 
 Addresses:
-	- TJa2DP3DcdeMto9LE3kPeD41PtnwwQVeKn
-	- TX3zueoUsY89KPFBGgAePsebxJRChMmo7w
 	- TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o
+	- TY4TnpxyZUG4xE6t29xi6gj8LekKPU71qS
+	- TKQtCrP5Gp2bWheA4Ckcf9ju4fM2TiKhKv
+
 
 Property:
+	Comment: Created the "Converse" Token
 	Addr: 	TD5G3dAfMR9e8dR3KN19EnRAtN7LtpEHrR
 	Priv: 	2ffbe8709e2e58309e6cac318a4c3f335ca72a493ae340aa6c1c8b8bbbdc5384
 	Pw: 	123456789ABCDEFGHIJKLMNOPQRSTUVX
 
 
-Blocks:
-	
+Transactions:
+	Address									Action					TransactionHash 													Payload															
+	TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o		ChangeName				6fbfe23f649b5eb3d7a0524cc27c2c849022b7c7dca131e3fff83b94c89b89b3	{"type":1,"name":"Pascal"}										
+	TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o		ChangeStatus			aee8b737746fb90aab426990b46ece3fd562947b086520a9ee15848c5adc4fd1	{"type":2,"status":"Das_ist_ein_Test_Status."}					
+	TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o		ChangeProfilePicture	2664141c0708a1d5414f3108339816f97fc0e9d444879e2ab19b95c937ab172c	{"type":3,"clear":false,"image":"test_image.jpg"}					
+	TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o		SendMessage				69543e2cf32fa405b3ae12a2f4a67efdd4004c3e4359258af28880c76ed4baac	{"type":5,"message":"Das_ist_eine_Testnachricht!"}					
+
+Examples:
+	Property:
+		TransferAsset TD5G3dAfMR9e8dR3KN19EnRAtN7LtpEHrR Converse 1 <payload>
+	Else:
+		TransferAsset TY4TnpxyZUG4xE6t29xi6gj8LekKPU71qS Converse 1 <payload>		
