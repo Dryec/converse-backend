@@ -4,7 +4,7 @@
     "Port": 50051
   },
   "Token": {
-    "Name": "Chatter"
+    "Name": "AnyToken"
   },
   "Block": {
     "StartId": 0,

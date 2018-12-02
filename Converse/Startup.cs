@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Converse.Service;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
@@ -18,7 +17,6 @@ namespace Converse
 	public class Startup
 	{
 		private IConfiguration Configuration { get; }
-		private Service.WalletClient WalletClient { get; set; }
 
 		public Startup(IConfiguration configuration)
 		{
@@ -39,7 +37,7 @@ namespace Converse
 			services.Configure<Configuration.Block>(Configuration.GetSection("Block"));
 
 			// Add Singletons
-			services.AddSingleton<WalletClient>();
+			services.AddSingleton<Service.WalletClient.WalletClient>();
 
 			// Add DatabaseContext with ConnectionString from the app settings.
 			services.AddDbContextPool<Service.DatabaseContext>(options =>
@@ -64,7 +62,8 @@ namespace Converse
 
 			appLifetime.ApplicationStarted.Register(() =>
 			{
-				WalletClient = app.ApplicationServices.GetService<WalletClient>();
+				var walletClient = app.ApplicationServices.GetService<Service.WalletClient.WalletClient>();
+				walletClient.Start();
 			});
 
 			app.UseHttpsRedirection();

@@ -28,23 +28,25 @@ namespace Converse
 					var password = "123456789ABCDEFGHIJKLMNOPQRSTUVX";//Utils.ConsoleHelper.ReadPassword();
 					var privateKey = NETCore.Encrypt.EncryptProvider.AESDecrypt(encryptedPrivateKey, password);
 
-					Service.WalletClient.PropertyAddress = new Client.Wallet(ECKey.FromPrivateHexString(privateKey));
+					Service.WalletClient.WalletClient.PropertyAddress = new Client.Wallet(ECKey.FromPrivateHexString(privateKey));
 
-					CreateWebHostBuilder(args).Build().Run();
+					var webHostBuilder = CreateWebHostBuilder(args);
+					webHostBuilder.Build().Run();
 				}
 				else
 				{
-					Utils.ConsoleHelper.Error("There is no Property-Address configured!");
+					Utils.ConsoleHelper.Error("Please configure a Property-Address!");
 				}
 			}
 			catch (Exception e)
 			{
-				Utils.ConsoleHelper.Error("Couldn't setup the Property-Address.");
+				Utils.ConsoleHelper.Error("Could not setup the Property-Address.");
 				Utils.ConsoleHelper.Info("Make sure to create a 'propertyAddress' file with an AES-Encrypted private key.");
 				Console.WriteLine(e.Message);
 				Console.WriteLine(e.StackTrace);
 			}
 
+			Console.WriteLine("Press enter to exit...");
 			Console.ReadLine();
 		}
 

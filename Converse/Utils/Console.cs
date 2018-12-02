@@ -19,12 +19,12 @@ namespace Converse.Utils
 
 		public static void Error(string message)
 		{
-			Output("Error", message, ConsoleColor.DarkRed);
+			Output("Error", message, ConsoleColor.Red);
 		}
 
 		public static void Info(string message)
 		{
-			Output("Info", message, ConsoleColor.DarkBlue);
+			Output("Info", message, ConsoleColor.Blue);
 		}
 
 		public static string ReadPassword()

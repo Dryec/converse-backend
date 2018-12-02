@@ -17,8 +17,8 @@ namespace Common
             Strong = 4,
             VeryStrong = 5
         }
-
-        public static void SetTimestamp(this Transaction transaction, long millis)
+		
+	    public static void SetTimestamp(this Transaction transaction, long millis)
         {
             transaction.RawData.Timestamp = millis;
         }

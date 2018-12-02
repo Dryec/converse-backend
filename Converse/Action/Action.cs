@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Converse.Action
 {
-	enum EType
+	public enum Type
 	{
 		// User Actions
 		UserChangeNickname = 1,
@@ -27,8 +28,9 @@ namespace Converse.Action
 		GroupMessage,
 	}
 
-	interface IAction
+	public class Action
 	{
-		EType Type { get; set; }
+		[JsonProperty(Required = Required.Always)]
+		public Type Type { get; set; }
 	}
 }

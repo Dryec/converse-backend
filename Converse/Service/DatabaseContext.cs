@@ -27,6 +27,18 @@ namespace Converse.Service
 		{
 		}
 
+		public Models.Setting GetLastSyncedBlock()
+		{
+			try
+			{
+				return Settings.First(s => s.Key == "LastSyncedBlockId");
+			}
+			catch (InvalidOperationException)
+			{
+				return null;
+			}
+		}
+
 		public Models.Chat GetChat(string firstAddress, string secondAddress)
 		{
 			// ToDo: Rewrite
@@ -41,12 +53,12 @@ namespace Converse.Service
 			}
 			catch (InvalidOperationException)
 			{
-				Models.User user = new User
+				var user = new User
 				{
 					Address = address,
-					Nickname = "",
-					Status = "",
-					ProfilePictureUrl = "",
+					Nickname = null,
+					Status = null,
+					ProfilePictureUrl = null,
 					CreatedAt = DateTime.Now
 				};
 
@@ -54,6 +66,11 @@ namespace Converse.Service
 
 				return user;
 			}
+		}
+
+		public List<Models.User> CreateUsersWhenNotExist(IEnumerable<string> addresses)
+		{
+			return addresses.Select(CreateUserWhenNotExist).ToList();
 		}
 	}
 }

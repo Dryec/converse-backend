@@ -1,14 +1,15 @@
 ﻿using System;
 using Common;
 using Crypto;
+using Google.Protobuf;
 
 namespace Client
 {
     public sealed class WalletAddress
     {
         private const byte AddressPrefixByte = 0x41;   //41 + address
-
-        public static string Encode58Check(byte[] input)
+		
+		public static string Encode58Check(byte[] input)
         {
             var hash0 = Sha256.Hash(input);
             var hash1 = Sha256.Hash(hash0);

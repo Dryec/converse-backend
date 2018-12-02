@@ -1,0 +1,16 @@
+TransferAsset receiverAddr tokenName Menge Message
+
+
+Addresses:
+	- TJa2DP3DcdeMto9LE3kPeD41PtnwwQVeKn
+	- TX3zueoUsY89KPFBGgAePsebxJRChMmo7w
+	- TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o
+
+Property:
+	Addr: 	TD5G3dAfMR9e8dR3KN19EnRAtN7LtpEHrR
+	Priv: 	2ffbe8709e2e58309e6cac318a4c3f335ca72a493ae340aa6c1c8b8bbbdc5384
+	Pw: 	123456789ABCDEFGHIJKLMNOPQRSTUVX
+
+
+Blocks:
+	
