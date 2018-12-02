@@ -31,16 +31,6 @@ namespace Converse.Service
 		{
 			// ToDo: Rewrite
 			return null;
-			//try
-			//{
-			//	return this.Chats
-			//		.First(c => (c.FirstAddress == firstAddress && c.SecondAddress == secondAddress) ||
-			//		            (c.FirstAddress == secondAddress && c.SecondAddress == firstAddress));
-			//}
-			//catch (InvalidOperationException)
-			//{
-			//	return null;
-			//}
 		}
 
 		public Models.User CreateUserWhenNotExist(string address)
@@ -54,6 +44,9 @@ namespace Converse.Service
 				Models.User user = new User
 				{
 					Address = address,
+					Nickname = "",
+					Status = "",
+					ProfilePictureUrl = "",
 					CreatedAt = DateTime.Now
 				};
 

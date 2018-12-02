@@ -15,6 +15,8 @@ namespace Converse.Service
 {
 	public class WalletClient
 	{
+		public static Client.Wallet PropertyAddress { get; set; }
+
 		private readonly IServiceProvider _serviceProvider;
 		private readonly Client.WalletClient _walletClient;
 
@@ -38,28 +40,13 @@ namespace Converse.Service
 
 			if (_blockConfiguration.SyncCount <= 0)
 			{
-				ErrorOutput("BlockSync is disabled because syncCount in 'blockchain.json' is zero!", false);
+				// @ToDo: Log (Warning?): "BlockSync is disabled because syncCount in 'blockchain.json' is zero!"
 				return;
 			}
 
+			return;
+
 			syncBlocksThread.Start();
-		}
-
-		void ErrorOutput(string message, bool exit)
-		{
-			var oldColor = Console.ForegroundColor;
-
-			Console.ForegroundColor = ConsoleColor.DarkRed;
-			Console.WriteLine(message);
-
-			Console.ForegroundColor = oldColor;
-
-			if (exit)
-			{
-				Console.Write("Press enter to exit...");
-				Console.ReadLine();
-				Environment.Exit(0);
-			}
 		}
 
 		async Task UpdateTokenData()
@@ -145,7 +132,7 @@ namespace Converse.Service
 				}
 			}
 		}
-
+		
 		void ParseTransaction(TransactionExtention transaction, BlockExtention block, DatabaseContext databaseContext)
 		{
 			if (transaction.Transaction.RawData.Contract.Count <= 0)
@@ -175,6 +162,55 @@ namespace Converse.Service
 			var transactionHash = Common.Utils
 				.ToHexString(Crypto.Sha256.Hash(transaction.Transaction.RawData.ToByteArray()))
 				.ToLower();
+
+			Utils.ConsoleHelper.Info("New Transaction with Hash '" + transactionHash + "' found!");
+
+			try
+			{
+				var action = Newtonsoft.Json.JsonConvert.DeserializeObject<Action.IAction>(message);
+				switch (action.Type)
+				{
+					case Action.EType.UserChangeNickname:
+						break;
+					case Action.EType.UserChangeStatus:
+						break;
+					case Action.EType.UserChangeProfilePicture:
+						break;
+					case Action.EType.UserBlockUser:
+						break;
+					case Action.EType.UserSendMessage:
+						break;
+					case Action.EType.GroupCreate:
+						break;
+					case Action.EType.GroupChangeName:
+						break;
+					case Action.EType.GroupChangeDescription:
+						break;
+					case Action.EType.GroupChangePicture:
+						break;
+					case Action.EType.GroupAddUsers:
+						break;
+					case Action.EType.GroupKickUsers:
+						break;
+					case Action.EType.GroupSetUserRanks:
+						break;
+					case Action.EType.GroupJoin:
+						break;
+					case Action.EType.GroupLeave:
+						break;
+					case Action.EType.GroupMessage:
+						break;
+					default:
+						// ToDo: Error log - ActionType invalid
+						Utils.ConsoleHelper.Error("Invalid ActionType in JSON! Type is '" + action.Type + "'.");
+						break;
+				}
+			}
+			catch (Newtonsoft.Json.JsonReaderException e)
+			{
+				// ToDo: Error log - Json invalid
+				Utils.ConsoleHelper.Error("Couldn't parse JSON from transaction '" + transactionHash + "'!");
+			}
 		}
 	}
 }
