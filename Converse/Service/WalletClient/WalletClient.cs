@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
-using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Protocol;
+using Microsoft.EntityFrameworkCore;
 
 namespace Converse.Service.WalletClient
 {
@@ -79,35 +80,28 @@ namespace Converse.Service.WalletClient
 
 			using (var scope = _serviceProvider.CreateScope())
 			{
-				DatabaseContext databaseContext;
-				Models.Setting lastSyncedBlockModel;
+				var synchronizationCount = _blockConfiguration.SyncCount;
 
-				bool UpdateDatabaseContext()
-				{
-					databaseContext = scope.ServiceProvider.GetService<DatabaseContext>();
-					lastSyncedBlockModel = databaseContext.GetLastSyncedBlock();
-					if (lastSyncedBlockModel == null)
-					{
-						_appLifeTime.StopApplication();
-						_logger.Log.LogCritical(Logger.LastSyncedBlockNotFound, "Could not find 'LastSyncedBlockId' in 'Settings' Table! Make sure to migrate the migrations!");
-						return false;
-					}
-
+				while (_isThreadRunning) {
+					// Get new database context
+					var databaseContext = scope.ServiceProvider.GetService<DatabaseContext>();
 					_actionHandler.DatabaseContext = databaseContext;
 
+					// Get last synced block
+					var lastSyncedBlockModel = databaseContext.GetLastSyncedBlock();
+					if (lastSyncedBlockModel == null)
+					{
+						_isThreadRunning = false;
+						_appLifeTime.StopApplication();
+						_logger.Log.LogCritical(Logger.LastSyncedBlockNotFound,
+							"Could not find 'LastSyncedBlockId' in 'Settings' Table! Make sure to migrate the migrations!");
+						return;
+					}
 					if (Convert.ToUInt64(lastSyncedBlockModel.Value) < _blockConfiguration.StartId)
 					{
 						lastSyncedBlockModel.Value = (_blockConfiguration.StartId - 1).ToString();
 					}
 
-					return true;
-				}
-
-				if (!UpdateDatabaseContext()) return;
-
-				var synchronizationCount = _blockConfiguration.SyncCount;
-
-				while (_isThreadRunning) {
 					// Convert last synced block to integer
 					var lastSyncedBlock = Convert.ToInt64(lastSyncedBlockModel.Value);
 
@@ -133,23 +127,19 @@ namespace Converse.Service.WalletClient
 								_actionHandler.Handle(transaction, block);
 							}
 
-							if (lastSyncedBlock < block.BlockHeader.RawData.Number) {
-								lastSyncedBlock = block.BlockHeader.RawData.Number;
-							}
+							lastSyncedBlock = block.BlockHeader.RawData.Number;
 						}
 
 						try
 						{
 							lastSyncedBlockModel.Value = lastSyncedBlock.ToString();
-							//databaseContext.SaveChanges();
+							databaseContext.SaveChanges();
 						}
 						catch (Exception e)
 						{
 							_logger.Log.LogCritical(Logger.CannotSaveChanges, "Could not save changes to database! Error: ");
 							_logger.Log.LogCritical(Logger.CannotSaveChanges, e.Message);
 							_logger.Log.LogCritical(Logger.CannotSaveChanges, e.StackTrace);
-
-							if (!UpdateDatabaseContext()) return;
 						}
 					}
 

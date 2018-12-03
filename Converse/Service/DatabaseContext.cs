@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using Converse.Models;
+using Converse.Utils;
 
 namespace Converse.Service
 {
@@ -27,6 +27,7 @@ namespace Converse.Service
 		{
 		}
 
+
 		public Models.Setting GetLastSyncedBlock()
 		{
 			try
@@ -39,21 +40,33 @@ namespace Converse.Service
 			}
 		}
 
+
 		public Models.Chat GetChat(string firstAddress, string secondAddress)
 		{
 			// ToDo: Rewrite
 			return null;
 		}
 
-		public Models.User CreateUserWhenNotExist(string address)
+
+		public Models.User GetUser(string address)
 		{
 			try
 			{
-				return this.Users.First(u => u.Address == address);
+				return Users.FirstPredicate(user => user.Address == address);
 			}
 			catch (InvalidOperationException)
 			{
-				var user = new User
+				return null;
+			}
+		}
+
+		public Models.User CreateUserWhenNotExist(string address)
+		{
+			var user = GetUser(address);
+
+			if (user == null)
+			{
+				user = new User
 				{
 					Address = address,
 					Nickname = null,
@@ -62,15 +75,28 @@ namespace Converse.Service
 					CreatedAt = DateTime.Now
 				};
 
-				this.Users.Add(user);
-
-				return user;
+				Users.Add(user);
 			}
+
+			return user;
 		}
 
 		public List<Models.User> CreateUsersWhenNotExist(IEnumerable<string> addresses)
 		{
 			return addresses.Select(CreateUserWhenNotExist).ToList();
+		}
+
+
+		public Models.BlockedUser GetBlockedUser(string address, string blockedAddress)
+		{
+			try
+			{
+				return BlockedUsers.FirstPredicate(bu => bu.Address == address && bu.BlockedAddress == blockedAddress);
+			}
+			catch (InvalidOperationException)
+			{
+				return null;
+			}
 		}
 	}
 }

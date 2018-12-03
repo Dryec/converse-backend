@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Converse.Action;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Google.Protobuf;
@@ -60,17 +61,47 @@ namespace Converse.Service.WalletClient
 			try
 			{
 				var action = JsonConvert.DeserializeObject<Action.Action>(message);
+				_logger.Log.LogDebug(Logger.NewTransaction, "Handle Action " + action.Type.ToString() + "!");
+
+				// Actions only valid when sent to propertyAddress
+				if (Action.Constants.PropertyAddressTypes.Contains(action.Type))
+				{
+					if (receiverAddress != WalletClient.PropertyAddress.Address)
+					{
+						_logger.Log.LogDebug(Logger.ActionPropertyAddressInvalid, "This Action needs PropertyAddress as receiver!");
+						return;
+					}
+				}
+
+				var context = new Context()
+				{
+					Sender = senderAddress,
+					Receiver = receiverAddress,
+					Message = message,
+
+					Transaction = transaction,
+					Block = block,
+					
+					DatabaseContext = DatabaseContext,
+					Logger = _logger,
+				};
+
 				switch (action.Type)
 				{
 					case Action.Type.UserChangeNickname:
+						ActionHandlers.UserChangeNickname.Handle(context);
 						break;
 					case Action.Type.UserChangeStatus:
+						ActionHandlers.UserChangeStatus.Handle(context);
 						break;
 					case Action.Type.UserChangeProfilePicture:
+						ActionHandlers.UserChangeProfilePicture.Handle(context);
 						break;
 					case Action.Type.UserBlockUser:
+						ActionHandlers.UserBlockUser.Handle(context);
 						break;
 					case Action.Type.UserSendMessage:
+						ActionHandlers.UserSendMessage.Handle(context);
 						break;
 					case Action.Type.GroupCreate:
 						break;

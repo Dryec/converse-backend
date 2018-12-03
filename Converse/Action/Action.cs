@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Protocol;
 
 namespace Converse.Action
 {
-	public enum Type
+	public enum Type : uint
 	{
 		// User Actions
 		UserChangeNickname = 1,
@@ -26,6 +27,32 @@ namespace Converse.Action
 		GroupJoin,
 		GroupLeave,
 		GroupMessage,
+	}
+
+	public static class Constants
+	{
+		public static readonly Type[] PropertyAddressTypes = {
+			Type.UserChangeNickname,
+			Type.UserChangeStatus,
+			Type.UserChangeProfilePicture,
+			Type.UserBlockUser,
+
+			Type.GroupCreate,
+		};
+	}
+
+	public class Context
+	{
+		public string Sender { get; set; }
+		public string Receiver { get; set; }
+
+		public string Message { get; set; }
+
+		public TransactionExtention Transaction { get; set; }
+		public BlockExtention Block { get; set; }
+
+		public Service.DatabaseContext DatabaseContext { get; set; }
+		public Service.WalletClient.Logger Logger { get; set; }
 	}
 
 	public class Action

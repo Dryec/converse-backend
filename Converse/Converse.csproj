@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Action\Group\" />
-    <Folder Include="Action\User\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
