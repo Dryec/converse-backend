@@ -20,7 +20,7 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				return;
 			}
 
-			context.Logger.Log.LogDebug(Logger.HandleChangeStatus,
+			context.Logger.Log.LogDebug(Logger.HandleUserChangeStatus,
 				"UserChangeStatus: Sender '{Address}' Status: '{Status}'!",
 				context.Sender, changeStatusMessage.Status);
 

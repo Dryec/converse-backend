@@ -71,6 +71,7 @@ namespace Converse.Service.WalletClient
 
 		private async void SynchronizeBlocks()
 		{
+			return;
 			var hasUpdatedToken = await _token.Update();
 			if (!hasUpdatedToken)
 			{

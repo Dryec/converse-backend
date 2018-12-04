@@ -20,7 +20,7 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				return;
 			}
 
-			context.Logger.Log.LogDebug(Logger.HandleChangeNickname,
+			context.Logger.Log.LogDebug(Logger.HandleUserChangeNickname,
 				"UserChangeNickname: Sender '{Address}' Name: '{Name}'!",
 				context.Sender, changeNicknameMessage.Name);
 

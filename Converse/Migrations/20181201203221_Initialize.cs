@@ -62,6 +62,7 @@ namespace Converse.Migrations
                     Nickname = table.Column<string>(nullable: true),
                     ProfilePictureUrl = table.Column<string>(nullable: true),
                     Status = table.Column<string>(nullable: true),
+	                StatusUpdatedAt = table.Column<DateTime>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

@@ -9,7 +9,7 @@ namespace Converse.Utils
 {
 	public static class DbSet
 	{
-		public static IEnumerable<T> FindPredicate<T>(this DbSet<T> dbSet, Expression<Func<T, bool>> predicate)
+		public static IEnumerable<T> WherePredicate<T>(this DbSet<T> dbSet, Expression<Func<T, bool>> predicate)
 			where T : class
 		{
 			var local = dbSet.Local.Where(predicate.Compile());

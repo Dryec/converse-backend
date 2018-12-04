@@ -14,7 +14,7 @@ namespace Converse.Service.WalletClient.ActionHandlers
 			var blockUserMessage = JsonConvert.DeserializeObject<Action.User.BlockUser>(context.Message);
 			var blockedUser = context.DatabaseContext.GetBlockedUser(context.Sender, blockUserMessage.Address);
 
-			context.Logger.Log.LogDebug(Logger.HandleBlockedUser, "UserBlock: Sender '{Address}' Blocked: '{BlockedAddress}' IsBlocked: {IsBlocked}!",
+			context.Logger.Log.LogDebug(Logger.HandleUserBlockedUser, "BlockUser: Sender '{Address}' Blocked: '{BlockedAddress}' IsBlocked: {IsBlocked}!",
 				context.Sender, blockUserMessage.Address, blockUserMessage.IsBlocked);
 
 			if (blockUserMessage.IsBlocked)

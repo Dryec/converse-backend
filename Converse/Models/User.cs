@@ -14,6 +14,7 @@ namespace Converse.Models
 		public string Nickname { get; set; }
 		public string ProfilePictureUrl { get; set; }
 		public string Status { get; set; }
+		public DateTime StatusUpdatedAt { get; set; }
 		public DateTime CreatedAt { get; set; }
 	}
 }

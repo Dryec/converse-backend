@@ -20,7 +20,7 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				return;
 			}
 
-			context.Logger.Log.LogDebug(Logger.HandleChangeProfilePicture,
+			context.Logger.Log.LogDebug(Logger.HandleUserChangeProfilePicture,
 				"UserChangeProfilePicture: Sender '{Address}' Image: '{Image}' Clear: {Clear}!",
 				context.Sender, changeProfilePictureMessage.Image, changeProfilePictureMessage.Clear);
 

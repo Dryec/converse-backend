@@ -24,11 +24,11 @@ namespace Converse.Service.WalletClient
 		public const int TokenNotFound = 1150;
 
 		// Handlers
-		public const int HandleChangeNickname = 1500;
-		public const int HandleChangeStatus = 1501;
-		public const int HandleChangeProfilePicture = 1502;
-		public const int HandleBlockedUser = 1503;
-		public const int HandleSendMessage = 1504;
+		public const int HandleUserChangeNickname = 1500;
+		public const int HandleUserChangeStatus = 1501;
+		public const int HandleUserChangeProfilePicture = 1502;
+		public const int HandleUserBlockedUser = 1503;
+		public const int HandleUserSendMessage = 1504;
 
 		public ILogger Log { get; }
 

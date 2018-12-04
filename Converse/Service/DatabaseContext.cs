@@ -43,8 +43,10 @@ namespace Converse.Service
 
 		public Models.Chat GetChat(string firstAddress, string secondAddress)
 		{
-			// ToDo: Rewrite
-			return null;
+			return ChatUsers/*.Include(cu => cu.Chat)*/.WherePredicate(cu => cu.Address == firstAddress &&
+				             ChatUsers.Any(cuSecond => cu.ChatId == cuSecond.ChatId && cuSecond.Address == secondAddress)
+				)
+				.FirstOrDefault(cu => !cu.Chat.IsGroup)?.Chat;
 		}
 
 

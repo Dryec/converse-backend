@@ -1,0 +1,84 @@
+// get user [address or id]
+{
+    "address":"",
+    "name":"",
+    "image":"http://gg.com",
+    "status": {
+        "message":"",
+        "timestamp":"2012-04-23T18:25:43"
+    }
+}
+
+// get group [address or id]
+{
+    "address":"",
+    "name":"",
+    "image":"http://gg.com",
+    "users": [{}]
+}
+
+// get chat [id]
+{
+    "id":0,
+    "type":0, // 0 == normal ; 1 == group
+    "messages_count":6451,
+    // chat_partner or group_info is empty if type is not correct
+    "chat_partner":{ // user class
+        "address":"",
+        "name":"",
+        "image":"http://gg.com",
+        "status":null // null bc we don't need it here
+    },
+    "group_info":{ // group class
+        "address":"",
+        "name":"",
+        "image":"http://gg.com",
+        "users": null // array of users but null bc client need to request them extra
+    },
+    "last_message": { // message class
+        "sender":"",
+        "message":"",
+        "timestamp":""
+    }
+}
+
+// get all chats [user address or id]
+{
+    "total":1,
+    "chats": [{
+        "id":0,
+        "type":0, // 0 == normal ; 1 == group
+        "messages_count":98746,
+        "chat_partner":{
+            "address":"",
+            "name":"",
+            "image":"http://gg.com",
+            "status":null
+        },
+        "group_info": {
+            "address":"",
+            "name":"",
+            "image":"http://gg.com",
+            "users": null // array of users but null bc client needs to request them extra
+        },
+        "last_message": {
+            "sender":"",
+            "message":"",
+            "timestamp":""
+        }
+    }]
+}
+
+// get messages [chat id, start, end]
+{
+    "id":0,
+    "user1_address":"",
+    "user2_address":"",
+    "start":0,
+    "end":50,
+    "messages": [{
+        "sender":"",
+        "message":"",
+        "timestamp":""
+    }]
+}

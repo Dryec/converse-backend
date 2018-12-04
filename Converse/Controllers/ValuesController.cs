@@ -17,6 +17,22 @@ namespace Converse.Controllers
 		public ValuesController(Service.DatabaseContext databaseContext)
 		{
 			_databaseContext = databaseContext;
+
+			_databaseContext.ChatUsers.Remove(_databaseContext.ChatUsers.First(cu => cu.Id == 1));
+			var xy = _databaseContext.ChatUsers.Find(1);
+			var dd = _databaseContext.Entry<Models.ChatUser>(xy);
+
+			var chat = _databaseContext.GetChat("Fourth", "Second");
+			if (chat != null)
+			{
+				Console.WriteLine("GroupId: " + chat.Id);
+				Console.WriteLine("GroupId: " + chat.Id);
+				Console.WriteLine("GroupId: " + chat.Id);
+				Console.WriteLine("GroupId: " + chat.Id);
+				Console.WriteLine("GroupId: " + chat.Id);
+				Console.WriteLine("GroupId: " + chat.Id);
+				Console.WriteLine("GroupId: " + chat.Id);
+			}
 		}
 
 		// GET api/values
