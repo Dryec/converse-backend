@@ -48,6 +48,7 @@ namespace Converse.Action
 
 		public string Message { get; set; }
 
+		public string TransactionHash { get; set; }
 		public TransactionExtention Transaction { get; set; }
 		public BlockExtention Block { get; set; }
 

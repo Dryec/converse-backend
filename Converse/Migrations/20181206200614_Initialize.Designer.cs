@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Converse.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20181201203221_Initialize")]
+    [Migration("20181206200614_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,6 +86,12 @@ namespace Converse.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("PictureUrl");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ChatId");
@@ -143,6 +149,8 @@ namespace Converse.Migrations
                     b.Property<string>("ProfilePictureUrl");
 
                     b.Property<string>("Status");
+
+                    b.Property<DateTime>("StatusUpdatedAt");
 
                     b.HasKey("Id");
 

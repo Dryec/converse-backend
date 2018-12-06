@@ -1,5 +1,6 @@
 // get user [address or id]
 {
+    "id":0,
     "address":"",
     "name":"",
     "image":"http://gg.com",
@@ -11,6 +12,7 @@
 
 // get group [address or id]
 {
+    "id":0,
     "address":"",
     "name":"",
     "image":"http://gg.com",
@@ -24,60 +26,97 @@
     "messages_count":6451,
     // chat_partner or group_info is empty if type is not correct
     "chat_partner":{ // user class
+        "id":0,
         "address":"",
         "name":"",
         "image":"http://gg.com",
         "status":null // null bc we don't need it here
     },
     "group_info":{ // group class
+        "id":0,
         "address":"",
         "name":"",
         "image":"http://gg.com",
         "users": null // array of users but null bc client need to request them extra
     },
     "last_message": { // message class
-        "sender":"",
+        "id":"54gwez$H§h34g230hgh32ihfwei3i0tg32",
+        "chat_id":2,
+        "sender":{
+            "id":0,
+            "address":"",
+            "name":"",
+            "image":"http://gg.com",
+            "status":null
+        },
         "message":"",
         "timestamp":""
     }
 }
 
 // get all chats [user address or id]
-{
-    "total":1,
-    "chats": [{
+[{
+    "id":0,
+    "type":0, // 0 == normal ; 1 == group
+    "messages_count":98746,
+    "chat_partner":{
         "id":0,
-        "type":0, // 0 == normal ; 1 == group
-        "messages_count":98746,
-        "chat_partner":{
+        "address":"",
+        "name":"",
+        "image":"http://gg.com",
+        "status":null
+    },
+    "group_info": {
+        "id":0,
+        "address":"",
+        "name":"",
+        "image":"http://gg.com",
+        "users": null // array of users but null bc client needs to request them extra
+    },
+    "last_message": {
+        "id":"54gwez$H§h34g230hgh32ihfwei3i0tg32",
+        "chat_id":2,
+        "sender":{
+            "id":0,
             "address":"",
             "name":"",
             "image":"http://gg.com",
             "status":null
         },
-        "group_info": {
-            "address":"",
-            "name":"",
-            "image":"http://gg.com",
-            "users": null // array of users but null bc client needs to request them extra
-        },
-        "last_message": {
-            "sender":"",
-            "message":"",
-            "timestamp":""
-        }
-    }]
-}
+        "message":"",
+        "timestamp":""
+    }
+}]
 
 // get messages [chat id, start, end]
 {
     "id":0,
-    "user1_address":"",
-    "user2_address":"",
+    "user1":{
+        "id":0,
+        "address":"",
+        "name":"",
+        "image":"http://gg.com",
+        "status":null
+    },
+    "user2":{
+        "id":0,
+        "address":"",
+        "name":"",
+        "image":"http://gg.com",
+        "status":null
+    },
     "start":0,
     "end":50,
     "messages": [{
-        "sender":"",
+        "id":"54gwez$H§h34g230hgh32ihfwei3i0tg32",
+        "chat_id":2,
+        "sender":{
+            "id":0,
+            "address":"",
+            "name":"",
+            "image":"http://gg.com",
+            "status":null
+        },
         "message":"",
         "timestamp":""
     }]

@@ -62,7 +62,7 @@ namespace Converse.Migrations
                     Nickname = table.Column<string>(nullable: true),
                     ProfilePictureUrl = table.Column<string>(nullable: true),
                     Status = table.Column<string>(nullable: true),
-	                StatusUpdatedAt = table.Column<DateTime>(nullable: false),
+                    StatusUpdatedAt = table.Column<DateTime>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -76,6 +76,7 @@ namespace Converse.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    InternalId = table.Column<int>(nullable: false),
                     ChatId = table.Column<int>(nullable: false),
                     Address = table.Column<string>(nullable: true),
                     Message = table.Column<string>(nullable: true),
@@ -103,6 +104,9 @@ namespace Converse.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ChatId = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    PictureUrl = table.Column<string>(nullable: true),
                     CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

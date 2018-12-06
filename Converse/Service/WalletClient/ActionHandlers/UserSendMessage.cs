@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace Converse.Service.WalletClient.ActionHandlers
@@ -17,7 +18,57 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				"SendMessage: Sender '{Sender}' Receiver '{Receiver}'!",
 				context.Sender, context.Receiver);
 
+			var chat = context.DatabaseContext.GetChat(context.Sender, context.Receiver);
+			if (chat == null)
+			{
+				chat = new Models.Chat()
+				{
+					IsGroup = false,
+					CreatedAt = DateTime.Now
+				};
 
+				context.DatabaseContext.Chats.Add(chat);
+
+				var chatUser1 = new Models.ChatUser()
+				{
+					Chat = chat,
+					Address = context.Sender,
+					IsAdmin = false,
+					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.Transaction.RawData.Timestamp).DateTime,
+					CreatedAt = DateTime.Now,
+				};
+				var chatUser2 = new Models.ChatUser()
+				{
+					Chat = chat,
+					Address = context.Receiver,
+					IsAdmin = false,
+					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.Transaction.RawData.Timestamp).DateTime,
+					CreatedAt = DateTime.Now,
+				};
+
+				context.DatabaseContext.ChatUsers.Add(chatUser1);
+				context.DatabaseContext.ChatUsers.Add(chatUser2);
+			}
+			
+			var chatMessage = new Models.ChatMessage()
+			{
+				InternalId = chat.Messages.Count + 1,
+				Chat = chat,
+
+				Address = context.Sender,
+				Message = userSendMessage.Message,
+
+				BlockId = context.Block.BlockHeader.RawData.Number,
+				BlockCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Block.BlockHeader.RawData.Timestamp).DateTime,
+
+				TransactionHash = context.TransactionHash,
+				TransactionCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.Transaction.RawData.Timestamp).DateTime,
+
+				CreatedAt = DateTime.Now,
+			};
+			context.DatabaseContext.ChatMessages.Add(chatMessage);
+
+			context.DatabaseContext.SaveChanges();
 		}
 	}
 }

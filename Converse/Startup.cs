@@ -42,7 +42,6 @@ namespace Converse
 			// Add DatabaseContext with ConnectionString from the app settings.
 			services.AddDbContextPool<Service.DatabaseContext>(options =>
 				options
-					.UseLazyLoadingProxies()	// For resolving relationships automatically (Slower than using eager loading)
 					.UseMySql(Configuration.GetConnectionString("MySql"), mySqlOptions =>
 						mySqlOptions.ServerVersion(new Version(10, 1, 31), ServerType.MariaDb))
 			);

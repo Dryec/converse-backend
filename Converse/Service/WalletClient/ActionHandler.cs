@@ -81,6 +81,7 @@ namespace Converse.Service.WalletClient
 					Message = message,
 
 					Transaction = transaction,
+					TransactionHash = transactionHash,
 					Block = block,
 					
 					DatabaseContext = DatabaseContext,

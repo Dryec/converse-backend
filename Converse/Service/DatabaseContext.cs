@@ -52,7 +52,9 @@ namespace Converse.Service
 
 		public Models.Chat GetChat(string firstAddress, string secondAddress)
 		{
-			return ChatUsers.Where(cu => cu.Address == firstAddress &&
+			return ChatUsers
+				.Include(cu => cu.Chat)
+				.Where(cu => cu.Address == firstAddress &&
 				             ChatUsers.Any(cuSecond => cu.ChatId == cuSecond.ChatId && cuSecond.Address == secondAddress)
 				)
 				.FirstOrDefault(cu => !cu.Chat.IsGroup)?.Chat;

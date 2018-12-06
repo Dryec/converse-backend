@@ -10,8 +10,10 @@ namespace Converse.Models
 	{
 		public int Id { get; set; }
 
+		public int InternalId { get; set; }
+
 		public int ChatId { get; set; }
-		public virtual Chat Chat { get; set; }
+		public Chat Chat { get; set; }
 
 		public string Address { get; set; }
 		public string Message { get; set; }

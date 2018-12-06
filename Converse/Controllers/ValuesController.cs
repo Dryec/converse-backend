@@ -18,18 +18,6 @@ namespace Converse.Controllers
 		public ValuesController(Service.DatabaseContext databaseContext)
 		{
 			_databaseContext = databaseContext;
-
-			var chat = _databaseContext.GetChat("Fourth", "Second");
-			if (chat != null)
-			{
-				Console.WriteLine("GroupId: " + chat.Id);
-				Console.WriteLine("GroupId: " + chat.Id);
-				Console.WriteLine("GroupId: " + chat.Id);
-				Console.WriteLine("GroupId: " + chat.Id);
-				Console.WriteLine("GroupId: " + chat.Id);
-				Console.WriteLine("GroupId: " + chat.Id);
-				Console.WriteLine("GroupId: " + chat.Id);
-			}
 		}
 
 		// GET api/values

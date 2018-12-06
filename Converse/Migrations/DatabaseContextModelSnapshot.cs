@@ -84,6 +84,12 @@ namespace Converse.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("PictureUrl");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ChatId");
@@ -141,6 +147,8 @@ namespace Converse.Migrations
                     b.Property<string>("ProfilePictureUrl");
 
                     b.Property<string>("Status");
+
+                    b.Property<DateTime>("StatusUpdatedAt");
 
                     b.HasKey("Id");
 
