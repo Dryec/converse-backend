@@ -25,6 +25,7 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				context.Sender, changeStatusMessage.Status);
 
 			user.Status = changeStatusMessage.Status;
+			context.DatabaseContext.SaveChanges();
 		}
 	}
 }

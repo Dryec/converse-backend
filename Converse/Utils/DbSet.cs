@@ -9,19 +9,27 @@ namespace Converse.Utils
 {
 	public static class DbSet
 	{
-		public static IEnumerable<T> WherePredicate<T>(this DbSet<T> dbSet, Expression<Func<T, bool>> predicate)
-			where T : class
-		{
-			var local = dbSet.Local.Where(predicate.Compile());
-			var findPredicate = local as T[] ?? local.ToArray();
-			return findPredicate.Any() ? findPredicate : dbSet.Where(predicate).ToArray();
-		}
+		//private static IEnumerable<T> FilterDeleted<T>(DbContext dbContext, IEnumerable<T> data)
+		//	where T : class
+		//{
+		//	return data.Where(d => dbContext.Entry(d).State != EntityState.Deleted);
+		//}
+		
+		//public static IEnumerable<T> WherePredicate<T>(this DbSet<T> dbSet, DbContext dbContext, Expression<Func<T, bool>> predicate)
+		//	where T : class
+		//{
+		//	var compiledPredicate = predicate.Compile();
+		//	var local = FilterDeleted(dbContext, dbSet.Local).Where(compiledPredicate);
+		//	var findPredicate = local as T[] ?? local.ToArray();
+		//	return findPredicate.Any() ? findPredicate : FilterDeleted(dbContext, dbSet).Where(compiledPredicate).ToArray();
+		//}
 
-		public static T FirstPredicate<T>(this DbSet<T> dbSet, Expression<Func<T, bool>> predicate)
-			where T : class
-		{
-			var local = dbSet.Local.FirstOrDefault(predicate.Compile());
-			return local ?? dbSet.FirstOrDefault(predicate);
-		}
+		//public static T FirstPredicate<T>(this DbSet<T> dbSet, DbContext dbContext, Expression<Func<T, bool>> predicate)
+		//	where T : class
+		//{
+		//	var compiledPredicate = predicate.Compile();
+		//	var local = FilterDeleted(dbContext, dbSet.Local).FirstOrDefault(compiledPredicate);
+		//	return local ?? FilterDeleted(dbContext, dbSet).FirstOrDefault(compiledPredicate);
+		//}
 	}
 }

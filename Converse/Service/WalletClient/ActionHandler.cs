@@ -48,6 +48,7 @@ namespace Converse.Service.WalletClient
 			var receiverAddress = Utils.Address.FromByteString(transferAssetContract.ToAddress);
 
 			DatabaseContext.CreateUsersWhenNotExist(new[] { senderAddress, receiverAddress });
+			DatabaseContext.SaveChanges();
 
 			// Get message + transactionHash
 			var transactionHash = Common.Utils

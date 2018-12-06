@@ -32,10 +32,12 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				};
 
 				context.DatabaseContext.BlockedUsers.Add(blockedUser);
+				context.DatabaseContext.SaveChanges();
 			}
 			else if (blockedUser != null)
 			{
 				context.DatabaseContext.Remove(blockUserMessage);
+				context.DatabaseContext.SaveChanges();
 			}
 		}
 	}

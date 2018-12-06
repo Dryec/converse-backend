@@ -25,6 +25,7 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				context.Sender, changeProfilePictureMessage.Image, changeProfilePictureMessage.Clear);
 
 			user.ProfilePictureUrl = (changeProfilePictureMessage.Clear ? null : changeProfilePictureMessage.Image);
+			context.DatabaseContext.SaveChanges();
 		}
 	}
 }

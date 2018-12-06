@@ -71,7 +71,6 @@ namespace Converse.Service.WalletClient
 
 		private async void SynchronizeBlocks()
 		{
-			return;
 			var hasUpdatedToken = await _token.Update();
 			if (!hasUpdatedToken)
 			{
@@ -79,80 +78,95 @@ namespace Converse.Service.WalletClient
 				return;
 			}
 
-			using (var scope = _serviceProvider.CreateScope())
+			var synchronizationCount = _blockConfiguration.SyncCount;
+
+			DatabaseContext databaseContext;
+			Models.Setting lastSyncedBlockModel;
+
+			void UpdateDbContext()
 			{
-				var synchronizationCount = _blockConfiguration.SyncCount;
+				// Get new database context
+				var scope = _serviceProvider.CreateScope();
+				databaseContext = scope.ServiceProvider.GetService<DatabaseContext>();
+				_actionHandler.DatabaseContext = databaseContext;
 
-				while (_isThreadRunning) {
-					// Get new database context
-					var databaseContext = scope.ServiceProvider.GetService<DatabaseContext>();
-					_actionHandler.DatabaseContext = databaseContext;
+				// Get last synced block
+				lastSyncedBlockModel = databaseContext.GetLastSyncedBlock();
+				if (lastSyncedBlockModel == null)
+				{
+					_isThreadRunning = false;
+					_appLifeTime.StopApplication();
+					_logger.Log.LogCritical(Logger.LastSyncedBlockNotFound,
+						"Could not find 'LastSyncedBlockId' in 'Settings' Table! Make sure to migrate the migrations!");
+					return;
+				}
 
-					// Get last synced block
-					var lastSyncedBlockModel = databaseContext.GetLastSyncedBlock();
-					if (lastSyncedBlockModel == null)
+				if (Convert.ToUInt64(lastSyncedBlockModel.Value) < _blockConfiguration.StartId)
+				{
+					lastSyncedBlockModel.Value = (_blockConfiguration.StartId - 1).ToString();
+				}
+			}
+			UpdateDbContext();
+
+			while (_isThreadRunning) {
+				// Convert last synced block to integer
+				var lastSyncedBlock = Convert.ToInt64(lastSyncedBlockModel.Value);
+
+				// Read nextBlock til (nextBlock + synchronizationCount)
+				var unsortedBlocks = await _walletClient.GetBlockByLimitNextAsync(new BlockLimit()
+				{
+					StartNum = lastSyncedBlock + 1,
+					EndNum = lastSyncedBlock + 1 + synchronizationCount,
+				});
+				
+				// Retrieved any blocks?
+				if (unsortedBlocks.Block.Count > 0)
+				{
+					// @ToDo: Look if better solution then OrderBy
+					var blocks = (unsortedBlocks.Block.Count > 1
+						? unsortedBlocks.Block.OrderBy(block => block.BlockHeader.RawData.Number).ToList()
+						: unsortedBlocks.Block.ToList());
+
+					using (var transactionScope = databaseContext.Database.BeginTransaction())
 					{
-						_isThreadRunning = false;
-						_appLifeTime.StopApplication();
-						_logger.Log.LogCritical(Logger.LastSyncedBlockNotFound,
-							"Could not find 'LastSyncedBlockId' in 'Settings' Table! Make sure to migrate the migrations!");
-						return;
-					}
-					if (Convert.ToUInt64(lastSyncedBlockModel.Value) < _blockConfiguration.StartId)
-					{
-						lastSyncedBlockModel.Value = (_blockConfiguration.StartId - 1).ToString();
-					}
-
-					// Convert last synced block to integer
-					var lastSyncedBlock = Convert.ToInt64(lastSyncedBlockModel.Value);
-
-					// Read nextBlock til (nextBlock + synchronizationCount)
-					var unsortedBlocks = await _walletClient.GetBlockByLimitNextAsync(new BlockLimit()
-					{
-						StartNum = lastSyncedBlock + 1,
-						EndNum = lastSyncedBlock + 1 + synchronizationCount,
-					});
-					
-					// Retrieved any blocks?
-					if (unsortedBlocks.Block.Count > 0)
-					{
-						// @ToDo: Look if better solution then OrderBy
-						var blocks = (unsortedBlocks.Block.Count > 1
-							? unsortedBlocks.Block.OrderBy(block => block.BlockHeader.RawData.Number).ToList()
-							: unsortedBlocks.Block.ToList());
-
-						foreach (var block in blocks)
-						{
-							foreach (var transaction in block.Transactions)
-							{
-								_actionHandler.Handle(transaction, block);
-							}
-
-							lastSyncedBlock = block.BlockHeader.RawData.Number;
-						}
-
 						try
 						{
+							foreach (var block in blocks)
+							{
+								foreach (var transaction in block.Transactions)
+								{
+									_actionHandler.Handle(transaction, block);
+								}
+
+								lastSyncedBlock = block.BlockHeader.RawData.Number;
+							}
+
 							lastSyncedBlockModel.Value = lastSyncedBlock.ToString();
+
 							databaseContext.SaveChanges();
+							transactionScope.Commit();
 						}
-						catch (Exception e)
+						catch (DbUpdateException e)
 						{
 							_logger.Log.LogCritical(Logger.CannotSaveChanges, "Could not save changes to database! Error: ");
 							_logger.Log.LogCritical(Logger.CannotSaveChanges, e.Message);
 							_logger.Log.LogCritical(Logger.CannotSaveChanges, e.StackTrace);
+
+							transactionScope.Rollback();
+
+							UpdateDbContext();
 						}
 					}
-
-					// When could retrieve 0 blocks or less than tried to sync, decrease the counter, but synchronize at least 3 blocks
-					// Reasons: ResourceExhausted or already Up2Date
-					if ((unsortedBlocks.Block.Count == 0 || unsortedBlocks.Block.Count < synchronizationCount) && synchronizationCount > 3)
-					{
-						synchronizationCount--;
-					}
-
-					Thread.Sleep(_blockConfiguration.SyncSleepTime);
 				}
+
+				// When could retrieve 0 blocks or less than tried to sync, decrease the counter, but synchronize at least 3 blocks
+				// Reasons: ResourceExhausted or already Up2Date
+				if ((unsortedBlocks.Block.Count == 0 || unsortedBlocks.Block.Count < synchronizationCount) && synchronizationCount > 3)
+				{
+					synchronizationCount--;
+				}
+
+				Thread.Sleep(_blockConfiguration.SyncSleepTime);
 			}
 		}
 	}

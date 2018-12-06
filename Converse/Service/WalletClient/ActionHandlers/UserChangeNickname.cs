@@ -25,6 +25,7 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				context.Sender, changeNicknameMessage.Name);
 
 			user.Nickname = changeNicknameMessage.Name;
+			context.DatabaseContext.SaveChanges();
 		}
 	}
 }

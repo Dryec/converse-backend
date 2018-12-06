@@ -11,7 +11,7 @@ namespace Converse.Models
 	{
 		public int Id { get; set; }
 		public int UserId { get; set; }
-		public User User { get; set; }
+		public virtual User User { get; set; }
 		public string Ip { get; set; }
 		public int ReceivedTokens { get; set; }
 		public DateTime CreatedAt { get; set; }

@@ -3,9 +3,9 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Converse.Models;
-using Converse.Utils;
 
 namespace Converse.Service
 {
@@ -22,44 +22,45 @@ namespace Converse.Service
 		public DbSet<Models.ChatUser> ChatUsers { get; set; }
 		public DbSet<Models.ChatMessage> ChatMessages { get; set; }
 
+		//private readonly ILogger _logger;
+		//private class LogType
+		//{
+		//	public const int CannotSave = 10000;
+		//}
+
 		public DatabaseContext(DbContextOptions contextOptions)
 			: base(contextOptions)
 		{
+			//var extension = contextOptions.GetExtension<Microsoft.EntityFrameworkCore.Infrastructure.CoreOptionsExtension>();
+			//if (extension != null)
+			//{
+			//	var loggerFactory = extension.ApplicationServiceProvider.GetService<ILoggerFactory>();
+			//	_logger = loggerFactory.CreateLogger("Database");
+			//}
+			//else
+			//{
+			//	Console.WriteLine("Could not retrieve Extension<ServiceProvider> from DbContext.");
+			//	Environment.Exit(0);
+			//	return;
+			//}
 		}
-
 
 		public Models.Setting GetLastSyncedBlock()
 		{
-			try
-			{
-				return Settings.First(s => s.Key == "LastSyncedBlockId");
-			}
-			catch (InvalidOperationException)
-			{
-				return null;
-			}
+			return Settings.FirstOrDefault(s => s.Key == "LastSyncedBlockId");
 		}
-
 
 		public Models.Chat GetChat(string firstAddress, string secondAddress)
 		{
-			return ChatUsers/*.Include(cu => cu.Chat)*/.WherePredicate(cu => cu.Address == firstAddress &&
+			return ChatUsers.Where(cu => cu.Address == firstAddress &&
 				             ChatUsers.Any(cuSecond => cu.ChatId == cuSecond.ChatId && cuSecond.Address == secondAddress)
 				)
 				.FirstOrDefault(cu => !cu.Chat.IsGroup)?.Chat;
 		}
 
-
 		public Models.User GetUser(string address)
 		{
-			try
-			{
-				return Users.FirstPredicate(user => user.Address == address);
-			}
-			catch (InvalidOperationException)
-			{
-				return null;
-			}
+			return Users.SingleOrDefault(user => user.Address == address);
 		}
 
 		public Models.User CreateUserWhenNotExist(string address)
@@ -88,17 +89,9 @@ namespace Converse.Service
 			return addresses.Select(CreateUserWhenNotExist).ToList();
 		}
 
-
 		public Models.BlockedUser GetBlockedUser(string address, string blockedAddress)
 		{
-			try
-			{
-				return BlockedUsers.FirstPredicate(bu => bu.Address == address && bu.BlockedAddress == blockedAddress);
-			}
-			catch (InvalidOperationException)
-			{
-				return null;
-			}
+			return BlockedUsers.FirstOrDefault(bu => bu.Address == address && bu.BlockedAddress == blockedAddress);
 		}
 	}
 }
