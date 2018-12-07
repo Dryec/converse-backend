@@ -17,6 +17,13 @@ namespace Converse.Service.WalletClient.ActionHandlers
 			context.Logger.Log.LogDebug(Logger.HandleUserBlockedUser, "BlockUser: Sender '{Address}' Blocked: '{BlockedAddress}' IsBlocked: {IsBlocked}!",
 				context.Sender, blockUserMessage.Address, blockUserMessage.IsBlocked);
 
+			var user = context.DatabaseContext.GetUser(context.Sender);
+			if (user == null)
+			{
+				context.Logger.Log.LogDebug(Logger.HandleUserBlockedUser, "BlockUser: sender does not exist as user!");
+				return;
+			}
+
 			if (blockUserMessage.IsBlocked)
 			{
 				if (blockedUser != null)
@@ -26,6 +33,7 @@ namespace Converse.Service.WalletClient.ActionHandlers
 
 				blockedUser = new Models.BlockedUser()
 				{
+					User = user,
 					Address = context.Sender,
 					BlockedAddress = blockUserMessage.Address,
 					CreatedAt = DateTime.Now,

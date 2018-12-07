@@ -40,7 +40,8 @@
         "users": null // array of users but null bc client need to request them extra
     },
     "last_message": { // message class
-        "id":"54gwez$H§h34g230hgh32ihfwei3i0tg32",
+        "id":0,
+        "trans_id":"54gwez$H§h34g230hgh32ihfwei3i0tg32",
         "chat_id":2,
         "sender":{
             "id":0,
@@ -74,7 +75,8 @@
         "users": null // array of users but null bc client needs to request them extra
     },
     "last_message": {
-        "id":"54gwez$H§h34g230hgh32ihfwei3i0tg32",
+        "id":0,
+        "trans_id":"54gwez$H§h34g230hgh32ihfwei3i0tg32",
         "chat_id":2,
         "sender":{
             "id":0,
@@ -91,24 +93,11 @@
 // get messages [chat id, start, end]
 {
     "id":0,
-    "user1":{
-        "id":0,
-        "address":"",
-        "name":"",
-        "image":"http://gg.com",
-        "status":null
-    },
-    "user2":{
-        "id":0,
-        "address":"",
-        "name":"",
-        "image":"http://gg.com",
-        "status":null
-    },
     "start":0,
     "end":50,
     "messages": [{
-        "id":"54gwez$H§h34g230hgh32ihfwei3i0tg32",
+        "id":0,
+        "trans_id":"54gwez$H§h34g230hgh32ihfwei3i0tg32",
         "chat_id":2,
         "sender":{
             "id":0,

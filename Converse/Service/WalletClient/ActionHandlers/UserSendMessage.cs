@@ -18,6 +18,16 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				"SendMessage: Sender '{Sender}' Receiver '{Receiver}'!",
 				context.Sender, context.Receiver);
 
+			var senderUser = context.DatabaseContext.GetUser(context.Sender);
+			var receiverUser = context.DatabaseContext.GetUser(context.Receiver);
+			if (senderUser == null || receiverUser == null)
+			{
+				context.Logger.Log.LogDebug(Logger.HandleUserSendMessage,
+					"SendMessage: Sender or receiver does not exist as user! Does exist: Sender({SenderUser}), Receiver({ReceiverUser}).",
+					senderUser != null, receiverUser != null);
+				return;
+			}
+
 			var chat = context.DatabaseContext.GetChat(context.Sender, context.Receiver);
 			if (chat == null)
 			{
@@ -32,7 +42,9 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				var chatUser1 = new Models.ChatUser()
 				{
 					Chat = chat,
+					User = senderUser,
 					Address = context.Sender,
+
 					IsAdmin = false,
 					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.Transaction.RawData.Timestamp).DateTime,
 					CreatedAt = DateTime.Now,
@@ -40,7 +52,9 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				var chatUser2 = new Models.ChatUser()
 				{
 					Chat = chat,
+					User = receiverUser,
 					Address = context.Receiver,
+
 					IsAdmin = false,
 					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.Transaction.RawData.Timestamp).DateTime,
 					CreatedAt = DateTime.Now,
@@ -55,6 +69,7 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				InternalId = chat.Messages.Count + 1,
 				Chat = chat,
 
+				User = senderUser,
 				Address = context.Sender,
 				Message = userSendMessage.Message,
 

@@ -9,21 +9,6 @@ namespace Converse.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "BlockedUsers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Address = table.Column<string>(nullable: true),
-                    BlockedAddress = table.Column<string>(nullable: true),
-                    CreatedAt = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BlockedUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Chats",
                 columns: table => new
                 {
@@ -50,7 +35,8 @@ namespace Converse.Migrations
                 {
                     table.PrimaryKey("PK_Settings", x => x.Id);
                 });
-	        migrationBuilder.InsertData("settings", new[] {"Id", "Key", "Value"}, new[] {"1", "LastSyncedBlockId", "0"});
+	        migrationBuilder.InsertData("settings", new[] {"Id", "Key", "Value"},
+		        new[] {"1", "LastSyncedBlockId", "0"});
 
 			migrationBuilder.CreateTable(
                 name: "Users",
@@ -71,39 +57,13 @@ namespace Converse.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ChatMessages",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    InternalId = table.Column<int>(nullable: false),
-                    ChatId = table.Column<int>(nullable: false),
-                    Address = table.Column<string>(nullable: true),
-                    Message = table.Column<string>(nullable: true),
-                    BlockId = table.Column<long>(nullable: false),
-                    TransactionHash = table.Column<string>(nullable: true),
-                    BlockCreatedAt = table.Column<DateTime>(nullable: false),
-                    TransactionCreatedAt = table.Column<DateTime>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChatMessages", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ChatMessages_Chats_ChatId",
-                        column: x => x.ChatId,
-                        principalTable: "Chats",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ChatSettings",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ChatId = table.Column<int>(nullable: false),
+                    Address = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     PictureUrl = table.Column<string>(nullable: true),
@@ -121,12 +81,69 @@ namespace Converse.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BlockedUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<int>(nullable: false),
+                    Address = table.Column<string>(nullable: true),
+                    BlockedAddress = table.Column<string>(nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlockedUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BlockedUsers_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChatMessages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    InternalId = table.Column<int>(nullable: false),
+                    ChatId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false),
+                    Address = table.Column<string>(nullable: true),
+                    Message = table.Column<string>(nullable: true),
+                    BlockId = table.Column<long>(nullable: false),
+                    TransactionHash = table.Column<string>(nullable: true),
+                    BlockCreatedAt = table.Column<DateTime>(nullable: false),
+                    TransactionCreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChatMessages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ChatMessages_Chats_ChatId",
+                        column: x => x.ChatId,
+                        principalTable: "Chats",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChatMessages_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ChatUsers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ChatId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false),
                     Address = table.Column<string>(nullable: true),
                     IsAdmin = table.Column<bool>(nullable: false),
                     JoinedAt = table.Column<DateTime>(nullable: false),
@@ -139,6 +156,12 @@ namespace Converse.Migrations
                         name: "FK_ChatUsers_Chats_ChatId",
                         column: x => x.ChatId,
                         principalTable: "Chats",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChatUsers_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -166,19 +189,35 @@ namespace Converse.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_BlockedUsers_UserId",
+                table: "BlockedUsers",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ChatMessages_ChatId",
                 table: "ChatMessages",
                 column: "ChatId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ChatMessages_UserId",
+                table: "ChatMessages",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ChatSettings_ChatId",
                 table: "ChatSettings",
-                column: "ChatId");
+                column: "ChatId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_ChatUsers_ChatId",
                 table: "ChatUsers",
                 column: "ChatId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChatUsers_UserId",
+                table: "ChatUsers",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserReceivedTokens_UserId",
