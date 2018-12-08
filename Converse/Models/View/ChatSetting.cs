@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Converse.Models.View
 {
@@ -12,6 +13,9 @@ namespace Converse.Models.View
 		public string Name { get; set; }
 		public string Image { get; set; }
 
+		[JsonProperty(PropertyName = "is_public")]
+		public bool IsPublic { get; set; }
+
 		public List<Models.View.User> Users;
 
 		public ChatSetting(Models.ChatSetting chatSetting, IEnumerable<Models.ChatUser> chatUsers = null)
@@ -19,7 +23,10 @@ namespace Converse.Models.View
 			Id = chatSetting.ChatId;
 			Address = chatSetting.Address;
 			Name = chatSetting.Name;
+
 			Image = chatSetting.PictureUrl;
+
+			IsPublic = chatSetting.IsPublic;
 
 			Users = new List<User>();
 	

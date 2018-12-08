@@ -108,6 +108,8 @@ namespace Converse.Service.WalletClient
 			}
 			UpdateDbContext();
 
+			_appLifeTime.ApplicationStopping.Register(Stop);
+
 			while (_isThreadRunning) {
 				// Convert last synced block to integer
 				var lastSyncedBlock = Convert.ToInt64(lastSyncedBlockModel.Value);

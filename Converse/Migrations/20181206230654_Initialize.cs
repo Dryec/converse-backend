@@ -67,6 +67,7 @@ namespace Converse.Migrations
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     PictureUrl = table.Column<string>(nullable: true),
+	                IsPublic = table.Column<bool>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

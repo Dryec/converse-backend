@@ -15,12 +15,14 @@ namespace Converse.Models
 		public int ChatId { get; set; }
 		public Chat Chat { get; set; }
 
-		// Chat owner
+		// ChatOwner
 		public string Address { get; set; }
 
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public string PictureUrl { get; set; }
+
+		public bool IsPublic { get; set; }
 
 		public DateTime CreatedAt { get; set; }
 	}
