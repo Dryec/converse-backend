@@ -16,8 +16,10 @@ namespace Converse.Models.View
 		[JsonProperty(PropertyName = "messages")]
 		public List<Models.View.ChatMessage> ChatMessages { get; set; }
 
-		public ChatMessagesRange(int start, int end, IEnumerable<Models.ChatMessage> chatMessages)
+		public ChatMessagesRange(int chatId, int start, int end, IEnumerable<Models.ChatMessage> chatMessages)
 		{
+			Id = chatId;
+
 			Start = start;
 			End = end;
 

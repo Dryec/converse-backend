@@ -18,6 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="propertyAddress" />
+    <Content Include="script.sql" />
+    <Content Include="Startup.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Action\Group\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>

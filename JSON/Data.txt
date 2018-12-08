@@ -27,4 +27,4 @@ Examples:
 	Property:
 		TransferAsset TD5G3dAfMR9e8dR3KN19EnRAtN7LtpEHrR Converse 1 <payload>
 	Else:
-		TransferAsset TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o Converse 1 <payload>		
+		TransferAsset TY4TnpxyZUG4xE6t29xi6gj8LekKPU71qS Converse 1 <payload>		

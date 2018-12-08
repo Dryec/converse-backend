@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Converse.Models
 {
+	[Table("userreceivedtokens")]
 	public class UserReceivedToken
 	{
 		public int Id { get; set; }

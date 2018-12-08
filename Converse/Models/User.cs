@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Converse.Models
 {
+	[Table("users")]
 	public class User
 	{
 		public int Id { get; set; }

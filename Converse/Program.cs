@@ -25,7 +25,7 @@ namespace Converse
 				if (encryptedPrivateKey != "")
 				{
 					Console.Write("Enter the Property-Address Password: ");
-					var password = "123456789ABCDEFGHIJKLMNOPQRSTUVX";//Utils.ConsoleHelper.ReadPassword();
+					var password = Utils.ConsoleHelper.ReadPassword();
 					var privateKey = NETCore.Encrypt.EncryptProvider.AESDecrypt(encryptedPrivateKey, password);
 
 					Service.WalletClient.WalletClient.PropertyAddress = new Client.Wallet(ECKey.FromPrivateHexString(privateKey));

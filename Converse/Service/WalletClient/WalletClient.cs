@@ -118,7 +118,7 @@ namespace Converse.Service.WalletClient
 					StartNum = lastSyncedBlock + 1,
 					EndNum = lastSyncedBlock + 1 + synchronizationCount,
 				});
-				
+
 				// Retrieved any blocks?
 				if (unsortedBlocks.Block.Count > 0)
 				{

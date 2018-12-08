@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Net;
 using Converse.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +31,12 @@ namespace Converse
 				// For serializing. (E.g.: Blog has Posts and Post has Blog. Recursive Loop Exception)
 				.AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
 				.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+			// Forwarding
+			//services.Configure<ForwardedHeadersOptions>(options =>
+			//{
+			//	options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+			//});
 
 			// Add Configurations
 			services.Configure<Configuration.Node>(Configuration.GetSection("Node"));

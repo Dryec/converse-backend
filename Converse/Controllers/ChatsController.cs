@@ -24,7 +24,7 @@ namespace Converse.Controllers
         // GET: api/Chats/all/tron_address or user_id
         [HttpGet("all/{userId}")]
         public async Task<IActionResult> GetChats([FromRoute] string userId)
-		{
+        {
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
@@ -55,8 +55,8 @@ namespace Converse.Controllers
         }
 
         // GET: api/Chats/tron_address or user_id/chat_id
-        [HttpGet("{userId}/{id}")]
-        public async Task<IActionResult> GetChat([FromRoute] string userId, [FromRoute] int id)
+        [HttpGet("{userId}/{chatId}")]
+        public async Task<IActionResult> GetChat([FromRoute] string userId, [FromRoute] int chatId)
         {
             if (!ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace Converse.Controllers
 	            .Include(c => c.Setting)
 	            .Include(c => c.Users).ThenInclude(u => u.User)
 	            .Include(c => c.Messages).ThenInclude(u => u.User)
-	            .FirstOrDefaultAsync(c => c.Id == id);
+	            .FirstOrDefaultAsync(c => c.Id == chatId);
             if (chat == null)
             {
                 return NotFound("ChatNotFound");
@@ -150,7 +150,7 @@ namespace Converse.Controllers
 			    endMessageId = chatMessages.Last().InternalId;
 		    }
 
-			return Ok(new Models.View.ChatMessagesRange(startMessageId, endMessageId, chatMessages));
+			return Ok(new Models.View.ChatMessagesRange(chatId, startMessageId, endMessageId, chatMessages));
 	    }
 	}
 }
