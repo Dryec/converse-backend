@@ -62,6 +62,11 @@ namespace Converse.Service.WalletClient
 			try
 			{
 				var action = JsonConvert.DeserializeObject<Action.Action>(message);
+				if (action == null)
+				{
+					return;
+				}
+
 				_logger.Log.LogDebug(Logger.NewTransaction, "Handle Action " + action.Type.ToString() + "!");
 
 				// Actions only valid when sent to propertyAddress

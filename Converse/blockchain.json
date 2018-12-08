@@ -7,8 +7,8 @@
     "Name": "Converse"
   },
   "Block": {
-    "StartId": 379181,
+    "StartId": 4776700,
     "SyncSleepTime": 10,
-    "SyncCount": 150
+    "SyncCount": 50
   }
 }
