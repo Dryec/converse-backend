@@ -21,9 +21,10 @@ Transactions:
 	TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o		ChangeProfilePicture	2664141c0708a1d5414f3108339816f97fc0e9d444879e2ab19b95c937ab172c	{"type":3,"clear":false,"image":"test_image.jpg"}					
 	TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o		BlockUser				638b5b7f0aa4454007bedf6938344a19bc7f129c197c620d0a7597e3c6add62a	{"type":4,"is_blocked":true,"address":"TKQtCrP5Gp2bWheA4Ckcf9ju4fM2TiKhKv"}					
 	TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o		SendMessage				69543e2cf32fa405b3ae12a2f4a67efdd4004c3e4359258af28880c76ed4baac	{"type":5,"message":"Das_ist_eine_Testnachricht!"}					
+	TY4TnpxyZUG4xE6t29xi6gj8LekKPU71qS		SendMessage				69543e2cf32fa405b3ae12a2f4a67efdd4004c3e4359258af28880c76ed4baac	{"type":5,"message":"Eine_weitere_Testnachricht_von_anderen_User!"}					
 
 Examples:
 	Property:
 		TransferAsset TD5G3dAfMR9e8dR3KN19EnRAtN7LtpEHrR Converse 1 <payload>
 	Else:
-		TransferAsset TY4TnpxyZUG4xE6t29xi6gj8LekKPU71qS Converse 1 <payload>		
+		TransferAsset TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o Converse 1 <payload>		

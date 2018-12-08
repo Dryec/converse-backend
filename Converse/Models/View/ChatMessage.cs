@@ -26,7 +26,7 @@ namespace Converse.Models.View
 
 		public ChatMessage(Models.ChatMessage chatMessage)
 		{
-			Id = chatMessage.Id;
+			Id = chatMessage.InternalId;
 			TransactionId = chatMessage.TransactionHash;
 			ChatId = chatMessage.ChatId;
 

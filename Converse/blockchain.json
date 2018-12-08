@@ -9,6 +9,6 @@
   "Block": {
     "StartId": 379181,
     "SyncSleepTime": 10,
-    "SyncCount": 100
+    "SyncCount": 150
   }
 }

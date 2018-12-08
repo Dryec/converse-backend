@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Converse.Models;
 using Converse.Service;
-using Chat = Converse.Constants.Chat;
 
 namespace Converse.Controllers
 {
@@ -113,12 +112,45 @@ namespace Converse.Controllers
 				    .SingleOrDefaultAsync(u => u.Address == groupId))?.Chat;
 		    }
 
-		    if (chat == null || chat.GetType() != Chat.Type.Group || chat.Setting == null)
+		    if (chat == null || chat.GetType() != Constants.Chat.Type.Group || chat.Setting == null)
 		    {
 			    return NotFound();
 		    }
 
 			return Ok(new Models.View.ChatSetting(chat.Setting, chat.Users));
+	    }
+
+
+	    // GET: api/Chats/chat_id/messages/start_id/end_id
+	    [HttpGet("{chatId}/messages/{startMessageId}/{endMessageId}")]
+	    public async Task<IActionResult> GetGroup([FromRoute] int chatId, int startMessageId, int endMessageId)
+	    {
+		    if (!ModelState.IsValid)
+		    {
+			    return BadRequest(ModelState);
+		    }
+
+		    var chat = await _context.Chats
+				    .Include(c => c.Messages).ThenInclude(cm => cm.User)
+				    .SingleOrDefaultAsync(u => u.Id == chatId);
+
+		    if (chat == null)
+		    {
+			    return NotFound();
+		    }
+
+			var chatMessages = chat.Messages.Where(cm => cm.InternalId >= startMessageId && cm.InternalId <= endMessageId).ToList();
+		    if (!chatMessages.Any())
+		    {
+			    startMessageId = endMessageId = 0;
+		    }
+		    else
+		    {
+			    startMessageId = chatMessages.First().InternalId;
+			    endMessageId = chatMessages.Last().InternalId;
+		    }
+
+			return Ok(new Models.View.ChatMessagesRange(startMessageId, endMessageId, chatMessages));
 	    }
 	}
 }

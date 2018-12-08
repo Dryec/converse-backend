@@ -22,27 +22,10 @@ namespace Converse.Service
 		public DbSet<Models.ChatUser> ChatUsers { get; set; }
 		public DbSet<Models.ChatMessage> ChatMessages { get; set; }
 
-		//private readonly ILogger _logger;
-		//private class LogType
-		//{
-		//	public const int CannotSave = 10000;
-		//}
 
 		public DatabaseContext(DbContextOptions contextOptions)
 			: base(contextOptions)
 		{
-			//var extension = contextOptions.GetExtension<Microsoft.EntityFrameworkCore.Infrastructure.CoreOptionsExtension>();
-			//if (extension != null)
-			//{
-			//	var loggerFactory = extension.ApplicationServiceProvider.GetService<ILoggerFactory>();
-			//	_logger = loggerFactory.CreateLogger("Database");
-			//}
-			//else
-			//{
-			//	Console.WriteLine("Could not retrieve Extension<ServiceProvider> from DbContext.");
-			//	Environment.Exit(0);
-			//	return;
-			//}
 		}
 
 		public Models.Setting GetLastSyncedBlock()

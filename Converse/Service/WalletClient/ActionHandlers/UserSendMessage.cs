@@ -63,10 +63,11 @@ namespace Converse.Service.WalletClient.ActionHandlers
 				context.DatabaseContext.ChatUsers.Add(chatUser1);
 				context.DatabaseContext.ChatUsers.Add(chatUser2);
 			}
-			
+
+			var lastMessageInternalId = context.DatabaseContext.ChatMessages.LastOrDefault(cm => cm.Chat == chat)?.InternalId ?? 0;
 			var chatMessage = new Models.ChatMessage()
 			{
-				InternalId = chat.Messages.Count + 1,
+				InternalId = lastMessageInternalId + 1,
 				Chat = chat,
 
 				User = senderUser,
