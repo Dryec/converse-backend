@@ -20,8 +20,6 @@ namespace Converse.Models.View
 		public string Name { get; }
 		public string Image { get; }
 		public UserStatus Status { get; }
-		[JsonProperty(PropertyName = "timestamp")]
-		public DateTime CreatedAt { get; }
 
 		public User(Models.User user)
 		{
@@ -38,8 +36,6 @@ namespace Converse.Models.View
 					StatusUpdatedAt = user.StatusUpdatedAt,
 				};
 			}
-
-			CreatedAt = user.CreatedAt;
 		}
 	}
 }

@@ -25,6 +25,6 @@ Transactions:
 
 Examples:
 	Property:
-		TransferAsset TD5G3dAfMR9e8dR3KN19EnRAtN7LtpEHrR Converse 1 <payload>
+		TransferAsset TFnJbbEXKWVNz84L9ysbWMvJGD2v8seZu8 Converse 1 <payload>
 	Else:
-		TransferAsset TY4TnpxyZUG4xE6t29xi6gj8LekKPU71qS Converse 1 <payload>		
+		TransferAsset TERA14Y1HBpcEf1iCaDyeSpMady9MuDM2o Converse 1 <payload>		

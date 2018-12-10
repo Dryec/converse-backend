@@ -27,7 +27,7 @@ namespace Converse.Models.View
 		{
 			Id = chat.Id;
 			Type = chat.GetType();
-
+			 
 			MessageCount = chat.Messages.Count;
 
 			if (Type == Constants.Chat.Type.Normal)

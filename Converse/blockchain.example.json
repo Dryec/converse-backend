@@ -4,7 +4,10 @@
     "Port": 50051
   },
   "Token": {
-    "Name": "AnyToken"
+    "Name": "AnyToken",
+    "TransferMaxPerAccountEveryDay": 500,
+    "TransferOnlyWhenHasLessOrEqualThan": 20,
+    "TransferSteps": 100
   },
   "Block": {
     "StartId": 0,

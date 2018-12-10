@@ -48,6 +48,11 @@ namespace Converse.Service.WalletClient
 			return (IsValid() ? _data.Name : null);
 		}
 
+		public override string ToString()
+		{
+			return _name;
+		}
+
 		public bool IsValid()
 		{
 			return _data != null;

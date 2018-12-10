@@ -87,15 +87,15 @@ namespace Converse.Controllers
         }
 
 	    // GET: api/Chats/Group/group_address or chat_id
-	    [HttpGet("group/{groupId}")]
-	    public async Task<IActionResult> GetGroup([FromRoute] string groupId)
+	    [HttpGet("group/{chatId}")]
+	    public async Task<IActionResult> GetGroup([FromRoute] string chatId)
 	    {
 		    if (!ModelState.IsValid)
 		    {
 			    return BadRequest(ModelState);
 		    }
 
-		    var isNumeric = int.TryParse(groupId, out var id);
+		    var isNumeric = int.TryParse(chatId, out var id);
 		    Models.Chat chat = null;
 		    if (isNumeric)
 		    {
@@ -109,7 +109,7 @@ namespace Converse.Controllers
 			    chat = (await _context.ChatSettings
 				    .Include(cs => cs.Chat).ThenInclude(c => c.Setting)
 				    .Include(cs => cs.Chat).ThenInclude(c => c.Users)
-				    .SingleOrDefaultAsync(u => u.Address == groupId))?.Chat;
+				    .SingleOrDefaultAsync(u => u.Address == chatId))?.Chat;
 		    }
 
 		    if (chat == null || chat.GetType() != Constants.Chat.Type.Group || chat.Setting == null)

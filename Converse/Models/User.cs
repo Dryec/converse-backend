@@ -21,10 +21,12 @@ namespace Converse.Models
 		public DateTime CreatedAt { get; set; }
 
 		public List<ChatUser> ChatUsers { get; set; }
+		public List<UserReceivedToken> ReceivedTokens { get; set; }
 
 		public User()
 		{
 			ChatUsers = new List<ChatUser>();
+			ReceivedTokens = new List<UserReceivedToken>();
 		}
 	}
 }

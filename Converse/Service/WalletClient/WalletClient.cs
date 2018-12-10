@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
+using Google.Protobuf;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -67,6 +70,54 @@ namespace Converse.Service.WalletClient
 			{
 				_synchronizeBlocksThread.Join(_blockConfiguration.SyncSleepTime + 5000);
 			}
+		}
+
+		public async Task<Account> GetAddressInformation(string address)
+		{
+			return await _walletClient.GetAccountAsync(new Account()
+			{
+				Address = ByteString.CopyFrom(Client.WalletAddress.Decode58Check(address))
+			});
+		}
+
+		public struct TransferTokenResult
+		{
+			public bool Result { get; set; }
+			public Return.Types.response_code Code { get; set; }
+			public string Message { get; set; }
+			public Transaction Transaction { get; set; }
+		}
+
+		public async Task<TransferTokenResult> TransferTokenFromProperty(int amount, string receiver)
+		{
+			var transferTokenResult = new TransferTokenResult()
+			{
+				Result = false
+			};
+
+			var contract = new Protocol.TransferAssetContract()
+			{
+				Amount = amount,
+				AssetName = ByteString.CopyFromUtf8(_token.ToString()),
+				OwnerAddress = ByteString.CopyFrom(Client.WalletAddress.Decode58Check(PropertyAddress.Address)),
+				ToAddress = ByteString.CopyFrom(Client.WalletAddress.Decode58Check(receiver)),
+			};
+			var transaction = await _walletClient.TransferAssetAsync(contract);
+			if (transaction != null)
+			{
+				PropertyAddress.SignTransaction(transaction.Transaction);
+				var broadcastResult = await _walletClient.BroadcastTransactionAsync(transaction.Transaction);
+				if (broadcastResult.Result)
+				{
+					transferTokenResult.Transaction = transaction.Transaction;
+				}
+
+				transferTokenResult.Result = broadcastResult.Result;
+				transferTokenResult.Code = broadcastResult.Code;
+				transferTokenResult.Message = broadcastResult.Message.ToString(Encoding.ASCII);
+			}
+
+			return transferTokenResult;
 		}
 
 		private async void SynchronizeBlocks()

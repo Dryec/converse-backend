@@ -72,7 +72,7 @@ namespace Converse.Service.WalletClient
 				// Actions only valid when sent to propertyAddress
 				if (Action.Constants.PropertyAddressTypes.Contains(action.Type))
 				{
-					if (receiverAddress != WalletClient.PropertyAddress.Address)
+					if (receiverAddress != WalletClient.PropertyAddress?.Address)
 					{
 						_logger.Log.LogDebug(Logger.ActionPropertyAddressInvalid, "This Action needs PropertyAddress as receiver!");
 						return;

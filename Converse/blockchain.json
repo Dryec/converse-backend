@@ -4,7 +4,10 @@
     "Port": 50051
   },
   "Token": {
-    "Name": "Converse"
+    "Name": "Converse",
+    "TransferMaxPerAccountEveryDay": 500,
+    "TransferOnlyWhenHasLessOrEqualThan": 20,
+    "TransferSteps": 100
   },
   "Block": {
     "StartId": 4776700,
