@@ -34,7 +34,7 @@ namespace Converse.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("BlockedUsers");
+                    b.ToTable("blockedusers");
                 });
 
             modelBuilder.Entity("Converse.Models.Chat", b =>
@@ -48,7 +48,7 @@ namespace Converse.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Chats");
+                    b.ToTable("chats");
                 });
 
             modelBuilder.Entity("Converse.Models.ChatMessage", b =>
@@ -82,7 +82,7 @@ namespace Converse.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ChatMessages");
+                    b.ToTable("chatmessages");
                 });
 
             modelBuilder.Entity("Converse.Models.ChatSetting", b =>
@@ -90,11 +90,15 @@ namespace Converse.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Address");
+
                     b.Property<int>("ChatId");
 
                     b.Property<DateTime>("CreatedAt");
 
                     b.Property<string>("Description");
+
+                    b.Property<bool>("IsPublic");
 
                     b.Property<string>("Name");
 
@@ -105,7 +109,7 @@ namespace Converse.Migrations
                     b.HasIndex("ChatId")
                         .IsUnique();
 
-                    b.ToTable("ChatSettings");
+                    b.ToTable("chatsettings");
                 });
 
             modelBuilder.Entity("Converse.Models.ChatUser", b =>
@@ -131,7 +135,7 @@ namespace Converse.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ChatUsers");
+                    b.ToTable("chatusers");
                 });
 
             modelBuilder.Entity("Converse.Models.Setting", b =>
@@ -145,7 +149,7 @@ namespace Converse.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Settings");
+                    b.ToTable("settings");
                 });
 
             modelBuilder.Entity("Converse.Models.User", b =>
@@ -167,7 +171,7 @@ namespace Converse.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("users");
                 });
 
             modelBuilder.Entity("Converse.Models.UserReceivedToken", b =>
@@ -175,19 +179,17 @@ namespace Converse.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Address");
+
                     b.Property<DateTime>("CreatedAt");
 
                     b.Property<string>("Ip");
 
                     b.Property<int>("ReceivedTokens");
 
-                    b.Property<int>("UserId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserReceivedTokens");
+                    b.ToTable("userreceivedtokens");
                 });
 
             modelBuilder.Entity("Converse.Models.BlockedUser", b =>
@@ -227,15 +229,7 @@ namespace Converse.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Converse.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Converse.Models.UserReceivedToken", b =>
-                {
-                    b.HasOne("Converse.Models.User", "User")
-                        .WithMany()
+                        .WithMany("ChatUsers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

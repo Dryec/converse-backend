@@ -66,24 +66,13 @@ namespace Converse.Controllers
             return Ok(new Models.View.User(user));
         }
 
-		// GET: api/Users/{userId/address}/requestTokens
-		[HttpGet("{userId}/requestTokens")]
-	    public async Task<IActionResult> RequestTokens([FromRoute] string userId, [FromServices] Service.WalletClient.WalletClient _walletClient, [FromServices] IOptions<Configuration.Token> _tokenOptions)
+		// GET: api/Users/{address}/requestTokens
+		[HttpGet("{address}/requestTokens")]
+	    public async Task<IActionResult> RequestTokens([FromRoute] string address, [FromServices] Service.WalletClient.WalletClient walletClient, [FromServices] IOptions<Configuration.Token> _tokenOptions)
 	    {
 		    if (!ModelState.IsValid)
 		    {
 			    return BadRequest(ModelState);
-		    }
-
-		    var isNumeric = int.TryParse(userId, out var id);
-		    var user = await (isNumeric
-				    ? _context.Users.SingleOrDefaultAsync(u => u.Id == id)
-				    : _context.Users.SingleOrDefaultAsync(u => u.Address == userId)
-			    );
-
-		    if (user == null)
-		    {
-			    return NotFound();
 		    }
 
 		    var result = new RequestTokensResult()
@@ -94,7 +83,7 @@ namespace Converse.Controllers
 
 			var ipAddress = HttpContext.Connection.RemoteIpAddress.ToString();
 			var receivedTokensToday = _context.UserReceivedTokens.Where(rt => 
-			    (rt.UserId == user.Id || rt.Ip == ipAddress) &&
+			    (rt.Address == address || rt.Ip == ipAddress) &&
 			    rt.CreatedAt.Date == DateTime.Today
 			).ToList();
 		    var sumTokensReceivedToday = receivedTokensToday.Sum(rt => rt.ReceivedTokens);
@@ -102,7 +91,7 @@ namespace Converse.Controllers
 		    {
 			    try
 			    {
-				    var userAccount = await _walletClient.GetAddressInformation(user.Address);
+				    var userAccount = await walletClient.GetAddressInformation(address);
 				    var asset = userAccount.Asset.SingleOrDefault(a => a.Key.Equals(_tokenOptions.Value.Name, StringComparison.CurrentCultureIgnoreCase));
 
 				    if (asset.Key == null || asset.Value <= _tokenOptions.Value.TransferOnlyWhenHasLessOrEqualThan)
@@ -113,7 +102,7 @@ namespace Converse.Controllers
 						    : _tokenOptions.Value.TransferSteps
 						);
 
-					    var transferResult = await _walletClient.TransferTokenFromProperty(amount, user.Address);
+					    var transferResult = await walletClient.TransferTokenFromProperty(amount, address);
 					    if (transferResult.Result)
 					    {
 						    var transactionHash = Common.Utils
@@ -125,7 +114,7 @@ namespace Converse.Controllers
 
 						    _context.UserReceivedTokens.Add(new UserReceivedToken()
 						    {
-								User = user,
+								Address = address,
 								Ip = ipAddress,
 								ReceivedTokens = amount,
 								CreatedAt = DateTime.Now,
@@ -145,7 +134,7 @@ namespace Converse.Controllers
 			    catch (RpcException e)
 			    {
 				    result.Result = RequestTokensResult.Type.ServerError;
-					_logger.LogError("Couldn't transfer tokens to {Receiver}! Error:", user.Address);
+					_logger.LogError("Couldn't transfer tokens to {Receiver}! Error:", address);
 					_logger.LogError(e.Message);
 					_logger.LogError(e.StackTrace);
 				}

@@ -11,7 +11,7 @@
  Target Server Version : 100131
  File Encoding         : 65001
 
- Date: 08/12/2018 21:53:00
+ Date: 10/12/2018 19:21:29
 */
 
 SET NAMES utf8mb4;
@@ -28,6 +28,11 @@ CREATE TABLE `__efmigrationshistory`  (
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Records of __efmigrationshistory
+-- ----------------------------
+INSERT INTO `__efmigrationshistory` VALUES ('20181210175249_Initialize', '2.1.4-rtm-31024');
+
+-- ----------------------------
 -- Table structure for blockedusers
 -- ----------------------------
 DROP TABLE IF EXISTS `blockedusers`;
@@ -38,8 +43,8 @@ CREATE TABLE `blockedusers`  (
   `BlockedAddress` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `CreatedAt` datetime(6) NOT NULL,
   PRIMARY KEY (`Id`) USING BTREE,
-  INDEX `IX_BlockedUsers_UserId`(`UserId`) USING BTREE,
-  CONSTRAINT `FK_BlockedUsers_Users_UserId` FOREIGN KEY (`UserId`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  INDEX `IX_blockedusers_UserId`(`UserId`) USING BTREE,
+  CONSTRAINT `FK_blockedusers_users_UserId` FOREIGN KEY (`UserId`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -59,10 +64,10 @@ CREATE TABLE `chatmessages`  (
   `TransactionCreatedAt` datetime(6) NOT NULL,
   `CreatedAt` datetime(6) NOT NULL,
   PRIMARY KEY (`Id`) USING BTREE,
-  INDEX `IX_ChatMessages_ChatId`(`ChatId`) USING BTREE,
-  INDEX `IX_ChatMessages_UserId`(`UserId`) USING BTREE,
-  CONSTRAINT `FK_ChatMessages_Chats_ChatId` FOREIGN KEY (`ChatId`) REFERENCES `chats` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `FK_ChatMessages_Users_UserId` FOREIGN KEY (`UserId`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  INDEX `IX_chatmessages_ChatId`(`ChatId`) USING BTREE,
+  INDEX `IX_chatmessages_UserId`(`UserId`) USING BTREE,
+  CONSTRAINT `FK_chatmessages_chats_ChatId` FOREIGN KEY (`ChatId`) REFERENCES `chats` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `FK_chatmessages_users_UserId` FOREIGN KEY (`UserId`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -90,8 +95,8 @@ CREATE TABLE `chatsettings`  (
   `IsPublic` bit(1) NOT NULL,
   `CreatedAt` datetime(6) NOT NULL,
   PRIMARY KEY (`Id`) USING BTREE,
-  UNIQUE INDEX `IX_ChatSettings_ChatId`(`ChatId`) USING BTREE,
-  CONSTRAINT `FK_ChatSettings_Chats_ChatId` FOREIGN KEY (`ChatId`) REFERENCES `chats` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  UNIQUE INDEX `IX_chatsettings_ChatId`(`ChatId`) USING BTREE,
+  CONSTRAINT `FK_chatsettings_chats_ChatId` FOREIGN KEY (`ChatId`) REFERENCES `chats` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -107,10 +112,10 @@ CREATE TABLE `chatusers`  (
   `JoinedAt` datetime(6) NOT NULL,
   `CreatedAt` datetime(6) NOT NULL,
   PRIMARY KEY (`Id`) USING BTREE,
-  INDEX `IX_ChatUsers_ChatId`(`ChatId`) USING BTREE,
-  INDEX `IX_ChatUsers_UserId`(`UserId`) USING BTREE,
-  CONSTRAINT `FK_ChatUsers_Chats_ChatId` FOREIGN KEY (`ChatId`) REFERENCES `chats` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `FK_ChatUsers_Users_UserId` FOREIGN KEY (`UserId`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  INDEX `IX_chatusers_ChatId`(`ChatId`) USING BTREE,
+  INDEX `IX_chatusers_UserId`(`UserId`) USING BTREE,
+  CONSTRAINT `FK_chatusers_chats_ChatId` FOREIGN KEY (`ChatId`) REFERENCES `chats` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `FK_chatusers_users_UserId` FOREIGN KEY (`UserId`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -122,7 +127,12 @@ CREATE TABLE `settings`  (
   `Key` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `Value` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of settings
+-- ----------------------------
+INSERT INTO `settings` VALUES (1, 'LastSyncedBlockId', '0');
 
 -- ----------------------------
 -- Table structure for userreceivedtokens
@@ -130,13 +140,11 @@ CREATE TABLE `settings`  (
 DROP TABLE IF EXISTS `userreceivedtokens`;
 CREATE TABLE `userreceivedtokens`  (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `UserId` int(11) NOT NULL,
+  `Address` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `Ip` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `ReceivedTokens` int(11) NOT NULL,
   `CreatedAt` datetime(6) NOT NULL,
-  PRIMARY KEY (`Id`) USING BTREE,
-  INDEX `IX_UserReceivedTokens_UserId`(`UserId`) USING BTREE,
-  CONSTRAINT `FK_UserReceivedTokens_Users_UserId` FOREIGN KEY (`UserId`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  PRIMARY KEY (`Id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------

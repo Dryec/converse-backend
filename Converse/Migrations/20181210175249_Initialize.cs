@@ -9,7 +9,7 @@ namespace Converse.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Chats",
+                name: "chats",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -19,11 +19,11 @@ namespace Converse.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Chats", x => x.Id);
+                    table.PrimaryKey("PK_chats", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Settings",
+                name: "settings",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -33,13 +33,29 @@ namespace Converse.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Settings", x => x.Id);
+                    table.PrimaryKey("PK_settings", x => x.Id);
                 });
 	        migrationBuilder.InsertData("settings", new[] {"Id", "Key", "Value"},
 		        new[] {"1", "LastSyncedBlockId", "0"});
 
 			migrationBuilder.CreateTable(
-                name: "Users",
+                name: "userreceivedtokens",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Address = table.Column<string>(nullable: true),
+                    Ip = table.Column<string>(nullable: true),
+                    ReceivedTokens = table.Column<int>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_userreceivedtokens", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "users",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -53,11 +69,11 @@ namespace Converse.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ChatSettings",
+                name: "chatsettings",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -67,22 +83,22 @@ namespace Converse.Migrations
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     PictureUrl = table.Column<string>(nullable: true),
-	                IsPublic = table.Column<bool>(nullable: false),
+                    IsPublic = table.Column<bool>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChatSettings", x => x.Id);
+                    table.PrimaryKey("PK_chatsettings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ChatSettings_Chats_ChatId",
+                        name: "FK_chatsettings_chats_ChatId",
                         column: x => x.ChatId,
-                        principalTable: "Chats",
+                        principalTable: "chats",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "BlockedUsers",
+                name: "blockedusers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -94,17 +110,17 @@ namespace Converse.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BlockedUsers", x => x.Id);
+                    table.PrimaryKey("PK_blockedusers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BlockedUsers_Users_UserId",
+                        name: "FK_blockedusers_users_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ChatMessages",
+                name: "chatmessages",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -122,23 +138,23 @@ namespace Converse.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChatMessages", x => x.Id);
+                    table.PrimaryKey("PK_chatmessages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ChatMessages_Chats_ChatId",
+                        name: "FK_chatmessages_chats_ChatId",
                         column: x => x.ChatId,
-                        principalTable: "Chats",
+                        principalTable: "chats",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ChatMessages_Users_UserId",
+                        name: "FK_chatmessages_users_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ChatUsers",
+                name: "chatusers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -152,105 +168,78 @@ namespace Converse.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChatUsers", x => x.Id);
+                    table.PrimaryKey("PK_chatusers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ChatUsers_Chats_ChatId",
+                        name: "FK_chatusers_chats_ChatId",
                         column: x => x.ChatId,
-                        principalTable: "Chats",
+                        principalTable: "chats",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ChatUsers_Users_UserId",
+                        name: "FK_chatusers_users_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserReceivedTokens",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<int>(nullable: false),
-                    Ip = table.Column<string>(nullable: true),
-                    ReceivedTokens = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserReceivedTokens", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_UserReceivedTokens_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BlockedUsers_UserId",
-                table: "BlockedUsers",
+                name: "IX_blockedusers_UserId",
+                table: "blockedusers",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChatMessages_ChatId",
-                table: "ChatMessages",
+                name: "IX_chatmessages_ChatId",
+                table: "chatmessages",
                 column: "ChatId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChatMessages_UserId",
-                table: "ChatMessages",
+                name: "IX_chatmessages_UserId",
+                table: "chatmessages",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChatSettings_ChatId",
-                table: "ChatSettings",
+                name: "IX_chatsettings_ChatId",
+                table: "chatsettings",
                 column: "ChatId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChatUsers_ChatId",
-                table: "ChatUsers",
+                name: "IX_chatusers_ChatId",
+                table: "chatusers",
                 column: "ChatId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChatUsers_UserId",
-                table: "ChatUsers",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserReceivedTokens_UserId",
-                table: "UserReceivedTokens",
+                name: "IX_chatusers_UserId",
+                table: "chatusers",
                 column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BlockedUsers");
+                name: "blockedusers");
 
             migrationBuilder.DropTable(
-                name: "ChatMessages");
+                name: "chatmessages");
 
             migrationBuilder.DropTable(
-                name: "ChatSettings");
+                name: "chatsettings");
 
             migrationBuilder.DropTable(
-                name: "ChatUsers");
+                name: "chatusers");
 
             migrationBuilder.DropTable(
-                name: "Settings");
+                name: "settings");
 
             migrationBuilder.DropTable(
-                name: "UserReceivedTokens");
+                name: "userreceivedtokens");
 
             migrationBuilder.DropTable(
-                name: "Chats");
+                name: "chats");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "users");
         }
     }
 }
