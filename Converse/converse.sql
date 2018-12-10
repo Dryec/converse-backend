@@ -11,7 +11,7 @@
  Target Server Version : 100131
  File Encoding         : 65001
 
- Date: 08/12/2018 02:30:00
+ Date: 08/12/2018 21:53:00
 */
 
 SET NAMES utf8mb4;
@@ -87,6 +87,7 @@ CREATE TABLE `chatsettings`  (
   `Name` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `Description` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `PictureUrl` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  `IsPublic` bit(1) NOT NULL,
   `CreatedAt` datetime(6) NOT NULL,
   PRIMARY KEY (`Id`) USING BTREE,
   UNIQUE INDEX `IX_ChatSettings_ChatId`(`ChatId`) USING BTREE,

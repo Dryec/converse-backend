@@ -103,7 +103,7 @@ namespace Converse.Controllers
 			    try
 			    {
 				    var userAccount = await _walletClient.GetAddressInformation(user.Address);
-				    var asset = userAccount.Asset.SingleOrDefault(a => a.Key.Equals(_tokenOptions.Value.Name.ToLower(), StringComparison.CurrentCultureIgnoreCase));
+				    var asset = userAccount.Asset.SingleOrDefault(a => a.Key.Equals(_tokenOptions.Value.Name, StringComparison.CurrentCultureIgnoreCase));
 
 				    if (asset.Key == null || asset.Value <= _tokenOptions.Value.TransferOnlyWhenHasLessOrEqualThan)
 				    {

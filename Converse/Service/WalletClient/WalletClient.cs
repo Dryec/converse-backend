@@ -95,6 +95,11 @@ namespace Converse.Service.WalletClient
 				Result = false
 			};
 
+			if (receiver.Equals(PropertyAddress.Address, StringComparison.CurrentCultureIgnoreCase))
+			{
+				return transferTokenResult;
+			}
+
 			var contract = new Protocol.TransferAssetContract()
 			{
 				Amount = amount,
