@@ -53,5 +53,10 @@
         "type": 59,
         "group_address": "...",
         "message": ""
-    }
+    },
+	
+	"SetPublic": {
+		"type": 60,
+		"group_address": "...",
+	}
 }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Converse.Models;
 using Converse.Service;
+using Converse.Singleton.WalletClient;
 using Google.Protobuf;
 using Grpc.Core;
 using Newtonsoft.Json;
@@ -68,7 +69,7 @@ namespace Converse.Controllers
 
 		// GET: api/Users/{address}/requestTokens
 		[HttpGet("{address}/requestTokens")]
-	    public async Task<IActionResult> RequestTokens([FromRoute] string address, [FromServices] Service.WalletClient.WalletClient walletClient, [FromServices] IOptions<Configuration.Token> _tokenOptions)
+	    public async Task<IActionResult> RequestTokens([FromRoute] string address, [FromServices] WalletClient walletClient, [FromServices] IOptions<Configuration.Token> _tokenOptions)
 	    {
 		    if (!ModelState.IsValid)
 		    {

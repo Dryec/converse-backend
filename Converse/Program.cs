@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using Client;
+using System.Threading;
+using Converse.Singleton.WalletClient;
 using Crypto;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Org.BouncyCastle.Math;
 
 namespace Converse
 {
@@ -28,7 +26,7 @@ namespace Converse
 					var password = Utils.ConsoleHelper.ReadPassword();
 					var privateKey = NETCore.Encrypt.EncryptProvider.AESDecrypt(encryptedPrivateKey, NETCore.Encrypt.EncryptProvider.Sha256(password).Substring(0, 32));
 
-					Service.WalletClient.WalletClient.PropertyAddress = new Client.Wallet(ECKey.FromPrivateHexString(privateKey));
+					WalletClient.PropertyAddress = new Client.Wallet(ECKey.FromPrivateHexString(privateKey));
 
 					var webHostBuilder = CreateWebHostBuilder(args);
 					webHostBuilder.Build().Run();

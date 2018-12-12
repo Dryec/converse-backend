@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Net;
 using Converse.Service;
+using Converse.Singleton;
+using Converse.Singleton.WalletClient;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,19 +34,14 @@ namespace Converse
 				.AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
 				.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-			// Forwarding
-			//services.Configure<ForwardedHeadersOptions>(options =>
-			//{
-			//	options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
-			//});
-
 			// Add Configurations
 			services.Configure<Configuration.Node>(Configuration.GetSection("Node"));
 			services.Configure<Configuration.Token>(Configuration.GetSection("Token"));
 			services.Configure<Configuration.Block>(Configuration.GetSection("Block"));
 
 			// Add Singletons
-			services.AddSingleton<Service.WalletClient.WalletClient>();
+			services.AddSingleton<FCMClient>();
+			services.AddSingleton<WalletClient>();
 
 			// Add DatabaseContext with ConnectionString from the app settings.
 			services.AddDbContextPool<Service.DatabaseContext>(options =>
@@ -68,7 +65,10 @@ namespace Converse
 
 			appLifetime.ApplicationStarted.Register(() =>
 			{
-				var walletClient = app.ApplicationServices.GetService<Service.WalletClient.WalletClient>();
+				var fcmClient = app.ApplicationServices.GetService<FCMClient>();
+				fcmClient.Initialize(Configuration.GetSection("Firebase"));
+				
+				var walletClient = app.ApplicationServices.GetService<WalletClient>();
 				walletClient.Start();
 			});
 

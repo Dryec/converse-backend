@@ -7,7 +7,7 @@ using Protocol;
 using Google.Protobuf;
 using Microsoft.Extensions.Logging;
 
-namespace Converse.Service.WalletClient
+namespace Converse.Singleton.WalletClient
 {
 	public class Token
 	{

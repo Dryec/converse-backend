@@ -15,6 +15,7 @@ namespace Converse.Action
 		UserChangeProfilePicture,
 		UserBlockUser,
 		UserSendMessage,
+		UserAddDeviceId,
 
 		// Group Actions
 		GroupCreate = 50,
@@ -27,6 +28,7 @@ namespace Converse.Action
 		GroupJoin,
 		GroupLeave,
 		GroupMessage,
+		GroupSetPublic,
 	}
 
 	public static class Constants
@@ -36,6 +38,7 @@ namespace Converse.Action
 			Type.UserChangeStatus,
 			Type.UserChangeProfilePicture,
 			Type.UserBlockUser,
+			Type.UserAddDeviceId,
 
 			Type.GroupCreate,
 		};
@@ -53,7 +56,7 @@ namespace Converse.Action
 		public BlockExtention Block { get; set; }
 
 		public Service.DatabaseContext DatabaseContext { get; set; }
-		public Service.WalletClient.Logger Logger { get; set; }
+		public Singleton.WalletClient.Logger Logger { get; set; }
 	}
 
 	public class Action

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 
-namespace Converse.Service.WalletClient
+namespace Converse.Singleton.WalletClient
 {
 	public class Logger
 	{

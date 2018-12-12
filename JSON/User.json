@@ -28,5 +28,10 @@
         "comment": "Message crypten mit receiver public key",
         "type": 5,
         "message": { }
+    },
+    "AddDeviceId":
+    {
+		"type": 6,
+        "device_id": "..."
     }
 }

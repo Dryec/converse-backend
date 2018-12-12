@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Converse.Service.WalletClient.ActionHandlers
+namespace Converse.Singleton.WalletClient.ActionHandlers
 {
 	public static class UserChangeProfilePicture
 	{
