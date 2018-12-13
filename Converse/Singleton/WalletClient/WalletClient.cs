@@ -169,61 +169,75 @@ namespace Converse.Singleton.WalletClient
 			_appLifeTime.ApplicationStopping.Register(Stop);
 
 			while (_isThreadRunning) {
-				// Convert last synced block to integer
-				var lastSyncedBlock = Convert.ToInt64(lastSyncedBlockModel.Value);
-
-				// Read nextBlock til (nextBlock + synchronizationCount)
-				var unsortedBlocks = await _walletClient.GetBlockByLimitNextAsync(new BlockLimit()
+				try
 				{
-					StartNum = lastSyncedBlock + 1,
-					EndNum = lastSyncedBlock + 1 + synchronizationCount,
-				});
 
-				// Retrieved any blocks?
-				if (unsortedBlocks.Block.Count > 0)
-				{
-					// @ToDo: Look if better solution then OrderBy
-					var blocks = (unsortedBlocks.Block.Count > 1
-						? unsortedBlocks.Block.OrderBy(block => block.BlockHeader.RawData.Number).ToList()
-						: unsortedBlocks.Block.ToList());
+				
 
-					using (var transactionScope = databaseContext.Database.BeginTransaction())
+					// Convert last synced block to integer
+					var lastSyncedBlock = Convert.ToInt64(lastSyncedBlockModel.Value);
+
+					// Read nextBlock til (nextBlock + synchronizationCount)
+					var unsortedBlocks = await _walletClient.GetBlockByLimitNextAsync(new BlockLimit()
 					{
-						try
+						StartNum = lastSyncedBlock + 1,
+						EndNum = lastSyncedBlock + 1 + synchronizationCount,
+					});
+
+					// Retrieved any blocks?
+					if (unsortedBlocks.Block.Count > 0)
+					{
+						// @ToDo: Look if better solution then OrderBy
+						var blocks = (unsortedBlocks.Block.Count > 1
+							? unsortedBlocks.Block.OrderBy(block => block.BlockHeader.RawData.Number).ToList()
+							: unsortedBlocks.Block.ToList());
+
+						using (var transactionScope = databaseContext.Database.BeginTransaction())
 						{
-							foreach (var block in blocks)
+							try
 							{
-								foreach (var transaction in block.Transactions)
+								foreach (var block in blocks)
 								{
-									_actionHandler.Handle(transaction, block);
+									foreach (var transaction in block.Transactions)
+									{
+										_actionHandler.Handle(transaction, block);
+									}
+
+									lastSyncedBlock = block.BlockHeader.RawData.Number;
 								}
 
-								lastSyncedBlock = block.BlockHeader.RawData.Number;
+								lastSyncedBlockModel.Value = lastSyncedBlock.ToString();
+
+								databaseContext.SaveChanges();
+								transactionScope.Commit();
 							}
+							catch (DbUpdateException e)
+							{
+								_logger.Log.LogCritical(Logger.CannotSaveChanges,
+									"Could not save changes to database! Error: ");
+								_logger.Log.LogCritical(Logger.CannotSaveChanges, e.Message);
+								_logger.Log.LogCritical(Logger.CannotSaveChanges, e.StackTrace);
 
-							lastSyncedBlockModel.Value = lastSyncedBlock.ToString();
+								transactionScope.Rollback();
 
-							databaseContext.SaveChanges();
-							transactionScope.Commit();
-						}
-						catch (DbUpdateException e)
-						{
-							_logger.Log.LogCritical(Logger.CannotSaveChanges, "Could not save changes to database! Error: ");
-							_logger.Log.LogCritical(Logger.CannotSaveChanges, e.Message);
-							_logger.Log.LogCritical(Logger.CannotSaveChanges, e.StackTrace);
-
-							transactionScope.Rollback();
-
-							UpdateDbContext();
+								UpdateDbContext();
+							}
 						}
 					}
-				}
 
-				// When could retrieve 0 blocks or less than tried to sync, decrease the counter, but synchronize at least 3 blocks
-				// Reasons: ResourceExhausted or already Up2Date
-				if ((unsortedBlocks.Block.Count == 0 || unsortedBlocks.Block.Count < synchronizationCount) && synchronizationCount > 3)
+					// When could retrieve 0 blocks or less than tried to sync, decrease the counter, but synchronize at least 3 blocks
+					// Reasons: ResourceExhausted or already Up2Date
+					if (unsortedBlocks.Block.Count == 0 && synchronizationCount > 3)
+					{
+						synchronizationCount--;
+					}
+				}
+				catch (Grpc.Core.RpcException)
 				{
-					synchronizationCount--;
+					if (synchronizationCount > 3)
+					{
+						synchronizationCount--;
+					}
 				}
 
 				Thread.Sleep(_blockConfiguration.SyncSleepTime);
