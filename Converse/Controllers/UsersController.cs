@@ -64,12 +64,16 @@ namespace Converse.Controllers
                 return NotFound();
             }
 
-            return Ok(new Models.View.User(user));
+	        return Ok(JsonConvert.SerializeObject(new Models.View.User(user),
+		        new JsonSerializerSettings()
+		        {
+			        DateTimeZoneHandling = DateTimeZoneHandling.Utc
+		        }));
         }
 
 		// GET: api/Users/{address}/requestTokens
 		[HttpGet("{address}/requestTokens")]
-	    public async Task<IActionResult> RequestTokens([FromRoute] string address, [FromServices] WalletClient walletClient, [FromServices] IOptions<Configuration.Token> _tokenOptions)
+	    public async Task<IActionResult> RequestTokens([FromRoute] string address, [FromServices] WalletClient walletClient, [FromServices] IOptions<Configuration.Token> tokenOptions)
 	    {
 		    if (!ModelState.IsValid)
 		    {
@@ -88,19 +92,19 @@ namespace Converse.Controllers
 			    rt.CreatedAt.Date == DateTime.Today
 			).ToList();
 		    var sumTokensReceivedToday = receivedTokensToday.Sum(rt => rt.ReceivedTokens);
-		    if (sumTokensReceivedToday < _tokenOptions.Value.TransferMaxPerAccountEveryDay)
+		    if (sumTokensReceivedToday < tokenOptions.Value.TransferMaxPerAccountEveryDay)
 		    {
 			    try
 			    {
 				    var userAccount = await walletClient.GetAddressInformation(address);
-				    var asset = userAccount.Asset.SingleOrDefault(a => a.Key.Equals(_tokenOptions.Value.Name, StringComparison.CurrentCultureIgnoreCase));
+				    var asset = userAccount.Asset.SingleOrDefault(a => a.Key.Equals(tokenOptions.Value.Name, StringComparison.CurrentCultureIgnoreCase));
 
-				    if (asset.Key == null || asset.Value <= _tokenOptions.Value.TransferOnlyWhenHasLessOrEqualThan)
+				    if (asset.Key == null || asset.Value <= tokenOptions.Value.TransferOnlyWhenHasLessOrEqualThan)
 				    {
-					    var canReceiveToday = (_tokenOptions.Value.TransferMaxPerAccountEveryDay - sumTokensReceivedToday);
-					    var amount = (canReceiveToday <= _tokenOptions.Value.TransferSteps
+					    var canReceiveToday = (tokenOptions.Value.TransferMaxPerAccountEveryDay - sumTokensReceivedToday);
+					    var amount = (canReceiveToday <= tokenOptions.Value.TransferSteps
 						    ? canReceiveToday
-						    : _tokenOptions.Value.TransferSteps
+						    : tokenOptions.Value.TransferSteps
 						);
 
 					    var transferResult = await walletClient.TransferTokenFromProperty(amount, address);

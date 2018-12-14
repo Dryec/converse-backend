@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Converse.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20181210175249_Initialize")]
+    [Migration("20181214200446_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -176,6 +176,24 @@ namespace Converse.Migrations
                     b.ToTable("users");
                 });
 
+            modelBuilder.Entity("Converse.Models.UserDeviceId", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<string>("DeviceId");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("userdeviceids");
+                });
+
             modelBuilder.Entity("Converse.Models.UserReceivedToken", b =>
                 {
                     b.Property<int>("Id")
@@ -232,6 +250,14 @@ namespace Converse.Migrations
 
                     b.HasOne("Converse.Models.User", "User")
                         .WithMany("ChatUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Converse.Models.UserDeviceId", b =>
+                {
+                    b.HasOne("Converse.Models.User", "User")
+                        .WithMany("UserDeviceIds")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

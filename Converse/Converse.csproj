@@ -15,6 +15,18 @@
     <Compile Remove="Migrations\20181122213655_Initial.Designer.cs" />
     <Compile Remove="Migrations\20181122213736_Initialize.cs" />
     <Compile Remove="Migrations\20181122213736_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20181210175249_Initialize.cs" />
+    <Compile Remove="Migrations\20181210175249_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20181212223902_DeviceIds.cs" />
+    <Compile Remove="Migrations\20181212223902_DeviceIds.Designer.cs" />
+    <Compile Remove="Migrations\20181214192544_Initialize.cs" />
+    <Compile Remove="Migrations\20181214192544_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20181214193720_Initialize.cs" />
+    <Compile Remove="Migrations\20181214193720_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20181214194539_Initialize.cs" />
+    <Compile Remove="Migrations\20181214194539_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20181214195257_Initialize.cs" />
+    <Compile Remove="Migrations\20181214195257_Initialize.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -46,8 +46,11 @@ namespace Converse
 			// Add DatabaseContext with ConnectionString from the app settings.
 			services.AddDbContextPool<Service.DatabaseContext>(options =>
 				options
-					.UseMySql(Configuration.GetConnectionString("MySql"), mySqlOptions =>
-						mySqlOptions.ServerVersion(new Version(10, 1, 31), ServerType.MariaDb))
+					.UseMySql(Configuration.GetConnectionString("MySql"), mySqlOptions => mySqlOptions
+						.CharSetBehavior(CharSetBehavior.AppendToAllColumns)
+						.UnicodeCharSet(CharSet.Utf8mb4)
+						.ServerVersion(new Version(10, 1, 31), ServerType.MariaDb)
+					)
 			);
 		}
 

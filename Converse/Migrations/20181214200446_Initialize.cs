@@ -183,6 +183,27 @@ namespace Converse.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "userdeviceids",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<int>(nullable: false),
+                    DeviceId = table.Column<string>(nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_userdeviceids", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_userdeviceids_users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_blockedusers_UserId",
                 table: "blockedusers",
@@ -213,6 +234,11 @@ namespace Converse.Migrations
                 name: "IX_chatusers_UserId",
                 table: "chatusers",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_userdeviceids_UserId",
+                table: "userdeviceids",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -231,6 +257,9 @@ namespace Converse.Migrations
 
             migrationBuilder.DropTable(
                 name: "settings");
+
+            migrationBuilder.DropTable(
+                name: "userdeviceids");
 
             migrationBuilder.DropTable(
                 name: "userreceivedtokens");

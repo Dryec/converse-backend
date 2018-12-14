@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Converse.Models;
 using Converse.Service;
+using Newtonsoft.Json;
 
 namespace Converse.Controllers
 {
@@ -51,7 +52,12 @@ namespace Converse.Controllers
 				chats.Add(new Models.View.Chat(chatUser.Chat, user.Address));
 			}
 
-			return Ok(chats);
+			return Ok(JsonConvert.SerializeObject(chats, 
+				new JsonSerializerSettings()
+				{
+					DateTimeZoneHandling = DateTimeZoneHandling.Utc 
+				})
+			);
         }
 
         // GET: api/Chats/tron_address or user_id/chat_id
@@ -83,7 +89,11 @@ namespace Converse.Controllers
 				}
 			}
 
-			return Ok(new Models.View.Chat(chat, userId));
+			return Ok(JsonConvert.SerializeObject(new Models.View.Chat(chat, userId),
+				new JsonSerializerSettings()
+		        {
+			        DateTimeZoneHandling = DateTimeZoneHandling.Utc
+		        }));
         }
 
 	    // GET: api/Chats/Group/group_address or chat_id
@@ -96,7 +106,7 @@ namespace Converse.Controllers
 		    }
 
 		    var isNumeric = int.TryParse(chatId, out var id);
-		    Models.Chat chat = null;
+		    Models.Chat chat;
 		    if (isNumeric)
 		    {
 			    chat = await _context.Chats
@@ -117,7 +127,11 @@ namespace Converse.Controllers
 			    return NotFound();
 		    }
 
-			return Ok(new Models.View.ChatSetting(chat.Setting, chat.Users));
+			return Ok(JsonConvert.SerializeObject(new Models.View.ChatSetting(chat.Setting, chat.Users), 
+				new JsonSerializerSettings()
+				{
+					DateTimeZoneHandling = DateTimeZoneHandling.Utc
+				}));
 	    }
 
 
@@ -150,7 +164,12 @@ namespace Converse.Controllers
 			    endMessageId = chatMessages.Last().InternalId;
 		    }
 
-			return Ok(new Models.View.ChatMessagesRange(chatId, startMessageId, endMessageId, chatMessages));
+			return Ok(JsonConvert.SerializeObject(
+				new Models.View.ChatMessagesRange(chatId, startMessageId, endMessageId, chatMessages),
+			    new JsonSerializerSettings()
+			    {
+				    DateTimeZoneHandling = DateTimeZoneHandling.Utc
+			    }));
 	    }
 	}
 }
