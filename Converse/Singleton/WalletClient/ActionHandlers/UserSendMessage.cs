@@ -87,8 +87,8 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			context.DatabaseContext.ChatMessages.Add(chatMessage);
 			context.DatabaseContext.SaveChanges();
 
-			var firebase = context.ServiceProvider.GetService<FCMClient>();
-			if (firebase != null)
+			var fcmClient = context.ServiceProvider.GetService<FCMClient>();
+			if (fcmClient != null)
 			{
 				var androidNotification = new AndroidNotification()
 				{
@@ -99,12 +99,14 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 
 				foreach (var receiverUserDeviceId in receiverUser.DeviceIds)
 				{
-					firebase.SendMessage(receiverUserDeviceId.DeviceId, chat.Id.ToString(), "msg", androidData, androidNotification, MessagePriority.high);
+					fcmClient.SendMessage(receiverUserDeviceId.DeviceId, chat.Id.ToString(), "msg", androidData,
+						androidNotification, MessagePriority.high).ConfigureAwait(false);
 				}
 
 				foreach (var senderUserDeviceId in senderUser.DeviceIds)
 				{
-					firebase.SendMessage(senderUserDeviceId.DeviceId, chat.Id.ToString(), "msg", androidData, null, MessagePriority.high);
+					fcmClient.SendMessage(senderUserDeviceId.DeviceId, chat.Id.ToString(), "msg", androidData, null,
+						MessagePriority.high).ConfigureAwait(false);
 				}
 			}
 		}
