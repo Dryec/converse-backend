@@ -64,7 +64,7 @@ namespace Converse.Controllers
                 return NotFound();
             }
 
-	        return Ok(JsonConvert.SerializeObject(new Models.View.User(user),
+	        return Content(JsonConvert.SerializeObject(new Models.View.User(user),
 		        new JsonSerializerSettings()
 		        {
 					NullValueHandling = NullValueHandling.Ignore,

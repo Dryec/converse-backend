@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Converse.Models;
 using Converse.Service;
 using Newtonsoft.Json;
+using Chat = Converse.Constants.Chat;
 
 namespace Converse.Controllers
 {
@@ -52,7 +53,7 @@ namespace Converse.Controllers
 				chats.Add(new Models.View.Chat(chatUser.Chat, user.Address));
 			}
 
-			return Ok(JsonConvert.SerializeObject(chats, 
+			return Content(JsonConvert.SerializeObject(chats, 
 				new JsonSerializerSettings()
 				{
 					NullValueHandling = NullValueHandling.Ignore,
@@ -63,34 +64,47 @@ namespace Converse.Controllers
 
 		// GET: api/Chats/chat_id/tron_address or user_id
 		[HttpGet("{chatId}/{userId?}")]
-        public async Task<IActionResult> GetChat([FromRoute] int chatId, [FromRoute] string userId)
+        public async Task<IActionResult> GetChat([FromRoute] string chatId, [FromRoute] string userId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var chat = await _context.Chats
+	        var isChatIdNumeric = int.TryParse(chatId, out var chatIdAsInt);
+
+            var preparedChat = _context.Chats
 	            .Include(c => c.Setting)
 	            .Include(c => c.Users).ThenInclude(u => u.User)
-	            .Include(c => c.Messages).ThenInclude(u => u.User)
-	            .FirstOrDefaultAsync(c => c.Id == chatId);
-            if (chat == null)
+	            .Include(c => c.Messages).ThenInclude(u => u.User);
+
+	        var chat = await (isChatIdNumeric
+		        ? preparedChat.FirstOrDefaultAsync(c => c.Id == chatIdAsInt)
+		        : preparedChat.FirstOrDefaultAsync(c => c.IsGroup && c.Setting.Address == chatId));
+			if (chat == null)
             {
                 return NotFound("ChatNotFound");
             }
 
-	        var isNumeric = int.TryParse(userId, out var userIdAsInt);
-	        if (isNumeric) 
+	        if (chat.GetType() == Chat.Type.Normal)
 	        {
-		        userId = (await _context.Users.FindAsync(userIdAsInt))?.Address;
 		        if (userId == null)
 		        {
-			        return NotFound("UserNotFound");
-				}
+			        return BadRequest("InvalidUserId");
+		        }
+
+		        var isNumeric = int.TryParse(userId, out var userIdAsInt);
+		        if (isNumeric)
+		        {
+			        userId = (await _context.Users.FindAsync(userIdAsInt))?.Address;
+			        if (userId == null)
+			        {
+				        return NotFound("UserNotFound");
+			        }
+		        }
 			}
 
-			return Ok(JsonConvert.SerializeObject(new Models.View.Chat(chat, userId),
+			return Content(JsonConvert.SerializeObject(new Models.View.Chat(chat, userId),
 				new JsonSerializerSettings()
 		        {
 					NullValueHandling = NullValueHandling.Ignore,
@@ -129,7 +143,7 @@ namespace Converse.Controllers
 			    return NotFound();
 		    }
 
-			return Ok(JsonConvert.SerializeObject(new Models.View.ChatSetting(chat.Setting, chat.Users), 
+			return Content(JsonConvert.SerializeObject(new Models.View.ChatSetting(chat.Setting, chat.Users), 
 				new JsonSerializerSettings()
 				{
 					NullValueHandling = NullValueHandling.Ignore,
@@ -175,7 +189,7 @@ namespace Converse.Controllers
 			    endMessageId = chatMessages.Last().InternalId;
 		    }
 
-			return Ok(JsonConvert.SerializeObject(
+			return Content(JsonConvert.SerializeObject(
 				new Models.View.ChatMessagesRange(chatId, startMessageId, endMessageId, chatMessages),
 			    new JsonSerializerSettings()
 			    {
