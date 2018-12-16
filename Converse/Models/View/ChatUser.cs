@@ -8,6 +8,7 @@ namespace Converse.Models.View
 {
 	public class ChatUser : Models.View.User
 	{
+		[JsonProperty(PropertyName = "is_admin")]
 		public bool IsAdmin { get; set; }
 
 		[JsonProperty(PropertyName = "timestamp")]

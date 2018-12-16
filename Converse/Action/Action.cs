@@ -52,9 +52,10 @@ namespace Converse.Action
 		public string Message { get; set; }
 
 		public string TransactionHash { get; set; }
-		public TransactionExtention Transaction { get; set; }
+		public Transaction Transaction { get; set; }
 		public BlockExtention Block { get; set; }
 
+		public IServiceProvider ServiceProvider { get; set; }
 		public Service.DatabaseContext DatabaseContext { get; set; }
 		public Singleton.WalletClient.Logger Logger { get; set; }
 	}

@@ -8,14 +8,22 @@ namespace Converse.Models.View
 {
 	public class ChatSetting
 	{
+		[JsonProperty(PropertyName = "id")]
 		public int Id { get; set; }
+
+		[JsonProperty(PropertyName = "address")]
 		public string Address { get; set; }
+
+		[JsonProperty(PropertyName = "name")]
 		public string Name { get; set; }
+
+		[JsonProperty(PropertyName = "image")]
 		public string Image { get; set; }
 
 		[JsonProperty(PropertyName = "is_public")]
 		public bool IsPublic { get; set; }
 
+		[JsonProperty(PropertyName = "users")]
 		public List<Models.View.User> Users;
 
 		public ChatSetting(Models.ChatSetting chatSetting, IEnumerable<Models.ChatUser> chatUsers = null)

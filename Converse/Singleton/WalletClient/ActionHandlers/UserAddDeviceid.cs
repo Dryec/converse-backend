@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
+using Newtonsoft.Json;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Crypto;
 using Common;
-using Google.Protobuf;
+using Converse.Utils;
 
 namespace Converse.Singleton.WalletClient.ActionHandlers
 {
@@ -15,24 +12,49 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 	{
 		public static void Handle(Action.Context context)
 		{
-			var signature = new ECDSASignature(context.Transaction.Transaction.Signature.ElementAt(0).ToByteArray());
-			var publicKey = ECKey.RecoverPubBytesFromSignature(signature,
-				Crypto.Sha256.Hash(context.Transaction.Transaction.RawData.ToByteArray()), false);
-
-
+			// Get public key from transaction
+			var publicKey = context.Transaction.GetPublicKey();
+			if (publicKey == null)
+			{
+				context.Logger.Log.LogError(Logger.InvalidPublicKey, "Couldn't get public key.");
+				return;
+			}
+			
+			// Deserialize message from transaction
 			var userAddDeviceId = JsonConvert.DeserializeObject<Action.User.AddDeviceId>(context.Message);
 
-			var xy = WalletClient.PropertyAddress.ECKey.Decrypt(userAddDeviceId.DeviceId.FromHexToByteArray(), publicKey);
+			// Decrypt deviceId by PropertyAddress key
+			var deviceIdHexString = WalletClient.PropertyAddress.DecryptData(userAddDeviceId.DeviceId.FromHexToByteArray(), publicKey);
 
-			var z = System.Text.Encoding.Default.GetString(xy);
+			// Decode the device id
+			var deviceId = Encoding.UTF8.GetString(deviceIdHexString);
+
+			// ToDo: Check deviceId
 
 			context.Logger.Log.LogDebug(Logger.HandleUserSendMessage,
 				"AddDeviceId: Sender '{Sender} DeviceId {DeviceId}'!",
-				context.Sender, userAddDeviceId.DeviceId);
+				context.Sender, deviceId);
 
-			var sender = context.DatabaseContext.GetUser(context.Sender);
+			// Get user id to search if device id is already registered
+			var senderUser = context.DatabaseContext.GetUser(context.Sender, users => users.Include(u => u.DeviceIds));
+			var userDeviceId = senderUser.DeviceIds.Find(u => u.DeviceId == deviceId);
+			
+			if (userDeviceId == null)
+			{
+				userDeviceId = new Models.UserDeviceId()
+				{
+					User = senderUser,
+					DeviceId = deviceId,
+					UpdatedAt = DateTime.UtcNow,
+					CreatedAt = DateTime.UtcNow,
+				};
 
-			// @ToDo
+				context.DatabaseContext.UserDeviceIds.Add(userDeviceId);
+			}
+			else
+			{
+				userDeviceId.UpdatedAt = DateTime.UtcNow;
+			}
 
 			context.DatabaseContext.SaveChanges();
 		}

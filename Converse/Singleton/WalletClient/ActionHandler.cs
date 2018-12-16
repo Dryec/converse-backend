@@ -1,17 +1,16 @@
 ﻿using System.Linq;
-using Converse.Action;
-using Converse.Service;
-using Converse.Singleton.WalletClient;
+using Common;
 using Google.Protobuf;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Protocol;
+using Converse.Utils;
 
 namespace Converse.Singleton.WalletClient
 {
 	public class ActionHandler
 	{
-		public DatabaseContext DatabaseContext { get; set; }
+		public Service.DatabaseContext DatabaseContext { get; set; }
 
 		private readonly Logger _logger;
 		private readonly Token _token;
@@ -22,7 +21,7 @@ namespace Converse.Singleton.WalletClient
 			_token = token;
 		}
 
-		public void Handle(TransactionExtention transaction, BlockExtention block)
+		public void Handle(TransactionExtention transaction, BlockExtention block, System.IServiceProvider serviceProvider)
 		{
 			// Parse transaction contract data
 			if (transaction.Transaction.RawData.Contract.Count <= 0)
@@ -31,7 +30,7 @@ namespace Converse.Singleton.WalletClient
 			}
 
 			var contract = transaction.Transaction.RawData.Contract[0];
-			if (contract.Type != Transaction.Types.Contract.Types.ContractType.TransferAssetContract)
+			if (contract.Type != Protocol.Transaction.Types.Contract.Types.ContractType.TransferAssetContract)
 			{
 				return;
 			}
@@ -46,12 +45,20 @@ namespace Converse.Singleton.WalletClient
 			var senderAddress = Utils.Address.FromByteString(transferAssetContract.OwnerAddress);
 			var receiverAddress = Utils.Address.FromByteString(transferAssetContract.ToAddress);
 
-			DatabaseContext.CreateUsersWhenNotExist(new[] { senderAddress, receiverAddress });
+			var senderUser = DatabaseContext.CreateUsersWhenNotExist(new[] { senderAddress, receiverAddress }).Find(u => u.Address == senderAddress);
+			if (string.IsNullOrEmpty(senderUser.PublicKey))
+			{
+				var publicKey = transaction.Transaction.GetPublicKey();
+				if (publicKey != null)
+				{
+					senderUser.PublicKey = publicKey.ToHexString();
+				}
+			}
 			DatabaseContext.SaveChanges();
 
 			// Get message + transactionHash
-			var transactionHash = Common.Utils
-				.ToHexString(Crypto.Sha256.Hash(transaction.Transaction.RawData.ToByteArray()))
+			var transactionHash = Crypto.Sha256.Hash(transaction.Transaction.RawData.ToByteArray())
+				.ToHexString()
 				.ToLower();
 
 			var message = transaction.Transaction.RawData.Data.ToStringUtf8();
@@ -78,16 +85,17 @@ namespace Converse.Singleton.WalletClient
 					}
 				}
 
-				var context = new Context()
+				var context = new Action.Context()
 				{
 					Sender = senderAddress,
 					Receiver = receiverAddress,
 					Message = message,
 
-					Transaction = transaction,
+					Transaction = transaction.Transaction,
 					TransactionHash = transactionHash,
 					Block = block,
 					
+					ServiceProvider = serviceProvider,
 					DatabaseContext = DatabaseContext,
 					Logger = _logger,
 				};

@@ -55,14 +55,15 @@ namespace Converse.Controllers
 			return Ok(JsonConvert.SerializeObject(chats, 
 				new JsonSerializerSettings()
 				{
+					NullValueHandling = NullValueHandling.Ignore,
 					DateTimeZoneHandling = DateTimeZoneHandling.Utc 
 				})
 			);
         }
 
-        // GET: api/Chats/tron_address or user_id/chat_id
-        [HttpGet("{userId}/{chatId}")]
-        public async Task<IActionResult> GetChat([FromRoute] string userId, [FromRoute] int chatId)
+		// GET: api/Chats/chat_id/tron_address or user_id
+		[HttpGet("{chatId}/{userId?}")]
+        public async Task<IActionResult> GetChat([FromRoute] int chatId, [FromRoute] string userId)
         {
             if (!ModelState.IsValid)
             {
@@ -80,7 +81,7 @@ namespace Converse.Controllers
             }
 
 	        var isNumeric = int.TryParse(userId, out var userIdAsInt);
-	        if (isNumeric)
+	        if (isNumeric) 
 	        {
 		        userId = (await _context.Users.FindAsync(userIdAsInt))?.Address;
 		        if (userId == null)
@@ -92,6 +93,7 @@ namespace Converse.Controllers
 			return Ok(JsonConvert.SerializeObject(new Models.View.Chat(chat, userId),
 				new JsonSerializerSettings()
 		        {
+					NullValueHandling = NullValueHandling.Ignore,
 			        DateTimeZoneHandling = DateTimeZoneHandling.Utc
 		        }));
         }
@@ -130,6 +132,7 @@ namespace Converse.Controllers
 			return Ok(JsonConvert.SerializeObject(new Models.View.ChatSetting(chat.Setting, chat.Users), 
 				new JsonSerializerSettings()
 				{
+					NullValueHandling = NullValueHandling.Ignore,
 					DateTimeZoneHandling = DateTimeZoneHandling.Utc
 				}));
 	    }
@@ -139,7 +142,15 @@ namespace Converse.Controllers
 	    [HttpGet("{chatId}/messages/{startMessageId}/{endMessageId}")]
 	    public async Task<IActionResult> GetGroup([FromRoute] int chatId, int startMessageId, int endMessageId)
 	    {
-		    if (!ModelState.IsValid)
+		    if (startMessageId > endMessageId || startMessageId < 0 || endMessageId < 0)
+		    {
+			    return BadRequest("InvalidRange");
+		    } else if (endMessageId - startMessageId > 50)
+		    {
+			    return BadRequest("MaximumExceeded");
+			}
+
+			if (!ModelState.IsValid)
 		    {
 			    return BadRequest(ModelState);
 		    }
@@ -168,6 +179,7 @@ namespace Converse.Controllers
 				new Models.View.ChatMessagesRange(chatId, startMessageId, endMessageId, chatMessages),
 			    new JsonSerializerSettings()
 			    {
+					NullValueHandling = NullValueHandling.Ignore,
 				    DateTimeZoneHandling = DateTimeZoneHandling.Utc
 			    }));
 	    }

@@ -36,7 +36,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 					User = user,
 					Address = context.Sender,
 					BlockedAddress = blockUserMessage.Address,
-					CreatedAt = DateTime.Now,
+					CreatedAt = DateTime.UtcNow,
 				};
 
 				context.DatabaseContext.BlockedUsers.Add(blockedUser);

@@ -67,6 +67,7 @@ namespace Converse.Controllers
 	        return Ok(JsonConvert.SerializeObject(new Models.View.User(user),
 		        new JsonSerializerSettings()
 		        {
+					NullValueHandling = NullValueHandling.Ignore,
 			        DateTimeZoneHandling = DateTimeZoneHandling.Utc
 		        }));
         }
@@ -122,7 +123,7 @@ namespace Converse.Controllers
 								Address = address,
 								Ip = ipAddress,
 								ReceivedTokens = amount,
-								CreatedAt = DateTime.Now,
+								CreatedAt = DateTime.UtcNow,
 						    });
 						    _context.SaveChanges();
 					    }

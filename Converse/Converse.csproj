@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -30,7 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="propertyAddress" />
+    <Content Include="propertyAddress">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Startup.cs" />
   </ItemGroup>
 

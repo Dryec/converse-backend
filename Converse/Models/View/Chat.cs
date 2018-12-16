@@ -8,7 +8,10 @@ namespace Converse.Models.View
 {
 	public class Chat
 	{
+		[JsonProperty(PropertyName = "id")]
 		public int Id { get; set; }
+
+		[JsonProperty(PropertyName = "type")]
 		public Constants.Chat.Type Type { get; set; }
 		
 		[JsonProperty(PropertyName = "messages_count")]

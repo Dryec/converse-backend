@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Converse.Models;
 
 namespace Converse.Service
@@ -15,6 +12,7 @@ namespace Converse.Service
 
 		public DbSet<Models.User> Users { get; set; }
 		public DbSet<Models.UserReceivedToken> UserReceivedTokens { get; set; }
+		public DbSet<Models.UserDeviceId> UserDeviceIds { get; set; }
 		public DbSet<Models.BlockedUser> BlockedUsers { get; set; }
 
 		public DbSet<Models.Chat> Chats { get; set; }
@@ -43,9 +41,9 @@ namespace Converse.Service
 				.FirstOrDefault(cu => !cu.Chat.IsGroup)?.Chat;
 		}
 
-		public Models.User GetUser(string address)
+		public Models.User GetUser(string address, Func<IQueryable<User>, IQueryable<User>> eagerLoading = null)
 		{
-			return Users.SingleOrDefault(user => user.Address == address);
+			return (eagerLoading == null ? Users : eagerLoading(Users)).SingleOrDefault(user => user.Address == address);
 		}
 
 		public Models.User CreateUserWhenNotExist(string address)
@@ -60,7 +58,7 @@ namespace Converse.Service
 					Nickname = null,
 					Status = null,
 					ProfilePictureUrl = null,
-					CreatedAt = DateTime.Now
+					CreatedAt = DateTime.UtcNow
 				};
 
 				Users.Add(user);

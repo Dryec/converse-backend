@@ -8,6 +8,7 @@ namespace Converse.Models.View
 {
 	public class ChatMessage
 	{
+		[JsonProperty(PropertyName = "id")]
 		public int Id { get; set; }
 
 		[JsonProperty(PropertyName = "trans_id")]
@@ -19,6 +20,7 @@ namespace Converse.Models.View
 		[JsonProperty(PropertyName = "sender")]
 		public Models.View.User User { get; set; }
 
+		[JsonProperty(PropertyName = "message")]
 		public string Message { get; set; }
 
 		[JsonProperty(PropertyName = "timestamp")]

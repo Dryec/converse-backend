@@ -139,12 +139,12 @@ namespace Crypto
 					output = cipher.DoFinal(data);
 					return output;
 				}
-				catch (System.Exception ex)
+				catch (System.Exception)
 				{
 					throw new CryptoException("Invalid Data");
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 
 			}
@@ -177,12 +177,12 @@ namespace Crypto
 					output = cipher.DoFinal(cipherData);
 
 				}
-				catch (System.Exception ex)
+				catch (System.Exception)
 				{
 					throw new CryptoException("Invalid Data");
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 			}
 

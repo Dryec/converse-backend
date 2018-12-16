@@ -25,7 +25,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				context.Sender, changeStatusMessage.Status);
 
 			user.Status = changeStatusMessage.Status;
-			user.StatusUpdatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.Transaction.RawData.Timestamp).DateTime;
+			user.StatusUpdatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.RawData.Timestamp).DateTime;
 			context.DatabaseContext.SaveChanges();
 		}
 	}

@@ -29,7 +29,7 @@ namespace Client
 
                 return string.Empty;
             }
-            set { _privateKey = value; }
+            set => _privateKey = value;
         }
 
         private string _address;
@@ -59,9 +59,9 @@ namespace Client
             
         }
 
-        public Wallet(bool generateECKey)
+        public Wallet(bool generateEcKey)
         {
-            if (generateECKey)
+            if (generateEcKey)
             {
                 ECKey = new ECKey();
             }
@@ -72,8 +72,13 @@ namespace Client
             ECKey = eCKey;
         }
 
+	    public byte[] DecryptData(byte[] data, byte[] publicKey)
+		{
+			return ECKey.Decrypt(data, publicKey);
+		}
 
-        public void SignTransaction(Transaction transaction, Boolean setTimestamp = true)
+
+        public void SignTransaction(Transaction transaction, bool setTimestamp = true)
         {
             if (transaction == null)
             {

@@ -38,7 +38,7 @@ namespace Converse.Singleton
 			var message = new Message()
 			{
 				To = receiver,
-				Notification = notification
+				Notification = notification,
 			};
 
 			return await _client.SendMessageAsync(message);

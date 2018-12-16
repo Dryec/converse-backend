@@ -16,17 +16,18 @@ namespace Converse.Models
 		public string Nickname { get; set; }
 		public string ProfilePictureUrl { get; set; }
 		public string Status { get; set; }
+		public string PublicKey { get; set; }
 
 		public DateTime StatusUpdatedAt { get; set; }
 		public DateTime CreatedAt { get; set; }
 
-		public List<ChatUser> ChatUsers { get; set; }
-		public List<UserDeviceId> UserDeviceIds { get; set; }
+		public List<ChatUser> ChatUsers { get; }
+		public List<UserDeviceId> DeviceIds { get; }
 
 		public User()
 		{
 			ChatUsers = new List<ChatUser>();
-			UserDeviceIds = new List<UserDeviceId>();
+			DeviceIds = new List<UserDeviceId>();
 		}
 	}
 }

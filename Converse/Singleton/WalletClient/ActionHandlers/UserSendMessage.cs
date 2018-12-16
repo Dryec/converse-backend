@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FirebaseNet.Messaging;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace Converse.Singleton.WalletClient.ActionHandlers
@@ -18,7 +20,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				"SendMessage: Sender '{Sender}' Receiver '{Receiver}'!",
 				context.Sender, context.Receiver);
 
-			var senderUser = context.DatabaseContext.GetUser(context.Sender);
+			var senderUser = context.DatabaseContext.GetUser(context.Sender, users => users.Include(u => u.DeviceIds));
 			var receiverUser = context.DatabaseContext.GetUser(context.Receiver);
 			if (senderUser == null || receiverUser == null)
 			{
@@ -34,7 +36,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				chat = new Models.Chat()
 				{
 					IsGroup = false,
-					CreatedAt = DateTime.Now
+					CreatedAt = DateTime.UtcNow
 				};
 
 				context.DatabaseContext.Chats.Add(chat);
@@ -46,8 +48,8 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 					Address = context.Sender,
 
 					IsAdmin = false,
-					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.Transaction.RawData.Timestamp).DateTime,
-					CreatedAt = DateTime.Now,
+					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.RawData.Timestamp).DateTime,
+					CreatedAt = DateTime.UtcNow,
 				};
 				var chatUser2 = new Models.ChatUser()
 				{
@@ -56,8 +58,8 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 					Address = context.Receiver,
 
 					IsAdmin = false,
-					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.Transaction.RawData.Timestamp).DateTime,
-					CreatedAt = DateTime.Now,
+					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.RawData.Timestamp).DateTime,
+					CreatedAt = DateTime.UtcNow,
 				};
 
 				context.DatabaseContext.ChatUsers.Add(chatUser1);
@@ -78,11 +80,28 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				BlockCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Block.BlockHeader.RawData.Timestamp).DateTime,
 
 				TransactionHash = context.TransactionHash,
-				TransactionCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.Transaction.RawData.Timestamp).DateTime,
+				TransactionCreatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.RawData.Timestamp).DateTime,
 
-				CreatedAt = DateTime.Now,
+				CreatedAt = DateTime.UtcNow,
 			};
 			context.DatabaseContext.ChatMessages.Add(chatMessage);
+
+			var firebase = context.ServiceProvider.GetService<FCMClient>();
+			if (firebase != null)
+			{
+				var androidNotification = new AndroidNotification()
+				{
+					Title = senderUser.Nickname ?? senderUser.Address,
+					Body = ,
+					
+				};
+
+				foreach (var senderUserDeviceId in senderUser.DeviceIds)
+				{
+					firebase.SendMessage(senderUserDeviceId.DeviceId, androidNotification);
+				}
+			}
+
 
 			context.DatabaseContext.SaveChanges();
 		}

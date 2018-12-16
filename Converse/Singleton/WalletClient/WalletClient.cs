@@ -141,6 +141,8 @@ namespace Converse.Singleton.WalletClient
 			DatabaseContext databaseContext;
 			Models.Setting lastSyncedBlockModel;
 
+			_appLifeTime.ApplicationStopping.Register(Stop);
+
 			void UpdateDbContext()
 			{
 				// Get new database context
@@ -152,7 +154,6 @@ namespace Converse.Singleton.WalletClient
 				lastSyncedBlockModel = databaseContext.GetLastSyncedBlock();
 				if (lastSyncedBlockModel == null)
 				{
-					_isThreadRunning = false;
 					_appLifeTime.StopApplication();
 					_logger.Log.LogCritical(Logger.LastSyncedBlockNotFound,
 						"Could not find 'LastSyncedBlockId' in 'Settings' Table! Make sure to migrate the migrations!");
@@ -166,14 +167,9 @@ namespace Converse.Singleton.WalletClient
 			}
 			UpdateDbContext();
 
-			_appLifeTime.ApplicationStopping.Register(Stop);
-
 			while (_isThreadRunning) {
 				try
 				{
-
-				
-
 					// Convert last synced block to integer
 					var lastSyncedBlock = Convert.ToInt64(lastSyncedBlockModel.Value);
 
@@ -200,7 +196,7 @@ namespace Converse.Singleton.WalletClient
 								{
 									foreach (var transaction in block.Transactions)
 									{
-										_actionHandler.Handle(transaction, block);
+										_actionHandler.Handle(transaction, block, _serviceProvider);
 									}
 
 									lastSyncedBlock = block.BlockHeader.RawData.Number;

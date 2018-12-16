@@ -8,9 +8,13 @@ namespace Converse.Models.View
 {
 	public class ChatMessagesRange
 	{
+		[JsonProperty(PropertyName = "id")]
 		public int Id { get; set; }
 
+		[JsonProperty(PropertyName = "start")]
 		public int Start { get; set; }
+
+		[JsonProperty(PropertyName = "end")]
 		public int End { get; set; }
 
 		[JsonProperty(PropertyName = "messages")]
