@@ -164,7 +164,7 @@ namespace Converse.Controllers
 			    return NotFound();
 		    }
 
-			var chatMessages = chat.Messages.Where(cm => cm.InternalId >= startMessageId && cm.InternalId <= endMessageId).ToList();
+			var chatMessages = chat.Messages.Where(cm => cm.InternalId >= startMessageId && cm.InternalId <= endMessageId).OrderBy(cm => cm.InternalId).ToList();
 		    if (!chatMessages.Any())
 		    {
 			    startMessageId = endMessageId = 0;

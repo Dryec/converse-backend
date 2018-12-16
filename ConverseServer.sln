@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Libraries\Common\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TronProtocol", "Libraries\TronProtocol\TronProtocol.csproj", "{1BAB5065-7455-408D-8FE1-5E6FA67D4178}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converse", "Converse\Converse.csproj", "{BAD8B3B8-E083-4FD2-9F2D-C840A57BC999}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Converse", "Converse\Converse.csproj", "{BAD8B3B8-E083-4FD2-9F2D-C840A57BC999}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

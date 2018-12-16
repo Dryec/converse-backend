@@ -21,7 +21,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				context.Sender, context.Receiver);
 
 			var senderUser = context.DatabaseContext.GetUser(context.Sender, users => users.Include(u => u.DeviceIds));
-			var receiverUser = context.DatabaseContext.GetUser(context.Receiver);
+			var receiverUser = context.DatabaseContext.GetUser(context.Receiver, users => users.Include(u => u.DeviceIds));
 			if (senderUser == null || receiverUser == null)
 			{
 				context.Logger.Log.LogDebug(Logger.HandleUserSendMessage,
@@ -85,6 +85,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				CreatedAt = DateTime.UtcNow,
 			};
 			context.DatabaseContext.ChatMessages.Add(chatMessage);
+			context.DatabaseContext.SaveChanges();
 
 			var firebase = context.ServiceProvider.GetService<FCMClient>();
 			if (firebase != null)
@@ -92,18 +93,20 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				var androidNotification = new AndroidNotification()
 				{
 					Title = senderUser.Nickname ?? senderUser.Address,
-					Body = ,
-					
+					Body = chatMessage.Message,
 				};
+				var androidData = new Models.View.ChatMessage(chatMessage);
+
+				foreach (var receiverUserDeviceId in receiverUser.DeviceIds)
+				{
+					firebase.SendMessage(receiverUserDeviceId.DeviceId, chat.Id.ToString(), "msg", androidData, androidNotification, MessagePriority.high);
+				}
 
 				foreach (var senderUserDeviceId in senderUser.DeviceIds)
 				{
-					firebase.SendMessage(senderUserDeviceId.DeviceId, androidNotification);
+					firebase.SendMessage(senderUserDeviceId.DeviceId, chat.Id.ToString(), "msg", androidData, null, MessagePriority.high);
 				}
 			}
-
-
-			context.DatabaseContext.SaveChanges();
 		}
 	}
 }
