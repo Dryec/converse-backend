@@ -95,17 +95,17 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 					Title = senderUser.Nickname ?? senderUser.Address,
 					Body = chatMessage.Message,
 				};
-				var androidData = new Models.View.ChatMessage(chatMessage);
+				var fcmData = new Models.View.ChatMessage(chatMessage);
 
 				foreach (var receiverUserDeviceId in receiverUser.DeviceIds)
 				{
-					fcmClient.SendMessage(receiverUserDeviceId.DeviceId, chat.Id.ToString(), "msg", androidData,
+					fcmClient.SendMessage(receiverUserDeviceId.DeviceId, chat.Id.ToString(), "msg", fcmData,
 						androidNotification, MessagePriority.high).ConfigureAwait(false);
 				}
 
 				foreach (var senderUserDeviceId in senderUser.DeviceIds)
 				{
-					fcmClient.SendMessage(senderUserDeviceId.DeviceId, chat.Id.ToString(), "msg", androidData, null,
+					fcmClient.SendMessage(senderUserDeviceId.DeviceId, chat.Id.ToString(), "msg", fcmData, null,
 						MessagePriority.high).ConfigureAwait(false);
 				}
 			}

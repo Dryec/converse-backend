@@ -51,7 +51,7 @@ namespace Converse.Models.View
 
 			if (chat.Messages.Count > 0)
 			{
-				ChatMessage = new Models.View.ChatMessage(chat.Messages.Last());
+				ChatMessage = new Models.View.ChatMessage(chat.Messages.OrderBy(m => m.InternalId).Last());
 			}
 		}
 	}

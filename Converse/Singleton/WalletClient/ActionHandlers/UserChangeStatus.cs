@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FirebaseNet.Messaging;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace Converse.Singleton.WalletClient.ActionHandlers
@@ -27,6 +29,10 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			user.Status = changeStatusMessage.Status;
 			user.StatusUpdatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.RawData.Timestamp).DateTime;
 			context.DatabaseContext.SaveChanges();
+
+			context.ServiceProvider.GetService<FCMClient>()?
+				.SendMessage("/topic/update/" + user.Address, user.Id.ToString(), "update_user", new Models.View.User(user), null, MessagePriority.high)
+				.ConfigureAwait(false);
 		}
 	}
 }
