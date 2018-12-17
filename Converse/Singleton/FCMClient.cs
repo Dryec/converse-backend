@@ -29,7 +29,7 @@ namespace Converse.Singleton
 			_isInitialized = true;
 		}
 
-		public async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string tag, T data, INotification notification, MessagePriority priority)
+		public async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string type, T data, INotification notification, MessagePriority priority)
 			where T : class
 		{
 			if (!_isInitialized)
@@ -47,7 +47,7 @@ namespace Converse.Singleton
 							"id", id
 						},
 						{
-							"tag", tag
+							"type", type
 						},
 						{
 							"data", JsonConvert.SerializeObject(data)
