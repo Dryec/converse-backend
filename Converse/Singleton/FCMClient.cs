@@ -24,9 +24,10 @@ namespace Converse.Singleton
 			}
 
 			var serverKey = configuration.GetValue<string>("ServerKey");
-			_client = new FirebaseNet.Messaging.FCMClient(serverKey);
 
 			_isInitialized = true;
+
+			_client = new FirebaseNet.Messaging.FCMClient(serverKey);
 		}
 
 		private async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string type, T data, INotification notification, MessagePriority priority)
@@ -70,7 +71,7 @@ namespace Converse.Singleton
 		public void UpdateAddress(Models.User user)
 		{
 			SendMessage(
-					"/topic/update_" + user.Address,
+					"/topics/update_" + user.Address,
 					user.Id.ToString(),
 					"update_user",
 					new Models.View.User(user),
