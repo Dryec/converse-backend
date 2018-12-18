@@ -131,20 +131,20 @@ namespace Crypto
 			byte[] output = null;
 			try
 			{
-				var keyparam = ParameterUtilities.CreateKeyParameter("DES", derivedKey);
-				var cipher = CipherUtilities.GetCipher("DES/ECB/ISO7816_4PADDING");
+				var keyparam = ParameterUtilities.CreateKeyParameter("AES", derivedKey);
+				var cipher = CipherUtilities.GetCipher("AES/CBC/PKCS5Padding");
 				cipher.Init(true, keyparam);
 				try
 				{
 					output = cipher.DoFinal(data);
 					return output;
 				}
-				catch (System.Exception)
+				catch (System.Exception ex)
 				{
 					throw new CryptoException("Invalid Data");
 				}
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 
 			}
@@ -169,20 +169,20 @@ namespace Crypto
 			byte[] output = null;
 			try
 			{
-				var keyparam = ParameterUtilities.CreateKeyParameter("DES", derivedKey);
-				var cipher = CipherUtilities.GetCipher("DES/ECB/ISO7816_4PADDING");
+				var keyparam = ParameterUtilities.CreateKeyParameter("AES", derivedKey);
+				var cipher = CipherUtilities.GetCipher("AES/CBC/PKCS5Padding");
 				cipher.Init(false, keyparam);
 				try
 				{
 					output = cipher.DoFinal(cipherData);
 
 				}
-				catch (System.Exception)
+				catch (System.Exception ex)
 				{
 					throw new CryptoException("Invalid Data");
 				}
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 			}
 
