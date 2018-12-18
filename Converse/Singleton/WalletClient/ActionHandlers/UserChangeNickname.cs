@@ -38,7 +38,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			context.DatabaseContext.SaveChanges();
 
 			context.ServiceProvider.GetService<FCMClient>()?
-				.SendMessage("/topic/update/" + user.Address, user.Id.ToString(), "update_user",
+				.SendMessage("/topic/update_" + user.Address, user.Id.ToString(), "update_user",
 					new Models.View.User(user), null, MessagePriority.high)
 				.ConfigureAwait(false);
 		}
