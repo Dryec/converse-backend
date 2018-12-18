@@ -9,7 +9,7 @@ namespace Converse.Singleton.WalletClient
 	public class Logger
 	{
 		public const int SynchronizationDisabled = 1000;
-		public const int InvalidPublicKey = 1001;
+		public const int InvalidBase64Format = 1001;
 
 		// ParseTransaction
 		public const int NewTransaction = 1050;

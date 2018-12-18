@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Common;
 using Google.Protobuf;
 using Microsoft.Extensions.Logging;
@@ -51,7 +52,7 @@ namespace Converse.Singleton.WalletClient
 				var publicKey = transaction.Transaction.GetPublicKey();
 				if (publicKey != null)
 				{
-					senderUser.PublicKey = publicKey.ToHexString();
+					senderUser.PublicKey = publicKey.EncodeBase64();
 				}
 			}
 			DatabaseContext.SaveChanges();

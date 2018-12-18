@@ -6,6 +6,7 @@ using FirebaseNet.Messaging;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Converse.Utils;
 
 namespace Converse.Singleton.WalletClient.ActionHandlers
 {
@@ -16,6 +17,13 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			// @ToDo: Check if picture url is valid
 			var changeProfilePictureMessage = JsonConvert.DeserializeObject<Action.User.ChangeProfilePicture>(context.Message);
 
+			var profilePictureUrl = changeProfilePictureMessage.Image.DecryptByTransaction(context.Transaction)?.ToUtf8String();
+			if (profilePictureUrl == null)
+			{
+				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
+				return;
+			}
+
 			var user = context.DatabaseContext.GetUser(context.Sender);
 			if (user == null)
 			{
@@ -24,9 +32,9 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 
 			context.Logger.Log.LogDebug(Logger.HandleUserChangeProfilePicture,
 				"UserChangeProfilePicture: Sender '{Address}' Image: '{Image}' Clear: {Clear}!",
-				context.Sender, changeProfilePictureMessage.Image, changeProfilePictureMessage.Clear);
+				context.Sender, profilePictureUrl, changeProfilePictureMessage.Clear);
 
-			user.ProfilePictureUrl = (changeProfilePictureMessage.Clear ? null : changeProfilePictureMessage.Image);
+			user.ProfilePictureUrl = (changeProfilePictureMessage.Clear ? null : profilePictureUrl);
 			context.DatabaseContext.SaveChanges();
 
 			context.ServiceProvider.GetService<FCMClient>()?

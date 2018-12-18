@@ -6,6 +6,7 @@ using FirebaseNet.Messaging;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Converse.Utils;
 
 namespace Converse.Singleton.WalletClient.ActionHandlers
 {
@@ -16,6 +17,13 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			// @ToDo: Check if status is valid
 			var changeStatusMessage = JsonConvert.DeserializeObject<Action.User.ChangeStatus>(context.Message);
 
+			var status = changeStatusMessage.Status.DecryptByTransaction(context.Transaction)?.ToUtf8String();
+			if (status == null)
+			{
+				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
+				return;
+			}
+
 			var user = context.DatabaseContext.GetUser(context.Sender);
 			if (user == null)
 			{
@@ -24,9 +32,9 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 
 			context.Logger.Log.LogDebug(Logger.HandleUserChangeStatus,
 				"UserChangeStatus: Sender '{Address}' Status: '{Status}'!",
-				context.Sender, changeStatusMessage.Status);
+				context.Sender, status);
 
-			user.Status = changeStatusMessage.Status;
+			user.Status = status;
 			user.StatusUpdatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.RawData.Timestamp).DateTime;
 			context.DatabaseContext.SaveChanges();
 
