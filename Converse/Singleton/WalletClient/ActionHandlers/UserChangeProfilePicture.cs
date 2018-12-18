@@ -37,10 +37,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			user.ProfilePictureUrl = (changeProfilePictureMessage.Clear ? null : profilePictureUrl);
 			context.DatabaseContext.SaveChanges();
 
-			context.ServiceProvider.GetService<FCMClient>()?
-				.SendMessage("/topic/update_" + user.Address, user.Id.ToString(), "update_user",
-					new Models.View.User(user), null, MessagePriority.high)
-				.ConfigureAwait(false);
+			context.ServiceProvider.GetService<FCMClient>()?.UpdateAddress(user);
 		}
 	}
 }

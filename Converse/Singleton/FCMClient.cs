@@ -29,7 +29,7 @@ namespace Converse.Singleton
 			_isInitialized = true;
 		}
 
-		public async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string type, T data, INotification notification, MessagePriority priority)
+		private async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string type, T data, INotification notification, MessagePriority priority)
 			where T : class
 		{
 			if (!_isInitialized)
@@ -65,6 +65,51 @@ namespace Converse.Singleton
 			};
 
 			return await _client.SendMessageAsync(message);
+		}
+
+		public void UpdateAddress(Models.User user)
+		{
+			SendMessage(
+					"/topic/update_" + user.Address,
+					user.Id.ToString(),
+					"update_user",
+					new Models.View.User(user),
+					null,
+					MessagePriority.high
+			).ConfigureAwait(false);
+		}
+
+		public void NotifyUserMessage(Models.User sender, Models.User receiver, Models.ChatMessage chatMessage)
+		{
+			var androidNotification = new AndroidNotification()
+			{
+				Title = sender.Nickname ?? sender.Address,
+				Body = chatMessage.Message,
+			};
+			var viewChatMessage = new Models.View.ChatMessage(chatMessage);
+
+			var chatId = chatMessage.ChatId.ToString();
+
+			foreach (var receiverUserDeviceId in receiver.DeviceIds)
+			{
+				SendMessage(receiverUserDeviceId.DeviceId,
+					chatId,
+					"msg",
+					viewChatMessage,
+					androidNotification,
+					MessagePriority.high
+				).ConfigureAwait(false);
+			}
+
+			foreach (var senderUserDeviceId in sender.DeviceIds)
+			{
+				SendMessage(senderUserDeviceId.DeviceId,
+					chatMessage.ChatId.ToString(),
+					"msg",
+					viewChatMessage, null,
+					MessagePriority.high
+				).ConfigureAwait(false);
+			}
 		}
 	}
 }

@@ -8,6 +8,12 @@ namespace Converse.Service
 {
 	public class DatabaseContext : DbContext
 	{
+		private struct ChatUserSetting
+		{
+			public User User { get; set; }
+			public bool IsAdmin { get; set; }
+		}
+
 		public DbSet<Models.Setting> Settings { get; set; }
 
 		public DbSet<Models.User> Users { get; set; }
@@ -39,6 +45,51 @@ namespace Converse.Service
 				             ChatUsers.Any(cuSecond => cu.ChatId == cuSecond.ChatId && cuSecond.Address == secondAddress)
 				)
 				.FirstOrDefault(cu => !cu.Chat.IsGroup)?.Chat;
+		}
+
+
+		private (Chat, List<ChatUser>) CreateChat(IEnumerable<ChatUserSetting> chatUserSettings, bool isGroup, long joinedAt)
+		{
+			var time = DateTimeOffset.FromUnixTimeMilliseconds(joinedAt).DateTime;
+
+			var chat = new Chat()
+			{
+				IsGroup = isGroup,
+				CreatedAt = time
+			};
+			Chats.Add(chat);
+
+			var chatUsers = chatUserSettings.Select(chatUserSetting => new ChatUser()
+				{
+					Chat = chat,
+					User = chatUserSetting.User,
+					Address = chatUserSetting.User.Address,
+					IsAdmin = chatUserSetting.IsAdmin,
+					JoinedAt = time,
+					CreatedAt = DateTime.UtcNow,
+				})
+				.ToList();
+
+			ChatUsers.AddRange(chatUsers);
+
+			return (chat, chatUsers);
+		}
+
+		public (Chat, List<ChatUser>) CreateChat(User sender, User receiver, long joinedAt)
+		{
+			return CreateChat(new List<ChatUserSetting>()
+			{
+				new ChatUserSetting()
+				{
+					User = sender,
+					IsAdmin = false,
+				},
+				new ChatUserSetting()
+				{
+					User = receiver,
+					IsAdmin = false,
+				}
+			}, false, joinedAt);
 		}
 
 		public Models.User GetUser(string address, Func<IQueryable<User>, IQueryable<User>> eagerLoading = null)

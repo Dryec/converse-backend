@@ -10,16 +10,24 @@ using Newtonsoft.Json;
 
 namespace Converse.Singleton.WalletClient.ActionHandlers
 {
+	public class ChatUserSetting
+	{
+		public Models.User User { get; set; }
+		public bool IsAdmin { get; set; }
+	}
+
 	public static class UserSendMessage
 	{
 		public static void Handle(Action.Context context)
 		{
+			// Deserialize send message
 			var userSendMessage = JsonConvert.DeserializeObject<Action.User.SendMessage>(context.Message);
 
 			context.Logger.Log.LogDebug(Logger.HandleUserSendMessage,
 				"SendMessage: Sender '{Sender}' Receiver '{Receiver}'!",
 				context.Sender, context.Receiver);
 
+			// Get user models from sender and receiver
 			var senderUser = context.DatabaseContext.GetUser(context.Sender, users => users.Include(u => u.DeviceIds));
 			var receiverUser = context.DatabaseContext.GetUser(context.Receiver, users => users.Include(u => u.DeviceIds));
 			if (senderUser == null || receiverUser == null)
@@ -30,43 +38,14 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
-			var chat = context.DatabaseContext.GetChat(context.Sender, context.Receiver);
-			if (chat == null)
-			{
-				chat = new Models.Chat()
-				{
-					IsGroup = false,
-					CreatedAt = DateTime.UtcNow
-				};
+			// Get chat or create if not exist
+			var chat = context.DatabaseContext.GetChat(context.Sender, context.Receiver) ??
+			           context.DatabaseContext.CreateChat(senderUser, receiverUser, context.Transaction.RawData.Timestamp).Item1;
 
-				context.DatabaseContext.Chats.Add(chat);
-
-				var chatUser1 = new Models.ChatUser()
-				{
-					Chat = chat,
-					User = senderUser,
-					Address = context.Sender,
-
-					IsAdmin = false,
-					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.RawData.Timestamp).DateTime,
-					CreatedAt = DateTime.UtcNow,
-				};
-				var chatUser2 = new Models.ChatUser()
-				{
-					Chat = chat,
-					User = receiverUser,
-					Address = context.Receiver,
-
-					IsAdmin = false,
-					JoinedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.RawData.Timestamp).DateTime,
-					CreatedAt = DateTime.UtcNow,
-				};
-
-				context.DatabaseContext.ChatUsers.Add(chatUser1);
-				context.DatabaseContext.ChatUsers.Add(chatUser2);
-			}
-
+			// Get last sent message id
 			var lastMessageInternalId = context.DatabaseContext.ChatMessages.LastOrDefault(cm => cm.Chat == chat)?.InternalId ?? 0;
+
+			// Create new chat message
 			var chatMessage = new Models.ChatMessage()
 			{
 				InternalId = lastMessageInternalId + 1,
@@ -87,28 +66,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			context.DatabaseContext.ChatMessages.Add(chatMessage);
 			context.DatabaseContext.SaveChanges();
 
-			var fcmClient = context.ServiceProvider.GetService<FCMClient>();
-			if (fcmClient != null)
-			{
-				var androidNotification = new AndroidNotification()
-				{
-					Title = senderUser.Nickname ?? senderUser.Address,
-					Body = chatMessage.Message,
-				};
-				var fcmData = new Models.View.ChatMessage(chatMessage);
-
-				foreach (var receiverUserDeviceId in receiverUser.DeviceIds)
-				{
-					fcmClient.SendMessage(receiverUserDeviceId.DeviceId, chat.Id.ToString(), "msg", fcmData,
-						androidNotification, MessagePriority.high).ConfigureAwait(false);
-				}
-
-				foreach (var senderUserDeviceId in senderUser.DeviceIds)
-				{
-					fcmClient.SendMessage(senderUserDeviceId.DeviceId, chat.Id.ToString(), "msg", fcmData, null,
-						MessagePriority.high).ConfigureAwait(false);
-				}
-			}
+			context.ServiceProvider.GetService<FCMClient>()?.NotifyUserMessage(senderUser, receiverUser, chatMessage);
 		}
 	}
 }

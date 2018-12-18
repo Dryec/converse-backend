@@ -14,7 +14,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			// Deserialize message from transaction
 			var userAddDeviceId = JsonConvert.DeserializeObject<Action.User.AddDeviceId>(context.Message);
 
-			string deviceId = userAddDeviceId.DeviceId.DecryptByTransaction(context.Transaction)?.ToUtf8String();
+			var deviceId = userAddDeviceId.DeviceId.DecryptByTransaction(context.Transaction)?.ToUtf8String();
 			if (deviceId == null)
 			{
 				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
