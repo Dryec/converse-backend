@@ -17,8 +17,8 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			// @ToDo: Check if picture url is valid
 			var changeProfilePictureMessage = JsonConvert.DeserializeObject<Action.User.ChangeProfilePicture>(context.Message);
 
-			var profilePictureUrl = changeProfilePictureMessage.Image.DecryptByTransaction(context.Transaction)?.ToUtf8String();
-			if (profilePictureUrl == null)
+			var profilePictureUrl = (changeProfilePictureMessage.Clear ? null : changeProfilePictureMessage.Image.DecryptByTransaction(context.Transaction)?.ToUtf8String());
+			if (!changeProfilePictureMessage.Clear && profilePictureUrl == null)
 			{
 				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
 				return;
@@ -34,7 +34,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				"UserChangeProfilePicture: Sender '{Address}' Image: '{Image}' Clear: {Clear}!",
 				context.Sender, profilePictureUrl, changeProfilePictureMessage.Clear);
 
-			user.ProfilePictureUrl = (changeProfilePictureMessage.Clear ? null : profilePictureUrl);
+			user.ProfilePictureUrl = profilePictureUrl;
 			context.DatabaseContext.SaveChanges();
 
 			context.ServiceProvider.GetService<FCMClient>()?.UpdateAddress(user);

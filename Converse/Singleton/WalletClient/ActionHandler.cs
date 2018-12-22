@@ -125,8 +125,10 @@ namespace Converse.Singleton.WalletClient
 						Singleton.WalletClient.ActionHandlers.GroupCreate.Handle(context);
 						break;
 					case Action.Type.GroupChangeName:
+						Singleton.WalletClient.ActionHandlers.GroupChangeName.Handle(context);
 						break;
 					case Action.Type.GroupChangeDescription:
+						Singleton.WalletClient.ActionHandlers.GroupChangeDescription.Handle(context);
 						break;
 					case Action.Type.GroupChangePicture:
 						break;

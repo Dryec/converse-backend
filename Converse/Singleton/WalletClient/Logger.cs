@@ -32,6 +32,15 @@ namespace Converse.Singleton.WalletClient
 		public const int HandleUserSendMessage = 1504;
 
 		public const int HandleGroupCreate = 1505;
+		public const int HandleGroupChangeName = 1506;
+		public const int HandleGroupChangeDescription = 1507;
+		public const int HandleGroupChangeImage = 1508;
+		public const int HandleGroupAddUser = 1509;
+		public const int HandleGroupKickUser = 1510;
+		public const int HandleGroupSetUserRank = 1511;
+		public const int HandleGroupJoin = 1512;
+		public const int HandleGroupLeave = 1513;
+		public const int HandleGroupMessage = 1514;
 
 		public ILogger Log { get; }
 
