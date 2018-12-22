@@ -6,11 +6,8 @@ using Newtonsoft.Json;
 
 namespace Converse.Action.User
 {
-	public class AddDeviceId
+	public class AddDeviceId : Action
 	{
-		[JsonProperty(Required = Required.Always)]
-		public Type Type { get; set; }
-
 		[JsonProperty(PropertyName = "device_id", Required = Required.Always)]
 		public string DeviceId { get; set; }
 	}

@@ -6,11 +6,8 @@ using Newtonsoft.Json;
 
 namespace Converse.Action.User
 {
-	public class ChangeStatus
+	public class ChangeStatus : Action
 	{
-		[JsonProperty(Required = Required.Always)]
-		public Type Type { get; set; }
-
 		[JsonProperty(Required = Required.Always)]
 		public string Status { get; set; }
 	}

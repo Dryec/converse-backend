@@ -31,6 +31,8 @@ namespace Converse.Singleton.WalletClient
 		public const int HandleUserBlockedUser = 1503;
 		public const int HandleUserSendMessage = 1504;
 
+		public const int HandleGroupCreate = 1505;
+
 		public ILogger Log { get; }
 
 		public Logger(ILogger logger)

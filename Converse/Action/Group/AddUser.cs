@@ -4,14 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Converse.Action.User
+namespace Converse.Action.Group
 {
-	public class BlockUser : Action
+	public class AddUser : Action
 	{
 		[JsonProperty(Required = Required.Always)]
 		public string Address { get; set; }
 
-		[JsonProperty(PropertyName = "is_blocked", Required = Required.Always)]
-		public bool IsBlocked { get; set; }
+		public string Key { get; set; }
 	}
 }

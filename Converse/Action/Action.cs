@@ -22,9 +22,9 @@ namespace Converse.Action
 		GroupChangeName,
 		GroupChangeDescription,
 		GroupChangePicture,
-		GroupAddUsers,
-		GroupKickUsers,
-		GroupSetUserRanks,
+		GroupAddUser,
+		GroupKickUser,
+		GroupSetUserRank,
 		GroupJoin,
 		GroupLeave,
 		GroupMessage,
@@ -56,7 +56,7 @@ namespace Converse.Action
 		public BlockExtention Block { get; set; }
 
 		public IServiceProvider ServiceProvider { get; set; }
-		public Service.DatabaseContext DatabaseContext { get; set; }
+		public Database.DatabaseContext DatabaseContext { get; set; }
 		public Singleton.WalletClient.Logger Logger { get; set; }
 	}
 

@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Net;
-using Converse.Service;
 using Converse.Singleton;
 using Converse.Singleton.WalletClient;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +43,7 @@ namespace Converse
 			services.AddSingleton<WalletClient>();
 
 			// Add DatabaseContext with ConnectionString from the app settings.
-			services.AddDbContextPool<Service.DatabaseContext>(options =>
+			services.AddDbContextPool<Database.DatabaseContext>(options =>
 				options
 					.UseMySql(Configuration.GetConnectionString("MySql"), mySqlOptions => mySqlOptions
 						.CharSetBehavior(CharSetBehavior.AppendToAllColumns)

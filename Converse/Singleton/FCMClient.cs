@@ -24,10 +24,13 @@ namespace Converse.Singleton
 			}
 
 			var serverKey = configuration.GetValue<string>("ServerKey");
-
-			_isInitialized = true;
+			if (string.IsNullOrEmpty(serverKey))
+			{
+				return;
+			}
 
 			_client = new FirebaseNet.Messaging.FCMClient(serverKey);
+			_isInitialized = true;
 		}
 
 		private async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string type, T data, INotification notification, MessagePriority priority)

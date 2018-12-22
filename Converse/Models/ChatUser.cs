@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace Converse.Models
 {
+	public enum ChatUserRank
+	{
+		User,
+		Admin,
+		Owner,
+	}
+
 	[Table("chatusers")]
 	public class ChatUser
 	{
@@ -19,7 +26,9 @@ namespace Converse.Models
 		public User User { get; set; }
 
 		public string Address { get; set; }
-		public bool IsAdmin { get; set; }
+		public ChatUserRank Rank { get; set; }
+
+		public string PrivateKey { get; set; }
 
 		public DateTime JoinedAt { get; set; }
 		public DateTime CreatedAt { get; set; }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Converse.Action.User
+namespace Converse.Action.Group
 {
-	public class ChangeProfilePicture : Action
+	public class ChangePicture : Action
 	{
 		[JsonProperty(Required = Required.Always)]
 		public string Image { get; set; }

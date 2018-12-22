@@ -2,7 +2,12 @@
     "Create": {
         "comment": "Im Frontend neue Addresse erstellen",
         "type": 50,
-        "address": "..."
+        "address": "...",
+        "private_key": "...",
+        "name": "...",
+        "description": "...",
+        "image": "...",
+        "is_public": false
     },
 
     "ChangeName": {
@@ -12,51 +17,49 @@
 
     "ChangeDescription": {
         "type": 52,
-        "name": "..."
+        "description": "..."
     },
 
     "ChangePictureURL": {
         "comment": "Wenn clear auf true, Profilbild entfernen",
-        "type": 53,
+        "type": 53, 
         "clear": true,
-        "name": "..."
+        "image": "..."
     },
 
-    "AddUsers": {
+    "AddUser": {
         "type": 54,
-        "users": [ "...", "...", "..." ]
+        "address": "...",
+        "key": "..."
     },
 
-    "KickUsers": {
+    "KickUser": {
         "type": 55,
-        "users": [ "...", "...", "..." ] 
+        "address": "..." 
     },
 
     "SetUserRank": {
         "comment": "rank: 0 - Member, 1 - Admin",
         "type": 56,
         "rank": 0,
-        "user": []
+        "address": "..."
     },
 
     "Join": {
-        "type": 57,
-        "group_address": "..."
+        "type": 57
     },
 
     "Leave": {
-        "type": 58,
-        "group_address": "..."
+        "type": 58
     },
 
     "Message": {
         "type": 59,
-        "group_address": "...",
         "message": ""
     },
 	
 	"SetPublic": {
-		"type": 60,
-		"group_address": "...",
+        "comment": "Später implementieren",
+		"type": 60
 	}
 }

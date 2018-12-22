@@ -37,7 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Action\Group\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

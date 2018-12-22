@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Converse.Service;
+using Converse.Database;
 using Converse.Singleton.WalletClient;
 using Google.Protobuf;
 using Microsoft.AspNetCore.Hosting;
@@ -194,7 +194,10 @@ namespace Converse.Singleton.WalletClient
 							{
 								foreach (var block in blocks)
 								{
-									foreach (var transaction in block.Transactions)
+									var sortedTransactions =
+										block.Transactions.OrderBy(t => t.Transaction.RawData.Timestamp);
+
+									foreach (var transaction in sortedTransactions)
 									{
 										_actionHandler.Handle(transaction, block, _serviceProvider);
 									}

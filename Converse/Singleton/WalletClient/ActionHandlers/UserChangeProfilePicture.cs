@@ -24,7 +24,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
-			var user = context.DatabaseContext.GetUser(context.Sender);
+			var user = context.DatabaseContext.GetUser(context.Sender).GetAwaiter().GetResult();
 			if (user == null)
 			{
 				return;

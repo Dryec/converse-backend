@@ -8,8 +8,8 @@ namespace Converse.Models.View
 {
 	public class ChatUser : Models.View.User
 	{
-		[JsonProperty(PropertyName = "is_admin")]
-		public bool IsAdmin { get; set; }
+		[JsonProperty(PropertyName = "rank")]
+		public ChatUserRank Rank { get; set; }
 
 		[JsonProperty(PropertyName = "timestamp")]
 		public DateTime JoinedAt { get; }
@@ -17,7 +17,7 @@ namespace Converse.Models.View
 		public ChatUser(Models.ChatUser chatUser)
 			: base(chatUser.User)
 		{
-			IsAdmin = chatUser.IsAdmin;
+			Rank = chatUser.Rank;
 			JoinedAt = chatUser.JoinedAt;
 		}
 	}

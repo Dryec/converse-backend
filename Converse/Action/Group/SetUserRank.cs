@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Converse.Action.User
+namespace Converse.Action.Group
 {
-	public class ChangeProfilePicture : Action
+	public class SetUserRank : Action
 	{
 		[JsonProperty(Required = Required.Always)]
-		public string Image { get; set; }
+		public int Rank { get; set; }
 
 		[JsonProperty(Required = Required.Always)]
-		public bool Clear { get; set; }
+		public string Address { get; set; }
 	}
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Converse.Action.User
+namespace Converse.Action.Group
 {
 	public class SendMessage : Action
 	{

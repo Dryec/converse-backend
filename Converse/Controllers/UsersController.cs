@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Converse.Database;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Converse.Models;
-using Converse.Service;
 using Converse.Singleton.WalletClient;
 using Google.Protobuf;
 using Grpc.Core;
@@ -44,21 +44,22 @@ namespace Converse.Controllers
 	        _logger = loggerFactory.CreateLogger("UsersController");
         }
 
-		// GET: api/Users/{userId/address}
-		[HttpGet("{userId}")]
-        public async Task<IActionResult> GetUser([FromRoute] string userId)
+		// GET: api/Users/{address}
+		// Return informations about an user
+		[HttpGet("{address}")]
+        public async Task<IActionResult> GetUser([FromRoute] string address)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+			
+	        if (Client.WalletAddress.Decode58Check(address) == null)
+	        {
+		        return NotFound();
+	        }
 
-	        var isNumeric = int.TryParse(userId, out var id);
-            var user = await (isNumeric 
-	            ? _context.Users.FindAsync(id) 
-	            : _context.Users.SingleOrDefaultAsync(u => u.Address == userId)
-		    );
-
+	        var user = await _context.Users.SingleOrDefaultAsync(u => u.Address == address);
             if (user == null)
             {
                 return NotFound();
@@ -73,6 +74,7 @@ namespace Converse.Controllers
         }
 
 		// GET: api/Users/{address}/requestTokens
+		// Send an user tokens if not enough left
 		[HttpGet("{address}/requestTokens")]
 	    public async Task<IActionResult> RequestTokens([FromRoute] string address, [FromServices] WalletClient walletClient, [FromServices] IOptions<Configuration.Token> tokenOptions)
 	    {
@@ -81,7 +83,12 @@ namespace Converse.Controllers
 			    return BadRequest(ModelState);
 		    }
 
-		    var result = new RequestTokensResult()
+		    if (Client.WalletAddress.Decode58Check(address) == null)
+		    {
+			    return NotFound();
+		    }
+
+			var result = new RequestTokensResult()
 		    {
 			    Result = RequestTokensResult.Type.MaximumReachedPerDay,
 			    TransactionHash = null,

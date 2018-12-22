@@ -11,7 +11,7 @@ namespace Converse.Singleton.WalletClient
 {
 	public class ActionHandler
 	{
-		public Service.DatabaseContext DatabaseContext { get; set; }
+		public Database.DatabaseContext DatabaseContext { get; set; }
 
 		private readonly Logger _logger;
 		private readonly Token _token;
@@ -122,6 +122,7 @@ namespace Converse.Singleton.WalletClient
 						Singleton.WalletClient.ActionHandlers.UserAddDeviceId.Handle(context);
 						break;
 					case Action.Type.GroupCreate:
+						Singleton.WalletClient.ActionHandlers.GroupCreate.Handle(context);
 						break;
 					case Action.Type.GroupChangeName:
 						break;
@@ -129,11 +130,11 @@ namespace Converse.Singleton.WalletClient
 						break;
 					case Action.Type.GroupChangePicture:
 						break;
-					case Action.Type.GroupAddUsers:
+					case Action.Type.GroupAddUser:
 						break;
-					case Action.Type.GroupKickUsers:
+					case Action.Type.GroupKickUser:
 						break;
-					case Action.Type.GroupSetUserRanks:
+					case Action.Type.GroupSetUserRank:
 						break;
 					case Action.Type.GroupJoin:
 						break;
