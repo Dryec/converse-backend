@@ -46,6 +46,8 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			{
 				chat.Setting.PictureUrl = groupImage;
 				context.DatabaseContext.SaveChanges();
+
+				context.ServiceProvider.GetService<FCMClient>()?.UpdateGroupAddress(chat);
 			}
 		}
 	}

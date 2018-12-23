@@ -70,7 +70,7 @@ namespace Converse.Database
 		}
 
 
-		private (Chat, List<ChatUser>, ChatSetting) CreateChat(IEnumerable<ChatUserSetting> chatUserSettings, bool isGroup, long userJoinedAt, ChatGroupInfo? chatGroupInfo)
+		private Chat CreateChat(IEnumerable<ChatUserSetting> chatUserSettings, bool isGroup, long userJoinedAt, ChatGroupInfo? chatGroupInfo)
 		{
 			if (isGroup && !chatGroupInfo.HasValue)
 			{
@@ -104,9 +104,14 @@ namespace Converse.Database
 				ChatSettings.Add(chatSetting);
 			}
 
-			var chatUsers = chatUserSettings.Select(chatUserSetting => CreateChatUser(chat, chatUserSetting, userJoinedAt)).ToList();
+			foreach (var userSetting in chatUserSettings)
+			{
+				CreateChatUser(chat, userSetting, userJoinedAt);
+			}
 
-			return (chat, chatUsers, chatSetting);
+			chat.Setting = chatSetting;
+
+			return chat;
 		}
 
 		public ChatUser CreateChatUser(Models.Chat chat, ChatUserSetting chatUserSetting, long joinedAt)
@@ -123,11 +128,12 @@ namespace Converse.Database
 			};
 
 			ChatUsers.Add(chatUser);
+			chat.Users.Add(chatUser);
 
 			return chatUser;
 		}
 
-		public (Chat, List<ChatUser>, ChatSetting) CreateChat(User sender, User receiver, long userJoinedAt)
+		public Chat CreateChat(User sender, User receiver, long userJoinedAt)
 		{
 			return CreateChat(new List<ChatUserSetting>()
 			{
@@ -146,7 +152,7 @@ namespace Converse.Database
 			}, false, userJoinedAt, null);
 		}
 
-		public (Chat, List<ChatUser>, ChatSetting) CreateGroupChat(User owner, string privateKey, ChatGroupInfo chatGroupInfo, long userJoinedAt)
+		public Chat CreateGroupChat(User owner, string privateKey, ChatGroupInfo chatGroupInfo, long userJoinedAt)
 		{
 			return CreateChat(new List<ChatUserSetting>()
 			{

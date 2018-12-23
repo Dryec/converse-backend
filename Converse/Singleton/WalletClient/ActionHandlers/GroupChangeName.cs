@@ -47,6 +47,8 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			{
 				chat.Setting.Name = groupName;
 				context.DatabaseContext.SaveChanges();
+
+				context.ServiceProvider.GetService<FCMClient>()?.UpdateGroupAddress(chat);
 			}
 		}
 	}

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Converse.Database;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Converse.Utils;
@@ -49,7 +50,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
-			var senderUser = context.DatabaseContext.GetUser(context.Sender).GetAwaiter().GetResult();
+			var senderUser = context.DatabaseContext.GetUser(context.Sender, users => users.Include(u => u.DeviceIds)).GetAwaiter().GetResult();
 			if (senderUser == null)
 			{
 				context.Logger.Log.LogDebug("User not found!");
@@ -64,7 +65,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 
 			TransferToGroup(context.ServiceProvider, groupAddress);
 
-			var (chat, chatUsers, chatSetting) = context.DatabaseContext.CreateGroupChat(senderUser, createGroupMessage.PrivateKey,
+			var chat = context.DatabaseContext.CreateGroupChat(senderUser, createGroupMessage.PrivateKey,
 				new DatabaseContext.ChatGroupInfo()
 				{
 					Address = groupAddress,
@@ -75,6 +76,8 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				}, context.Transaction.RawData.Timestamp);
 
 			context.DatabaseContext.SaveChanges();
+
+			context.ServiceProvider.GetService<FCMClient>()?.GroupCreated(senderUser.DeviceIds, chat);
 		}
 	}
 }

@@ -42,7 +42,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 
 			// Get chat or create if not exist
 			var chat = context.DatabaseContext.GetChatAsync(context.Sender, context.Receiver).GetAwaiter().GetResult() ??
-			           context.DatabaseContext.CreateChat(senderUser, receiverUser, context.Transaction.RawData.Timestamp).Item1;
+			           context.DatabaseContext.CreateChat(senderUser, receiverUser, context.Transaction.RawData.Timestamp);
 
 			// Get last sent message id
 			var lastMessageInternalId = context.DatabaseContext.ChatMessages.LastOrDefault(cm => cm.Chat == chat)?.InternalId ?? 0;

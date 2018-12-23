@@ -33,7 +33,7 @@ namespace Converse.Singleton
 			_isInitialized = true;
 		}
 
-		private async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string type, T data, INotification notification, MessagePriority priority)
+		private async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string type, T data, bool silent, MessagePriority priority)
 			where T : class
 		{
 			if (!_isInitialized)
@@ -57,14 +57,13 @@ namespace Converse.Singleton
 							"data", JsonConvert.SerializeObject(data)
 						},
 						{
-							"silent", (notification == null).ToString().ToLower()
+							"silent", silent.ToString().ToLower()
 						},
 						{
 							"priority", priority.ToString()
 						}
 					}
 					: null),
-				Notification = notification,
 				Priority = priority,
 			};
 
@@ -78,20 +77,98 @@ namespace Converse.Singleton
 					user.Id.ToString(),
 					"update_user",
 					new Models.View.User(user),
-					null,
+					true,
 					MessagePriority.high
+			).ConfigureAwait(false);
+		}
+
+		public void UpdateGroupAddress(Models.Chat chat)
+		{
+			if (!chat.IsGroup || chat.Setting == null)
+			{
+				return;
+			}
+
+			SendMessage(
+				"/topics/group_" + chat.Setting.Address,
+				chat.Id.ToString(),
+				"update_info",
+				new Models.View.ChatSetting(chat.Setting), 
+				true,
+				MessagePriority.high
+			).ConfigureAwait(false);
+		}
+
+		
+
+		public void UpdateGroupMessage(Models.Chat chat, Models.ChatMessage chatMessage)
+		{
+			if (!chat.IsGroup || chat.Setting == null)
+			{
+				return;
+			}
+
+			SendMessage(
+				"/topics/group_" + chat.Setting.Address,
+				chat.Id.ToString(),
+				"message",
+				new Models.View.ChatMessage(chatMessage), 
+				true,
+				MessagePriority.high
+			).ConfigureAwait(false);
+		}
+
+		public void GroupCreated(List<Models.UserDeviceId> deviceIds, Models.Chat chat)
+		{
+			var chatView = new Models.View.Chat(chat, null);
+
+			deviceIds.ForEach(deviceId => SendMessage(
+				deviceId.DeviceId,
+				chat.Id.ToString(),
+				"group_created",
+				chatView, 
+				true,
+				MessagePriority.high
+			).ConfigureAwait(false));
+		}
+
+		public void AddUserToGroup(Models.Chat chat, Models.ChatUser chatUser)
+		{
+			if (!chat.IsGroup || chat.Setting == null)
+			{
+				return;
+			}
+
+			SendMessage(
+				"/topics/group_" + chat.Setting.Address,
+				chat.Id.ToString(),
+				"user_added",
+				new Models.View.ChatUser(chatUser), 
+				true,
+				MessagePriority.high
+			).ConfigureAwait(false);
+		}
+
+		public void KickUserFromGroup(Models.Chat chat, Models.ChatUser chatUser)
+		{
+			if (!chat.IsGroup || chat.Setting == null)
+			{
+				return;
+			}
+
+			SendMessage(
+				"/topics/group_" + chat.Setting.Address,
+				chat.Id.ToString(),
+				"user_kicked",
+				new Models.View.ChatUser(chatUser), 
+				true,
+				MessagePriority.high
 			).ConfigureAwait(false);
 		}
 
 		public void NotifyUserMessage(Models.User sender, Models.User receiver, Models.ChatMessage chatMessage)
 		{
-			var androidNotification = new AndroidNotification()
-			{
-				Title = sender.Nickname ?? sender.Address,
-				Body = chatMessage.Message,
-			};
 			var viewChatMessage = new Models.View.ChatMessage(chatMessage);
-
 			var chatId = chatMessage.ChatId.ToString();
 
 			foreach (var receiverUserDeviceId in receiver.DeviceIds)
@@ -100,7 +177,7 @@ namespace Converse.Singleton
 					chatId,
 					"msg",
 					viewChatMessage,
-					androidNotification,
+					false,
 					MessagePriority.high
 				).ConfigureAwait(false);
 			}
@@ -110,7 +187,8 @@ namespace Converse.Singleton
 				SendMessage(senderUserDeviceId.DeviceId,
 					chatMessage.ChatId.ToString(),
 					"msg",
-					viewChatMessage, null,
+					viewChatMessage,
+					true,
 					MessagePriority.high
 				).ConfigureAwait(false);
 			}

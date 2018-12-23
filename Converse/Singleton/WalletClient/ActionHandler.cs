@@ -131,10 +131,13 @@ namespace Converse.Singleton.WalletClient
 						Singleton.WalletClient.ActionHandlers.GroupChangeDescription.Handle(context);
 						break;
 					case Action.Type.GroupChangePicture:
+						Singleton.WalletClient.ActionHandlers.GroupChangePicture.Handle(context);
 						break;
 					case Action.Type.GroupAddUser:
+						Singleton.WalletClient.ActionHandlers.GroupAddUser.Handle(context);
 						break;
 					case Action.Type.GroupKickUser:
+						Singleton.WalletClient.ActionHandlers.GroupKickUser.Handle(context);
 						break;
 					case Action.Type.GroupSetUserRank:
 						break;
