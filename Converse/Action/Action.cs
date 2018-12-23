@@ -28,7 +28,7 @@ namespace Converse.Action
 		GroupJoin,
 		GroupLeave,
 		GroupMessage,
-		GroupSetPublic,
+		//GroupSetPublic,
 	}
 
 	public static class Constants

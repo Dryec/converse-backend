@@ -48,7 +48,7 @@ namespace Converse.Database
 		}
 
 
-		public async Task<Models.Chat> GetChatAsync(string firstAddress, string secondAddress)
+		public async Task<Models.Chat> GetChatAsync(string firstAddress, string secondAddress, Func<IQueryable<Models.Chat>, IQueryable<Models.Chat>> eagerLoading = null)
 		{
 			return (await ChatUsers
 				.Include(cu => cu.Chat)

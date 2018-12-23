@@ -45,8 +45,10 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			           context.DatabaseContext.CreateChat(senderUser, receiverUser, context.Transaction.RawData.Timestamp);
 
 			// Get last sent message id
-			var lastMessageInternalId = context.DatabaseContext.ChatMessages.LastOrDefault(cm => cm.Chat == chat)?.InternalId ?? 0;
+			var chatMessages = context.DatabaseContext.ChatMessages.Where(cm => cm.Chat == chat);
+			var lastMessageInternalId = (chatMessages.Any() ? chatMessages.Max(cm => cm.InternalId) : 0);
 
+			// @ToDo: Combine with SendMessage from Groups
 			// Create new chat message
 			var chatMessage = new Models.ChatMessage()
 			{

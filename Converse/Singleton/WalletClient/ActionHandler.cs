@@ -149,9 +149,10 @@ namespace Converse.Singleton.WalletClient
 						Singleton.WalletClient.ActionHandlers.GroupLeave.Handle(context);
 						break;
 					case Action.Type.GroupMessage:
+						Singleton.WalletClient.ActionHandlers.GroupMessage.Handle(context);
 						break;
-					case Action.Type.GroupSetPublic:
-						break;
+					//case Action.Type.GroupSetPublic:
+					//	break;
 					default:
 						_logger.Log.LogDebug(Logger.InvalidActionType, "Invalid ActionType({Type})!", action.Type);
 						break;

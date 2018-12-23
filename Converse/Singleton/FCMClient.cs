@@ -98,10 +98,8 @@ namespace Converse.Singleton
 				MessagePriority.high
 			).ConfigureAwait(false);
 		}
-
 		
-
-		public void UpdateGroupMessage(Models.Chat chat, Models.ChatMessage chatMessage)
+		public void NotifyGroupMessage(Models.Chat chat, Models.ChatMessage chatMessage)
 		{
 			if (!chat.IsGroup || chat.Setting == null)
 			{
