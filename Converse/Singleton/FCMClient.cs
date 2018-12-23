@@ -33,7 +33,7 @@ namespace Converse.Singleton
 			_isInitialized = true;
 		}
 
-		private async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string type, T data, bool silent, MessagePriority priority)
+		private async Task<IFCMResponse> SendMessage<T>(string receiver, string id, string title, string type, T data, bool silent, MessagePriority priority)
 			where T : class
 		{
 			if (!_isInitialized)
@@ -49,6 +49,9 @@ namespace Converse.Singleton
 					{
 						{
 							"id", id
+						},
+						{
+							"title", title
 						},
 						{
 							"type", type
@@ -75,6 +78,7 @@ namespace Converse.Singleton
 			SendMessage(
 					"/topics/update_" + user.Address,
 					user.Id.ToString(),
+					user.Address,
 					"update_user",
 					new Models.View.User(user),
 					true,
@@ -92,6 +96,7 @@ namespace Converse.Singleton
 			SendMessage(
 				"/topics/group_" + chat.Setting.Address,
 				chat.Id.ToString(),
+				chat.Setting.Name,
 				"update_info",
 				new Models.View.ChatSetting(chat.Setting), 
 				true,
@@ -109,6 +114,7 @@ namespace Converse.Singleton
 			SendMessage(
 				"/topics/group_" + chat.Setting.Address,
 				chat.Id.ToString(),
+				chat.Setting.Name,
 				"message",
 				new Models.View.ChatMessage(chatMessage), 
 				true,
@@ -123,6 +129,7 @@ namespace Converse.Singleton
 			deviceIds.ForEach(deviceId => SendMessage(
 				deviceId.DeviceId,
 				chat.Id.ToString(),
+				chat.Setting.Name,
 				"group_created",
 				chatView, 
 				true,
@@ -140,6 +147,7 @@ namespace Converse.Singleton
 			SendMessage(
 				"/topics/group_" + chat.Setting.Address,
 				chat.Id.ToString(),
+				chat.Setting.Name,
 				"user_added",
 				new Models.View.ChatUser(chatUser), 
 				true,
@@ -157,6 +165,7 @@ namespace Converse.Singleton
 			SendMessage(
 				"/topics/group_" + chat.Setting.Address,
 				chat.Id.ToString(),
+				chat.Setting.Name,
 				"user_removed",
 				new Models.View.ChatUser(chatUser), 
 				true,
@@ -174,6 +183,7 @@ namespace Converse.Singleton
 			SendMessage(
 				"/topics/group_" + chat.Setting.Address,
 				chat.Id.ToString(),
+				chat.Setting.Name,
 				"user_rank",
 				new Models.View.ChatUser(chatUser), 
 				true,
@@ -190,6 +200,7 @@ namespace Converse.Singleton
 			{
 				SendMessage(receiverUserDeviceId.DeviceId,
 					chatId,
+					sender.Nickname,
 					"msg",
 					viewChatMessage,
 					false,
@@ -201,6 +212,7 @@ namespace Converse.Singleton
 			{
 				SendMessage(senderUserDeviceId.DeviceId,
 					chatMessage.ChatId.ToString(),
+					receiver.Nickname,
 					"msg",
 					viewChatMessage,
 					true,

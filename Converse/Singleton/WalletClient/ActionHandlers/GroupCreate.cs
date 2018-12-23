@@ -64,9 +64,9 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			}
 
 			// Decrypt group data
-			var groupName = createGroupMessage.Name.DecryptByPublicKey(publicKey)?.ToUtf8String();
-			var groupDescription = createGroupMessage.Description.DecryptByPublicKey(publicKey)?.ToUtf8String();
-			var groupImage = createGroupMessage.Image.DecryptByPublicKey(publicKey)?.ToUtf8String();
+			var groupName = createGroupMessage.Name?.DecryptByPublicKey(publicKey)?.ToUtf8String();
+			var groupDescription = createGroupMessage.Description?.DecryptByPublicKey(publicKey)?.ToUtf8String();
+			var groupImage = createGroupMessage.Image?.DecryptByPublicKey(publicKey)?.ToUtf8String();
 			if (groupName == null)
 			{
 				groupName = groupAddress;
