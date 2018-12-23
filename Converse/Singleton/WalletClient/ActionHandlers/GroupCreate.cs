@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common;
 using Converse.Database;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
@@ -38,14 +39,30 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			context.Logger.Log.LogDebug(Logger.HandleGroupCreate, "CreateGroup: Sender '{Address}' GroupOwnerAddress '{OwnerAddress}' PrivateKey '{PrivateKey}'!",
 				context.Sender, createGroupMessage.Address);
 
-			// Decrypt group address
-			var groupAddress = createGroupMessage.Address.DecryptByTransaction(context.Transaction)?.ToUtf8String();
-			if (groupAddress == null)
+			// Get public key
+			var publicKey = context.Transaction.GetPublicKey();
+			if (publicKey == null)
 			{
-				context.Logger.Log.LogDebug("Invalid Base64 Format!");
+				context.Logger.Log.LogDebug("Invalid PublicKey!");
 				return;
 			}
 
+			// Decrypt group address
+			var groupAddress = createGroupMessage.Address.DecryptByPublicKey(publicKey)?.ToUtf8String();
+			if (groupAddress == null)
+			{
+				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
+				return;
+			}
+
+			// Decrypt group public key
+			var groupPublicKey = createGroupMessage.PublicKey.DecryptByPublicKey(publicKey)?.ToHexString();
+			if (groupPublicKey == null)
+			{
+				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
+				return;
+			}
+			
 			// Check if address is valid
 			if (Client.WalletAddress.Decode58Check(groupAddress) == null)
 			{
@@ -79,6 +96,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 					Name = createGroupMessage.Name,
 					Description = createGroupMessage.Description,
 					Image = createGroupMessage.Image,
+					PublicKey = groupPublicKey,
 					IsPublic = createGroupMessage.IsPublic,
 				}, context.Transaction.RawData.Timestamp);
 

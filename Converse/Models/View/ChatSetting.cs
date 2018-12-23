@@ -26,6 +26,9 @@ namespace Converse.Models.View
 		[JsonProperty(PropertyName = "users")]
 		public List<Models.View.User> Users;
 
+		[JsonProperty(PropertyName = "public_key")]
+		public string PublicKey { get; set; }
+
 		[JsonProperty(PropertyName = "private_key")]
 		public string PrivateKey { get; set; }
 
@@ -36,6 +39,8 @@ namespace Converse.Models.View
 			Name = chatSetting.Name;
 
 			Image = chatSetting.PictureUrl;
+
+			PublicKey = chatSetting.PublicKey;
 
 			IsPublic = chatSetting.IsPublic;
 

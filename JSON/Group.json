@@ -3,6 +3,7 @@
         "comment": "Im Frontend neue Addresse erstellen",
         "type": 50,
         "address": "...",
+        "public_key": "...",
         "private_key": "...",
         "name": "...",
         "description": "...",

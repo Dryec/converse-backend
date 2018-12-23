@@ -22,6 +22,8 @@ namespace Converse.Models
 		public string Description { get; set; }
 		public string PictureUrl { get; set; }
 
+		public string PublicKey { get; set; }
+
 		public bool IsPublic { get; set; }
 
 		public DateTime CreatedAt { get; set; }

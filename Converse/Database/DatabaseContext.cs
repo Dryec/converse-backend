@@ -22,6 +22,7 @@ namespace Converse.Database
 			public string Name { get; set; }
 			public string Image { get; set; }
 			public string Description { get; set; }
+			public string PublicKey { get; set; }
 			public bool IsPublic { get; set; }
 		}
 
@@ -97,6 +98,7 @@ namespace Converse.Database
 					Name = chatGroupInfo.Value.Name,
 					Description = chatGroupInfo.Value.Description,
 					PictureUrl = chatGroupInfo.Value.Image,
+					PublicKey = chatGroupInfo.Value.PublicKey,
 					IsPublic = chatGroupInfo.Value.IsPublic,
 					CreatedAt = time,
 				};

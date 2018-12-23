@@ -11,6 +11,9 @@ namespace Converse.Action.Group
 		[JsonProperty(Required = Required.Always)]
 		public string Address { get; set; }
 
+		[JsonProperty(PropertyName = "public_key", Required = Required.Always)]
+		public string PublicKey { get; set; }
+
 		[JsonProperty(PropertyName = "private_key", Required = Required.Always)]
 		public string PrivateKey { get; set; }
 
