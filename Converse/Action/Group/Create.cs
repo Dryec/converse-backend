@@ -17,13 +17,13 @@ namespace Converse.Action.Group
 		[JsonProperty(PropertyName = "private_key", Required = Required.Always)]
 		public string PrivateKey { get; set; }
 
-		[JsonProperty(Required = Required.Always)]
+		[JsonProperty(Required = Required.AllowNull)]
 		public string Name { get; set; }
 
-		[JsonProperty(Required = Required.Always)]
+		[JsonProperty(Required = Required.AllowNull)]
 		public string Description { get; set; }
 
-		[JsonProperty(Required = Required.Always)]
+		[JsonProperty(Required = Required.AllowNull)]
 		public string Image { get; set; }
 
 		[JsonProperty(PropertyName = "is_public", Required = Required.Always)]
