@@ -259,3 +259,4 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Converse/Migrations/20181223115934_AddPrivateKeyAndRankToChatUser.cs

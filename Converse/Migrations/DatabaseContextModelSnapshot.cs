@@ -123,9 +123,11 @@ namespace Converse.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<bool>("IsAdmin");
-
                     b.Property<DateTime>("JoinedAt");
+
+                    b.Property<string>("PrivateKey");
+
+                    b.Property<int>("Rank");
 
                     b.Property<int>("UserId");
 
