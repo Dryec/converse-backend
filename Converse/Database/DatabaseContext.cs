@@ -166,7 +166,7 @@ namespace Converse.Database
 		}
 
 
-		public async Task<Models.User> GetUser(string address, Func<IQueryable<User>, IQueryable<User>> eagerLoading = null)
+		public async Task<Models.User> GetUserAsync(string address, Func<IQueryable<User>, IQueryable<User>> eagerLoading = null)
 		{
 			return await (eagerLoading == null ? Users : eagerLoading(Users)).SingleOrDefaultAsync(user => user.Address == address);
 		}
@@ -174,7 +174,7 @@ namespace Converse.Database
 
 		public Models.User CreateUserWhenNotExist(string address)
 		{
-			var user = GetUser(address).GetAwaiter().GetResult();
+			var user = GetUserAsync(address).GetAwaiter().GetResult();
 
 			if (user == null)
 			{

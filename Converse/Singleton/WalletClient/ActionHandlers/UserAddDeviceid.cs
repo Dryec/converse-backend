@@ -30,7 +30,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 
 			// Get user id to search if device id is already registered
 			var senderUser =
-				context.DatabaseContext.GetUser(context.Sender, users => users.Include(u => u.DeviceIds)).GetAwaiter().GetResult();
+				context.DatabaseContext.GetUserAsync(context.Sender, users => users.Include(u => u.DeviceIds)).GetAwaiter().GetResult();
 			var userDeviceId = senderUser.DeviceIds.Find(u => u.DeviceId == deviceId);
 
 			if (userDeviceId == null)

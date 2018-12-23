@@ -19,7 +19,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				context.Sender, blockUserMessage.Address, blockUserMessage.IsBlocked);
 
 			// Get user
-			var user = context.DatabaseContext.GetUser(context.Sender).GetAwaiter().GetResult();
+			var user = context.DatabaseContext.GetUserAsync(context.Sender).GetAwaiter().GetResult();
 			if (user == null)
 			{
 				context.Logger.Log.LogDebug(Logger.HandleUserBlockedUser, "BlockUser: sender does not exist as user!");

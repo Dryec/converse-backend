@@ -41,7 +41,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 
 			// Get chat
 			var chat = context.DatabaseContext
-				.GetChatAsync(context.Receiver, chats => chats.Include(c => c.Users))
+				.GetChatAsync(context.Receiver, chats => chats.Include(c => c.Setting).Include(c => c.Users))
 				.GetAwaiter().GetResult();
 			if (chat == null)
 			{

@@ -28,9 +28,9 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				context.Sender, context.Receiver);
 
 			// Get user models from sender and receiver
-			var senderUser = context.DatabaseContext.GetUser(context.Sender, users => users.Include(u => u.DeviceIds))
+			var senderUser = context.DatabaseContext.GetUserAsync(context.Sender, users => users.Include(u => u.DeviceIds))
 				.GetAwaiter().GetResult();
-			var receiverUser = context.DatabaseContext.GetUser(context.Receiver, users => users.Include(u => u.DeviceIds))
+			var receiverUser = context.DatabaseContext.GetUserAsync(context.Receiver, users => users.Include(u => u.DeviceIds))
 				.GetAwaiter().GetResult();
 			if (senderUser == null || receiverUser == null)
 			{

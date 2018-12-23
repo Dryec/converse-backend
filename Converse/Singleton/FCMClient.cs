@@ -149,7 +149,7 @@ namespace Converse.Singleton
 			).ConfigureAwait(false);
 		}
 
-		public void KickUserFromGroup(Models.Chat chat, Models.ChatUser chatUser)
+		public void RemoveUserFromGroup(Models.Chat chat, Models.ChatUser chatUser)
 		{
 			if (!chat.IsGroup || chat.Setting == null)
 			{
@@ -159,7 +159,7 @@ namespace Converse.Singleton
 			SendMessage(
 				"/topics/group_" + chat.Setting.Address,
 				chat.Id.ToString(),
-				"user_kicked",
+				"user_removed",
 				new Models.View.ChatUser(chatUser), 
 				true,
 				MessagePriority.high

@@ -59,8 +59,8 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			}
 
 			// Add User to Group
-			Models.User invitedUser = context.DatabaseContext.CreateUserWhenNotExist(inviteAddress);
-			Models.ChatUser invitedChatUser = context.DatabaseContext.CreateChatUser(chat,
+			var invitedUser = context.DatabaseContext.CreateUserWhenNotExist(inviteAddress);
+			var invitedChatUser = context.DatabaseContext.CreateChatUser(chat,
 				new DatabaseContext.ChatUserSetting()
 				{
 					User = invitedUser,
