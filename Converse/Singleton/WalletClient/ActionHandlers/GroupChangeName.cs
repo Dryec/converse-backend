@@ -17,9 +17,12 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 	{
 		public static void Handle(Action.Context context)
 		{
-			var changeGroupName = JsonConvert.DeserializeObject<Action.Group.ChangeName>(context.Message);
+			// @ToDo: Check if name is valid
+			// Deserialize message
+			var changeNameMessage = JsonConvert.DeserializeObject<Action.Group.ChangeName>(context.Message);
 
-			var groupName = changeGroupName.Name.DecryptByTransaction(context.Transaction)?.ToUtf8String();
+			// Get encrypted groupName
+			var groupName = changeNameMessage.Name.DecryptByTransaction(context.Transaction)?.ToUtf8String();
 			if (groupName == null)
 			{
 				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
@@ -29,6 +32,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			context.Logger.Log.LogDebug(Logger.HandleGroupChangeName, "ChangeGroupName: Sender '{Address}' GroupOwnerAddress '{OwnerAddress}' Name '{GroupName}'!",
 				context.Sender, context.Receiver, groupName);
 
+			// Get chat
 			var chat = context.DatabaseContext.GetChatAsync(context.Receiver, chats => chats.Include(c => c.Setting).Include(c => c.Users)).GetAwaiter().GetResult();
 			if (chat?.Setting == null)
 			{
@@ -36,6 +40,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Check user rank
 			if (!chat.IsUserAdminOrHigher(context.Sender))
 			{
 				context.Logger.Log.LogDebug(Logger.HandleGroupChangeName,
@@ -43,6 +48,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Change name and notify all members
 			if (chat.Setting.Name != groupName)
 			{
 				chat.Setting.Name = groupName;

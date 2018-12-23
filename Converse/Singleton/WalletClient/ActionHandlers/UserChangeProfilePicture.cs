@@ -15,8 +15,10 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 		public static void Handle(Action.Context context)
 		{
 			// @ToDo: Check if picture url is valid
+			// Deserialize message
 			var changeProfilePictureMessage = JsonConvert.DeserializeObject<Action.User.ChangeProfilePicture>(context.Message);
 
+			// Decrypt image
 			var profilePictureUrl = (changeProfilePictureMessage.Clear ? null : changeProfilePictureMessage.Image.DecryptByTransaction(context.Transaction)?.ToUtf8String());
 			if (!changeProfilePictureMessage.Clear && profilePictureUrl == null)
 			{
@@ -24,6 +26,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Get user
 			var user = context.DatabaseContext.GetUser(context.Sender).GetAwaiter().GetResult();
 			if (user == null)
 			{
@@ -37,6 +40,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			user.ProfilePictureUrl = profilePictureUrl;
 			context.DatabaseContext.SaveChanges();
 
+			// Notify everyone that knows this user
 			context.ServiceProvider.GetService<FCMClient>()?.UpdateAddress(user);
 		}
 	}

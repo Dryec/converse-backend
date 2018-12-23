@@ -11,12 +11,14 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 	{
 		public static void Handle(Action.Context context)
 		{
+			// Deserialize message
 			var blockUserMessage = JsonConvert.DeserializeObject<Action.User.BlockUser>(context.Message);
 			var blockedUser = context.DatabaseContext.GetBlockedUser(context.Sender, blockUserMessage.Address);
 
 			context.Logger.Log.LogDebug(Logger.HandleUserBlockedUser, "BlockUser: Sender '{Address}' Blocked: '{BlockedAddress}' IsBlocked: {IsBlocked}!",
 				context.Sender, blockUserMessage.Address, blockUserMessage.IsBlocked);
 
+			// Get user
 			var user = context.DatabaseContext.GetUser(context.Sender).GetAwaiter().GetResult();
 			if (user == null)
 			{
@@ -24,6 +26,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Check if wants to block or unblock
 			if (blockUserMessage.IsBlocked)
 			{
 				if (blockedUser != null)

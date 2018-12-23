@@ -16,10 +16,13 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 	{
 		public static void Handle(Action.Context context)
 		{
-			var changeGroupPicture = JsonConvert.DeserializeObject<Action.Group.ChangePicture>(context.Message);
+			// @ToDo: Check if picture is valid
+			// Deserialize message
+			var changePictureMessage = JsonConvert.DeserializeObject<Action.Group.ChangePicture>(context.Message);
 
-			var groupImage = (changeGroupPicture.Clear ? null : changeGroupPicture.Image.DecryptByTransaction(context.Transaction)?.ToUtf8String());
-			if (!changeGroupPicture.Clear && groupImage == null)
+			// Decrypt group image
+			var groupImage = (changePictureMessage.Clear ? null : changePictureMessage.Image.DecryptByTransaction(context.Transaction)?.ToUtf8String());
+			if (!changePictureMessage.Clear && groupImage == null)
 			{
 				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
 				return;
@@ -28,6 +31,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			context.Logger.Log.LogDebug(Logger.HandleGroupChangeImage, "ChangeGroupImage: Sender '{Address}' GroupOwnerAddress '{OwnerAddress}' Image '{GroupImage}'!",
 				context.Sender, context.Receiver, groupImage);
 
+			// Get chat
 			var chat = context.DatabaseContext.GetChatAsync(context.Receiver, chats => chats.Include(c => c.Setting).Include(c => c.Users)).GetAwaiter().GetResult();
 			if (chat?.Setting == null)
 			{
@@ -35,6 +39,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Check if user has permissions
 			if (!chat.IsUserAdminOrHigher(context.Sender))
 			{
 				context.Logger.Log.LogDebug(Logger.HandleGroupChangeImage,
@@ -42,6 +47,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Change image and notify all members
 			if (chat.Setting.PictureUrl != groupImage)
 			{
 				chat.Setting.PictureUrl = groupImage;

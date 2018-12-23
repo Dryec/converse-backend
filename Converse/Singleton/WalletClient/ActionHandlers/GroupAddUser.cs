@@ -16,11 +16,13 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 	{
 		public static void Handle(Action.Context context)
 		{
-			var addUserToGroup = JsonConvert.DeserializeObject<Action.Group.AddUser>(context.Message);
+			// Deserialize message
+			var addUserMessage = JsonConvert.DeserializeObject<Action.Group.AddUser>(context.Message);
 
-			var invitedUserAddress = addUserToGroup.Address.DecryptByTransaction(context.Transaction)
+			// Decrypt invite address
+			var inviteAddress = addUserMessage.Address.DecryptByTransaction(context.Transaction)
 				?.ToUtf8String();
-			if (invitedUserAddress == null || Client.WalletAddress.Decode58Check(invitedUserAddress) == null || invitedUserAddress == context.Receiver)
+			if (inviteAddress == null || Client.WalletAddress.Decode58Check(inviteAddress) == null || inviteAddress == context.Receiver)
 			{
 				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
 				return;
@@ -28,8 +30,9 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 
 			context.Logger.Log.LogDebug(Logger.HandleGroupAddUser,
 				"AddUserToGroup: Sender '{Address}' GroupOwnerAddress '{OwnerAddress}' InvitedUser '{InvitedUser}'!",
-				context.Sender, context.Receiver, invitedUserAddress);
+				context.Sender, context.Receiver, inviteAddress);
 
+			// Get chat
 			var chat = context.DatabaseContext
 				.GetChatAsync(context.Receiver, chats => chats.Include(c => c.Setting).Include(c => c.Users))
 				.GetAwaiter().GetResult();
@@ -39,6 +42,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// When chat is public everyone can invite, else inviter has to be admin or higher
 			if (!chat.Setting.IsPublic && !chat.IsUserAdminOrHigher(context.Sender))
 			{
 				context.Logger.Log.LogDebug(Logger.HandleGroupAddUser,
@@ -46,26 +50,29 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
-			if (chat.HasUser(invitedUserAddress))
+			// Check if is already in group
+			if (chat.HasUser(inviteAddress))
 			{
 				context.Logger.Log.LogDebug(Logger.HandleGroupAddUser,
 					"User already in chat.");
 				return;
 			}
 
-			Models.User user = context.DatabaseContext.CreateUserWhenNotExist(invitedUserAddress);
-			Models.ChatUser chatUser = context.DatabaseContext.CreateChatUser(chat,
+			// Add User to Group
+			Models.User invitedUser = context.DatabaseContext.CreateUserWhenNotExist(inviteAddress);
+			Models.ChatUser invitedChatUser = context.DatabaseContext.CreateChatUser(chat,
 				new DatabaseContext.ChatUserSetting()
 				{
-					User = user,
-					PrivateKey = addUserToGroup.PrivateKey,
+					User = invitedUser,
+					PrivateKey = addUserMessage.PrivateKey,
 					Rank = ChatUserRank.User
 				},
 				context.Transaction.RawData.Timestamp);
 
 			context.DatabaseContext.SaveChanges();
 
-			context.ServiceProvider.GetService<FCMClient>()?.AddUserToGroup(chat, chatUser);
+			// Notify all members
+			context.ServiceProvider.GetService<FCMClient>()?.AddUserToGroup(chat, invitedChatUser);
 		}
 	}
 }

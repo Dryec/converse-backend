@@ -16,9 +16,12 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 	{
 		public static void Handle(Action.Context context)
 		{
-			var changeGroupDescription = JsonConvert.DeserializeObject<Action.Group.ChangeDescription>(context.Message);
+			// @ToDo: Check if description is valid
+			// Deserialize message
+			var changeDescriptionMessage = JsonConvert.DeserializeObject<Action.Group.ChangeDescription>(context.Message);
 
-			var groupDescription = changeGroupDescription.Description.DecryptByTransaction(context.Transaction)?.ToUtf8String();
+			// Decrypt group description
+			var groupDescription = changeDescriptionMessage.Description.DecryptByTransaction(context.Transaction)?.ToUtf8String();
 			if (groupDescription == null)
 			{
 				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
@@ -28,6 +31,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			context.Logger.Log.LogDebug(Logger.HandleGroupChangeDescription, "ChangeGroupDescription: Sender '{Address}' GroupOwnerAddress '{OwnerAddress}' Description '{GroupDescription}'!",
 				context.Sender, context.Receiver, groupDescription);
 
+			// Get chat
 			var chat = context.DatabaseContext.GetChatAsync(context.Receiver, chats => chats.Include(c => c.Setting).Include(c => c.Users)).GetAwaiter().GetResult();
 			if (chat?.Setting == null)
 			{
@@ -35,6 +39,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Check if user has permissions
 			if (!chat.IsUserAdminOrHigher(context.Sender))
 			{
 				context.Logger.Log.LogDebug(Logger.HandleGroupChangeDescription,
@@ -42,6 +47,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Change Description and notify all members
 			if (chat.Setting.Description != groupDescription)
 			{
 				chat.Setting.Description = groupDescription;

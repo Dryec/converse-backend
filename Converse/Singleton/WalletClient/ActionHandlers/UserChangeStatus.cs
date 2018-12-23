@@ -15,8 +15,10 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 		public static void Handle(Action.Context context)
 		{
 			// @ToDo: Check if status is valid
+			// Deserialize message
 			var changeStatusMessage = JsonConvert.DeserializeObject<Action.User.ChangeStatus>(context.Message);
 
+			// Decrypt status
 			var status = changeStatusMessage.Status.DecryptByTransaction(context.Transaction)?.ToUtf8String();
 			if (status == null)
 			{
@@ -24,6 +26,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Get chat
 			var user = context.DatabaseContext.GetUser(context.Sender).GetAwaiter().GetResult();
 			if (user == null)
 			{
@@ -38,6 +41,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			user.StatusUpdatedAt = DateTimeOffset.FromUnixTimeMilliseconds(context.Transaction.RawData.Timestamp).DateTime;
 			context.DatabaseContext.SaveChanges();
 
+			// Notify everyone that knows this user
 			context.ServiceProvider.GetService<FCMClient>()?.UpdateAddress(user);
 		}
 	}

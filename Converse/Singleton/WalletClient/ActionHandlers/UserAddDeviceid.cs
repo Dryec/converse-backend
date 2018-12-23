@@ -11,10 +11,11 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 	{
 		public static void Handle(Action.Context context)
 		{
-			// Deserialize message from transaction
-			var userAddDeviceId = JsonConvert.DeserializeObject<Action.User.AddDeviceId>(context.Message);
+			// Deserialize message
+			var userAddDeviceIdMessage = JsonConvert.DeserializeObject<Action.User.AddDeviceId>(context.Message);
 
-			var deviceId = userAddDeviceId.DeviceId.DecryptByTransaction(context.Transaction)?.ToUtf8String();
+			// Decrypt device id
+			var deviceId = userAddDeviceIdMessage.DeviceId.DecryptByTransaction(context.Transaction)?.ToUtf8String();
 			if (deviceId == null)
 			{
 				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");

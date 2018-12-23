@@ -15,8 +15,10 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 		public static void Handle(Action.Context context)
 		{
 			// @ToDo: Check if nickname is valid
+			// Deserialize message
 			var changeNicknameMessage = JsonConvert.DeserializeObject<Action.User.ChangeNickname>(context.Message);
 
+			// Decrypt nickname
 			var nickname = changeNicknameMessage.Name.DecryptByTransaction(context.Transaction)?.ToUtf8String();
 			if (nickname == null)
 			{
@@ -24,6 +26,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Get user
 			var user = context.DatabaseContext.GetUser(context.Sender).GetAwaiter().GetResult();
 			if (user == null)
 			{
@@ -37,6 +40,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			user.Nickname = nickname;
 			context.DatabaseContext.SaveChanges();
 
+			// Notify everyone that knows this user
 			context.ServiceProvider.GetService<FCMClient>()?.UpdateAddress(user);
 		}
 	}

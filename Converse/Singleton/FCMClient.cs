@@ -166,6 +166,23 @@ namespace Converse.Singleton
 			).ConfigureAwait(false);
 		}
 
+		public void SetUserGroupRank(Models.Chat chat, Models.ChatUser chatUser)
+		{
+			if (!chat.IsGroup || chat.Setting == null)
+			{
+				return;
+			}
+
+			SendMessage(
+				"/topics/group_" + chat.Setting.Address,
+				chat.Id.ToString(),
+				"user_rank",
+				new Models.View.ChatUser(chatUser), 
+				true,
+				MessagePriority.high
+			).ConfigureAwait(false);
+		}
+
 		public void NotifyUserMessage(Models.User sender, Models.User receiver, Models.ChatMessage chatMessage)
 		{
 			var viewChatMessage = new Models.View.ChatMessage(chatMessage);
