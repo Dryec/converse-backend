@@ -10,12 +10,6 @@ using Newtonsoft.Json;
 
 namespace Converse.Singleton.WalletClient.ActionHandlers
 {
-	public class ChatUserSetting
-	{
-		public Models.User User { get; set; }
-		public bool IsAdmin { get; set; }
-	}
-
 	public static class UserSendMessage
 	{
 		public static void Handle(Action.Context context)

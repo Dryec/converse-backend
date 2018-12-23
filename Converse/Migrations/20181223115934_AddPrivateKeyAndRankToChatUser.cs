@@ -6,11 +6,16 @@ namespace Converse.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
+	        migrationBuilder.DropColumn(
+		        name: "IsAdmin",
+		        table: "chatusers"
+	        );
+
+			migrationBuilder.AddColumn<string>(
                 name: "PrivateKey",
                 table: "chatusers",
                 nullable: true);
-
+			
             migrationBuilder.AddColumn<int>(
                 name: "Rank",
                 table: "chatusers",

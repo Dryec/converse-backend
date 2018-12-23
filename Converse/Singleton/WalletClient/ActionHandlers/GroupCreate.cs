@@ -56,7 +56,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			}
 
 			// Decrypt group public key
-			var groupPublicKey = createGroupMessage.PublicKey.DecryptByPublicKey(publicKey)?.ToHexString();
+			var groupPublicKey = createGroupMessage.PublicKey.DecryptByPublicKey(publicKey)?.EncodeBase64();
 			if (groupPublicKey == null)
 			{
 				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
