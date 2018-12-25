@@ -24,10 +24,12 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			while (retryCounter < 3)
 			{
 				var result = await walletClient.TransferTokenFromProperty(1, address);
-				if (!result.Result)
+				if (result.Result)
 				{
-					retryCounter++;
+					break;
 				}
+
+				retryCounter++;
 			}
 		}
 
