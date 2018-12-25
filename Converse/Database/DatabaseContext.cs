@@ -130,7 +130,6 @@ namespace Converse.Database
 			};
 
 			ChatUsers.Add(chatUser);
-			chat.Users.Add(chatUser);
 
 			return chatUser;
 		}
