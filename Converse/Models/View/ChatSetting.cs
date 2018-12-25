@@ -32,7 +32,8 @@ namespace Converse.Models.View
 		[JsonProperty(PropertyName = "private_key")]
 		public string PrivateKey { get; set; }
 
-		public ChatSetting(Models.ChatSetting chatSetting, string requesterAddress = null, IEnumerable<Models.ChatUser> chatUsers = null)
+		public ChatSetting(Models.ChatSetting chatSetting, string requesterAddress = null, IEnumerable<Models.ChatUser> chatUsers = null, bool
+			includeUsers = true)
 		{
 			Id = chatSetting.ChatId;
 			Address = chatSetting.Address;
@@ -52,10 +53,13 @@ namespace Converse.Models.View
 					PrivateKey = chatUserArray.FirstOrDefault(cu => cu.Address == requesterAddress)?.PrivateKey;
 				}
 
-				Users = new List<User>();
-				foreach (var chatUser in chatUserArray)
+				if (includeUsers)
 				{
-					Users.Add(new Models.View.ChatUser(chatUser));
+					Users = new List<User>();
+					foreach (var chatUser in chatUserArray)
+					{
+						Users.Add(new Models.View.ChatUser(chatUser));
+					}
 				}
 			}
 		}

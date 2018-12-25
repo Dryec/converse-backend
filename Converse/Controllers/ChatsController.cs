@@ -47,7 +47,7 @@ namespace Converse.Controllers
 			var chats = new List<Models.View.Chat>();
 			foreach (var chatUser in user.ChatUsers)
 			{
-				chats.Add(new Models.View.Chat(chatUser.Chat, user.Address));
+				chats.Add(new Models.View.Chat(chatUser.Chat, user.Address, false));
 			}
 
 			return Content(JsonConvert.SerializeObject(chats, 
@@ -98,7 +98,7 @@ namespace Converse.Controllers
 
 		    var chat = await _context.GetChatAsync(chatId, chats => chats
 			    .Include(c => c.Setting)
-			    .Include(c => c.Users));
+			    .Include(c => c.Users).ThenInclude(cu => cu.User));
 		    if (chat == null || chat.GetType() != Constants.Chat.Type.Group || chat.Setting == null)
 		    {
 			    return NotFound();

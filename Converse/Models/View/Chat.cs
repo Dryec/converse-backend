@@ -26,7 +26,7 @@ namespace Converse.Models.View
 		[JsonProperty(PropertyName = "last_message")]
 		public ChatMessage ChatMessage { get; set; }
 
-		public Chat(Models.Chat chat, string userAddress)
+		public Chat(Models.Chat chat, string userAddress, bool includeUsers = true)
 		{
 			Id = chat.Id;
 			Type = chat.GetType();
@@ -45,7 +45,7 @@ namespace Converse.Models.View
 			{
 				if (chat.Setting != null)
 				{
-					ChatSetting = new Models.View.ChatSetting(chat.Setting);
+					ChatSetting = new Models.View.ChatSetting(chat.Setting, userAddress, chat.Users, includeUsers);
 				}
 			}
 
