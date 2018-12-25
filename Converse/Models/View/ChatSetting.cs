@@ -17,6 +17,9 @@ namespace Converse.Models.View
 		[JsonProperty(PropertyName = "name")]
 		public string Name { get; set; }
 
+		[JsonProperty(PropertyName = "description")]
+		public string Description { get; set; }
+
 		[JsonProperty(PropertyName = "image")]
 		public string Image { get; set; }
 
@@ -37,8 +40,9 @@ namespace Converse.Models.View
 		{
 			Id = chatSetting.ChatId;
 			Address = chatSetting.Address;
-			Name = chatSetting.Name;
 
+			Name = chatSetting.Name;
+			Description = chatSetting.Description;
 			Image = chatSetting.PictureUrl;
 
 			PublicKey = chatSetting.PublicKey;
