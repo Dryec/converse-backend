@@ -42,20 +42,11 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			}
 
 			// Remove User from Group
-			chat.Users.Remove(leftChatUser);
 			context.DatabaseContext.ChatUsers.Remove(leftChatUser);
-
-			if (!chat.Users.Any())
-			{
-				context.DatabaseContext.Chats.Remove(chat);
-			}
-			else
-			{
-				// Notify all members
-				context.ServiceProvider.GetService<FCMClient>()?.RemoveUserFromGroup(chat, leftChatUser);
-			}
-
 			context.DatabaseContext.SaveChanges();
+
+			// Notify all members
+			context.ServiceProvider.GetService<FCMClient>()?.RemoveUserFromGroup(chat, leftChatUser);
 		}
 	}
 }
