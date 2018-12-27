@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Converse.Database;
 using Converse.Models;
 
 namespace Converse.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class StatisticsController : ControllerBase
+	public struct Statistics
+	{
+		public int TransactionCount { get; set; }
+		public int UserCount { get; set; }
+		public int MessageCount { get; set; }
+		public int ChatCount { get; set; }
+		public int GroupCount { get; set; }
+	}
+
+	public class StatisticsController : Controller
     {
         private readonly DatabaseContext _context;
 
@@ -21,34 +28,31 @@ namespace Converse.Controllers
             _context = context;
         }
 
-		// GET: api/Statistics/
-		// Return some statistics about converse
-		[HttpGet("")]
-		public async Task<IActionResult> GetStatistics()
+        // GET: Statistics
+		[Route("statistics")]
+        public async Task<IActionResult> Index()
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
 	        var transactionCount = Convert.ToInt32(_context.GetConverseTransactionCounter()?.Value);
 	        var userCount = await _context.Users.CountAsync();
 	        var messageCount = await _context.ChatMessages.CountAsync();
 
-	        var chatCount = new[] { 0, 0 };
-	        foreach (var chat in _context.Chats.GroupBy(c => c.IsGroup).Select(c => new { isGroup = c.Key, count = c.Count()}))
+	        var chatCount = new[] {0, 0};
+	        foreach (var chat in _context.Chats.GroupBy(c => c.IsGroup)
+		        .Select(c => new {isGroup = c.Key, count = c.Count()}))
 	        {
 		        chatCount[chat.isGroup ? 1 : 0] = chat.count;
 	        }
 
-			return Ok(new
-			{
-				transactionCount,
-				userCount,
-				messageCount,
-				chatCount = chatCount[0],
-				groupCount = chatCount[1],
-			});
+	        ViewBag.Statistics = new Statistics
+	        {
+		        TransactionCount = transactionCount,
+		        UserCount = userCount,
+		        MessageCount = messageCount,
+		        ChatCount = chatCount[0],
+		        GroupCount = chatCount[1],
+	        };
+
+			return View();
         }
     }
 }

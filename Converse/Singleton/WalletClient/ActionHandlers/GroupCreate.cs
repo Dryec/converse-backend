@@ -66,7 +66,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			}
 
 			// Decrypt group private key
-			var publicGroupPrivateKey = (createGroupMessage.IsPublic ? createGroupMessage.PrivateKey.DecryptByPublicKey(publicKey)?.ToUtf8String() : null);
+			var publicGroupPrivateKey = (createGroupMessage.IsPublic ? createGroupMessage.PrivateKey.DecryptByPublicKey(publicKey)?.EncodeBase64() : null);
 			if (createGroupMessage.IsPublic && createGroupMessage.PrivateKey == null)
 			{
 				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
@@ -117,7 +117,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 					Description = groupDescription,
 					Image = groupImage,
 					PublicKey = groupPublicKey,
-					PrivateKey = publicGroupPrivateKey?.EncodeBase64(),
+					PrivateKey = publicGroupPrivateKey,
 					IsPublic = createGroupMessage.IsPublic,
 				}, context.Transaction.RawData.Timestamp);
 

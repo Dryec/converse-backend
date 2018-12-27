@@ -1,0 +1,42 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tron Society</title>
+    <link href="~/styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="converse-stats" class="section section--margin-to-padding section--direction information">
+        <h2 class="section__subject">CONVERSE STATISTICS</h2>
+        <hr class="hr hr--small hr--orange"/>
+
+        <div class="rewards">
+            <div class="rewards-box">
+                <h3 class="rewards-box__subject">TRANSACTIONS</h3>
+                <div class="splitter rewards-box__splitter"></div>
+                <span id="transactions" class="rewards-box__text">@ViewBag.Statistics.TransactionCount</span>
+            </div>
+            <div class="rewards-box">
+                <h3 class="rewards-box__subject">USERS</h3>
+                <div class="splitter rewards-box__splitter"></div>
+                <span id="users" class="rewards-box__text">@ViewBag.Statistics.UserCount</span>
+            </div>
+            <div class="rewards-box">
+                <h3 class="rewards-box__subject">MESSAGES</h3>
+                <div class="splitter rewards-box__splitter"></div>
+                <span id="messages" class="rewards-box__text">@ViewBag.Statistics.MessageCount</span>
+            </div>
+            <div class="rewards-box">
+                <h3 class="rewards-box__subject">CHATS</h3>
+                <div class="splitter rewards-box__splitter"></div>
+                <span id="chats" class="rewards-box__text">@ViewBag.Statistics.ChatCount</span>
+            </div>
+            <div class="rewards-box">
+                <h3 class="rewards-box__subject">GROUPS</h3>
+                <div class="splitter rewards-box__splitter"></div>
+                <span id="groups" class="rewards-box__text">@ViewBag.Statistics.GroupCount</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

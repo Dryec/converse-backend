@@ -37,7 +37,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\styles\main.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,6 +60,12 @@
     <Reference Include="System">
       <HintPath>System</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\styles\main.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

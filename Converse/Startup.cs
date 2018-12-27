@@ -80,6 +80,8 @@ namespace Converse
 			//		.AllowAnyHeader()
 			//		.AllowAnyMethod());
 
+			app.UseStaticFiles("/styles/*");
+
 			app.UseHttpsRedirection();
 			app.UseMvc();
 		}
