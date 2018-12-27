@@ -144,12 +144,27 @@ namespace Converse.Singleton
 				return;
 			}
 
+			var chatUserData = new Models.View.ChatUser(chatUser);
+
+			chatUser.User?.DeviceIds?.ForEach(deviceId =>
+			{
+				SendMessage(
+					deviceId.DeviceId,
+					chat.Id.ToString(),
+					chat.Setting.Name,
+					"user_added",
+					chatUserData,
+					true,
+					MessagePriority.high
+				).ConfigureAwait(false);
+			});
+
 			SendMessage(
 				"/topics/group_" + chat.Setting.Address,
 				chat.Id.ToString(),
 				chat.Setting.Name,
 				"user_added",
-				new Models.View.ChatUser(chatUser), 
+				chatUserData, 
 				true,
 				MessagePriority.high
 			).ConfigureAwait(false);

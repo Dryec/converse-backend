@@ -169,6 +169,7 @@ namespace Converse.Singleton.WalletClient
 			}
 			UpdateDbContext();
 
+			var deviceIdCheckTimer = DateTime.UtcNow;
 			while (_isThreadRunning) {
 				try
 				{
@@ -209,6 +210,19 @@ namespace Converse.Singleton.WalletClient
 									}
 
 									lastSyncedBlock = block.BlockHeader.RawData.Number;
+								}
+
+								// Check device ids if older than 6 months (6months * 30days) (Every 10 minutes)
+								if ((DateTime.Now - deviceIdCheckTimer).TotalMinutes >= 10)
+								{
+									var oldDeviceIds = databaseContext.UserDeviceIds
+										.Where(d => ((DateTime.UtcNow - d.UpdatedAt).TotalDays >= (6 * 30))).ToList();
+									if (oldDeviceIds.Any())
+									{
+										databaseContext.UserDeviceIds.RemoveRange(oldDeviceIds);
+									}
+
+									deviceIdCheckTimer = DateTime.UtcNow;
 								}
 
 

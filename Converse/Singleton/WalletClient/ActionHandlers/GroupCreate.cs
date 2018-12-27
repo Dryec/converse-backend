@@ -117,7 +117,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 					Description = groupDescription,
 					Image = groupImage,
 					PublicKey = groupPublicKey,
-					PrivateKey = publicGroupPrivateKey,
+					PrivateKey = publicGroupPrivateKey?.EncodeBase64(),
 					IsPublic = createGroupMessage.IsPublic,
 				}, context.Transaction.RawData.Timestamp);
 

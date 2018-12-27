@@ -48,7 +48,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			}
 
 			// Add User to Group
-			var joinedUser = context.DatabaseContext.GetUserAsync(context.Sender).GetAwaiter().GetResult();
+			var joinedUser = context.DatabaseContext.GetUserAsync(context.Sender, users => users.Include(u => u.DeviceIds)).GetAwaiter().GetResult();
 			var joinedChatUser = context.DatabaseContext.CreateChatUser(chat,
 				new DatabaseContext.ChatUserSetting()
 				{

@@ -182,9 +182,9 @@ namespace Converse.Database
 		}
 
 
-		public Models.User CreateUserWhenNotExist(string address)
+		public Models.User CreateUserWhenNotExist(string address, Func<IQueryable<User>, IQueryable<User>> eagerLoading = null)
 		{
-			var user = GetUserAsync(address).GetAwaiter().GetResult();
+			var user = GetUserAsync(address, eagerLoading).GetAwaiter().GetResult();
 
 			if (user == null)
 			{
@@ -205,7 +205,7 @@ namespace Converse.Database
 
 		public List<Models.User> CreateUsersWhenNotExist(IEnumerable<string> addresses)
 		{
-			return addresses.Select(CreateUserWhenNotExist).ToList();
+			return addresses.Select(a => CreateUserWhenNotExist(a)).ToList();
 		}
 
 
