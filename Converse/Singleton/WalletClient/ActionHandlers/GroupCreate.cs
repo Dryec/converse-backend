@@ -65,6 +65,14 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 				return;
 			}
 
+			// Decrypt group private key
+			var publicGroupPrivateKey = (createGroupMessage.IsPublic ? createGroupMessage.PrivateKey.DecryptByPublicKey(publicKey)?.ToUtf8String() : null);
+			if (createGroupMessage.IsPublic && createGroupMessage.PrivateKey == null)
+			{
+				context.Logger.Log.LogDebug(Logger.InvalidBase64Format, "Invalid Base64 Format!");
+				return;
+			}
+
 			// Decrypt group data
 			var groupName = createGroupMessage.Name?.DecryptByPublicKey(publicKey)?.ToUtf8String();
 			var groupDescription = createGroupMessage.Description?.DecryptByPublicKey(publicKey)?.ToUtf8String();
@@ -109,6 +117,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 					Description = groupDescription,
 					Image = groupImage,
 					PublicKey = groupPublicKey,
+					PrivateKey = publicGroupPrivateKey,
 					IsPublic = createGroupMessage.IsPublic,
 				}, context.Transaction.RawData.Timestamp);
 

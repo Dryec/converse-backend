@@ -37,6 +37,8 @@ namespace Converse.Migrations
                 });
 	        migrationBuilder.InsertData("settings", new[] {"Id", "Key", "Value"},
 		        new[] {"1", "LastSyncedBlockId", "0"});
+	        migrationBuilder.InsertData("settings", new[] {"Id", "Key", "Value"},
+		        new[] {"2", "ConverseTransactionCounter", "0"});
 
 			migrationBuilder.CreateTable(
                 name: "userreceivedtokens",

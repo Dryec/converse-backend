@@ -23,6 +23,7 @@ namespace Converse.Database
 			public string Image { get; set; }
 			public string Description { get; set; }
 			public string PublicKey { get; set; }
+			public string PrivateKey { get; set; }
 			public bool IsPublic { get; set; }
 		}
 
@@ -38,6 +39,8 @@ namespace Converse.Database
 		public DbSet<Models.ChatUser> ChatUsers { get; set; }
 		public DbSet<Models.ChatMessage> ChatMessages { get; set; }
 
+		public DbSet<Models.Subscriber> Subscriptions { get; set; }
+
 		public DatabaseContext(DbContextOptions contextOptions)
 			: base(contextOptions)
 		{
@@ -46,6 +49,11 @@ namespace Converse.Database
 		public Models.Setting GetLastSyncedBlock()
 		{
 			return Settings.FirstOrDefault(s => s.Key == "LastSyncedBlockId");
+		}
+
+		public Models.Setting GetConverseTransactionCounter()
+		{
+			return Settings.FirstOrDefault(s => s.Key == "ConverseTransactionCounter");
 		}
 
 
@@ -99,6 +107,7 @@ namespace Converse.Database
 					Description = chatGroupInfo.Value.Description,
 					PictureUrl = chatGroupInfo.Value.Image,
 					PublicKey = chatGroupInfo.Value.PublicKey,
+					PrivateKey = chatGroupInfo.Value.PrivateKey,
 					IsPublic = chatGroupInfo.Value.IsPublic,
 					CreatedAt = time,
 				};

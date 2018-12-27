@@ -23,6 +23,7 @@ namespace Converse.Models
 		public string PictureUrl { get; set; }
 
 		public string PublicKey { get; set; }
+		public string PrivateKey { get; set; }
 
 		public bool IsPublic { get; set; }
 

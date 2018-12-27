@@ -22,7 +22,7 @@ namespace Converse.Singleton.WalletClient
 			_token = token;
 		}
 
-		public void Handle(TransactionExtention transaction, BlockExtention block, System.IServiceProvider serviceProvider)
+		public void Handle(TransactionExtention transaction, BlockExtention block, System.IServiceProvider serviceProvider, ref int converseTransactionCounter)
 		{
 			// Parse transaction contract data
 			if (transaction.Transaction.RawData.Contract.Count <= 0)
@@ -41,6 +41,8 @@ namespace Converse.Singleton.WalletClient
 			{
 				return;
 			}
+
+			converseTransactionCounter++;
 
 			// Get the TRON-Public Address
 			var senderAddress = Utils.Address.FromByteString(transferAssetContract.OwnerAddress);

@@ -46,13 +46,15 @@ namespace Converse.Models.View
 			Image = chatSetting.PictureUrl;
 
 			PublicKey = chatSetting.PublicKey;
+			PrivateKey = chatSetting.PrivateKey;
 
 			IsPublic = chatSetting.IsPublic;
 
 			if (chatUsers != null)
 			{
 				var chatUserArray = chatUsers as Models.ChatUser[] ?? chatUsers.ToArray();
-				if (requesterAddress != null)
+
+				if (!IsPublic && requesterAddress != null)
 				{
 					PrivateKey = chatUserArray.FirstOrDefault(cu => cu.Address == requesterAddress)?.PrivateKey;
 				}

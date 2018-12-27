@@ -38,7 +38,7 @@ namespace Converse.Singleton.WalletClient.ActionHandlers
 			if (leftChatUser == null)
 			{
 				context.Logger.Log.LogDebug(Logger.HandleGroupLeave, "User not found.");
-				return;
+				return; 
 			}
 
 			// Remove User from Group

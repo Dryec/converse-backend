@@ -74,6 +74,12 @@ namespace Converse
 				walletClient.Start();
 			});
 
+			//app.UseCors(builder =>
+			//	builder.WithOrigins("http://localhost")
+			//		.AllowAnyOrigin()
+			//		.AllowAnyHeader()
+			//		.AllowAnyMethod());
+
 			app.UseHttpsRedirection();
 			app.UseMvc();
 		}

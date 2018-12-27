@@ -140,6 +140,7 @@ namespace Converse.Singleton.WalletClient
 
 			DatabaseContext databaseContext;
 			Models.Setting lastSyncedBlockModel;
+			Models.Setting converseTransactionCounter;
 
 			_appLifeTime.ApplicationStopping.Register(Stop);
 
@@ -152,11 +153,12 @@ namespace Converse.Singleton.WalletClient
 
 				// Get last synced block
 				lastSyncedBlockModel = databaseContext.GetLastSyncedBlock();
-				if (lastSyncedBlockModel == null)
+				converseTransactionCounter = databaseContext.GetConverseTransactionCounter();
+				if (lastSyncedBlockModel == null || converseTransactionCounter == null)
 				{
 					_appLifeTime.StopApplication();
 					_logger.Log.LogCritical(Logger.LastSyncedBlockNotFound,
-						"Could not find 'LastSyncedBlockId' in 'Settings' Table! Make sure to migrate the migrations!");
+						"Could not find 'LastSyncedBlockId' or 'ConverseTransactionCounter' in 'Settings' Table! Make sure to migrate the migrations!");
 					return;
 				}
 
@@ -192,6 +194,9 @@ namespace Converse.Singleton.WalletClient
 						{
 							try
 							{
+								var currentConverseTransactionCounter =
+									Convert.ToInt32(converseTransactionCounter.Value);
+
 								foreach (var block in blocks)
 								{
 									var sortedTransactions =
@@ -199,13 +204,16 @@ namespace Converse.Singleton.WalletClient
 
 									foreach (var transaction in sortedTransactions)
 									{
-										_actionHandler.Handle(transaction, block, _serviceProvider);
+										_actionHandler.Handle(transaction, block, _serviceProvider, ref
+											currentConverseTransactionCounter);
 									}
 
 									lastSyncedBlock = block.BlockHeader.RawData.Number;
 								}
 
+
 								lastSyncedBlockModel.Value = lastSyncedBlock.ToString();
+								converseTransactionCounter.Value = currentConverseTransactionCounter.ToString();
 
 								databaseContext.SaveChanges();
 								transactionScope.Commit();
