@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Converse.Models;
 using Converse.Singleton.WalletClient;
+using Converse.Utils;
+using Crypto;
 using Google.Protobuf;
 using Grpc.Core;
 using Newtonsoft.Json;
@@ -43,6 +45,39 @@ namespace Converse.Controllers
             _context = context;
 	        _logger = loggerFactory.CreateLogger("UsersController");
         }
+
+	    // GET: api/Users/Devices/{address}
+	    // Return device ids about an user
+	    [HttpGet("devices/{address}")]
+	    public async Task<IActionResult> GetUserDeviceIds([FromRoute] string address)
+	    {
+		    if (!ModelState.IsValid)
+		    {
+			    return BadRequest(ModelState);
+		    }
+
+		    if (Client.WalletAddress.Decode58Check(address) == null)
+		    {
+			    return NotFound();
+		    }
+
+		    var user = await _context.GetUserAsync(address, users => users.Include(u => u.DeviceIds));
+		    if (user == null || string.IsNullOrEmpty(user.PublicKey))
+		    {
+			    return NotFound();
+		    }
+
+		    var publicKey = user.PublicKey.DecodeBase64();
+			var encrypter = new ECKey();
+		    var deviceIds = user.DeviceIds.Select(deviceId => encrypter.Encrypt(deviceId.DeviceId.Select(c => (byte) c).ToArray(), publicKey).EncodeBase64());
+
+		    return Content(JsonConvert.SerializeObject(deviceIds,
+			    new JsonSerializerSettings()
+			    {
+				    NullValueHandling = NullValueHandling.Ignore,
+				    DateTimeZoneHandling = DateTimeZoneHandling.Utc
+			    }));
+	    }
 
 		// GET: api/Users/{address}
 		// Return informations about an user

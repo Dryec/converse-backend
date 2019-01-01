@@ -115,9 +115,9 @@ namespace Converse.Singleton
 				"/topics/group_" + chat.Setting.Address,
 				chat.Id.ToString(),
 				chat.Setting.Name,
-				"message",
+				"grp_msg",
 				new Models.View.ChatMessage(chatMessage), 
-				true,
+				false,
 				MessagePriority.high
 			).ConfigureAwait(false);
 		}
