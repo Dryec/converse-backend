@@ -13,10 +13,12 @@ namespace Converse.Singleton.WalletClient
 	{
 		private readonly Client.WalletClient _walletClient;
 		private readonly Logger _logger;
+		public string Id { get; }
 		public string Name { get; }
 
-		public Token(string name, Logger logger, Client.WalletClient walletClient)
+		public Token(string id, string name, Logger logger, Client.WalletClient walletClient)
 		{
+			Id = id;
 			Name = name;
 			_logger = logger;
 			_walletClient = walletClient;

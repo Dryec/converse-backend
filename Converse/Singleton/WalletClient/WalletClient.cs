@@ -43,7 +43,7 @@ namespace Converse.Singleton.WalletClient
 			
 			_walletClient = new Client.WalletClient(nodeConfiguration.Ip + ":" + nodeConfiguration.Port);
 			_logger = new Logger(serviceProvider.GetService<ILoggerFactory>().CreateLogger("WalletClient"));
-			_token = new Token(tokenConfiguration.Name, _logger, _walletClient);
+			_token = new Token(tokenConfiguration.Id, tokenConfiguration.Name, _logger, _walletClient);
 
 			_actionHandler = new ActionHandler(_logger, _token);
 
@@ -105,7 +105,7 @@ namespace Converse.Singleton.WalletClient
 			var contract = new Protocol.TransferAssetContract()
 			{
 				Amount = amount,
-				AssetName = ByteString.CopyFromUtf8(_token.Name),
+				AssetName = ByteString.CopyFromUtf8(_token.Id),
 				OwnerAddress = ByteString.CopyFrom(Client.WalletAddress.Decode58Check(PropertyAddress.Address)),
 				ToAddress = ByteString.CopyFrom(Client.WalletAddress.Decode58Check(receiver)),
 			};

@@ -7,6 +7,7 @@ namespace Converse.Configuration
 {
 	public class Token
 	{
+		public string Id { get; set; }
 		public string Name { get; set; }
 		public int TransferMaxPerAccountEveryDay { get; set; }
 		public int TransferOnlyWhenHasLessOrEqualThan { get; set; }
