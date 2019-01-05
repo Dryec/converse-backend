@@ -4,6 +4,7 @@
     "Port": 50051
   },
   "Token": {
+    "Id": "TokenId", 
     "Name": "AnyToken",
     "TransferMaxPerAccountEveryDay": 500,
     "TransferOnlyWhenHasLessOrEqualThan": 20,
