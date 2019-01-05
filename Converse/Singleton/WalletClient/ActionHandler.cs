@@ -15,11 +15,13 @@ namespace Converse.Singleton.WalletClient
 
 		private readonly Logger _logger;
 		private readonly Token _token;
+		private readonly Configuration.Block _blockConfiguration;
 
-		public ActionHandler(Logger logger, Token token)
+		public ActionHandler(Logger logger, Token token, Configuration.Block blockConfiguration)
 		{
 			_logger = logger;
 			_token = token;
+			_blockConfiguration = blockConfiguration;
 		}
 
 		public void Handle(TransactionExtention transaction, BlockExtention block, System.IServiceProvider serviceProvider, ref int converseTransactionCounter)
@@ -37,7 +39,8 @@ namespace Converse.Singleton.WalletClient
 			}
 
 			var transferAssetContract = contract.Parameter.Unpack<TransferAssetContract>();
-			if (transferAssetContract.AssetName.ToStringUtf8() != _token.Id)
+			if (transferAssetContract.AssetName.ToStringUtf8() != (unchecked((ulong) block.BlockHeader.RawData.Number) <=
+			                                                       _blockConfiguration.SyncUntilBlockWithTokenName ? _token.Name : _token.Id))
 			{
 				return;
 			}

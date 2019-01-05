@@ -45,7 +45,7 @@ namespace Converse.Singleton.WalletClient
 			_logger = new Logger(serviceProvider.GetService<ILoggerFactory>().CreateLogger("WalletClient"));
 			_token = new Token(tokenConfiguration.Id, tokenConfiguration.Name, _logger, _walletClient);
 
-			_actionHandler = new ActionHandler(_logger, _token);
+			_actionHandler = new ActionHandler(_logger, _token, _blockConfiguration);
 
 			if (_blockConfiguration.SyncCount <= 0)
 			{

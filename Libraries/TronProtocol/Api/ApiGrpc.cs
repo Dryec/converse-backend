@@ -21,6 +21,7 @@ namespace Protocol {
     static readonly grpc::Marshaller<global::Protocol.SetAccountIdContract> __Marshaller_protocol_SetAccountIdContract = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.SetAccountIdContract.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.VoteWitnessContract> __Marshaller_protocol_VoteWitnessContract = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.VoteWitnessContract.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.UpdateSettingContract> __Marshaller_protocol_UpdateSettingContract = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.UpdateSettingContract.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.UpdateEnergyLimitContract> __Marshaller_protocol_UpdateEnergyLimitContract = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.UpdateEnergyLimitContract.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.AssetIssueContract> __Marshaller_protocol_AssetIssueContract = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.AssetIssueContract.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.WitnessUpdateContract> __Marshaller_protocol_WitnessUpdateContract = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.WitnessUpdateContract.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.AccountCreateContract> __Marshaller_protocol_AccountCreateContract = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.AccountCreateContract.Parser.ParseFrom);
@@ -58,12 +59,15 @@ namespace Protocol {
     static readonly grpc::Marshaller<global::Protocol.SmartContract> __Marshaller_protocol_SmartContract = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.SmartContract.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.TriggerSmartContract> __Marshaller_protocol_TriggerSmartContract = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.TriggerSmartContract.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.WitnessList> __Marshaller_protocol_WitnessList = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.WitnessList.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.DelegatedResourceMessage> __Marshaller_protocol_DelegatedResourceMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.DelegatedResourceMessage.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.DelegatedResourceList> __Marshaller_protocol_DelegatedResourceList = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.DelegatedResourceList.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.DelegatedResourceAccountIndex> __Marshaller_protocol_DelegatedResourceAccountIndex = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.DelegatedResourceAccountIndex.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.ProposalList> __Marshaller_protocol_ProposalList = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.ProposalList.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.PaginatedMessage> __Marshaller_protocol_PaginatedMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.PaginatedMessage.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.Proposal> __Marshaller_protocol_Proposal = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.Proposal.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.ExchangeList> __Marshaller_protocol_ExchangeList = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.ExchangeList.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.Exchange> __Marshaller_protocol_Exchange = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.Exchange.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.ChainParameters> __Marshaller_protocol_ChainParameters = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.ChainParameters.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Protocol.PaginatedMessage> __Marshaller_protocol_PaginatedMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.PaginatedMessage.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.TransactionSign> __Marshaller_protocol_TransactionSign = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.TransactionSign.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.EasyTransferMessage> __Marshaller_protocol_EasyTransferMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.EasyTransferMessage.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.EasyTransferResponse> __Marshaller_protocol_EasyTransferResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.EasyTransferResponse.Parser.ParseFrom);
@@ -139,6 +143,13 @@ namespace Protocol {
         __ServiceName,
         "UpdateSetting",
         __Marshaller_protocol_UpdateSettingContract,
+        __Marshaller_protocol_TransactionExtention);
+
+    static readonly grpc::Method<global::Protocol.UpdateEnergyLimitContract, global::Protocol.TransactionExtention> __Method_UpdateEnergyLimit = new grpc::Method<global::Protocol.UpdateEnergyLimitContract, global::Protocol.TransactionExtention>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpdateEnergyLimit",
+        __Marshaller_protocol_UpdateEnergyLimitContract,
         __Marshaller_protocol_TransactionExtention);
 
     static readonly grpc::Method<global::Protocol.VoteWitnessContract, global::Protocol.TransactionExtention> __Method_VoteWitnessAccount2 = new grpc::Method<global::Protocol.VoteWitnessContract, global::Protocol.TransactionExtention>(
@@ -407,6 +418,20 @@ namespace Protocol {
         __Marshaller_protocol_BytesMessage,
         __Marshaller_protocol_AssetIssueContract);
 
+    static readonly grpc::Method<global::Protocol.BytesMessage, global::Protocol.AssetIssueList> __Method_GetAssetIssueListByName = new grpc::Method<global::Protocol.BytesMessage, global::Protocol.AssetIssueList>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetAssetIssueListByName",
+        __Marshaller_protocol_BytesMessage,
+        __Marshaller_protocol_AssetIssueList);
+
+    static readonly grpc::Method<global::Protocol.BytesMessage, global::Protocol.AssetIssueContract> __Method_GetAssetIssueById = new grpc::Method<global::Protocol.BytesMessage, global::Protocol.AssetIssueContract>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetAssetIssueById",
+        __Marshaller_protocol_BytesMessage,
+        __Marshaller_protocol_AssetIssueContract);
+
     static readonly grpc::Method<global::Protocol.EmptyMessage, global::Protocol.Block> __Method_GetNowBlock = new grpc::Method<global::Protocol.EmptyMessage, global::Protocol.Block>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -512,11 +537,32 @@ namespace Protocol {
         __Marshaller_protocol_EmptyMessage,
         __Marshaller_protocol_WitnessList);
 
+    static readonly grpc::Method<global::Protocol.DelegatedResourceMessage, global::Protocol.DelegatedResourceList> __Method_GetDelegatedResource = new grpc::Method<global::Protocol.DelegatedResourceMessage, global::Protocol.DelegatedResourceList>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetDelegatedResource",
+        __Marshaller_protocol_DelegatedResourceMessage,
+        __Marshaller_protocol_DelegatedResourceList);
+
+    static readonly grpc::Method<global::Protocol.BytesMessage, global::Protocol.DelegatedResourceAccountIndex> __Method_GetDelegatedResourceAccountIndex = new grpc::Method<global::Protocol.BytesMessage, global::Protocol.DelegatedResourceAccountIndex>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetDelegatedResourceAccountIndex",
+        __Marshaller_protocol_BytesMessage,
+        __Marshaller_protocol_DelegatedResourceAccountIndex);
+
     static readonly grpc::Method<global::Protocol.EmptyMessage, global::Protocol.ProposalList> __Method_ListProposals = new grpc::Method<global::Protocol.EmptyMessage, global::Protocol.ProposalList>(
         grpc::MethodType.Unary,
         __ServiceName,
         "ListProposals",
         __Marshaller_protocol_EmptyMessage,
+        __Marshaller_protocol_ProposalList);
+
+    static readonly grpc::Method<global::Protocol.PaginatedMessage, global::Protocol.ProposalList> __Method_GetPaginatedProposalList = new grpc::Method<global::Protocol.PaginatedMessage, global::Protocol.ProposalList>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetPaginatedProposalList",
+        __Marshaller_protocol_PaginatedMessage,
         __Marshaller_protocol_ProposalList);
 
     static readonly grpc::Method<global::Protocol.BytesMessage, global::Protocol.Proposal> __Method_GetProposalById = new grpc::Method<global::Protocol.BytesMessage, global::Protocol.Proposal>(
@@ -531,6 +577,13 @@ namespace Protocol {
         __ServiceName,
         "ListExchanges",
         __Marshaller_protocol_EmptyMessage,
+        __Marshaller_protocol_ExchangeList);
+
+    static readonly grpc::Method<global::Protocol.PaginatedMessage, global::Protocol.ExchangeList> __Method_GetPaginatedExchangeList = new grpc::Method<global::Protocol.PaginatedMessage, global::Protocol.ExchangeList>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetPaginatedExchangeList",
+        __Marshaller_protocol_PaginatedMessage,
         __Marshaller_protocol_ExchangeList);
 
     static readonly grpc::Method<global::Protocol.BytesMessage, global::Protocol.Exchange> __Method_GetExchangeById = new grpc::Method<global::Protocol.BytesMessage, global::Protocol.Exchange>(
@@ -715,6 +768,17 @@ namespace Protocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::Protocol.TransactionExtention> UpdateSetting(global::Protocol.UpdateSettingContract request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///modify the energy_limit
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.TransactionExtention> UpdateEnergyLimit(global::Protocol.UpdateEnergyLimitContract request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1047,6 +1111,16 @@ namespace Protocol {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.AssetIssueList> GetAssetIssueListByName(global::Protocol.BytesMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.AssetIssueContract> GetAssetIssueById(global::Protocol.BytesMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
       /// <summary>
       ///Please use GetNowBlock2 instead of this function.
       /// </summary>
@@ -1170,7 +1244,22 @@ namespace Protocol {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.DelegatedResourceList> GetDelegatedResource(global::Protocol.DelegatedResourceMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.DelegatedResourceAccountIndex> GetDelegatedResourceAccountIndex(global::Protocol.BytesMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
       public virtual global::System.Threading.Tasks.Task<global::Protocol.ProposalList> ListProposals(global::Protocol.EmptyMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.ProposalList> GetPaginatedProposalList(global::Protocol.PaginatedMessage request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1181,6 +1270,11 @@ namespace Protocol {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Protocol.ExchangeList> ListExchanges(global::Protocol.EmptyMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.ExchangeList> GetPaginatedExchangeList(global::Protocol.PaginatedMessage request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1640,6 +1734,50 @@ namespace Protocol {
       public virtual grpc::AsyncUnaryCall<global::Protocol.TransactionExtention> UpdateSettingAsync(global::Protocol.UpdateSettingContract request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_UpdateSetting, null, options, request);
+      }
+      /// <summary>
+      ///modify the energy_limit
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Protocol.TransactionExtention UpdateEnergyLimit(global::Protocol.UpdateEnergyLimitContract request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateEnergyLimit(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///modify the energy_limit
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Protocol.TransactionExtention UpdateEnergyLimit(global::Protocol.UpdateEnergyLimitContract request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpdateEnergyLimit, null, options, request);
+      }
+      /// <summary>
+      ///modify the energy_limit
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Protocol.TransactionExtention> UpdateEnergyLimitAsync(global::Protocol.UpdateEnergyLimitContract request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateEnergyLimitAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///modify the energy_limit
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Protocol.TransactionExtention> UpdateEnergyLimitAsync(global::Protocol.UpdateEnergyLimitContract request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpdateEnergyLimit, null, options, request);
       }
       /// <summary>
       ///Use this function instead of VoteWitnessAccount.
@@ -2893,6 +3031,38 @@ namespace Protocol {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetAssetIssueByName, null, options, request);
       }
+      public virtual global::Protocol.AssetIssueList GetAssetIssueListByName(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAssetIssueListByName(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.AssetIssueList GetAssetIssueListByName(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetAssetIssueListByName, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.AssetIssueList> GetAssetIssueListByNameAsync(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAssetIssueListByNameAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.AssetIssueList> GetAssetIssueListByNameAsync(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetAssetIssueListByName, null, options, request);
+      }
+      public virtual global::Protocol.AssetIssueContract GetAssetIssueById(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAssetIssueById(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.AssetIssueContract GetAssetIssueById(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetAssetIssueById, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.AssetIssueContract> GetAssetIssueByIdAsync(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAssetIssueByIdAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.AssetIssueContract> GetAssetIssueByIdAsync(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetAssetIssueById, null, options, request);
+      }
       /// <summary>
       ///Please use GetNowBlock2 instead of this function.
       /// </summary>
@@ -3357,6 +3527,38 @@ namespace Protocol {
       {
         return CallInvoker.AsyncUnaryCall(__Method_ListWitnesses, null, options, request);
       }
+      public virtual global::Protocol.DelegatedResourceList GetDelegatedResource(global::Protocol.DelegatedResourceMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDelegatedResource(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.DelegatedResourceList GetDelegatedResource(global::Protocol.DelegatedResourceMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetDelegatedResource, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.DelegatedResourceList> GetDelegatedResourceAsync(global::Protocol.DelegatedResourceMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDelegatedResourceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.DelegatedResourceList> GetDelegatedResourceAsync(global::Protocol.DelegatedResourceMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetDelegatedResource, null, options, request);
+      }
+      public virtual global::Protocol.DelegatedResourceAccountIndex GetDelegatedResourceAccountIndex(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDelegatedResourceAccountIndex(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.DelegatedResourceAccountIndex GetDelegatedResourceAccountIndex(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetDelegatedResourceAccountIndex, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.DelegatedResourceAccountIndex> GetDelegatedResourceAccountIndexAsync(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDelegatedResourceAccountIndexAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.DelegatedResourceAccountIndex> GetDelegatedResourceAccountIndexAsync(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetDelegatedResourceAccountIndex, null, options, request);
+      }
       public virtual global::Protocol.ProposalList ListProposals(global::Protocol.EmptyMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ListProposals(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -3372,6 +3574,22 @@ namespace Protocol {
       public virtual grpc::AsyncUnaryCall<global::Protocol.ProposalList> ListProposalsAsync(global::Protocol.EmptyMessage request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_ListProposals, null, options, request);
+      }
+      public virtual global::Protocol.ProposalList GetPaginatedProposalList(global::Protocol.PaginatedMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPaginatedProposalList(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.ProposalList GetPaginatedProposalList(global::Protocol.PaginatedMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetPaginatedProposalList, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.ProposalList> GetPaginatedProposalListAsync(global::Protocol.PaginatedMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPaginatedProposalListAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.ProposalList> GetPaginatedProposalListAsync(global::Protocol.PaginatedMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetPaginatedProposalList, null, options, request);
       }
       public virtual global::Protocol.Proposal GetProposalById(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
@@ -3404,6 +3622,22 @@ namespace Protocol {
       public virtual grpc::AsyncUnaryCall<global::Protocol.ExchangeList> ListExchangesAsync(global::Protocol.EmptyMessage request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_ListExchanges, null, options, request);
+      }
+      public virtual global::Protocol.ExchangeList GetPaginatedExchangeList(global::Protocol.PaginatedMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPaginatedExchangeList(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.ExchangeList GetPaginatedExchangeList(global::Protocol.PaginatedMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetPaginatedExchangeList, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.ExchangeList> GetPaginatedExchangeListAsync(global::Protocol.PaginatedMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPaginatedExchangeListAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.ExchangeList> GetPaginatedExchangeListAsync(global::Protocol.PaginatedMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetPaginatedExchangeList, null, options, request);
       }
       public virtual global::Protocol.Exchange GetExchangeById(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
@@ -3811,6 +4045,7 @@ namespace Protocol {
           .AddMethod(__Method_UpdateAccount2, serviceImpl.UpdateAccount2)
           .AddMethod(__Method_VoteWitnessAccount, serviceImpl.VoteWitnessAccount)
           .AddMethod(__Method_UpdateSetting, serviceImpl.UpdateSetting)
+          .AddMethod(__Method_UpdateEnergyLimit, serviceImpl.UpdateEnergyLimit)
           .AddMethod(__Method_VoteWitnessAccount2, serviceImpl.VoteWitnessAccount2)
           .AddMethod(__Method_CreateAssetIssue, serviceImpl.CreateAssetIssue)
           .AddMethod(__Method_CreateAssetIssue2, serviceImpl.CreateAssetIssue2)
@@ -3849,6 +4084,8 @@ namespace Protocol {
           .AddMethod(__Method_GetAccountNet, serviceImpl.GetAccountNet)
           .AddMethod(__Method_GetAccountResource, serviceImpl.GetAccountResource)
           .AddMethod(__Method_GetAssetIssueByName, serviceImpl.GetAssetIssueByName)
+          .AddMethod(__Method_GetAssetIssueListByName, serviceImpl.GetAssetIssueListByName)
+          .AddMethod(__Method_GetAssetIssueById, serviceImpl.GetAssetIssueById)
           .AddMethod(__Method_GetNowBlock, serviceImpl.GetNowBlock)
           .AddMethod(__Method_GetNowBlock2, serviceImpl.GetNowBlock2)
           .AddMethod(__Method_GetBlockByNum, serviceImpl.GetBlockByNum)
@@ -3864,9 +4101,13 @@ namespace Protocol {
           .AddMethod(__Method_GetContract, serviceImpl.GetContract)
           .AddMethod(__Method_TriggerContract, serviceImpl.TriggerContract)
           .AddMethod(__Method_ListWitnesses, serviceImpl.ListWitnesses)
+          .AddMethod(__Method_GetDelegatedResource, serviceImpl.GetDelegatedResource)
+          .AddMethod(__Method_GetDelegatedResourceAccountIndex, serviceImpl.GetDelegatedResourceAccountIndex)
           .AddMethod(__Method_ListProposals, serviceImpl.ListProposals)
+          .AddMethod(__Method_GetPaginatedProposalList, serviceImpl.GetPaginatedProposalList)
           .AddMethod(__Method_GetProposalById, serviceImpl.GetProposalById)
           .AddMethod(__Method_ListExchanges, serviceImpl.ListExchanges)
+          .AddMethod(__Method_GetPaginatedExchangeList, serviceImpl.GetPaginatedExchangeList)
           .AddMethod(__Method_GetExchangeById, serviceImpl.GetExchangeById)
           .AddMethod(__Method_GetChainParameters, serviceImpl.GetChainParameters)
           .AddMethod(__Method_GetAssetIssueList, serviceImpl.GetAssetIssueList)
@@ -3895,7 +4136,12 @@ namespace Protocol {
     static readonly grpc::Marshaller<global::Protocol.Block> __Marshaller_protocol_Block = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.Block.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.BlockExtention> __Marshaller_protocol_BlockExtention = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.BlockExtention.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.NumberMessage> __Marshaller_protocol_NumberMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.NumberMessage.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.DelegatedResourceMessage> __Marshaller_protocol_DelegatedResourceMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.DelegatedResourceMessage.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.DelegatedResourceList> __Marshaller_protocol_DelegatedResourceList = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.DelegatedResourceList.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.BytesMessage> __Marshaller_protocol_BytesMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.BytesMessage.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.DelegatedResourceAccountIndex> __Marshaller_protocol_DelegatedResourceAccountIndex = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.DelegatedResourceAccountIndex.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.Exchange> __Marshaller_protocol_Exchange = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.Exchange.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Protocol.ExchangeList> __Marshaller_protocol_ExchangeList = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.ExchangeList.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.Transaction> __Marshaller_protocol_Transaction = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.Transaction.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.TransactionInfo> __Marshaller_protocol_TransactionInfo = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.TransactionInfo.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Protocol.AddressPrKeyPairMessage> __Marshaller_protocol_AddressPrKeyPairMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Protocol.AddressPrKeyPairMessage.Parser.ParseFrom);
@@ -3969,6 +4215,34 @@ namespace Protocol {
         "GetTransactionCountByBlockNum",
         __Marshaller_protocol_NumberMessage,
         __Marshaller_protocol_NumberMessage);
+
+    static readonly grpc::Method<global::Protocol.DelegatedResourceMessage, global::Protocol.DelegatedResourceList> __Method_GetDelegatedResource = new grpc::Method<global::Protocol.DelegatedResourceMessage, global::Protocol.DelegatedResourceList>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetDelegatedResource",
+        __Marshaller_protocol_DelegatedResourceMessage,
+        __Marshaller_protocol_DelegatedResourceList);
+
+    static readonly grpc::Method<global::Protocol.BytesMessage, global::Protocol.DelegatedResourceAccountIndex> __Method_GetDelegatedResourceAccountIndex = new grpc::Method<global::Protocol.BytesMessage, global::Protocol.DelegatedResourceAccountIndex>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetDelegatedResourceAccountIndex",
+        __Marshaller_protocol_BytesMessage,
+        __Marshaller_protocol_DelegatedResourceAccountIndex);
+
+    static readonly grpc::Method<global::Protocol.BytesMessage, global::Protocol.Exchange> __Method_GetExchangeById = new grpc::Method<global::Protocol.BytesMessage, global::Protocol.Exchange>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetExchangeById",
+        __Marshaller_protocol_BytesMessage,
+        __Marshaller_protocol_Exchange);
+
+    static readonly grpc::Method<global::Protocol.EmptyMessage, global::Protocol.ExchangeList> __Method_ListExchanges = new grpc::Method<global::Protocol.EmptyMessage, global::Protocol.ExchangeList>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListExchanges",
+        __Marshaller_protocol_EmptyMessage,
+        __Marshaller_protocol_ExchangeList);
 
     static readonly grpc::Method<global::Protocol.BytesMessage, global::Protocol.Transaction> __Method_GetTransactionById = new grpc::Method<global::Protocol.BytesMessage, global::Protocol.Transaction>(
         grpc::MethodType.Unary,
@@ -4070,6 +4344,26 @@ namespace Protocol {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Protocol.NumberMessage> GetTransactionCountByBlockNum(global::Protocol.NumberMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.DelegatedResourceList> GetDelegatedResource(global::Protocol.DelegatedResourceMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.DelegatedResourceAccountIndex> GetDelegatedResourceAccountIndex(global::Protocol.BytesMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.Exchange> GetExchangeById(global::Protocol.BytesMessage request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Protocol.ExchangeList> ListExchanges(global::Protocol.EmptyMessage request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -4392,6 +4686,70 @@ namespace Protocol {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetTransactionCountByBlockNum, null, options, request);
       }
+      public virtual global::Protocol.DelegatedResourceList GetDelegatedResource(global::Protocol.DelegatedResourceMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDelegatedResource(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.DelegatedResourceList GetDelegatedResource(global::Protocol.DelegatedResourceMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetDelegatedResource, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.DelegatedResourceList> GetDelegatedResourceAsync(global::Protocol.DelegatedResourceMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDelegatedResourceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.DelegatedResourceList> GetDelegatedResourceAsync(global::Protocol.DelegatedResourceMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetDelegatedResource, null, options, request);
+      }
+      public virtual global::Protocol.DelegatedResourceAccountIndex GetDelegatedResourceAccountIndex(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDelegatedResourceAccountIndex(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.DelegatedResourceAccountIndex GetDelegatedResourceAccountIndex(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetDelegatedResourceAccountIndex, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.DelegatedResourceAccountIndex> GetDelegatedResourceAccountIndexAsync(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDelegatedResourceAccountIndexAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.DelegatedResourceAccountIndex> GetDelegatedResourceAccountIndexAsync(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetDelegatedResourceAccountIndex, null, options, request);
+      }
+      public virtual global::Protocol.Exchange GetExchangeById(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetExchangeById(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.Exchange GetExchangeById(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetExchangeById, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.Exchange> GetExchangeByIdAsync(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetExchangeByIdAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.Exchange> GetExchangeByIdAsync(global::Protocol.BytesMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetExchangeById, null, options, request);
+      }
+      public virtual global::Protocol.ExchangeList ListExchanges(global::Protocol.EmptyMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListExchanges(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Protocol.ExchangeList ListExchanges(global::Protocol.EmptyMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListExchanges, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.ExchangeList> ListExchangesAsync(global::Protocol.EmptyMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListExchangesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Protocol.ExchangeList> ListExchangesAsync(global::Protocol.EmptyMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListExchanges, null, options, request);
+      }
       public virtual global::Protocol.Transaction GetTransactionById(global::Protocol.BytesMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetTransactionById(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -4490,6 +4848,10 @@ namespace Protocol {
           .AddMethod(__Method_GetBlockByNum, serviceImpl.GetBlockByNum)
           .AddMethod(__Method_GetBlockByNum2, serviceImpl.GetBlockByNum2)
           .AddMethod(__Method_GetTransactionCountByBlockNum, serviceImpl.GetTransactionCountByBlockNum)
+          .AddMethod(__Method_GetDelegatedResource, serviceImpl.GetDelegatedResource)
+          .AddMethod(__Method_GetDelegatedResourceAccountIndex, serviceImpl.GetDelegatedResourceAccountIndex)
+          .AddMethod(__Method_GetExchangeById, serviceImpl.GetExchangeById)
+          .AddMethod(__Method_ListExchanges, serviceImpl.ListExchanges)
           .AddMethod(__Method_GetTransactionById, serviceImpl.GetTransactionById)
           .AddMethod(__Method_GetTransactionInfoById, serviceImpl.GetTransactionInfoById)
           .AddMethod(__Method_GenerateAddress, serviceImpl.GenerateAddress).Build();

@@ -8,9 +8,9 @@
     <PackageReference Include="Portable.BouncyCastle" Version="1.8.4" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="BIP39.cs" />
+    <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj" />
+    <Compile Remove="BIP39.cs" />
   </ItemGroup>
 </Project>

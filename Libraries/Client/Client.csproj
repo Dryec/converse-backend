@@ -3,12 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TronProtocol\TronProtocol.csproj" />
+    <ProjectReference Include="..\Crypto\Crypto.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Remove="Grpc\GrpcChannelFactory.cs" />
     <Compile Remove="Grpc\IGrpcChannelFactory.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Crypto\Crypto.csproj" />
-    <ProjectReference Include="..\TronProtocol\TronProtocol.csproj" />
   </ItemGroup>
 </Project>

@@ -49,9 +49,11 @@ namespace Client
         Task<AssetIssueList> GetAssetIssueByAccountAsync(Account account);
         
         Task<AccountResourceMessage> GetAccountResourceAsync(Account account);
-        
+
         Task<AssetIssueContract> GetAssetIssueByNameAsync(BytesMessage message);
-        
+
+        Task<AssetIssueContract> GetAssetIssueByIdAsync(BytesMessage message);
+
         Task<BlockExtention> GetNowBlockAsync();
         
         Task<BlockExtention> GetBlockByNumAsync(NumberMessage message);
@@ -70,5 +72,9 @@ namespace Client
         
         Task<NumberMessage> GetNextMaintenanceTimeAsync();
 
+        Task<TransactionExtention> ExchangeCreate(ExchangeCreateContract contract);
+        Task<TransactionExtention> ExchangeInject(ExchangeInjectContract contract);
+        Task<TransactionExtention> ExchangeWithdraw(ExchangeWithdrawContract contract);
+        Task<TransactionExtention> ExchangeTransaction(ExchangeTransactionContract contract);
     }
 }

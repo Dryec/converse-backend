@@ -140,7 +140,7 @@ namespace Converse.Controllers
 			    try
 			    {
 				    var userAccount = await walletClient.GetAddressInformation(address);
-				    var asset = userAccount.Asset.SingleOrDefault(a => a.Key.Equals(tokenOptions.Value.Name, StringComparison.CurrentCultureIgnoreCase));
+				    var asset = userAccount.AssetV2.SingleOrDefault(a => a.Key.Equals(tokenOptions.Value.Id, StringComparison.CurrentCultureIgnoreCase));
 
 				    if (asset.Key == null || asset.Value <= tokenOptions.Value.TransferOnlyWhenHasLessOrEqualThan)
 				    {

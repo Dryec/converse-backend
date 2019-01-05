@@ -42,170 +42,205 @@ namespace Protocol {
             "bmRfdG9rZW5fYmFsYW5jZRgJIAEoAyKBAQoPQ2hhaW5QYXJhbWV0ZXJzEkAK",
             "DmNoYWluUGFyYW1ldGVyGAEgAygLMigucHJvdG9jb2wuQ2hhaW5QYXJhbWV0",
             "ZXJzLkNoYWluUGFyYW1ldGVyGiwKDkNoYWluUGFyYW1ldGVyEgsKA2tleRgB",
-            "IAEoCRINCgV2YWx1ZRgCIAEoAyLyCQoHQWNjb3VudBIUCgxhY2NvdW50X25h",
+            "IAEoCRINCgV2YWx1ZRgCIAEoAyLdDgoHQWNjb3VudBIUCgxhY2NvdW50X25h",
             "bWUYASABKAwSIwoEdHlwZRgCIAEoDjIVLnByb3RvY29sLkFjY291bnRUeXBl",
             "Eg8KB2FkZHJlc3MYAyABKAwSDwoHYmFsYW5jZRgEIAEoAxIdCgV2b3RlcxgF",
             "IAMoCzIOLnByb3RvY29sLlZvdGUSKwoFYXNzZXQYBiADKAsyHC5wcm90b2Nv",
-            "bC5BY2NvdW50LkFzc2V0RW50cnkSKAoGZnJvemVuGAcgAygLMhgucHJvdG9j",
-            "b2wuQWNjb3VudC5Gcm96ZW4SEQoJbmV0X3VzYWdlGAggASgDEhMKC2NyZWF0",
-            "ZV90aW1lGAkgASgDEhwKFGxhdGVzdF9vcHJhdGlvbl90aW1lGAogASgDEhEK",
-            "CWFsbG93YW5jZRgLIAEoAxIcChRsYXRlc3Rfd2l0aGRyYXdfdGltZRgMIAEo",
-            "AxIMCgRjb2RlGA0gASgMEhIKCmlzX3dpdG5lc3MYDiABKAgSFAoMaXNfY29t",
-            "bWl0dGVlGA8gASgIEi8KDWZyb3plbl9zdXBwbHkYECADKAsyGC5wcm90b2Nv",
-            "bC5BY2NvdW50LkZyb3plbhIZChFhc3NldF9pc3N1ZWRfbmFtZRgRIAEoDBJU",
-            "ChtsYXRlc3RfYXNzZXRfb3BlcmF0aW9uX3RpbWUYEiADKAsyLy5wcm90b2Nv",
-            "bC5BY2NvdW50LkxhdGVzdEFzc2V0T3BlcmF0aW9uVGltZUVudHJ5EhYKDmZy",
-            "ZWVfbmV0X3VzYWdlGBMgASgDEkYKFGZyZWVfYXNzZXRfbmV0X3VzYWdlGBQg",
-            "AygLMigucHJvdG9jb2wuQWNjb3VudC5GcmVlQXNzZXROZXRVc2FnZUVudHJ5",
-            "EhsKE2xhdGVzdF9jb25zdW1lX3RpbWUYFSABKAMSIAoYbGF0ZXN0X2NvbnN1",
-            "bWVfZnJlZV90aW1lGBYgASgDEhIKCmFjY291bnRfaWQYFyABKAwSOwoQYWNj",
-            "b3VudF9yZXNvdXJjZRgaIAEoCzIhLnByb3RvY29sLkFjY291bnQuQWNjb3Vu",
-            "dFJlc291cmNlEhAKCGNvZGVIYXNoGB4gASgMGjUKBkZyb3plbhIWCg5mcm96",
-            "ZW5fYmFsYW5jZRgBIAEoAxITCgtleHBpcmVfdGltZRgCIAEoAxosCgpBc3Nl",
-            "dEVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoAzoCOAEaPwodTGF0",
-            "ZXN0QXNzZXRPcGVyYXRpb25UaW1lRW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
-            "bHVlGAIgASgDOgI4ARo4ChZGcmVlQXNzZXROZXRVc2FnZUVudHJ5EgsKA2tl",
-            "eRgBIAEoCRINCgV2YWx1ZRgCIAEoAzoCOAEa4AEKD0FjY291bnRSZXNvdXJj",
-            "ZRIUCgxlbmVyZ3lfdXNhZ2UYASABKAMSOwoZZnJvemVuX2JhbGFuY2VfZm9y",
-            "X2VuZXJneRgCIAEoCzIYLnByb3RvY29sLkFjY291bnQuRnJvemVuEiYKHmxh",
-            "dGVzdF9jb25zdW1lX3RpbWVfZm9yX2VuZXJneRgDIAEoAxIVCg1zdG9yYWdl",
-            "X2xpbWl0GAYgASgDEhUKDXN0b3JhZ2VfdXNhZ2UYByABKAMSJAocbGF0ZXN0",
-            "X2V4Y2hhbmdlX3N0b3JhZ2VfdGltZRgIIAEoAyJKCglhdXRob3JpdHkSJAoH",
-            "YWNjb3VudBgBIAEoCzITLnByb3RvY29sLkFjY291bnRJZBIXCg9wZXJtaXNz",
-            "aW9uX25hbWUYAiABKAwiMgoKcGVybWlzc2lvbhIkCgdhY2NvdW50GAEgASgL",
-            "MhMucHJvdG9jb2wuQWNjb3VudElkIrUBCgdXaXRuZXNzEg8KB2FkZHJlc3MY",
-            "ASABKAwSEQoJdm90ZUNvdW50GAIgASgDEg4KBnB1YktleRgDIAEoDBILCgN1",
-            "cmwYBCABKAkSFQoNdG90YWxQcm9kdWNlZBgFIAEoAxITCgt0b3RhbE1pc3Nl",
-            "ZBgGIAEoAxIWCg5sYXRlc3RCbG9ja051bRgHIAEoAxIVCg1sYXRlc3RTbG90",
-            "TnVtGAggASgDEg4KBmlzSm9icxgJIAEoCCJeCgVWb3RlcxIPCgdhZGRyZXNz",
-            "GAEgASgMEiEKCW9sZF92b3RlcxgCIAMoCzIOLnByb3RvY29sLlZvdGUSIQoJ",
-            "bmV3X3ZvdGVzGAMgAygLMg4ucHJvdG9jb2wuVm90ZSItCghUWE91dHB1dBIN",
-            "CgV2YWx1ZRgBIAEoAxISCgpwdWJLZXlIYXNoGAIgASgMIngKB1RYSW5wdXQS",
-            "JwoIcmF3X2RhdGEYASABKAsyFS5wcm90b2NvbC5UWElucHV0LnJhdxIRCglz",
-            "aWduYXR1cmUYBCABKAwaMQoDcmF3EgwKBHR4SUQYASABKAwSDAoEdm91dBgC",
-            "IAEoAxIOCgZwdWJLZXkYAyABKAwiMAoJVFhPdXRwdXRzEiMKB291dHB1dHMY",
-            "ASADKAsyEi5wcm90b2NvbC5UWE91dHB1dCLVAQoPUmVzb3VyY2VSZWNlaXB0",
-            "EhQKDGVuZXJneV91c2FnZRgBIAEoAxISCgplbmVyZ3lfZmVlGAIgASgDEhsK",
-            "E29yaWdpbl9lbmVyZ3lfdXNhZ2UYAyABKAMSGgoSZW5lcmd5X3VzYWdlX3Rv",
-            "dGFsGAQgASgDEhEKCW5ldF91c2FnZRgFIAEoAxIPCgduZXRfZmVlGAYgASgD",
-            "EjsKBnJlc3VsdBgHIAEoDjIrLnByb3RvY29sLlRyYW5zYWN0aW9uLlJlc3Vs",
-            "dC5jb250cmFjdFJlc3VsdCKGDgoLVHJhbnNhY3Rpb24SKwoIcmF3X2RhdGEY",
-            "ASABKAsyGS5wcm90b2NvbC5UcmFuc2FjdGlvbi5yYXcSEQoJc2lnbmF0dXJl",
-            "GAIgAygMEikKA3JldBgFIAMoCzIcLnByb3RvY29sLlRyYW5zYWN0aW9uLlJl",
-            "c3VsdBqRBwoIQ29udHJhY3QSOQoEdHlwZRgBIAEoDjIrLnByb3RvY29sLlRy",
-            "YW5zYWN0aW9uLkNvbnRyYWN0LkNvbnRyYWN0VHlwZRInCglwYXJhbWV0ZXIY",
-            "AiABKAsyFC5nb29nbGUucHJvdG9idWYuQW55EhAKCHByb3ZpZGVyGAMgASgM",
-            "EhQKDENvbnRyYWN0TmFtZRgEIAEoDCL4BQoMQ29udHJhY3RUeXBlEhkKFUFj",
-            "Y291bnRDcmVhdGVDb250cmFjdBAAEhQKEFRyYW5zZmVyQ29udHJhY3QQARIZ",
-            "ChVUcmFuc2ZlckFzc2V0Q29udHJhY3QQAhIVChFWb3RlQXNzZXRDb250cmFj",
-            "dBADEhcKE1ZvdGVXaXRuZXNzQ29udHJhY3QQBBIZChVXaXRuZXNzQ3JlYXRl",
-            "Q29udHJhY3QQBRIWChJBc3NldElzc3VlQ29udHJhY3QQBhIZChVXaXRuZXNz",
-            "VXBkYXRlQ29udHJhY3QQCBIhCh1QYXJ0aWNpcGF0ZUFzc2V0SXNzdWVDb250",
-            "cmFjdBAJEhkKFUFjY291bnRVcGRhdGVDb250cmFjdBAKEhkKFUZyZWV6ZUJh",
-            "bGFuY2VDb250cmFjdBALEhsKF1VuZnJlZXplQmFsYW5jZUNvbnRyYWN0EAwS",
-            "GwoXV2l0aGRyYXdCYWxhbmNlQ29udHJhY3QQDRIZChVVbmZyZWV6ZUFzc2V0",
-            "Q29udHJhY3QQDhIXChNVcGRhdGVBc3NldENvbnRyYWN0EA8SGgoWUHJvcG9z",
-            "YWxDcmVhdGVDb250cmFjdBAQEhsKF1Byb3Bvc2FsQXBwcm92ZUNvbnRyYWN0",
-            "EBESGgoWUHJvcG9zYWxEZWxldGVDb250cmFjdBASEhgKFFNldEFjY291bnRJ",
-            "ZENvbnRyYWN0EBMSEgoOQ3VzdG9tQ29udHJhY3QQFBIXChNDcmVhdGVTbWFy",
-            "dENvbnRyYWN0EB4SGAoUVHJpZ2dlclNtYXJ0Q29udHJhY3QQHxIPCgtHZXRD",
-            "b250cmFjdBAgEhkKFVVwZGF0ZVNldHRpbmdDb250cmFjdBAhEhoKFkV4Y2hh",
-            "bmdlQ3JlYXRlQ29udHJhY3QQKRIaChZFeGNoYW5nZUluamVjdENvbnRyYWN0",
-            "ECoSHAoYRXhjaGFuZ2VXaXRoZHJhd0NvbnRyYWN0ECsSHwobRXhjaGFuZ2VU",
-            "cmFuc2FjdGlvbkNvbnRyYWN0ECwa+AMKBlJlc3VsdBILCgNmZWUYASABKAMS",
-            "LgoDcmV0GAIgASgOMiEucHJvdG9jb2wuVHJhbnNhY3Rpb24uUmVzdWx0LmNv",
-            "ZGUSQAoLY29udHJhY3RSZXQYAyABKA4yKy5wcm90b2NvbC5UcmFuc2FjdGlv",
-            "bi5SZXN1bHQuY29udHJhY3RSZXN1bHQSFwoPd2l0aGRyYXdfYW1vdW50GA8g",
-            "ASgDEhcKD3VuZnJlZXplX2Ftb3VudBgQIAEoAyIeCgRjb2RlEgoKBlNVQ0VT",
-            "UxAAEgoKBkZBSUxFRBABIpwCCg5jb250cmFjdFJlc3VsdBILCgdERUZBVUxU",
-            "EAASCwoHU1VDQ0VTUxABEgoKBlJFVkVSVBACEhgKFEJBRF9KVU1QX0RFU1RJ",
-            "TkFUSU9OEAMSEQoNT1VUX09GX01FTU9SWRAEEhgKFFBSRUNPTVBJTEVEX0NP",
-            "TlRSQUNUEAUSEwoPU1RBQ0tfVE9PX1NNQUxMEAYSEwoPU1RBQ0tfVE9PX0xB",
-            "UkdFEAcSFQoRSUxMRUdBTF9PUEVSQVRJT04QCBISCg5TVEFDS19PVkVSRkxP",
-            "VxAJEhEKDU9VVF9PRl9FTkVSR1kQChIPCgtPVVRfT0ZfVElNRRALEhcKE0pW",
-            "TV9TVEFDS19PVkVSX0ZMT1cQDBILCgdVTktOT1dOEA0a/AEKA3JhdxIXCg9y",
-            "ZWZfYmxvY2tfYnl0ZXMYASABKAwSFQoNcmVmX2Jsb2NrX251bRgDIAEoAxIW",
-            "Cg5yZWZfYmxvY2tfaGFzaBgEIAEoDBISCgpleHBpcmF0aW9uGAggASgDEiIK",
-            "BWF1dGhzGAkgAygLMhMucHJvdG9jb2wuYXV0aG9yaXR5EgwKBGRhdGEYCiAB",
-            "KAwSMAoIY29udHJhY3QYCyADKAsyHi5wcm90b2NvbC5UcmFuc2FjdGlvbi5D",
-            "b250cmFjdBIPCgdzY3JpcHRzGAwgASgMEhEKCXRpbWVzdGFtcBgOIAEoAxIR",
-            "CglmZWVfbGltaXQYEiABKAMirQMKD1RyYW5zYWN0aW9uSW5mbxIKCgJpZBgB",
-            "IAEoDBILCgNmZWUYAiABKAMSEwoLYmxvY2tOdW1iZXIYAyABKAMSFgoOYmxv",
-            "Y2tUaW1lU3RhbXAYBCABKAMSFgoOY29udHJhY3RSZXN1bHQYBSADKAwSGAoQ",
-            "Y29udHJhY3RfYWRkcmVzcxgGIAEoDBIqCgdyZWNlaXB0GAcgASgLMhkucHJv",
-            "dG9jb2wuUmVzb3VyY2VSZWNlaXB0EioKA2xvZxgIIAMoCzIdLnByb3RvY29s",
-            "LlRyYW5zYWN0aW9uSW5mby5Mb2cSLgoGcmVzdWx0GAkgASgOMh4ucHJvdG9j",
-            "b2wuVHJhbnNhY3Rpb25JbmZvLmNvZGUSEgoKcmVzTWVzc2FnZRgKIAEoDBIX",
-            "Cg93aXRoZHJhd19hbW91bnQYDyABKAMSFwoPdW5mcmVlemVfYW1vdW50GBAg",
-            "ASgDGjQKA0xvZxIPCgdhZGRyZXNzGAEgASgMEg4KBnRvcGljcxgCIAMoDBIM",
-            "CgRkYXRhGAMgASgMIh4KBGNvZGUSCgoGU1VDRVNTEAASCgoGRkFJTEVEEAEi",
-            "OwoMVHJhbnNhY3Rpb25zEisKDHRyYW5zYWN0aW9ucxgBIAMoCzIVLnByb3Rv",
-            "Y29sLlRyYW5zYWN0aW9uIlEKD1RyYW5zYWN0aW9uU2lnbhIqCgt0cmFuc2Fj",
-            "dGlvbhgBIAEoCzIVLnByb3RvY29sLlRyYW5zYWN0aW9uEhIKCnByaXZhdGVL",
-            "ZXkYAiABKAwi5gEKC0Jsb2NrSGVhZGVyEisKCHJhd19kYXRhGAEgASgLMhku",
-            "cHJvdG9jb2wuQmxvY2tIZWFkZXIucmF3EhkKEXdpdG5lc3Nfc2lnbmF0dXJl",
-            "GAIgASgMGo4BCgNyYXcSEQoJdGltZXN0YW1wGAEgASgDEhIKCnR4VHJpZVJv",
-            "b3QYAiABKAwSEgoKcGFyZW50SGFzaBgDIAEoDBIOCgZudW1iZXIYByABKAMS",
-            "EgoKd2l0bmVzc19pZBgIIAEoAxIXCg93aXRuZXNzX2FkZHJlc3MYCSABKAwS",
-            "DwoHdmVyc2lvbhgKIAEoBSJhCgVCbG9jaxIrCgx0cmFuc2FjdGlvbnMYASAD",
-            "KAsyFS5wcm90b2NvbC5UcmFuc2FjdGlvbhIrCgxibG9ja19oZWFkZXIYAiAB",
-            "KAsyFS5wcm90b2NvbC5CbG9ja0hlYWRlciJ8Cg5DaGFpbkludmVudG9yeRIt",
-            "CgNpZHMYASADKAsyIC5wcm90b2NvbC5DaGFpbkludmVudG9yeS5CbG9ja0lk",
-            "EhIKCnJlbWFpbl9udW0YAiABKAMaJwoHQmxvY2tJZBIMCgRoYXNoGAEgASgM",
-            "Eg4KBm51bWJlchgCIAEoAyK/AQoOQmxvY2tJbnZlbnRvcnkSLQoDaWRzGAEg",
-            "AygLMiAucHJvdG9jb2wuQmxvY2tJbnZlbnRvcnkuQmxvY2tJZBIrCgR0eXBl",
-            "GAIgASgOMh0ucHJvdG9jb2wuQmxvY2tJbnZlbnRvcnkuVHlwZRonCgdCbG9j",
-            "a0lkEgwKBGhhc2gYASABKAwSDgoGbnVtYmVyGAIgASgDIigKBFR5cGUSCAoE",
-            "U1lOQxAAEgsKB0FEVlRJU0UQARIJCgVGRVRDSBACIm4KCUludmVudG9yeRIv",
-            "CgR0eXBlGAEgASgOMiEucHJvdG9jb2wuSW52ZW50b3J5LkludmVudG9yeVR5",
-            "cGUSCwoDaWRzGAIgAygMIiMKDUludmVudG9yeVR5cGUSBwoDVFJYEAASCQoF",
-            "QkxPQ0sQASLlAQoFSXRlbXMSJgoEdHlwZRgBIAEoDjIYLnByb3RvY29sLkl0",
-            "ZW1zLkl0ZW1UeXBlEh8KBmJsb2NrcxgCIAMoCzIPLnByb3RvY29sLkJsb2Nr",
-            "EiwKDWJsb2NrX2hlYWRlcnMYAyADKAsyFS5wcm90b2NvbC5CbG9ja0hlYWRl",
-            "chIrCgx0cmFuc2FjdGlvbnMYBCADKAsyFS5wcm90b2NvbC5UcmFuc2FjdGlv",
-            "biI4CghJdGVtVHlwZRIHCgNFUlIQABIHCgNUUlgQARIJCgVCTE9DSxACEg8K",
-            "C0JMT0NLSEVBREVSEAMiNAoRRHluYW1pY1Byb3BlcnRpZXMSHwoXbGFzdF9z",
-            "b2xpZGl0eV9ibG9ja19udW0YASABKAMiOQoRRGlzY29ubmVjdE1lc3NhZ2US",
-            "JAoGcmVhc29uGAEgASgOMhQucHJvdG9jb2wuUmVhc29uQ29kZSKgAgoMSGVs",
-            "bG9NZXNzYWdlEiAKBGZyb20YASABKAsyEi5wcm90b2NvbC5FbmRwb2ludBIP",
-            "Cgd2ZXJzaW9uGAIgASgFEhEKCXRpbWVzdGFtcBgDIAEoAxI2Cg5nZW5lc2lz",
-            "QmxvY2tJZBgEIAEoCzIeLnByb3RvY29sLkhlbGxvTWVzc2FnZS5CbG9ja0lk",
-            "EjQKDHNvbGlkQmxvY2tJZBgFIAEoCzIeLnByb3RvY29sLkhlbGxvTWVzc2Fn",
-            "ZS5CbG9ja0lkEjMKC2hlYWRCbG9ja0lkGAYgASgLMh4ucHJvdG9jb2wuSGVs",
-            "bG9NZXNzYWdlLkJsb2NrSWQaJwoHQmxvY2tJZBIMCgRoYXNoGAEgASgMEg4K",
-            "Bm51bWJlchgCIAEoAyLBBgoNU21hcnRDb250cmFjdBIWCg5vcmlnaW5fYWRk",
-            "cmVzcxgBIAEoDBIYChBjb250cmFjdF9hZGRyZXNzGAIgASgMEigKA2FiaRgD",
-            "IAEoCzIbLnByb3RvY29sLlNtYXJ0Q29udHJhY3QuQUJJEhAKCGJ5dGVjb2Rl",
-            "GAQgASgMEhIKCmNhbGxfdmFsdWUYBSABKAMSJQodY29uc3VtZV91c2VyX3Jl",
-            "c291cmNlX3BlcmNlbnQYBiABKAMSDAoEbmFtZRgHIAEoCRr4BAoDQUJJEjEK",
-            "BmVudHJ5cxgBIAMoCzIhLnByb3RvY29sLlNtYXJ0Q29udHJhY3QuQUJJLkVu",
-            "dHJ5Gr0ECgVFbnRyeRIRCglhbm9ueW1vdXMYASABKAgSEAoIY29uc3RhbnQY",
-            "AiABKAgSDAoEbmFtZRgDIAEoCRI3CgZpbnB1dHMYBCADKAsyJy5wcm90b2Nv",
-            "bC5TbWFydENvbnRyYWN0LkFCSS5FbnRyeS5QYXJhbRI4CgdvdXRwdXRzGAUg",
-            "AygLMicucHJvdG9jb2wuU21hcnRDb250cmFjdC5BQkkuRW50cnkuUGFyYW0S",
-            "OQoEdHlwZRgGIAEoDjIrLnByb3RvY29sLlNtYXJ0Q29udHJhY3QuQUJJLkVu",
-            "dHJ5LkVudHJ5VHlwZRIPCgdwYXlhYmxlGAcgASgIEk4KD3N0YXRlTXV0YWJp",
-            "bGl0eRgIIAEoDjI1LnByb3RvY29sLlNtYXJ0Q29udHJhY3QuQUJJLkVudHJ5",
-            "LlN0YXRlTXV0YWJpbGl0eVR5cGUaNAoFUGFyYW0SDwoHaW5kZXhlZBgBIAEo",
-            "CBIMCgRuYW1lGAIgASgJEgwKBHR5cGUYAyABKAkiWQoJRW50cnlUeXBlEhQK",
-            "EFVua25vd25FbnRyeVR5cGUQABIPCgtDb25zdHJ1Y3RvchABEgwKCEZ1bmN0",
-            "aW9uEAISCQoFRXZlbnQQAxIMCghGYWxsYmFjaxAEImEKE1N0YXRlTXV0YWJp",
-            "bGl0eVR5cGUSGQoVVW5rbm93bk11dGFiaWxpdHlUeXBlEAASCAoEUHVyZRAB",
-            "EggKBFZpZXcQAhIOCgpOb25wYXlhYmxlEAMSCwoHUGF5YWJsZRAEKjcKC0Fj",
-            "Y291bnRUeXBlEgoKBk5vcm1hbBAAEg4KCkFzc2V0SXNzdWUQARIMCghDb250",
-            "cmFjdBACKscDCgpSZWFzb25Db2RlEg0KCVJFUVVFU1RFRBAAEhAKDEJBRF9Q",
-            "Uk9UT0NPTBACEhIKDlRPT19NQU5ZX1BFRVJTEAQSEgoORFVQTElDQVRFX1BF",
-            "RVIQBRIZChVJTkNPTVBBVElCTEVfUFJPVE9DT0wQBhIRCg1OVUxMX0lERU5U",
-            "SVRZEAcSEAoMUEVFUl9RVUlUSU5HEAgSFwoTVU5FWFBFQ1RFRF9JREVOVElU",
-            "WRAJEhIKDkxPQ0FMX0lERU5USVRZEAoSEAoMUElOR19USU1FT1VUEAsSDwoL",
-            "VVNFUl9SRUFTT04QEBIJCgVSRVNFVBAREg0KCVNZTkNfRkFJTBASEg4KCkZF",
-            "VENIX0ZBSUwQExIKCgZCQURfVFgQFBINCglCQURfQkxPQ0sQFRIKCgZGT1JL",
-            "RUQQFhIOCgpVTkxJTktBQkxFEBcSGAoUSU5DT01QQVRJQkxFX1ZFUlNJT04Q",
-            "GBIWChJJTkNPTVBBVElCTEVfQ0hBSU4QGRIMCghUSU1FX09VVBAgEhAKDENP",
-            "Tk5FQ1RfRkFJTBAhEh8KG1RPT19NQU5ZX1BFRVJTX1dJVEhfU0FNRV9JUBAi",
-            "EgwKB1VOS05PV04Q/wFCRgoPb3JnLnRyb24ucHJvdG9zQghQcm90b2NvbFop",
-            "Z2l0aHViLmNvbS90cm9ucHJvdG9jb2wvZ3JwYy1nYXRld2F5L2NvcmViBnBy",
-            "b3RvMw=="));
+            "bC5BY2NvdW50LkFzc2V0RW50cnkSLwoHYXNzZXRWMhg4IAMoCzIeLnByb3Rv",
+            "Y29sLkFjY291bnQuQXNzZXRWMkVudHJ5EigKBmZyb3plbhgHIAMoCzIYLnBy",
+            "b3RvY29sLkFjY291bnQuRnJvemVuEhEKCW5ldF91c2FnZRgIIAEoAxI3Ci9h",
+            "Y3F1aXJlZF9kZWxlZ2F0ZWRfZnJvemVuX2JhbGFuY2VfZm9yX2JhbmR3aWR0",
+            "aBgpIAEoAxIuCiZkZWxlZ2F0ZWRfZnJvemVuX2JhbGFuY2VfZm9yX2JhbmR3",
+            "aWR0aBgqIAEoAxITCgtjcmVhdGVfdGltZRgJIAEoAxIcChRsYXRlc3Rfb3By",
+            "YXRpb25fdGltZRgKIAEoAxIRCglhbGxvd2FuY2UYCyABKAMSHAoUbGF0ZXN0",
+            "X3dpdGhkcmF3X3RpbWUYDCABKAMSDAoEY29kZRgNIAEoDBISCgppc193aXRu",
+            "ZXNzGA4gASgIEhQKDGlzX2NvbW1pdHRlZRgPIAEoCBIvCg1mcm96ZW5fc3Vw",
+            "cGx5GBAgAygLMhgucHJvdG9jb2wuQWNjb3VudC5Gcm96ZW4SGQoRYXNzZXRf",
+            "aXNzdWVkX25hbWUYESABKAwSFwoPYXNzZXRfaXNzdWVkX0lEGDkgASgMElQK",
+            "G2xhdGVzdF9hc3NldF9vcGVyYXRpb25fdGltZRgSIAMoCzIvLnByb3RvY29s",
+            "LkFjY291bnQuTGF0ZXN0QXNzZXRPcGVyYXRpb25UaW1lRW50cnkSWAodbGF0",
+            "ZXN0X2Fzc2V0X29wZXJhdGlvbl90aW1lVjIYOiADKAsyMS5wcm90b2NvbC5B",
+            "Y2NvdW50LkxhdGVzdEFzc2V0T3BlcmF0aW9uVGltZVYyRW50cnkSFgoOZnJl",
+            "ZV9uZXRfdXNhZ2UYEyABKAMSRgoUZnJlZV9hc3NldF9uZXRfdXNhZ2UYFCAD",
+            "KAsyKC5wcm90b2NvbC5BY2NvdW50LkZyZWVBc3NldE5ldFVzYWdlRW50cnkS",
+            "SgoWZnJlZV9hc3NldF9uZXRfdXNhZ2VWMhg7IAMoCzIqLnByb3RvY29sLkFj",
+            "Y291bnQuRnJlZUFzc2V0TmV0VXNhZ2VWMkVudHJ5EhsKE2xhdGVzdF9jb25z",
+            "dW1lX3RpbWUYFSABKAMSIAoYbGF0ZXN0X2NvbnN1bWVfZnJlZV90aW1lGBYg",
+            "ASgDEhIKCmFjY291bnRfaWQYFyABKAwSOwoQYWNjb3VudF9yZXNvdXJjZRga",
+            "IAEoCzIhLnByb3RvY29sLkFjY291bnQuQWNjb3VudFJlc291cmNlEhAKCGNv",
+            "ZGVIYXNoGB4gASgMGjUKBkZyb3plbhIWCg5mcm96ZW5fYmFsYW5jZRgBIAEo",
+            "AxITCgtleHBpcmVfdGltZRgCIAEoAxosCgpBc3NldEVudHJ5EgsKA2tleRgB",
+            "IAEoCRINCgV2YWx1ZRgCIAEoAzoCOAEaLgoMQXNzZXRWMkVudHJ5EgsKA2tl",
+            "eRgBIAEoCRINCgV2YWx1ZRgCIAEoAzoCOAEaPwodTGF0ZXN0QXNzZXRPcGVy",
+            "YXRpb25UaW1lRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgDOgI4",
+            "ARpBCh9MYXRlc3RBc3NldE9wZXJhdGlvblRpbWVWMkVudHJ5EgsKA2tleRgB",
+            "IAEoCRINCgV2YWx1ZRgCIAEoAzoCOAEaOAoWRnJlZUFzc2V0TmV0VXNhZ2VF",
+            "bnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAM6AjgBGjoKGEZyZWVB",
+            "c3NldE5ldFVzYWdlVjJFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiAB",
+            "KAM6AjgBGsMCCg9BY2NvdW50UmVzb3VyY2USFAoMZW5lcmd5X3VzYWdlGAEg",
+            "ASgDEjsKGWZyb3plbl9iYWxhbmNlX2Zvcl9lbmVyZ3kYAiABKAsyGC5wcm90",
+            "b2NvbC5BY2NvdW50LkZyb3plbhImCh5sYXRlc3RfY29uc3VtZV90aW1lX2Zv",
+            "cl9lbmVyZ3kYAyABKAMSNAosYWNxdWlyZWRfZGVsZWdhdGVkX2Zyb3plbl9i",
+            "YWxhbmNlX2Zvcl9lbmVyZ3kYBCABKAMSKwojZGVsZWdhdGVkX2Zyb3plbl9i",
+            "YWxhbmNlX2Zvcl9lbmVyZ3kYBSABKAMSFQoNc3RvcmFnZV9saW1pdBgGIAEo",
+            "AxIVCg1zdG9yYWdlX3VzYWdlGAcgASgDEiQKHGxhdGVzdF9leGNoYW5nZV9z",
+            "dG9yYWdlX3RpbWUYCCABKAMiuQEKEURlbGVnYXRlZFJlc291cmNlEgwKBGZy",
+            "b20YASABKAwSCgoCdG8YAiABKAwSJAocZnJvemVuX2JhbGFuY2VfZm9yX2Jh",
+            "bmR3aWR0aBgDIAEoAxIhChlmcm96ZW5fYmFsYW5jZV9mb3JfZW5lcmd5GAQg",
+            "ASgDEiEKGWV4cGlyZV90aW1lX2Zvcl9iYW5kd2lkdGgYBSABKAMSHgoWZXhw",
+            "aXJlX3RpbWVfZm9yX2VuZXJneRgGIAEoAyJKCglhdXRob3JpdHkSJAoHYWNj",
+            "b3VudBgBIAEoCzITLnByb3RvY29sLkFjY291bnRJZBIXCg9wZXJtaXNzaW9u",
+            "X25hbWUYAiABKAwiMgoKcGVybWlzc2lvbhIkCgdhY2NvdW50GAEgASgLMhMu",
+            "cHJvdG9jb2wuQWNjb3VudElkIrUBCgdXaXRuZXNzEg8KB2FkZHJlc3MYASAB",
+            "KAwSEQoJdm90ZUNvdW50GAIgASgDEg4KBnB1YktleRgDIAEoDBILCgN1cmwY",
+            "BCABKAkSFQoNdG90YWxQcm9kdWNlZBgFIAEoAxITCgt0b3RhbE1pc3NlZBgG",
+            "IAEoAxIWCg5sYXRlc3RCbG9ja051bRgHIAEoAxIVCg1sYXRlc3RTbG90TnVt",
+            "GAggASgDEg4KBmlzSm9icxgJIAEoCCJeCgVWb3RlcxIPCgdhZGRyZXNzGAEg",
+            "ASgMEiEKCW9sZF92b3RlcxgCIAMoCzIOLnByb3RvY29sLlZvdGUSIQoJbmV3",
+            "X3ZvdGVzGAMgAygLMg4ucHJvdG9jb2wuVm90ZSItCghUWE91dHB1dBINCgV2",
+            "YWx1ZRgBIAEoAxISCgpwdWJLZXlIYXNoGAIgASgMIngKB1RYSW5wdXQSJwoI",
+            "cmF3X2RhdGEYASABKAsyFS5wcm90b2NvbC5UWElucHV0LnJhdxIRCglzaWdu",
+            "YXR1cmUYBCABKAwaMQoDcmF3EgwKBHR4SUQYASABKAwSDAoEdm91dBgCIAEo",
+            "AxIOCgZwdWJLZXkYAyABKAwiMAoJVFhPdXRwdXRzEiMKB291dHB1dHMYASAD",
+            "KAsyEi5wcm90b2NvbC5UWE91dHB1dCLVAQoPUmVzb3VyY2VSZWNlaXB0EhQK",
+            "DGVuZXJneV91c2FnZRgBIAEoAxISCgplbmVyZ3lfZmVlGAIgASgDEhsKE29y",
+            "aWdpbl9lbmVyZ3lfdXNhZ2UYAyABKAMSGgoSZW5lcmd5X3VzYWdlX3RvdGFs",
+            "GAQgASgDEhEKCW5ldF91c2FnZRgFIAEoAxIPCgduZXRfZmVlGAYgASgDEjsK",
+            "BnJlc3VsdBgHIAEoDjIrLnByb3RvY29sLlRyYW5zYWN0aW9uLlJlc3VsdC5j",
+            "b250cmFjdFJlc3VsdCLEDwoLVHJhbnNhY3Rpb24SKwoIcmF3X2RhdGEYASAB",
+            "KAsyGS5wcm90b2NvbC5UcmFuc2FjdGlvbi5yYXcSEQoJc2lnbmF0dXJlGAIg",
+            "AygMEikKA3JldBgFIAMoCzIcLnByb3RvY29sLlRyYW5zYWN0aW9uLlJlc3Vs",
+            "dBqwBwoIQ29udHJhY3QSOQoEdHlwZRgBIAEoDjIrLnByb3RvY29sLlRyYW5z",
+            "YWN0aW9uLkNvbnRyYWN0LkNvbnRyYWN0VHlwZRInCglwYXJhbWV0ZXIYAiAB",
+            "KAsyFC5nb29nbGUucHJvdG9idWYuQW55EhAKCHByb3ZpZGVyGAMgASgMEhQK",
+            "DENvbnRyYWN0TmFtZRgEIAEoDCKXBgoMQ29udHJhY3RUeXBlEhkKFUFjY291",
+            "bnRDcmVhdGVDb250cmFjdBAAEhQKEFRyYW5zZmVyQ29udHJhY3QQARIZChVU",
+            "cmFuc2ZlckFzc2V0Q29udHJhY3QQAhIVChFWb3RlQXNzZXRDb250cmFjdBAD",
+            "EhcKE1ZvdGVXaXRuZXNzQ29udHJhY3QQBBIZChVXaXRuZXNzQ3JlYXRlQ29u",
+            "dHJhY3QQBRIWChJBc3NldElzc3VlQ29udHJhY3QQBhIZChVXaXRuZXNzVXBk",
+            "YXRlQ29udHJhY3QQCBIhCh1QYXJ0aWNpcGF0ZUFzc2V0SXNzdWVDb250cmFj",
+            "dBAJEhkKFUFjY291bnRVcGRhdGVDb250cmFjdBAKEhkKFUZyZWV6ZUJhbGFu",
+            "Y2VDb250cmFjdBALEhsKF1VuZnJlZXplQmFsYW5jZUNvbnRyYWN0EAwSGwoX",
+            "V2l0aGRyYXdCYWxhbmNlQ29udHJhY3QQDRIZChVVbmZyZWV6ZUFzc2V0Q29u",
+            "dHJhY3QQDhIXChNVcGRhdGVBc3NldENvbnRyYWN0EA8SGgoWUHJvcG9zYWxD",
+            "cmVhdGVDb250cmFjdBAQEhsKF1Byb3Bvc2FsQXBwcm92ZUNvbnRyYWN0EBES",
+            "GgoWUHJvcG9zYWxEZWxldGVDb250cmFjdBASEhgKFFNldEFjY291bnRJZENv",
+            "bnRyYWN0EBMSEgoOQ3VzdG9tQ29udHJhY3QQFBIXChNDcmVhdGVTbWFydENv",
+            "bnRyYWN0EB4SGAoUVHJpZ2dlclNtYXJ0Q29udHJhY3QQHxIPCgtHZXRDb250",
+            "cmFjdBAgEhkKFVVwZGF0ZVNldHRpbmdDb250cmFjdBAhEhoKFkV4Y2hhbmdl",
+            "Q3JlYXRlQ29udHJhY3QQKRIaChZFeGNoYW5nZUluamVjdENvbnRyYWN0ECoS",
+            "HAoYRXhjaGFuZ2VXaXRoZHJhd0NvbnRyYWN0ECsSHwobRXhjaGFuZ2VUcmFu",
+            "c2FjdGlvbkNvbnRyYWN0ECwSHQoZVXBkYXRlRW5lcmd5TGltaXRDb250cmFj",
+            "dBAtGpcFCgZSZXN1bHQSCwoDZmVlGAEgASgDEi4KA3JldBgCIAEoDjIhLnBy",
+            "b3RvY29sLlRyYW5zYWN0aW9uLlJlc3VsdC5jb2RlEkAKC2NvbnRyYWN0UmV0",
+            "GAMgASgOMisucHJvdG9jb2wuVHJhbnNhY3Rpb24uUmVzdWx0LmNvbnRyYWN0",
+            "UmVzdWx0EhQKDGFzc2V0SXNzdWVJRBgOIAEoCRIXCg93aXRoZHJhd19hbW91",
+            "bnQYDyABKAMSFwoPdW5mcmVlemVfYW1vdW50GBAgASgDEiAKGGV4Y2hhbmdl",
+            "X3JlY2VpdmVkX2Ftb3VudBgSIAEoAxImCh5leGNoYW5nZV9pbmplY3RfYW5v",
+            "dGhlcl9hbW91bnQYEyABKAMSKAogZXhjaGFuZ2Vfd2l0aGRyYXdfYW5vdGhl",
+            "cl9hbW91bnQYFCABKAMSEwoLZXhjaGFuZ2VfaWQYFSABKAMiHgoEY29kZRIK",
+            "CgZTVUNFU1MQABIKCgZGQUlMRUQQASKcAgoOY29udHJhY3RSZXN1bHQSCwoH",
+            "REVGQVVMVBAAEgsKB1NVQ0NFU1MQARIKCgZSRVZFUlQQAhIYChRCQURfSlVN",
+            "UF9ERVNUSU5BVElPThADEhEKDU9VVF9PRl9NRU1PUlkQBBIYChRQUkVDT01Q",
+            "SUxFRF9DT05UUkFDVBAFEhMKD1NUQUNLX1RPT19TTUFMTBAGEhMKD1NUQUNL",
+            "X1RPT19MQVJHRRAHEhUKEUlMTEVHQUxfT1BFUkFUSU9OEAgSEgoOU1RBQ0tf",
+            "T1ZFUkZMT1cQCRIRCg1PVVRfT0ZfRU5FUkdZEAoSDwoLT1VUX09GX1RJTUUQ",
+            "CxIXChNKVk1fU1RBQ0tfT1ZFUl9GTE9XEAwSCwoHVU5LTk9XThANGvwBCgNy",
+            "YXcSFwoPcmVmX2Jsb2NrX2J5dGVzGAEgASgMEhUKDXJlZl9ibG9ja19udW0Y",
+            "AyABKAMSFgoOcmVmX2Jsb2NrX2hhc2gYBCABKAwSEgoKZXhwaXJhdGlvbhgI",
+            "IAEoAxIiCgVhdXRocxgJIAMoCzITLnByb3RvY29sLmF1dGhvcml0eRIMCgRk",
+            "YXRhGAogASgMEjAKCGNvbnRyYWN0GAsgAygLMh4ucHJvdG9jb2wuVHJhbnNh",
+            "Y3Rpb24uQ29udHJhY3QSDwoHc2NyaXB0cxgMIAEoDBIRCgl0aW1lc3RhbXAY",
+            "DiABKAMSEQoJZmVlX2xpbWl0GBIgASgDIooFCg9UcmFuc2FjdGlvbkluZm8S",
+            "CgoCaWQYASABKAwSCwoDZmVlGAIgASgDEhMKC2Jsb2NrTnVtYmVyGAMgASgD",
+            "EhYKDmJsb2NrVGltZVN0YW1wGAQgASgDEhYKDmNvbnRyYWN0UmVzdWx0GAUg",
+            "AygMEhgKEGNvbnRyYWN0X2FkZHJlc3MYBiABKAwSKgoHcmVjZWlwdBgHIAEo",
+            "CzIZLnByb3RvY29sLlJlc291cmNlUmVjZWlwdBIqCgNsb2cYCCADKAsyHS5w",
+            "cm90b2NvbC5UcmFuc2FjdGlvbkluZm8uTG9nEi4KBnJlc3VsdBgJIAEoDjIe",
+            "LnByb3RvY29sLlRyYW5zYWN0aW9uSW5mby5jb2RlEhIKCnJlc01lc3NhZ2UY",
+            "CiABKAwSFAoMYXNzZXRJc3N1ZUlEGA4gASgJEhcKD3dpdGhkcmF3X2Ftb3Vu",
+            "dBgPIAEoAxIXCg91bmZyZWV6ZV9hbW91bnQYECABKAMSPAoVaW50ZXJuYWxf",
+            "dHJhbnNhY3Rpb25zGBEgAygLMh0ucHJvdG9jb2wuSW50ZXJuYWxUcmFuc2Fj",
+            "dGlvbhIgChhleGNoYW5nZV9yZWNlaXZlZF9hbW91bnQYEiABKAMSJgoeZXhj",
+            "aGFuZ2VfaW5qZWN0X2Fub3RoZXJfYW1vdW50GBMgASgDEigKIGV4Y2hhbmdl",
+            "X3dpdGhkcmF3X2Fub3RoZXJfYW1vdW50GBQgASgDEhMKC2V4Y2hhbmdlX2lk",
+            "GBUgASgDGjQKA0xvZxIPCgdhZGRyZXNzGAEgASgMEg4KBnRvcGljcxgCIAMo",
+            "DBIMCgRkYXRhGAMgASgMIh4KBGNvZGUSCgoGU1VDRVNTEAASCgoGRkFJTEVE",
+            "EAEiOwoMVHJhbnNhY3Rpb25zEisKDHRyYW5zYWN0aW9ucxgBIAMoCzIVLnBy",
+            "b3RvY29sLlRyYW5zYWN0aW9uIlEKD1RyYW5zYWN0aW9uU2lnbhIqCgt0cmFu",
+            "c2FjdGlvbhgBIAEoCzIVLnByb3RvY29sLlRyYW5zYWN0aW9uEhIKCnByaXZh",
+            "dGVLZXkYAiABKAwi5gEKC0Jsb2NrSGVhZGVyEisKCHJhd19kYXRhGAEgASgL",
+            "MhkucHJvdG9jb2wuQmxvY2tIZWFkZXIucmF3EhkKEXdpdG5lc3Nfc2lnbmF0",
+            "dXJlGAIgASgMGo4BCgNyYXcSEQoJdGltZXN0YW1wGAEgASgDEhIKCnR4VHJp",
+            "ZVJvb3QYAiABKAwSEgoKcGFyZW50SGFzaBgDIAEoDBIOCgZudW1iZXIYByAB",
+            "KAMSEgoKd2l0bmVzc19pZBgIIAEoAxIXCg93aXRuZXNzX2FkZHJlc3MYCSAB",
+            "KAwSDwoHdmVyc2lvbhgKIAEoBSJhCgVCbG9jaxIrCgx0cmFuc2FjdGlvbnMY",
+            "ASADKAsyFS5wcm90b2NvbC5UcmFuc2FjdGlvbhIrCgxibG9ja19oZWFkZXIY",
+            "AiABKAsyFS5wcm90b2NvbC5CbG9ja0hlYWRlciJ8Cg5DaGFpbkludmVudG9y",
+            "eRItCgNpZHMYASADKAsyIC5wcm90b2NvbC5DaGFpbkludmVudG9yeS5CbG9j",
+            "a0lkEhIKCnJlbWFpbl9udW0YAiABKAMaJwoHQmxvY2tJZBIMCgRoYXNoGAEg",
+            "ASgMEg4KBm51bWJlchgCIAEoAyK/AQoOQmxvY2tJbnZlbnRvcnkSLQoDaWRz",
+            "GAEgAygLMiAucHJvdG9jb2wuQmxvY2tJbnZlbnRvcnkuQmxvY2tJZBIrCgR0",
+            "eXBlGAIgASgOMh0ucHJvdG9jb2wuQmxvY2tJbnZlbnRvcnkuVHlwZRonCgdC",
+            "bG9ja0lkEgwKBGhhc2gYASABKAwSDgoGbnVtYmVyGAIgASgDIigKBFR5cGUS",
+            "CAoEU1lOQxAAEgsKB0FEVlRJU0UQARIJCgVGRVRDSBACIm4KCUludmVudG9y",
+            "eRIvCgR0eXBlGAEgASgOMiEucHJvdG9jb2wuSW52ZW50b3J5LkludmVudG9y",
+            "eVR5cGUSCwoDaWRzGAIgAygMIiMKDUludmVudG9yeVR5cGUSBwoDVFJYEAAS",
+            "CQoFQkxPQ0sQASLlAQoFSXRlbXMSJgoEdHlwZRgBIAEoDjIYLnByb3RvY29s",
+            "Lkl0ZW1zLkl0ZW1UeXBlEh8KBmJsb2NrcxgCIAMoCzIPLnByb3RvY29sLkJs",
+            "b2NrEiwKDWJsb2NrX2hlYWRlcnMYAyADKAsyFS5wcm90b2NvbC5CbG9ja0hl",
+            "YWRlchIrCgx0cmFuc2FjdGlvbnMYBCADKAsyFS5wcm90b2NvbC5UcmFuc2Fj",
+            "dGlvbiI4CghJdGVtVHlwZRIHCgNFUlIQABIHCgNUUlgQARIJCgVCTE9DSxAC",
+            "Eg8KC0JMT0NLSEVBREVSEAMiNAoRRHluYW1pY1Byb3BlcnRpZXMSHwoXbGFz",
+            "dF9zb2xpZGl0eV9ibG9ja19udW0YASABKAMiOQoRRGlzY29ubmVjdE1lc3Nh",
+            "Z2USJAoGcmVhc29uGAEgASgOMhQucHJvdG9jb2wuUmVhc29uQ29kZSKgAgoM",
+            "SGVsbG9NZXNzYWdlEiAKBGZyb20YASABKAsyEi5wcm90b2NvbC5FbmRwb2lu",
+            "dBIPCgd2ZXJzaW9uGAIgASgFEhEKCXRpbWVzdGFtcBgDIAEoAxI2Cg5nZW5l",
+            "c2lzQmxvY2tJZBgEIAEoCzIeLnByb3RvY29sLkhlbGxvTWVzc2FnZS5CbG9j",
+            "a0lkEjQKDHNvbGlkQmxvY2tJZBgFIAEoCzIeLnByb3RvY29sLkhlbGxvTWVz",
+            "c2FnZS5CbG9ja0lkEjMKC2hlYWRCbG9ja0lkGAYgASgLMh4ucHJvdG9jb2wu",
+            "SGVsbG9NZXNzYWdlLkJsb2NrSWQaJwoHQmxvY2tJZBIMCgRoYXNoGAEgASgM",
+            "Eg4KBm51bWJlchgCIAEoAyLeBgoNU21hcnRDb250cmFjdBIWCg5vcmlnaW5f",
+            "YWRkcmVzcxgBIAEoDBIYChBjb250cmFjdF9hZGRyZXNzGAIgASgMEigKA2Fi",
+            "aRgDIAEoCzIbLnByb3RvY29sLlNtYXJ0Q29udHJhY3QuQUJJEhAKCGJ5dGVj",
+            "b2RlGAQgASgMEhIKCmNhbGxfdmFsdWUYBSABKAMSJQodY29uc3VtZV91c2Vy",
+            "X3Jlc291cmNlX3BlcmNlbnQYBiABKAMSDAoEbmFtZRgHIAEoCRIbChNvcmln",
+            "aW5fZW5lcmd5X2xpbWl0GAggASgDGvgECgNBQkkSMQoGZW50cnlzGAEgAygL",
+            "MiEucHJvdG9jb2wuU21hcnRDb250cmFjdC5BQkkuRW50cnkavQQKBUVudHJ5",
+            "EhEKCWFub255bW91cxgBIAEoCBIQCghjb25zdGFudBgCIAEoCBIMCgRuYW1l",
+            "GAMgASgJEjcKBmlucHV0cxgEIAMoCzInLnByb3RvY29sLlNtYXJ0Q29udHJh",
+            "Y3QuQUJJLkVudHJ5LlBhcmFtEjgKB291dHB1dHMYBSADKAsyJy5wcm90b2Nv",
+            "bC5TbWFydENvbnRyYWN0LkFCSS5FbnRyeS5QYXJhbRI5CgR0eXBlGAYgASgO",
+            "MisucHJvdG9jb2wuU21hcnRDb250cmFjdC5BQkkuRW50cnkuRW50cnlUeXBl",
+            "Eg8KB3BheWFibGUYByABKAgSTgoPc3RhdGVNdXRhYmlsaXR5GAggASgOMjUu",
+            "cHJvdG9jb2wuU21hcnRDb250cmFjdC5BQkkuRW50cnkuU3RhdGVNdXRhYmls",
+            "aXR5VHlwZRo0CgVQYXJhbRIPCgdpbmRleGVkGAEgASgIEgwKBG5hbWUYAiAB",
+            "KAkSDAoEdHlwZRgDIAEoCSJZCglFbnRyeVR5cGUSFAoQVW5rbm93bkVudHJ5",
+            "VHlwZRAAEg8KC0NvbnN0cnVjdG9yEAESDAoIRnVuY3Rpb24QAhIJCgVFdmVu",
+            "dBADEgwKCEZhbGxiYWNrEAQiYQoTU3RhdGVNdXRhYmlsaXR5VHlwZRIZChVV",
+            "bmtub3duTXV0YWJpbGl0eVR5cGUQABIICgRQdXJlEAESCAoEVmlldxACEg4K",
+            "Ck5vbnBheWFibGUQAxILCgdQYXlhYmxlEAQi8AEKE0ludGVybmFsVHJhbnNh",
+            "Y3Rpb24SDAoEaGFzaBgBIAEoDBIWCg5jYWxsZXJfYWRkcmVzcxgCIAEoDBIa",
+            "ChJ0cmFuc2ZlclRvX2FkZHJlc3MYAyABKAwSQgoNY2FsbFZhbHVlSW5mbxgE",
+            "IAMoCzIrLnByb3RvY29sLkludGVybmFsVHJhbnNhY3Rpb24uQ2FsbFZhbHVl",
+            "SW5mbxIMCgRub3RlGAUgASgMEhAKCHJlamVjdGVkGAYgASgIGjMKDUNhbGxW",
+            "YWx1ZUluZm8SEQoJY2FsbFZhbHVlGAEgASgDEg8KB3Rva2VuSWQYAiABKAki",
+            "WgodRGVsZWdhdGVkUmVzb3VyY2VBY2NvdW50SW5kZXgSDwoHYWNjb3VudBgB",
+            "IAEoDBIUCgxmcm9tQWNjb3VudHMYAiADKAwSEgoKdG9BY2NvdW50cxgDIAMo",
+            "DCo3CgtBY2NvdW50VHlwZRIKCgZOb3JtYWwQABIOCgpBc3NldElzc3VlEAES",
+            "DAoIQ29udHJhY3QQAirHAwoKUmVhc29uQ29kZRINCglSRVFVRVNURUQQABIQ",
+            "CgxCQURfUFJPVE9DT0wQAhISCg5UT09fTUFOWV9QRUVSUxAEEhIKDkRVUExJ",
+            "Q0FURV9QRUVSEAUSGQoVSU5DT01QQVRJQkxFX1BST1RPQ09MEAYSEQoNTlVM",
+            "TF9JREVOVElUWRAHEhAKDFBFRVJfUVVJVElORxAIEhcKE1VORVhQRUNURURf",
+            "SURFTlRJVFkQCRISCg5MT0NBTF9JREVOVElUWRAKEhAKDFBJTkdfVElNRU9V",
+            "VBALEg8KC1VTRVJfUkVBU09OEBASCQoFUkVTRVQQERINCglTWU5DX0ZBSUwQ",
+            "EhIOCgpGRVRDSF9GQUlMEBMSCgoGQkFEX1RYEBQSDQoJQkFEX0JMT0NLEBUS",
+            "CgoGRk9SS0VEEBYSDgoKVU5MSU5LQUJMRRAXEhgKFElOQ09NUEFUSUJMRV9W",
+            "RVJTSU9OEBgSFgoSSU5DT01QQVRJQkxFX0NIQUlOEBkSDAoIVElNRV9PVVQQ",
+            "IBIQCgxDT05ORUNUX0ZBSUwQIRIfChtUT09fTUFOWV9QRUVSU19XSVRIX1NB",
+            "TUVfSVAQIhIMCgdVTktOT1dOEP8BQkYKD29yZy50cm9uLnByb3Rvc0IIUHJv",
+            "dG9jb2xaKWdpdGh1Yi5jb20vdHJvbnByb3RvY29sL2dycGMtZ2F0ZXdheS9j",
+            "b3JlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Protocol.DiscoverReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.AccountType), typeof(global::Protocol.ReasonCode), }, new pbr::GeneratedClrTypeInfo[] {
@@ -214,8 +249,9 @@ namespace Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Proposal), global::Protocol.Proposal.Parser, new[]{ "ProposalId", "ProposerAddress", "Parameters", "ExpirationTime", "CreateTime", "Approvals", "State" }, null, new[]{ typeof(global::Protocol.Proposal.Types.State) }, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Exchange), global::Protocol.Exchange.Parser, new[]{ "ExchangeId", "CreatorAddress", "CreateTime", "FirstTokenId", "FirstTokenBalance", "SecondTokenId", "SecondTokenBalance" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.ChainParameters), global::Protocol.ChainParameters.Parser, new[]{ "ChainParameter" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.ChainParameters.Types.ChainParameter), global::Protocol.ChainParameters.Types.ChainParameter.Parser, new[]{ "Key", "Value" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Account), global::Protocol.Account.Parser, new[]{ "AccountName", "Type", "Address", "Balance", "Votes", "Asset", "Frozen", "NetUsage", "CreateTime", "LatestOprationTime", "Allowance", "LatestWithdrawTime", "Code", "IsWitness", "IsCommittee", "FrozenSupply", "AssetIssuedName", "LatestAssetOperationTime", "FreeNetUsage", "FreeAssetNetUsage", "LatestConsumeTime", "LatestConsumeFreeTime", "AccountId", "AccountResource", "CodeHash" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Account.Types.Frozen), global::Protocol.Account.Types.Frozen.Parser, new[]{ "FrozenBalance", "ExpireTime" }, null, null, null),
-            null, null, null, new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Account.Types.AccountResource), global::Protocol.Account.Types.AccountResource.Parser, new[]{ "EnergyUsage", "FrozenBalanceForEnergy", "LatestConsumeTimeForEnergy", "StorageLimit", "StorageUsage", "LatestExchangeStorageTime" }, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Account), global::Protocol.Account.Parser, new[]{ "AccountName", "Type", "Address", "Balance", "Votes", "Asset", "AssetV2", "Frozen", "NetUsage", "AcquiredDelegatedFrozenBalanceForBandwidth", "DelegatedFrozenBalanceForBandwidth", "CreateTime", "LatestOprationTime", "Allowance", "LatestWithdrawTime", "Code", "IsWitness", "IsCommittee", "FrozenSupply", "AssetIssuedName", "AssetIssuedID", "LatestAssetOperationTime", "LatestAssetOperationTimeV2", "FreeNetUsage", "FreeAssetNetUsage", "FreeAssetNetUsageV2", "LatestConsumeTime", "LatestConsumeFreeTime", "AccountId", "AccountResource", "CodeHash" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Account.Types.Frozen), global::Protocol.Account.Types.Frozen.Parser, new[]{ "FrozenBalance", "ExpireTime" }, null, null, null),
+            null, null, null, null, null, null, new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Account.Types.AccountResource), global::Protocol.Account.Types.AccountResource.Parser, new[]{ "EnergyUsage", "FrozenBalanceForEnergy", "LatestConsumeTimeForEnergy", "AcquiredDelegatedFrozenBalanceForEnergy", "DelegatedFrozenBalanceForEnergy", "StorageLimit", "StorageUsage", "LatestExchangeStorageTime" }, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.DelegatedResource), global::Protocol.DelegatedResource.Parser, new[]{ "From", "To", "FrozenBalanceForBandwidth", "FrozenBalanceForEnergy", "ExpireTimeForBandwidth", "ExpireTimeForEnergy" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.authority), global::Protocol.authority.Parser, new[]{ "Account", "PermissionName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.permission), global::Protocol.permission.Parser, new[]{ "Account" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Witness), global::Protocol.Witness.Parser, new[]{ "Address", "VoteCount", "PubKey", "Url", "TotalProduced", "TotalMissed", "LatestBlockNum", "LatestSlotNum", "IsJobs" }, null, null, null),
@@ -225,9 +261,9 @@ namespace Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.TXOutputs), global::Protocol.TXOutputs.Parser, new[]{ "Outputs" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.ResourceReceipt), global::Protocol.ResourceReceipt.Parser, new[]{ "EnergyUsage", "EnergyFee", "OriginEnergyUsage", "EnergyUsageTotal", "NetUsage", "NetFee", "Result" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Transaction), global::Protocol.Transaction.Parser, new[]{ "RawData", "Signature", "Ret" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Transaction.Types.Contract), global::Protocol.Transaction.Types.Contract.Parser, new[]{ "Type", "Parameter", "Provider", "ContractName" }, null, new[]{ typeof(global::Protocol.Transaction.Types.Contract.Types.ContractType) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Transaction.Types.Result), global::Protocol.Transaction.Types.Result.Parser, new[]{ "Fee", "Ret", "ContractRet", "WithdrawAmount", "UnfreezeAmount" }, null, new[]{ typeof(global::Protocol.Transaction.Types.Result.Types.code), typeof(global::Protocol.Transaction.Types.Result.Types.contractResult) }, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Transaction.Types.Result), global::Protocol.Transaction.Types.Result.Parser, new[]{ "Fee", "Ret", "ContractRet", "AssetIssueID", "WithdrawAmount", "UnfreezeAmount", "ExchangeReceivedAmount", "ExchangeInjectAnotherAmount", "ExchangeWithdrawAnotherAmount", "ExchangeId" }, null, new[]{ typeof(global::Protocol.Transaction.Types.Result.Types.code), typeof(global::Protocol.Transaction.Types.Result.Types.contractResult) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Transaction.Types.raw), global::Protocol.Transaction.Types.raw.Parser, new[]{ "RefBlockBytes", "RefBlockNum", "RefBlockHash", "Expiration", "Auths", "Data", "Contract", "Scripts", "Timestamp", "FeeLimit" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.TransactionInfo), global::Protocol.TransactionInfo.Parser, new[]{ "Id", "Fee", "BlockNumber", "BlockTimeStamp", "ContractResult", "ContractAddress", "Receipt", "Log", "Result", "ResMessage", "WithdrawAmount", "UnfreezeAmount" }, null, new[]{ typeof(global::Protocol.TransactionInfo.Types.code) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.TransactionInfo.Types.Log), global::Protocol.TransactionInfo.Types.Log.Parser, new[]{ "Address", "Topics", "Data" }, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.TransactionInfo), global::Protocol.TransactionInfo.Parser, new[]{ "Id", "Fee", "BlockNumber", "BlockTimeStamp", "ContractResult", "ContractAddress", "Receipt", "Log", "Result", "ResMessage", "AssetIssueID", "WithdrawAmount", "UnfreezeAmount", "InternalTransactions", "ExchangeReceivedAmount", "ExchangeInjectAnotherAmount", "ExchangeWithdrawAnotherAmount", "ExchangeId" }, null, new[]{ typeof(global::Protocol.TransactionInfo.Types.code) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.TransactionInfo.Types.Log), global::Protocol.TransactionInfo.Types.Log.Parser, new[]{ "Address", "Topics", "Data" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Transactions), global::Protocol.Transactions.Parser, new[]{ "Transactions_" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.TransactionSign), global::Protocol.TransactionSign.Parser, new[]{ "Transaction", "PrivateKey" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.BlockHeader), global::Protocol.BlockHeader.Parser, new[]{ "RawData", "WitnessSignature" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.BlockHeader.Types.raw), global::Protocol.BlockHeader.Types.raw.Parser, new[]{ "Timestamp", "TxTrieRoot", "ParentHash", "Number", "WitnessId", "WitnessAddress", "Version" }, null, null, null)}),
@@ -239,7 +275,9 @@ namespace Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.DynamicProperties), global::Protocol.DynamicProperties.Parser, new[]{ "LastSolidityBlockNum" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.DisconnectMessage), global::Protocol.DisconnectMessage.Parser, new[]{ "Reason" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.HelloMessage), global::Protocol.HelloMessage.Parser, new[]{ "From", "Version", "Timestamp", "GenesisBlockId", "SolidBlockId", "HeadBlockId" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.HelloMessage.Types.BlockId), global::Protocol.HelloMessage.Types.BlockId.Parser, new[]{ "Hash", "Number" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.SmartContract), global::Protocol.SmartContract.Parser, new[]{ "OriginAddress", "ContractAddress", "Abi", "Bytecode", "CallValue", "ConsumeUserResourcePercent", "Name" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.SmartContract.Types.ABI), global::Protocol.SmartContract.Types.ABI.Parser, new[]{ "Entrys" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.SmartContract.Types.ABI.Types.Entry), global::Protocol.SmartContract.Types.ABI.Types.Entry.Parser, new[]{ "Anonymous", "Constant", "Name", "Inputs", "Outputs", "Type", "Payable", "StateMutability" }, null, new[]{ typeof(global::Protocol.SmartContract.Types.ABI.Types.Entry.Types.EntryType), typeof(global::Protocol.SmartContract.Types.ABI.Types.Entry.Types.StateMutabilityType) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.SmartContract.Types.ABI.Types.Entry.Types.Param), global::Protocol.SmartContract.Types.ABI.Types.Entry.Types.Param.Parser, new[]{ "Indexed", "Name", "Type" }, null, null, null)})})})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.SmartContract), global::Protocol.SmartContract.Parser, new[]{ "OriginAddress", "ContractAddress", "Abi", "Bytecode", "CallValue", "ConsumeUserResourcePercent", "Name", "OriginEnergyLimit" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.SmartContract.Types.ABI), global::Protocol.SmartContract.Types.ABI.Parser, new[]{ "Entrys" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.SmartContract.Types.ABI.Types.Entry), global::Protocol.SmartContract.Types.ABI.Types.Entry.Parser, new[]{ "Anonymous", "Constant", "Name", "Inputs", "Outputs", "Type", "Payable", "StateMutability" }, null, new[]{ typeof(global::Protocol.SmartContract.Types.ABI.Types.Entry.Types.EntryType), typeof(global::Protocol.SmartContract.Types.ABI.Types.Entry.Types.StateMutabilityType) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.SmartContract.Types.ABI.Types.Entry.Types.Param), global::Protocol.SmartContract.Types.ABI.Types.Entry.Types.Param.Parser, new[]{ "Indexed", "Name", "Type" }, null, null, null)})})}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.InternalTransaction), global::Protocol.InternalTransaction.Parser, new[]{ "Hash", "CallerAddress", "TransferToAddress", "CallValueInfo", "Note", "Rejected" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.InternalTransaction.Types.CallValueInfo), global::Protocol.InternalTransaction.Types.CallValueInfo.Parser, new[]{ "CallValue", "TokenId" }, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.DelegatedResourceAccountIndex), global::Protocol.DelegatedResourceAccountIndex.Parser, new[]{ "Account", "FromAccounts", "ToAccounts" }, null, null, null)
           }));
     }
     #endregion
@@ -1525,8 +1563,11 @@ namespace Protocol {
       balance_ = other.balance_;
       votes_ = other.votes_.Clone();
       asset_ = other.asset_.Clone();
+      assetV2_ = other.assetV2_.Clone();
       frozen_ = other.frozen_.Clone();
       netUsage_ = other.netUsage_;
+      acquiredDelegatedFrozenBalanceForBandwidth_ = other.acquiredDelegatedFrozenBalanceForBandwidth_;
+      delegatedFrozenBalanceForBandwidth_ = other.delegatedFrozenBalanceForBandwidth_;
       createTime_ = other.createTime_;
       latestOprationTime_ = other.latestOprationTime_;
       allowance_ = other.allowance_;
@@ -1536,9 +1577,12 @@ namespace Protocol {
       isCommittee_ = other.isCommittee_;
       frozenSupply_ = other.frozenSupply_.Clone();
       assetIssuedName_ = other.assetIssuedName_;
+      assetIssuedID_ = other.assetIssuedID_;
       latestAssetOperationTime_ = other.latestAssetOperationTime_.Clone();
+      latestAssetOperationTimeV2_ = other.latestAssetOperationTimeV2_.Clone();
       freeNetUsage_ = other.freeNetUsage_;
       freeAssetNetUsage_ = other.freeAssetNetUsage_.Clone();
+      freeAssetNetUsageV2_ = other.freeAssetNetUsageV2_.Clone();
       latestConsumeTime_ = other.latestConsumeTime_;
       latestConsumeFreeTime_ = other.latestConsumeFreeTime_;
       accountId_ = other.accountId_;
@@ -1631,13 +1675,26 @@ namespace Protocol {
       get { return asset_; }
     }
 
+    /// <summary>Field number for the "assetV2" field.</summary>
+    public const int AssetV2FieldNumber = 56;
+    private static readonly pbc::MapField<string, long>.Codec _map_assetV2_codec
+        = new pbc::MapField<string, long>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForInt64(16), 450);
+    private readonly pbc::MapField<string, long> assetV2_ = new pbc::MapField<string, long>();
+    /// <summary>
+    /// the other asset owned by this account，key is assetId
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, long> AssetV2 {
+      get { return assetV2_; }
+    }
+
     /// <summary>Field number for the "frozen" field.</summary>
     public const int FrozenFieldNumber = 7;
     private static readonly pb::FieldCodec<global::Protocol.Account.Types.Frozen> _repeated_frozen_codec
         = pb::FieldCodec.ForMessage(58, global::Protocol.Account.Types.Frozen.Parser);
     private readonly pbc::RepeatedField<global::Protocol.Account.Types.Frozen> frozen_ = new pbc::RepeatedField<global::Protocol.Account.Types.Frozen>();
     /// <summary>
-    /// the frozen balance
+    /// the frozen balance for bandwidth
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Protocol.Account.Types.Frozen> Frozen {
@@ -1655,6 +1712,34 @@ namespace Protocol {
       get { return netUsage_; }
       set {
         netUsage_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "acquired_delegated_frozen_balance_for_bandwidth" field.</summary>
+    public const int AcquiredDelegatedFrozenBalanceForBandwidthFieldNumber = 41;
+    private long acquiredDelegatedFrozenBalanceForBandwidth_;
+    /// <summary>
+    ///Frozen balance provided by other accounts to this account
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long AcquiredDelegatedFrozenBalanceForBandwidth {
+      get { return acquiredDelegatedFrozenBalanceForBandwidth_; }
+      set {
+        acquiredDelegatedFrozenBalanceForBandwidth_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "delegated_frozen_balance_for_bandwidth" field.</summary>
+    public const int DelegatedFrozenBalanceForBandwidthFieldNumber = 42;
+    private long delegatedFrozenBalanceForBandwidth_;
+    /// <summary>
+    ///Freeze and provide balances to other accounts
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long DelegatedFrozenBalanceForBandwidth {
+      get { return delegatedFrozenBalanceForBandwidth_; }
+      set {
+        delegatedFrozenBalanceForBandwidth_ = value;
       }
     }
 
@@ -1777,6 +1862,17 @@ namespace Protocol {
       }
     }
 
+    /// <summary>Field number for the "asset_issued_ID" field.</summary>
+    public const int AssetIssuedIDFieldNumber = 57;
+    private pb::ByteString assetIssuedID_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString AssetIssuedID {
+      get { return assetIssuedID_; }
+      set {
+        assetIssuedID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "latest_asset_operation_time" field.</summary>
     public const int LatestAssetOperationTimeFieldNumber = 18;
     private static readonly pbc::MapField<string, long>.Codec _map_latestAssetOperationTime_codec
@@ -1785,6 +1881,16 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, long> LatestAssetOperationTime {
       get { return latestAssetOperationTime_; }
+    }
+
+    /// <summary>Field number for the "latest_asset_operation_timeV2" field.</summary>
+    public const int LatestAssetOperationTimeV2FieldNumber = 58;
+    private static readonly pbc::MapField<string, long>.Codec _map_latestAssetOperationTimeV2_codec
+        = new pbc::MapField<string, long>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForInt64(16), 466);
+    private readonly pbc::MapField<string, long> latestAssetOperationTimeV2_ = new pbc::MapField<string, long>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, long> LatestAssetOperationTimeV2 {
+      get { return latestAssetOperationTimeV2_; }
     }
 
     /// <summary>Field number for the "free_net_usage" field.</summary>
@@ -1806,6 +1912,16 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, long> FreeAssetNetUsage {
       get { return freeAssetNetUsage_; }
+    }
+
+    /// <summary>Field number for the "free_asset_net_usageV2" field.</summary>
+    public const int FreeAssetNetUsageV2FieldNumber = 59;
+    private static readonly pbc::MapField<string, long>.Codec _map_freeAssetNetUsageV2_codec
+        = new pbc::MapField<string, long>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForInt64(16), 474);
+    private readonly pbc::MapField<string, long> freeAssetNetUsageV2_ = new pbc::MapField<string, long>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::MapField<string, long> FreeAssetNetUsageV2 {
+      get { return freeAssetNetUsageV2_; }
     }
 
     /// <summary>Field number for the "latest_consume_time" field.</summary>
@@ -1885,8 +2001,11 @@ namespace Protocol {
       if (Balance != other.Balance) return false;
       if(!votes_.Equals(other.votes_)) return false;
       if (!Asset.Equals(other.Asset)) return false;
+      if (!AssetV2.Equals(other.AssetV2)) return false;
       if(!frozen_.Equals(other.frozen_)) return false;
       if (NetUsage != other.NetUsage) return false;
+      if (AcquiredDelegatedFrozenBalanceForBandwidth != other.AcquiredDelegatedFrozenBalanceForBandwidth) return false;
+      if (DelegatedFrozenBalanceForBandwidth != other.DelegatedFrozenBalanceForBandwidth) return false;
       if (CreateTime != other.CreateTime) return false;
       if (LatestOprationTime != other.LatestOprationTime) return false;
       if (Allowance != other.Allowance) return false;
@@ -1896,9 +2015,12 @@ namespace Protocol {
       if (IsCommittee != other.IsCommittee) return false;
       if(!frozenSupply_.Equals(other.frozenSupply_)) return false;
       if (AssetIssuedName != other.AssetIssuedName) return false;
+      if (AssetIssuedID != other.AssetIssuedID) return false;
       if (!LatestAssetOperationTime.Equals(other.LatestAssetOperationTime)) return false;
+      if (!LatestAssetOperationTimeV2.Equals(other.LatestAssetOperationTimeV2)) return false;
       if (FreeNetUsage != other.FreeNetUsage) return false;
       if (!FreeAssetNetUsage.Equals(other.FreeAssetNetUsage)) return false;
+      if (!FreeAssetNetUsageV2.Equals(other.FreeAssetNetUsageV2)) return false;
       if (LatestConsumeTime != other.LatestConsumeTime) return false;
       if (LatestConsumeFreeTime != other.LatestConsumeFreeTime) return false;
       if (AccountId != other.AccountId) return false;
@@ -1916,8 +2038,11 @@ namespace Protocol {
       if (Balance != 0L) hash ^= Balance.GetHashCode();
       hash ^= votes_.GetHashCode();
       hash ^= Asset.GetHashCode();
+      hash ^= AssetV2.GetHashCode();
       hash ^= frozen_.GetHashCode();
       if (NetUsage != 0L) hash ^= NetUsage.GetHashCode();
+      if (AcquiredDelegatedFrozenBalanceForBandwidth != 0L) hash ^= AcquiredDelegatedFrozenBalanceForBandwidth.GetHashCode();
+      if (DelegatedFrozenBalanceForBandwidth != 0L) hash ^= DelegatedFrozenBalanceForBandwidth.GetHashCode();
       if (CreateTime != 0L) hash ^= CreateTime.GetHashCode();
       if (LatestOprationTime != 0L) hash ^= LatestOprationTime.GetHashCode();
       if (Allowance != 0L) hash ^= Allowance.GetHashCode();
@@ -1927,9 +2052,12 @@ namespace Protocol {
       if (IsCommittee != false) hash ^= IsCommittee.GetHashCode();
       hash ^= frozenSupply_.GetHashCode();
       if (AssetIssuedName.Length != 0) hash ^= AssetIssuedName.GetHashCode();
+      if (AssetIssuedID.Length != 0) hash ^= AssetIssuedID.GetHashCode();
       hash ^= LatestAssetOperationTime.GetHashCode();
+      hash ^= LatestAssetOperationTimeV2.GetHashCode();
       if (FreeNetUsage != 0L) hash ^= FreeNetUsage.GetHashCode();
       hash ^= FreeAssetNetUsage.GetHashCode();
+      hash ^= FreeAssetNetUsageV2.GetHashCode();
       if (LatestConsumeTime != 0L) hash ^= LatestConsumeTime.GetHashCode();
       if (LatestConsumeFreeTime != 0L) hash ^= LatestConsumeFreeTime.GetHashCode();
       if (AccountId.Length != 0) hash ^= AccountId.GetHashCode();
@@ -2030,6 +2158,21 @@ namespace Protocol {
         output.WriteRawTag(242, 1);
         output.WriteBytes(CodeHash);
       }
+      if (AcquiredDelegatedFrozenBalanceForBandwidth != 0L) {
+        output.WriteRawTag(200, 2);
+        output.WriteInt64(AcquiredDelegatedFrozenBalanceForBandwidth);
+      }
+      if (DelegatedFrozenBalanceForBandwidth != 0L) {
+        output.WriteRawTag(208, 2);
+        output.WriteInt64(DelegatedFrozenBalanceForBandwidth);
+      }
+      assetV2_.WriteTo(output, _map_assetV2_codec);
+      if (AssetIssuedID.Length != 0) {
+        output.WriteRawTag(202, 3);
+        output.WriteBytes(AssetIssuedID);
+      }
+      latestAssetOperationTimeV2_.WriteTo(output, _map_latestAssetOperationTimeV2_codec);
+      freeAssetNetUsageV2_.WriteTo(output, _map_freeAssetNetUsageV2_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2052,9 +2195,16 @@ namespace Protocol {
       }
       size += votes_.CalculateSize(_repeated_votes_codec);
       size += asset_.CalculateSize(_map_asset_codec);
+      size += assetV2_.CalculateSize(_map_assetV2_codec);
       size += frozen_.CalculateSize(_repeated_frozen_codec);
       if (NetUsage != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(NetUsage);
+      }
+      if (AcquiredDelegatedFrozenBalanceForBandwidth != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(AcquiredDelegatedFrozenBalanceForBandwidth);
+      }
+      if (DelegatedFrozenBalanceForBandwidth != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(DelegatedFrozenBalanceForBandwidth);
       }
       if (CreateTime != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(CreateTime);
@@ -2081,11 +2231,16 @@ namespace Protocol {
       if (AssetIssuedName.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeBytesSize(AssetIssuedName);
       }
+      if (AssetIssuedID.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeBytesSize(AssetIssuedID);
+      }
       size += latestAssetOperationTime_.CalculateSize(_map_latestAssetOperationTime_codec);
+      size += latestAssetOperationTimeV2_.CalculateSize(_map_latestAssetOperationTimeV2_codec);
       if (FreeNetUsage != 0L) {
         size += 2 + pb::CodedOutputStream.ComputeInt64Size(FreeNetUsage);
       }
       size += freeAssetNetUsage_.CalculateSize(_map_freeAssetNetUsage_codec);
+      size += freeAssetNetUsageV2_.CalculateSize(_map_freeAssetNetUsageV2_codec);
       if (LatestConsumeTime != 0L) {
         size += 2 + pb::CodedOutputStream.ComputeInt64Size(LatestConsumeTime);
       }
@@ -2126,9 +2281,16 @@ namespace Protocol {
       }
       votes_.Add(other.votes_);
       asset_.Add(other.asset_);
+      assetV2_.Add(other.assetV2_);
       frozen_.Add(other.frozen_);
       if (other.NetUsage != 0L) {
         NetUsage = other.NetUsage;
+      }
+      if (other.AcquiredDelegatedFrozenBalanceForBandwidth != 0L) {
+        AcquiredDelegatedFrozenBalanceForBandwidth = other.AcquiredDelegatedFrozenBalanceForBandwidth;
+      }
+      if (other.DelegatedFrozenBalanceForBandwidth != 0L) {
+        DelegatedFrozenBalanceForBandwidth = other.DelegatedFrozenBalanceForBandwidth;
       }
       if (other.CreateTime != 0L) {
         CreateTime = other.CreateTime;
@@ -2155,11 +2317,16 @@ namespace Protocol {
       if (other.AssetIssuedName.Length != 0) {
         AssetIssuedName = other.AssetIssuedName;
       }
+      if (other.AssetIssuedID.Length != 0) {
+        AssetIssuedID = other.AssetIssuedID;
+      }
       latestAssetOperationTime_.Add(other.latestAssetOperationTime_);
+      latestAssetOperationTimeV2_.Add(other.latestAssetOperationTimeV2_);
       if (other.FreeNetUsage != 0L) {
         FreeNetUsage = other.FreeNetUsage;
       }
       freeAssetNetUsage_.Add(other.freeAssetNetUsage_);
+      freeAssetNetUsageV2_.Add(other.freeAssetNetUsageV2_);
       if (other.LatestConsumeTime != 0L) {
         LatestConsumeTime = other.LatestConsumeTime;
       }
@@ -2290,6 +2457,30 @@ namespace Protocol {
           }
           case 242: {
             CodeHash = input.ReadBytes();
+            break;
+          }
+          case 328: {
+            AcquiredDelegatedFrozenBalanceForBandwidth = input.ReadInt64();
+            break;
+          }
+          case 336: {
+            DelegatedFrozenBalanceForBandwidth = input.ReadInt64();
+            break;
+          }
+          case 450: {
+            assetV2_.AddEntriesFrom(input, _map_assetV2_codec);
+            break;
+          }
+          case 458: {
+            AssetIssuedID = input.ReadBytes();
+            break;
+          }
+          case 466: {
+            latestAssetOperationTimeV2_.AddEntriesFrom(input, _map_latestAssetOperationTimeV2_codec);
+            break;
+          }
+          case 474: {
+            freeAssetNetUsageV2_.AddEntriesFrom(input, _map_freeAssetNetUsageV2_codec);
             break;
           }
         }
@@ -2474,7 +2665,7 @@ namespace Protocol {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Protocol.Account.Descriptor.NestedTypes[4]; }
+          get { return global::Protocol.Account.Descriptor.NestedTypes[7]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2494,6 +2685,8 @@ namespace Protocol {
           energyUsage_ = other.energyUsage_;
           FrozenBalanceForEnergy = other.frozenBalanceForEnergy_ != null ? other.FrozenBalanceForEnergy.Clone() : null;
           latestConsumeTimeForEnergy_ = other.latestConsumeTimeForEnergy_;
+          acquiredDelegatedFrozenBalanceForEnergy_ = other.acquiredDelegatedFrozenBalanceForEnergy_;
+          delegatedFrozenBalanceForEnergy_ = other.delegatedFrozenBalanceForEnergy_;
           storageLimit_ = other.storageLimit_;
           storageUsage_ = other.storageUsage_;
           latestExchangeStorageTime_ = other.latestExchangeStorageTime_;
@@ -2541,6 +2734,34 @@ namespace Protocol {
           get { return latestConsumeTimeForEnergy_; }
           set {
             latestConsumeTimeForEnergy_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "acquired_delegated_frozen_balance_for_energy" field.</summary>
+        public const int AcquiredDelegatedFrozenBalanceForEnergyFieldNumber = 4;
+        private long acquiredDelegatedFrozenBalanceForEnergy_;
+        /// <summary>
+        ///Frozen balance provided by other accounts to this account
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public long AcquiredDelegatedFrozenBalanceForEnergy {
+          get { return acquiredDelegatedFrozenBalanceForEnergy_; }
+          set {
+            acquiredDelegatedFrozenBalanceForEnergy_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "delegated_frozen_balance_for_energy" field.</summary>
+        public const int DelegatedFrozenBalanceForEnergyFieldNumber = 5;
+        private long delegatedFrozenBalanceForEnergy_;
+        /// <summary>
+        ///Frozen balances provided to other accounts
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public long DelegatedFrozenBalanceForEnergy {
+          get { return delegatedFrozenBalanceForEnergy_; }
+          set {
+            delegatedFrozenBalanceForEnergy_ = value;
           }
         }
 
@@ -2596,6 +2817,8 @@ namespace Protocol {
           if (EnergyUsage != other.EnergyUsage) return false;
           if (!object.Equals(FrozenBalanceForEnergy, other.FrozenBalanceForEnergy)) return false;
           if (LatestConsumeTimeForEnergy != other.LatestConsumeTimeForEnergy) return false;
+          if (AcquiredDelegatedFrozenBalanceForEnergy != other.AcquiredDelegatedFrozenBalanceForEnergy) return false;
+          if (DelegatedFrozenBalanceForEnergy != other.DelegatedFrozenBalanceForEnergy) return false;
           if (StorageLimit != other.StorageLimit) return false;
           if (StorageUsage != other.StorageUsage) return false;
           if (LatestExchangeStorageTime != other.LatestExchangeStorageTime) return false;
@@ -2608,6 +2831,8 @@ namespace Protocol {
           if (EnergyUsage != 0L) hash ^= EnergyUsage.GetHashCode();
           if (frozenBalanceForEnergy_ != null) hash ^= FrozenBalanceForEnergy.GetHashCode();
           if (LatestConsumeTimeForEnergy != 0L) hash ^= LatestConsumeTimeForEnergy.GetHashCode();
+          if (AcquiredDelegatedFrozenBalanceForEnergy != 0L) hash ^= AcquiredDelegatedFrozenBalanceForEnergy.GetHashCode();
+          if (DelegatedFrozenBalanceForEnergy != 0L) hash ^= DelegatedFrozenBalanceForEnergy.GetHashCode();
           if (StorageLimit != 0L) hash ^= StorageLimit.GetHashCode();
           if (StorageUsage != 0L) hash ^= StorageUsage.GetHashCode();
           if (LatestExchangeStorageTime != 0L) hash ^= LatestExchangeStorageTime.GetHashCode();
@@ -2635,6 +2860,14 @@ namespace Protocol {
           if (LatestConsumeTimeForEnergy != 0L) {
             output.WriteRawTag(24);
             output.WriteInt64(LatestConsumeTimeForEnergy);
+          }
+          if (AcquiredDelegatedFrozenBalanceForEnergy != 0L) {
+            output.WriteRawTag(32);
+            output.WriteInt64(AcquiredDelegatedFrozenBalanceForEnergy);
+          }
+          if (DelegatedFrozenBalanceForEnergy != 0L) {
+            output.WriteRawTag(40);
+            output.WriteInt64(DelegatedFrozenBalanceForEnergy);
           }
           if (StorageLimit != 0L) {
             output.WriteRawTag(48);
@@ -2664,6 +2897,12 @@ namespace Protocol {
           }
           if (LatestConsumeTimeForEnergy != 0L) {
             size += 1 + pb::CodedOutputStream.ComputeInt64Size(LatestConsumeTimeForEnergy);
+          }
+          if (AcquiredDelegatedFrozenBalanceForEnergy != 0L) {
+            size += 1 + pb::CodedOutputStream.ComputeInt64Size(AcquiredDelegatedFrozenBalanceForEnergy);
+          }
+          if (DelegatedFrozenBalanceForEnergy != 0L) {
+            size += 1 + pb::CodedOutputStream.ComputeInt64Size(DelegatedFrozenBalanceForEnergy);
           }
           if (StorageLimit != 0L) {
             size += 1 + pb::CodedOutputStream.ComputeInt64Size(StorageLimit);
@@ -2696,6 +2935,12 @@ namespace Protocol {
           }
           if (other.LatestConsumeTimeForEnergy != 0L) {
             LatestConsumeTimeForEnergy = other.LatestConsumeTimeForEnergy;
+          }
+          if (other.AcquiredDelegatedFrozenBalanceForEnergy != 0L) {
+            AcquiredDelegatedFrozenBalanceForEnergy = other.AcquiredDelegatedFrozenBalanceForEnergy;
+          }
+          if (other.DelegatedFrozenBalanceForEnergy != 0L) {
+            DelegatedFrozenBalanceForEnergy = other.DelegatedFrozenBalanceForEnergy;
           }
           if (other.StorageLimit != 0L) {
             StorageLimit = other.StorageLimit;
@@ -2732,6 +2977,14 @@ namespace Protocol {
                 LatestConsumeTimeForEnergy = input.ReadInt64();
                 break;
               }
+              case 32: {
+                AcquiredDelegatedFrozenBalanceForEnergy = input.ReadInt64();
+                break;
+              }
+              case 40: {
+                DelegatedFrozenBalanceForEnergy = input.ReadInt64();
+                break;
+              }
               case 48: {
                 StorageLimit = input.ReadInt64();
                 break;
@@ -2755,6 +3008,275 @@ namespace Protocol {
 
   }
 
+  public sealed partial class DelegatedResource : pb::IMessage<DelegatedResource> {
+    private static readonly pb::MessageParser<DelegatedResource> _parser = new pb::MessageParser<DelegatedResource>(() => new DelegatedResource());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<DelegatedResource> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DelegatedResource() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DelegatedResource(DelegatedResource other) : this() {
+      from_ = other.from_;
+      to_ = other.to_;
+      frozenBalanceForBandwidth_ = other.frozenBalanceForBandwidth_;
+      frozenBalanceForEnergy_ = other.frozenBalanceForEnergy_;
+      expireTimeForBandwidth_ = other.expireTimeForBandwidth_;
+      expireTimeForEnergy_ = other.expireTimeForEnergy_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DelegatedResource Clone() {
+      return new DelegatedResource(this);
+    }
+
+    /// <summary>Field number for the "from" field.</summary>
+    public const int FromFieldNumber = 1;
+    private pb::ByteString from_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString From {
+      get { return from_; }
+      set {
+        from_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "to" field.</summary>
+    public const int ToFieldNumber = 2;
+    private pb::ByteString to_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString To {
+      get { return to_; }
+      set {
+        to_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "frozen_balance_for_bandwidth" field.</summary>
+    public const int FrozenBalanceForBandwidthFieldNumber = 3;
+    private long frozenBalanceForBandwidth_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long FrozenBalanceForBandwidth {
+      get { return frozenBalanceForBandwidth_; }
+      set {
+        frozenBalanceForBandwidth_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "frozen_balance_for_energy" field.</summary>
+    public const int FrozenBalanceForEnergyFieldNumber = 4;
+    private long frozenBalanceForEnergy_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long FrozenBalanceForEnergy {
+      get { return frozenBalanceForEnergy_; }
+      set {
+        frozenBalanceForEnergy_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "expire_time_for_bandwidth" field.</summary>
+    public const int ExpireTimeForBandwidthFieldNumber = 5;
+    private long expireTimeForBandwidth_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ExpireTimeForBandwidth {
+      get { return expireTimeForBandwidth_; }
+      set {
+        expireTimeForBandwidth_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "expire_time_for_energy" field.</summary>
+    public const int ExpireTimeForEnergyFieldNumber = 6;
+    private long expireTimeForEnergy_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ExpireTimeForEnergy {
+      get { return expireTimeForEnergy_; }
+      set {
+        expireTimeForEnergy_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as DelegatedResource);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(DelegatedResource other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (From != other.From) return false;
+      if (To != other.To) return false;
+      if (FrozenBalanceForBandwidth != other.FrozenBalanceForBandwidth) return false;
+      if (FrozenBalanceForEnergy != other.FrozenBalanceForEnergy) return false;
+      if (ExpireTimeForBandwidth != other.ExpireTimeForBandwidth) return false;
+      if (ExpireTimeForEnergy != other.ExpireTimeForEnergy) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (From.Length != 0) hash ^= From.GetHashCode();
+      if (To.Length != 0) hash ^= To.GetHashCode();
+      if (FrozenBalanceForBandwidth != 0L) hash ^= FrozenBalanceForBandwidth.GetHashCode();
+      if (FrozenBalanceForEnergy != 0L) hash ^= FrozenBalanceForEnergy.GetHashCode();
+      if (ExpireTimeForBandwidth != 0L) hash ^= ExpireTimeForBandwidth.GetHashCode();
+      if (ExpireTimeForEnergy != 0L) hash ^= ExpireTimeForEnergy.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (From.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(From);
+      }
+      if (To.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(To);
+      }
+      if (FrozenBalanceForBandwidth != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(FrozenBalanceForBandwidth);
+      }
+      if (FrozenBalanceForEnergy != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(FrozenBalanceForEnergy);
+      }
+      if (ExpireTimeForBandwidth != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(ExpireTimeForBandwidth);
+      }
+      if (ExpireTimeForEnergy != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(ExpireTimeForEnergy);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (From.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(From);
+      }
+      if (To.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(To);
+      }
+      if (FrozenBalanceForBandwidth != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(FrozenBalanceForBandwidth);
+      }
+      if (FrozenBalanceForEnergy != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(FrozenBalanceForEnergy);
+      }
+      if (ExpireTimeForBandwidth != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ExpireTimeForBandwidth);
+      }
+      if (ExpireTimeForEnergy != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ExpireTimeForEnergy);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(DelegatedResource other) {
+      if (other == null) {
+        return;
+      }
+      if (other.From.Length != 0) {
+        From = other.From;
+      }
+      if (other.To.Length != 0) {
+        To = other.To;
+      }
+      if (other.FrozenBalanceForBandwidth != 0L) {
+        FrozenBalanceForBandwidth = other.FrozenBalanceForBandwidth;
+      }
+      if (other.FrozenBalanceForEnergy != 0L) {
+        FrozenBalanceForEnergy = other.FrozenBalanceForEnergy;
+      }
+      if (other.ExpireTimeForBandwidth != 0L) {
+        ExpireTimeForBandwidth = other.ExpireTimeForBandwidth;
+      }
+      if (other.ExpireTimeForEnergy != 0L) {
+        ExpireTimeForEnergy = other.ExpireTimeForEnergy;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            From = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            To = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            FrozenBalanceForBandwidth = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            FrozenBalanceForEnergy = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            ExpireTimeForBandwidth = input.ReadInt64();
+            break;
+          }
+          case 48: {
+            ExpireTimeForEnergy = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class authority : pb::IMessage<authority> {
     private static readonly pb::MessageParser<authority> _parser = new pb::MessageParser<authority>(() => new authority());
     private pb::UnknownFieldSet _unknownFields;
@@ -2763,7 +3285,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2926,7 +3448,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3064,7 +3586,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3420,7 +3942,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3589,7 +4111,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3746,7 +4268,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4101,7 +4623,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4222,7 +4744,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4519,7 +5041,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4946,6 +5468,7 @@ namespace Protocol {
             [pbr::OriginalName("ExchangeInjectContract")] ExchangeInjectContract = 42,
             [pbr::OriginalName("ExchangeWithdrawContract")] ExchangeWithdrawContract = 43,
             [pbr::OriginalName("ExchangeTransactionContract")] ExchangeTransactionContract = 44,
+            [pbr::OriginalName("UpdateEnergyLimitContract")] UpdateEnergyLimitContract = 45,
           }
 
         }
@@ -4981,8 +5504,13 @@ namespace Protocol {
           fee_ = other.fee_;
           ret_ = other.ret_;
           contractRet_ = other.contractRet_;
+          assetIssueID_ = other.assetIssueID_;
           withdrawAmount_ = other.withdrawAmount_;
           unfreezeAmount_ = other.unfreezeAmount_;
+          exchangeReceivedAmount_ = other.exchangeReceivedAmount_;
+          exchangeInjectAnotherAmount_ = other.exchangeInjectAnotherAmount_;
+          exchangeWithdrawAnotherAmount_ = other.exchangeWithdrawAnotherAmount_;
+          exchangeId_ = other.exchangeId_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -5024,6 +5552,17 @@ namespace Protocol {
           }
         }
 
+        /// <summary>Field number for the "assetIssueID" field.</summary>
+        public const int AssetIssueIDFieldNumber = 14;
+        private string assetIssueID_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string AssetIssueID {
+          get { return assetIssueID_; }
+          set {
+            assetIssueID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
         /// <summary>Field number for the "withdraw_amount" field.</summary>
         public const int WithdrawAmountFieldNumber = 15;
         private long withdrawAmount_;
@@ -5046,6 +5585,50 @@ namespace Protocol {
           }
         }
 
+        /// <summary>Field number for the "exchange_received_amount" field.</summary>
+        public const int ExchangeReceivedAmountFieldNumber = 18;
+        private long exchangeReceivedAmount_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public long ExchangeReceivedAmount {
+          get { return exchangeReceivedAmount_; }
+          set {
+            exchangeReceivedAmount_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "exchange_inject_another_amount" field.</summary>
+        public const int ExchangeInjectAnotherAmountFieldNumber = 19;
+        private long exchangeInjectAnotherAmount_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public long ExchangeInjectAnotherAmount {
+          get { return exchangeInjectAnotherAmount_; }
+          set {
+            exchangeInjectAnotherAmount_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "exchange_withdraw_another_amount" field.</summary>
+        public const int ExchangeWithdrawAnotherAmountFieldNumber = 20;
+        private long exchangeWithdrawAnotherAmount_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public long ExchangeWithdrawAnotherAmount {
+          get { return exchangeWithdrawAnotherAmount_; }
+          set {
+            exchangeWithdrawAnotherAmount_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "exchange_id" field.</summary>
+        public const int ExchangeIdFieldNumber = 21;
+        private long exchangeId_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public long ExchangeId {
+          get { return exchangeId_; }
+          set {
+            exchangeId_ = value;
+          }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override bool Equals(object other) {
           return Equals(other as Result);
@@ -5062,8 +5645,13 @@ namespace Protocol {
           if (Fee != other.Fee) return false;
           if (Ret != other.Ret) return false;
           if (ContractRet != other.ContractRet) return false;
+          if (AssetIssueID != other.AssetIssueID) return false;
           if (WithdrawAmount != other.WithdrawAmount) return false;
           if (UnfreezeAmount != other.UnfreezeAmount) return false;
+          if (ExchangeReceivedAmount != other.ExchangeReceivedAmount) return false;
+          if (ExchangeInjectAnotherAmount != other.ExchangeInjectAnotherAmount) return false;
+          if (ExchangeWithdrawAnotherAmount != other.ExchangeWithdrawAnotherAmount) return false;
+          if (ExchangeId != other.ExchangeId) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -5073,8 +5661,13 @@ namespace Protocol {
           if (Fee != 0L) hash ^= Fee.GetHashCode();
           if (Ret != 0) hash ^= Ret.GetHashCode();
           if (ContractRet != 0) hash ^= ContractRet.GetHashCode();
+          if (AssetIssueID.Length != 0) hash ^= AssetIssueID.GetHashCode();
           if (WithdrawAmount != 0L) hash ^= WithdrawAmount.GetHashCode();
           if (UnfreezeAmount != 0L) hash ^= UnfreezeAmount.GetHashCode();
+          if (ExchangeReceivedAmount != 0L) hash ^= ExchangeReceivedAmount.GetHashCode();
+          if (ExchangeInjectAnotherAmount != 0L) hash ^= ExchangeInjectAnotherAmount.GetHashCode();
+          if (ExchangeWithdrawAnotherAmount != 0L) hash ^= ExchangeWithdrawAnotherAmount.GetHashCode();
+          if (ExchangeId != 0L) hash ^= ExchangeId.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -5100,6 +5693,10 @@ namespace Protocol {
             output.WriteRawTag(24);
             output.WriteEnum((int) ContractRet);
           }
+          if (AssetIssueID.Length != 0) {
+            output.WriteRawTag(114);
+            output.WriteString(AssetIssueID);
+          }
           if (WithdrawAmount != 0L) {
             output.WriteRawTag(120);
             output.WriteInt64(WithdrawAmount);
@@ -5107,6 +5704,22 @@ namespace Protocol {
           if (UnfreezeAmount != 0L) {
             output.WriteRawTag(128, 1);
             output.WriteInt64(UnfreezeAmount);
+          }
+          if (ExchangeReceivedAmount != 0L) {
+            output.WriteRawTag(144, 1);
+            output.WriteInt64(ExchangeReceivedAmount);
+          }
+          if (ExchangeInjectAnotherAmount != 0L) {
+            output.WriteRawTag(152, 1);
+            output.WriteInt64(ExchangeInjectAnotherAmount);
+          }
+          if (ExchangeWithdrawAnotherAmount != 0L) {
+            output.WriteRawTag(160, 1);
+            output.WriteInt64(ExchangeWithdrawAnotherAmount);
+          }
+          if (ExchangeId != 0L) {
+            output.WriteRawTag(168, 1);
+            output.WriteInt64(ExchangeId);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -5125,11 +5738,26 @@ namespace Protocol {
           if (ContractRet != 0) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ContractRet);
           }
+          if (AssetIssueID.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(AssetIssueID);
+          }
           if (WithdrawAmount != 0L) {
             size += 1 + pb::CodedOutputStream.ComputeInt64Size(WithdrawAmount);
           }
           if (UnfreezeAmount != 0L) {
             size += 2 + pb::CodedOutputStream.ComputeInt64Size(UnfreezeAmount);
+          }
+          if (ExchangeReceivedAmount != 0L) {
+            size += 2 + pb::CodedOutputStream.ComputeInt64Size(ExchangeReceivedAmount);
+          }
+          if (ExchangeInjectAnotherAmount != 0L) {
+            size += 2 + pb::CodedOutputStream.ComputeInt64Size(ExchangeInjectAnotherAmount);
+          }
+          if (ExchangeWithdrawAnotherAmount != 0L) {
+            size += 2 + pb::CodedOutputStream.ComputeInt64Size(ExchangeWithdrawAnotherAmount);
+          }
+          if (ExchangeId != 0L) {
+            size += 2 + pb::CodedOutputStream.ComputeInt64Size(ExchangeId);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -5151,11 +5779,26 @@ namespace Protocol {
           if (other.ContractRet != 0) {
             ContractRet = other.ContractRet;
           }
+          if (other.AssetIssueID.Length != 0) {
+            AssetIssueID = other.AssetIssueID;
+          }
           if (other.WithdrawAmount != 0L) {
             WithdrawAmount = other.WithdrawAmount;
           }
           if (other.UnfreezeAmount != 0L) {
             UnfreezeAmount = other.UnfreezeAmount;
+          }
+          if (other.ExchangeReceivedAmount != 0L) {
+            ExchangeReceivedAmount = other.ExchangeReceivedAmount;
+          }
+          if (other.ExchangeInjectAnotherAmount != 0L) {
+            ExchangeInjectAnotherAmount = other.ExchangeInjectAnotherAmount;
+          }
+          if (other.ExchangeWithdrawAnotherAmount != 0L) {
+            ExchangeWithdrawAnotherAmount = other.ExchangeWithdrawAnotherAmount;
+          }
+          if (other.ExchangeId != 0L) {
+            ExchangeId = other.ExchangeId;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -5180,12 +5823,32 @@ namespace Protocol {
                 contractRet_ = (global::Protocol.Transaction.Types.Result.Types.contractResult) input.ReadEnum();
                 break;
               }
+              case 114: {
+                AssetIssueID = input.ReadString();
+                break;
+              }
               case 120: {
                 WithdrawAmount = input.ReadInt64();
                 break;
               }
               case 128: {
                 UnfreezeAmount = input.ReadInt64();
+                break;
+              }
+              case 144: {
+                ExchangeReceivedAmount = input.ReadInt64();
+                break;
+              }
+              case 152: {
+                ExchangeInjectAnotherAmount = input.ReadInt64();
+                break;
+              }
+              case 160: {
+                ExchangeWithdrawAnotherAmount = input.ReadInt64();
+                break;
+              }
+              case 168: {
+                ExchangeId = input.ReadInt64();
                 break;
               }
             }
@@ -5610,7 +6273,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5637,8 +6300,14 @@ namespace Protocol {
       log_ = other.log_.Clone();
       result_ = other.result_;
       resMessage_ = other.resMessage_;
+      assetIssueID_ = other.assetIssueID_;
       withdrawAmount_ = other.withdrawAmount_;
       unfreezeAmount_ = other.unfreezeAmount_;
+      internalTransactions_ = other.internalTransactions_.Clone();
+      exchangeReceivedAmount_ = other.exchangeReceivedAmount_;
+      exchangeInjectAnotherAmount_ = other.exchangeInjectAnotherAmount_;
+      exchangeWithdrawAnotherAmount_ = other.exchangeWithdrawAnotherAmount_;
+      exchangeId_ = other.exchangeId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5755,6 +6424,17 @@ namespace Protocol {
       }
     }
 
+    /// <summary>Field number for the "assetIssueID" field.</summary>
+    public const int AssetIssueIDFieldNumber = 14;
+    private string assetIssueID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string AssetIssueID {
+      get { return assetIssueID_; }
+      set {
+        assetIssueID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "withdraw_amount" field.</summary>
     public const int WithdrawAmountFieldNumber = 15;
     private long withdrawAmount_;
@@ -5774,6 +6454,60 @@ namespace Protocol {
       get { return unfreezeAmount_; }
       set {
         unfreezeAmount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "internal_transactions" field.</summary>
+    public const int InternalTransactionsFieldNumber = 17;
+    private static readonly pb::FieldCodec<global::Protocol.InternalTransaction> _repeated_internalTransactions_codec
+        = pb::FieldCodec.ForMessage(138, global::Protocol.InternalTransaction.Parser);
+    private readonly pbc::RepeatedField<global::Protocol.InternalTransaction> internalTransactions_ = new pbc::RepeatedField<global::Protocol.InternalTransaction>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protocol.InternalTransaction> InternalTransactions {
+      get { return internalTransactions_; }
+    }
+
+    /// <summary>Field number for the "exchange_received_amount" field.</summary>
+    public const int ExchangeReceivedAmountFieldNumber = 18;
+    private long exchangeReceivedAmount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ExchangeReceivedAmount {
+      get { return exchangeReceivedAmount_; }
+      set {
+        exchangeReceivedAmount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "exchange_inject_another_amount" field.</summary>
+    public const int ExchangeInjectAnotherAmountFieldNumber = 19;
+    private long exchangeInjectAnotherAmount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ExchangeInjectAnotherAmount {
+      get { return exchangeInjectAnotherAmount_; }
+      set {
+        exchangeInjectAnotherAmount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "exchange_withdraw_another_amount" field.</summary>
+    public const int ExchangeWithdrawAnotherAmountFieldNumber = 20;
+    private long exchangeWithdrawAnotherAmount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ExchangeWithdrawAnotherAmount {
+      get { return exchangeWithdrawAnotherAmount_; }
+      set {
+        exchangeWithdrawAnotherAmount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "exchange_id" field.</summary>
+    public const int ExchangeIdFieldNumber = 21;
+    private long exchangeId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ExchangeId {
+      get { return exchangeId_; }
+      set {
+        exchangeId_ = value;
       }
     }
 
@@ -5800,8 +6534,14 @@ namespace Protocol {
       if(!log_.Equals(other.log_)) return false;
       if (Result != other.Result) return false;
       if (ResMessage != other.ResMessage) return false;
+      if (AssetIssueID != other.AssetIssueID) return false;
       if (WithdrawAmount != other.WithdrawAmount) return false;
       if (UnfreezeAmount != other.UnfreezeAmount) return false;
+      if(!internalTransactions_.Equals(other.internalTransactions_)) return false;
+      if (ExchangeReceivedAmount != other.ExchangeReceivedAmount) return false;
+      if (ExchangeInjectAnotherAmount != other.ExchangeInjectAnotherAmount) return false;
+      if (ExchangeWithdrawAnotherAmount != other.ExchangeWithdrawAnotherAmount) return false;
+      if (ExchangeId != other.ExchangeId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5818,8 +6558,14 @@ namespace Protocol {
       hash ^= log_.GetHashCode();
       if (Result != 0) hash ^= Result.GetHashCode();
       if (ResMessage.Length != 0) hash ^= ResMessage.GetHashCode();
+      if (AssetIssueID.Length != 0) hash ^= AssetIssueID.GetHashCode();
       if (WithdrawAmount != 0L) hash ^= WithdrawAmount.GetHashCode();
       if (UnfreezeAmount != 0L) hash ^= UnfreezeAmount.GetHashCode();
+      hash ^= internalTransactions_.GetHashCode();
+      if (ExchangeReceivedAmount != 0L) hash ^= ExchangeReceivedAmount.GetHashCode();
+      if (ExchangeInjectAnotherAmount != 0L) hash ^= ExchangeInjectAnotherAmount.GetHashCode();
+      if (ExchangeWithdrawAnotherAmount != 0L) hash ^= ExchangeWithdrawAnotherAmount.GetHashCode();
+      if (ExchangeId != 0L) hash ^= ExchangeId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5867,6 +6613,10 @@ namespace Protocol {
         output.WriteRawTag(82);
         output.WriteBytes(ResMessage);
       }
+      if (AssetIssueID.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(AssetIssueID);
+      }
       if (WithdrawAmount != 0L) {
         output.WriteRawTag(120);
         output.WriteInt64(WithdrawAmount);
@@ -5874,6 +6624,23 @@ namespace Protocol {
       if (UnfreezeAmount != 0L) {
         output.WriteRawTag(128, 1);
         output.WriteInt64(UnfreezeAmount);
+      }
+      internalTransactions_.WriteTo(output, _repeated_internalTransactions_codec);
+      if (ExchangeReceivedAmount != 0L) {
+        output.WriteRawTag(144, 1);
+        output.WriteInt64(ExchangeReceivedAmount);
+      }
+      if (ExchangeInjectAnotherAmount != 0L) {
+        output.WriteRawTag(152, 1);
+        output.WriteInt64(ExchangeInjectAnotherAmount);
+      }
+      if (ExchangeWithdrawAnotherAmount != 0L) {
+        output.WriteRawTag(160, 1);
+        output.WriteInt64(ExchangeWithdrawAnotherAmount);
+      }
+      if (ExchangeId != 0L) {
+        output.WriteRawTag(168, 1);
+        output.WriteInt64(ExchangeId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -5909,11 +6676,27 @@ namespace Protocol {
       if (ResMessage.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(ResMessage);
       }
+      if (AssetIssueID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AssetIssueID);
+      }
       if (WithdrawAmount != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(WithdrawAmount);
       }
       if (UnfreezeAmount != 0L) {
         size += 2 + pb::CodedOutputStream.ComputeInt64Size(UnfreezeAmount);
+      }
+      size += internalTransactions_.CalculateSize(_repeated_internalTransactions_codec);
+      if (ExchangeReceivedAmount != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(ExchangeReceivedAmount);
+      }
+      if (ExchangeInjectAnotherAmount != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(ExchangeInjectAnotherAmount);
+      }
+      if (ExchangeWithdrawAnotherAmount != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(ExchangeWithdrawAnotherAmount);
+      }
+      if (ExchangeId != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(ExchangeId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5955,11 +6738,27 @@ namespace Protocol {
       if (other.ResMessage.Length != 0) {
         ResMessage = other.ResMessage;
       }
+      if (other.AssetIssueID.Length != 0) {
+        AssetIssueID = other.AssetIssueID;
+      }
       if (other.WithdrawAmount != 0L) {
         WithdrawAmount = other.WithdrawAmount;
       }
       if (other.UnfreezeAmount != 0L) {
         UnfreezeAmount = other.UnfreezeAmount;
+      }
+      internalTransactions_.Add(other.internalTransactions_);
+      if (other.ExchangeReceivedAmount != 0L) {
+        ExchangeReceivedAmount = other.ExchangeReceivedAmount;
+      }
+      if (other.ExchangeInjectAnotherAmount != 0L) {
+        ExchangeInjectAnotherAmount = other.ExchangeInjectAnotherAmount;
+      }
+      if (other.ExchangeWithdrawAnotherAmount != 0L) {
+        ExchangeWithdrawAnotherAmount = other.ExchangeWithdrawAnotherAmount;
+      }
+      if (other.ExchangeId != 0L) {
+        ExchangeId = other.ExchangeId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -6015,12 +6814,36 @@ namespace Protocol {
             ResMessage = input.ReadBytes();
             break;
           }
+          case 114: {
+            AssetIssueID = input.ReadString();
+            break;
+          }
           case 120: {
             WithdrawAmount = input.ReadInt64();
             break;
           }
           case 128: {
             UnfreezeAmount = input.ReadInt64();
+            break;
+          }
+          case 138: {
+            internalTransactions_.AddEntriesFrom(input, _repeated_internalTransactions_codec);
+            break;
+          }
+          case 144: {
+            ExchangeReceivedAmount = input.ReadInt64();
+            break;
+          }
+          case 152: {
+            ExchangeInjectAnotherAmount = input.ReadInt64();
+            break;
+          }
+          case 160: {
+            ExchangeWithdrawAnotherAmount = input.ReadInt64();
+            break;
+          }
+          case 168: {
+            ExchangeId = input.ReadInt64();
             break;
           }
         }
@@ -6226,7 +7049,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6347,7 +7170,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6510,7 +7333,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6984,7 +7807,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7139,7 +7962,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7455,7 +8278,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7774,7 +8597,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7935,7 +8758,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8141,7 +8964,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[24]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8270,7 +9093,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[25]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8399,7 +9222,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[26]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8856,7 +9679,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[27]; }
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8880,6 +9703,7 @@ namespace Protocol {
       callValue_ = other.callValue_;
       consumeUserResourcePercent_ = other.consumeUserResourcePercent_;
       name_ = other.name_;
+      originEnergyLimit_ = other.originEnergyLimit_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -8965,6 +9789,17 @@ namespace Protocol {
       }
     }
 
+    /// <summary>Field number for the "origin_energy_limit" field.</summary>
+    public const int OriginEnergyLimitFieldNumber = 8;
+    private long originEnergyLimit_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long OriginEnergyLimit {
+      get { return originEnergyLimit_; }
+      set {
+        originEnergyLimit_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SmartContract);
@@ -8985,6 +9820,7 @@ namespace Protocol {
       if (CallValue != other.CallValue) return false;
       if (ConsumeUserResourcePercent != other.ConsumeUserResourcePercent) return false;
       if (Name != other.Name) return false;
+      if (OriginEnergyLimit != other.OriginEnergyLimit) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -8998,6 +9834,7 @@ namespace Protocol {
       if (CallValue != 0L) hash ^= CallValue.GetHashCode();
       if (ConsumeUserResourcePercent != 0L) hash ^= ConsumeUserResourcePercent.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (OriginEnergyLimit != 0L) hash ^= OriginEnergyLimit.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -9039,6 +9876,10 @@ namespace Protocol {
         output.WriteRawTag(58);
         output.WriteString(Name);
       }
+      if (OriginEnergyLimit != 0L) {
+        output.WriteRawTag(64);
+        output.WriteInt64(OriginEnergyLimit);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -9067,6 +9908,9 @@ namespace Protocol {
       }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (OriginEnergyLimit != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(OriginEnergyLimit);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -9102,6 +9946,9 @@ namespace Protocol {
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
+      }
+      if (other.OriginEnergyLimit != 0L) {
+        OriginEnergyLimit = other.OriginEnergyLimit;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -9143,6 +9990,10 @@ namespace Protocol {
           }
           case 58: {
             Name = input.ReadString();
+            break;
+          }
+          case 64: {
+            OriginEnergyLimit = input.ReadInt64();
             break;
           }
         }
@@ -9803,6 +10654,616 @@ namespace Protocol {
 
     }
     #endregion
+
+  }
+
+  public sealed partial class InternalTransaction : pb::IMessage<InternalTransaction> {
+    private static readonly pb::MessageParser<InternalTransaction> _parser = new pb::MessageParser<InternalTransaction>(() => new InternalTransaction());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<InternalTransaction> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[29]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public InternalTransaction() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public InternalTransaction(InternalTransaction other) : this() {
+      hash_ = other.hash_;
+      callerAddress_ = other.callerAddress_;
+      transferToAddress_ = other.transferToAddress_;
+      callValueInfo_ = other.callValueInfo_.Clone();
+      note_ = other.note_;
+      rejected_ = other.rejected_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public InternalTransaction Clone() {
+      return new InternalTransaction(this);
+    }
+
+    /// <summary>Field number for the "hash" field.</summary>
+    public const int HashFieldNumber = 1;
+    private pb::ByteString hash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// internalTransaction identity, the root InternalTransaction hash
+    /// should equals to root transaction id.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Hash {
+      get { return hash_; }
+      set {
+        hash_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "caller_address" field.</summary>
+    public const int CallerAddressFieldNumber = 2;
+    private pb::ByteString callerAddress_ = pb::ByteString.Empty;
+    /// <summary>
+    /// the one send trx (TBD: or token) via function
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString CallerAddress {
+      get { return callerAddress_; }
+      set {
+        callerAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "transferTo_address" field.</summary>
+    public const int TransferToAddressFieldNumber = 3;
+    private pb::ByteString transferToAddress_ = pb::ByteString.Empty;
+    /// <summary>
+    /// the one recieve trx (TBD: or token) via function
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString TransferToAddress {
+      get { return transferToAddress_; }
+      set {
+        transferToAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "callValueInfo" field.</summary>
+    public const int CallValueInfoFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::Protocol.InternalTransaction.Types.CallValueInfo> _repeated_callValueInfo_codec
+        = pb::FieldCodec.ForMessage(34, global::Protocol.InternalTransaction.Types.CallValueInfo.Parser);
+    private readonly pbc::RepeatedField<global::Protocol.InternalTransaction.Types.CallValueInfo> callValueInfo_ = new pbc::RepeatedField<global::Protocol.InternalTransaction.Types.CallValueInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Protocol.InternalTransaction.Types.CallValueInfo> CallValueInfo {
+      get { return callValueInfo_; }
+    }
+
+    /// <summary>Field number for the "note" field.</summary>
+    public const int NoteFieldNumber = 5;
+    private pb::ByteString note_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Note {
+      get { return note_; }
+      set {
+        note_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "rejected" field.</summary>
+    public const int RejectedFieldNumber = 6;
+    private bool rejected_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Rejected {
+      get { return rejected_; }
+      set {
+        rejected_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as InternalTransaction);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(InternalTransaction other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Hash != other.Hash) return false;
+      if (CallerAddress != other.CallerAddress) return false;
+      if (TransferToAddress != other.TransferToAddress) return false;
+      if(!callValueInfo_.Equals(other.callValueInfo_)) return false;
+      if (Note != other.Note) return false;
+      if (Rejected != other.Rejected) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Hash.Length != 0) hash ^= Hash.GetHashCode();
+      if (CallerAddress.Length != 0) hash ^= CallerAddress.GetHashCode();
+      if (TransferToAddress.Length != 0) hash ^= TransferToAddress.GetHashCode();
+      hash ^= callValueInfo_.GetHashCode();
+      if (Note.Length != 0) hash ^= Note.GetHashCode();
+      if (Rejected != false) hash ^= Rejected.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Hash.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (CallerAddress.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(CallerAddress);
+      }
+      if (TransferToAddress.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(TransferToAddress);
+      }
+      callValueInfo_.WriteTo(output, _repeated_callValueInfo_codec);
+      if (Note.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(Note);
+      }
+      if (Rejected != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(Rejected);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Hash.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Hash);
+      }
+      if (CallerAddress.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(CallerAddress);
+      }
+      if (TransferToAddress.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(TransferToAddress);
+      }
+      size += callValueInfo_.CalculateSize(_repeated_callValueInfo_codec);
+      if (Note.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Note);
+      }
+      if (Rejected != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(InternalTransaction other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Hash.Length != 0) {
+        Hash = other.Hash;
+      }
+      if (other.CallerAddress.Length != 0) {
+        CallerAddress = other.CallerAddress;
+      }
+      if (other.TransferToAddress.Length != 0) {
+        TransferToAddress = other.TransferToAddress;
+      }
+      callValueInfo_.Add(other.callValueInfo_);
+      if (other.Note.Length != 0) {
+        Note = other.Note;
+      }
+      if (other.Rejected != false) {
+        Rejected = other.Rejected;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            CallerAddress = input.ReadBytes();
+            break;
+          }
+          case 26: {
+            TransferToAddress = input.ReadBytes();
+            break;
+          }
+          case 34: {
+            callValueInfo_.AddEntriesFrom(input, _repeated_callValueInfo_codec);
+            break;
+          }
+          case 42: {
+            Note = input.ReadBytes();
+            break;
+          }
+          case 48: {
+            Rejected = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the InternalTransaction message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public sealed partial class CallValueInfo : pb::IMessage<CallValueInfo> {
+        private static readonly pb::MessageParser<CallValueInfo> _parser = new pb::MessageParser<CallValueInfo>(() => new CallValueInfo());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<CallValueInfo> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Protocol.InternalTransaction.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public CallValueInfo() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public CallValueInfo(CallValueInfo other) : this() {
+          callValue_ = other.callValue_;
+          tokenId_ = other.tokenId_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public CallValueInfo Clone() {
+          return new CallValueInfo(this);
+        }
+
+        /// <summary>Field number for the "callValue" field.</summary>
+        public const int CallValueFieldNumber = 1;
+        private long callValue_;
+        /// <summary>
+        /// trx (TBD: or token) value
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public long CallValue {
+          get { return callValue_; }
+          set {
+            callValue_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "tokenId" field.</summary>
+        public const int TokenIdFieldNumber = 2;
+        private string tokenId_ = "";
+        /// <summary>
+        /// TBD: tokenName, trx should be empty
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string TokenId {
+          get { return tokenId_; }
+          set {
+            tokenId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as CallValueInfo);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(CallValueInfo other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (CallValue != other.CallValue) return false;
+          if (TokenId != other.TokenId) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (CallValue != 0L) hash ^= CallValue.GetHashCode();
+          if (TokenId.Length != 0) hash ^= TokenId.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+          if (CallValue != 0L) {
+            output.WriteRawTag(8);
+            output.WriteInt64(CallValue);
+          }
+          if (TokenId.Length != 0) {
+            output.WriteRawTag(18);
+            output.WriteString(TokenId);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (CallValue != 0L) {
+            size += 1 + pb::CodedOutputStream.ComputeInt64Size(CallValue);
+          }
+          if (TokenId.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(TokenId);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(CallValueInfo other) {
+          if (other == null) {
+            return;
+          }
+          if (other.CallValue != 0L) {
+            CallValue = other.CallValue;
+          }
+          if (other.TokenId.Length != 0) {
+            TokenId = other.TokenId;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 8: {
+                CallValue = input.ReadInt64();
+                break;
+              }
+              case 18: {
+                TokenId = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+
+      }
+
+    }
+    #endregion
+
+  }
+
+  public sealed partial class DelegatedResourceAccountIndex : pb::IMessage<DelegatedResourceAccountIndex> {
+    private static readonly pb::MessageParser<DelegatedResourceAccountIndex> _parser = new pb::MessageParser<DelegatedResourceAccountIndex>(() => new DelegatedResourceAccountIndex());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<DelegatedResourceAccountIndex> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protocol.TronReflection.Descriptor.MessageTypes[30]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DelegatedResourceAccountIndex() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DelegatedResourceAccountIndex(DelegatedResourceAccountIndex other) : this() {
+      account_ = other.account_;
+      fromAccounts_ = other.fromAccounts_.Clone();
+      toAccounts_ = other.toAccounts_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DelegatedResourceAccountIndex Clone() {
+      return new DelegatedResourceAccountIndex(this);
+    }
+
+    /// <summary>Field number for the "account" field.</summary>
+    public const int AccountFieldNumber = 1;
+    private pb::ByteString account_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Account {
+      get { return account_; }
+      set {
+        account_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "fromAccounts" field.</summary>
+    public const int FromAccountsFieldNumber = 2;
+    private static readonly pb::FieldCodec<pb::ByteString> _repeated_fromAccounts_codec
+        = pb::FieldCodec.ForBytes(18);
+    private readonly pbc::RepeatedField<pb::ByteString> fromAccounts_ = new pbc::RepeatedField<pb::ByteString>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<pb::ByteString> FromAccounts {
+      get { return fromAccounts_; }
+    }
+
+    /// <summary>Field number for the "toAccounts" field.</summary>
+    public const int ToAccountsFieldNumber = 3;
+    private static readonly pb::FieldCodec<pb::ByteString> _repeated_toAccounts_codec
+        = pb::FieldCodec.ForBytes(26);
+    private readonly pbc::RepeatedField<pb::ByteString> toAccounts_ = new pbc::RepeatedField<pb::ByteString>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<pb::ByteString> ToAccounts {
+      get { return toAccounts_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as DelegatedResourceAccountIndex);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(DelegatedResourceAccountIndex other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Account != other.Account) return false;
+      if(!fromAccounts_.Equals(other.fromAccounts_)) return false;
+      if(!toAccounts_.Equals(other.toAccounts_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Account.Length != 0) hash ^= Account.GetHashCode();
+      hash ^= fromAccounts_.GetHashCode();
+      hash ^= toAccounts_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Account.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Account);
+      }
+      fromAccounts_.WriteTo(output, _repeated_fromAccounts_codec);
+      toAccounts_.WriteTo(output, _repeated_toAccounts_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Account.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Account);
+      }
+      size += fromAccounts_.CalculateSize(_repeated_fromAccounts_codec);
+      size += toAccounts_.CalculateSize(_repeated_toAccounts_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(DelegatedResourceAccountIndex other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Account.Length != 0) {
+        Account = other.Account;
+      }
+      fromAccounts_.Add(other.fromAccounts_);
+      toAccounts_.Add(other.toAccounts_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Account = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            fromAccounts_.AddEntriesFrom(input, _repeated_fromAccounts_codec);
+            break;
+          }
+          case 26: {
+            toAccounts_.AddEntriesFrom(input, _repeated_toAccounts_codec);
+            break;
+          }
+        }
+      }
+    }
 
   }
 

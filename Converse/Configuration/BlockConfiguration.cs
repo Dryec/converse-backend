@@ -7,6 +7,7 @@ namespace Converse.Configuration
 {
 	public class Block
 	{
+		public ulong SyncUntilBlockWithTokenName { get; set; }
 		public ulong StartId { get; set; }
 		public int SyncSleepTime { get; set; }
 		public int SyncCount { get; set; }

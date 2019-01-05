@@ -43,63 +43,69 @@ namespace Protocol {
             "DBISCgp2b3RlX2NvdW50GAIgASgDIm8KFVVwZGF0ZVNldHRpbmdDb250cmFj",
             "dBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEhgKEGNvbnRyYWN0X2FkZHJlc3MY",
             "AiABKAwSJQodY29uc3VtZV91c2VyX3Jlc291cmNlX3BlcmNlbnQYAyABKAMi",
-            "OwoVV2l0bmVzc0NyZWF0ZUNvbnRyYWN0EhUKDW93bmVyX2FkZHJlc3MYASAB",
-            "KAwSCwoDdXJsGAIgASgMIkIKFVdpdG5lc3NVcGRhdGVDb250cmFjdBIVCg1v",
-            "d25lcl9hZGRyZXNzGAEgASgMEhIKCnVwZGF0ZV91cmwYDCABKAwi8QMKEkFz",
-            "c2V0SXNzdWVDb250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEgwKBG5h",
-            "bWUYAiABKAwSDAoEYWJichgDIAEoDBIUCgx0b3RhbF9zdXBwbHkYBCABKAMS",
-            "QAoNZnJvemVuX3N1cHBseRgFIAMoCzIpLnByb3RvY29sLkFzc2V0SXNzdWVD",
-            "b250cmFjdC5Gcm96ZW5TdXBwbHkSDwoHdHJ4X251bRgGIAEoBRILCgNudW0Y",
-            "CCABKAUSEgoKc3RhcnRfdGltZRgJIAEoAxIQCghlbmRfdGltZRgKIAEoAxIN",
-            "CgVvcmRlchgLIAEoAxISCgp2b3RlX3Njb3JlGBAgASgFEhMKC2Rlc2NyaXB0",
-            "aW9uGBQgASgMEgsKA3VybBgVIAEoDBIcChRmcmVlX2Fzc2V0X25ldF9saW1p",
-            "dBgWIAEoAxIjChtwdWJsaWNfZnJlZV9hc3NldF9uZXRfbGltaXQYFyABKAMS",
-            "IwobcHVibGljX2ZyZWVfYXNzZXRfbmV0X3VzYWdlGBggASgDEiMKG3B1Ymxp",
-            "Y19sYXRlc3RfZnJlZV9uZXRfdGltZRgZIAEoAxo6CgxGcm96ZW5TdXBwbHkS",
-            "FQoNZnJvemVuX2Ftb3VudBgBIAEoAxITCgtmcm96ZW5fZGF5cxgCIAEoAyJu",
-            "Ch1QYXJ0aWNpcGF0ZUFzc2V0SXNzdWVDb250cmFjdBIVCg1vd25lcl9hZGRy",
-            "ZXNzGAEgASgMEhIKCnRvX2FkZHJlc3MYAiABKAwSEgoKYXNzZXRfbmFtZRgD",
-            "IAEoDBIOCgZhbW91bnQYBCABKAMiiQEKFUZyZWV6ZUJhbGFuY2VDb250cmFj",
-            "dBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEhYKDmZyb3plbl9iYWxhbmNlGAIg",
-            "ASgDEhcKD2Zyb3plbl9kdXJhdGlvbhgDIAEoAxIoCghyZXNvdXJjZRgKIAEo",
-            "DjIWLnByb3RvY29sLlJlc291cmNlQ29kZSJaChdVbmZyZWV6ZUJhbGFuY2VD",
-            "b250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEigKCHJlc291cmNlGAog",
-            "ASgOMhYucHJvdG9jb2wuUmVzb3VyY2VDb2RlIi4KFVVuZnJlZXplQXNzZXRD",
-            "b250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgMIjAKF1dpdGhkcmF3QmFs",
-            "YW5jZUNvbnRyYWN0EhUKDW93bmVyX2FkZHJlc3MYASABKAwiewoTVXBkYXRl",
-            "QXNzZXRDb250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEhMKC2Rlc2Ny",
-            "aXB0aW9uGAIgASgMEgsKA3VybBgDIAEoDBIRCgluZXdfbGltaXQYBCABKAMS",
-            "GAoQbmV3X3B1YmxpY19saW1pdBgFIAEoAyKoAQoWUHJvcG9zYWxDcmVhdGVD",
-            "b250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEkQKCnBhcmFtZXRlcnMY",
-            "AiADKAsyMC5wcm90b2NvbC5Qcm9wb3NhbENyZWF0ZUNvbnRyYWN0LlBhcmFt",
-            "ZXRlcnNFbnRyeRoxCg9QYXJhbWV0ZXJzRW50cnkSCwoDa2V5GAEgASgDEg0K",
-            "BXZhbHVlGAIgASgDOgI4ASJeChdQcm9wb3NhbEFwcHJvdmVDb250cmFjdBIV",
-            "Cg1vd25lcl9hZGRyZXNzGAEgASgMEhMKC3Byb3Bvc2FsX2lkGAIgASgDEhcK",
-            "D2lzX2FkZF9hcHByb3ZhbBgDIAEoCCJEChZQcm9wb3NhbERlbGV0ZUNvbnRy",
-            "YWN0EhUKDW93bmVyX2FkZHJlc3MYASABKAwSEwoLcHJvcG9zYWxfaWQYAiAB",
-            "KAMiWwoTQ3JlYXRlU21hcnRDb250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEg",
-            "ASgMEi0KDG5ld19jb250cmFjdBgCIAEoCzIXLnByb3RvY29sLlNtYXJ0Q29u",
-            "dHJhY3QiaQoUVHJpZ2dlclNtYXJ0Q29udHJhY3QSFQoNb3duZXJfYWRkcmVz",
-            "cxgBIAEoDBIYChBjb250cmFjdF9hZGRyZXNzGAIgASgMEhIKCmNhbGxfdmFs",
-            "dWUYAyABKAMSDAoEZGF0YRgEIAEoDCI6ChJCdXlTdG9yYWdlQ29udHJhY3QS",
-            "FQoNb3duZXJfYWRkcmVzcxgBIAEoDBINCgVxdWFudBgCIAEoAyI/ChdCdXlT",
-            "dG9yYWdlQnl0ZXNDb250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEg0K",
-            "BWJ5dGVzGAIgASgDIkMKE1NlbGxTdG9yYWdlQ29udHJhY3QSFQoNb3duZXJf",
-            "YWRkcmVzcxgBIAEoDBIVCg1zdG9yYWdlX2J5dGVzGAIgASgDIpsBChZFeGNo",
-            "YW5nZUNyZWF0ZUNvbnRyYWN0EhUKDW93bmVyX2FkZHJlc3MYASABKAwSFgoO",
-            "Zmlyc3RfdG9rZW5faWQYAiABKAwSGwoTZmlyc3RfdG9rZW5fYmFsYW5jZRgD",
-            "IAEoAxIXCg9zZWNvbmRfdG9rZW5faWQYBCABKAwSHAoUc2Vjb25kX3Rva2Vu",
-            "X2JhbGFuY2UYBSABKAMiZQoWRXhjaGFuZ2VJbmplY3RDb250cmFjdBIVCg1v",
-            "d25lcl9hZGRyZXNzGAEgASgMEhMKC2V4Y2hhbmdlX2lkGAIgASgDEhAKCHRv",
-            "a2VuX2lkGAMgASgMEg0KBXF1YW50GAQgASgDImcKGEV4Y2hhbmdlV2l0aGRy",
-            "YXdDb250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEhMKC2V4Y2hhbmdl",
-            "X2lkGAIgASgDEhAKCHRva2VuX2lkGAMgASgMEg0KBXF1YW50GAQgASgDInwK",
-            "G0V4Y2hhbmdlVHJhbnNhY3Rpb25Db250cmFjdBIVCg1vd25lcl9hZGRyZXNz",
-            "GAEgASgMEhMKC2V4Y2hhbmdlX2lkGAIgASgDEhAKCHRva2VuX2lkGAMgASgM",
-            "Eg0KBXF1YW50GAQgASgDEhAKCGV4cGVjdGVkGAUgASgDKikKDFJlc291cmNl",
-            "Q29kZRINCglCQU5EV0lEVEgQABIKCgZFTkVSR1kQAUJGCg9vcmcudHJvbi5w",
-            "cm90b3NCCENvbnRyYWN0WilnaXRodWIuY29tL3Ryb25wcm90b2NvbC9ncnBj",
-            "LWdhdGV3YXkvY29yZWIGcHJvdG8z"));
+            "aQoZVXBkYXRlRW5lcmd5TGltaXRDb250cmFjdBIVCg1vd25lcl9hZGRyZXNz",
+            "GAEgASgMEhgKEGNvbnRyYWN0X2FkZHJlc3MYAiABKAwSGwoTb3JpZ2luX2Vu",
+            "ZXJneV9saW1pdBgDIAEoAyI7ChVXaXRuZXNzQ3JlYXRlQ29udHJhY3QSFQoN",
+            "b3duZXJfYWRkcmVzcxgBIAEoDBILCgN1cmwYAiABKAwiQgoVV2l0bmVzc1Vw",
+            "ZGF0ZUNvbnRyYWN0EhUKDW93bmVyX2FkZHJlc3MYASABKAwSEgoKdXBkYXRl",
+            "X3VybBgMIAEoDCKQBAoSQXNzZXRJc3N1ZUNvbnRyYWN0EgoKAmlkGCkgASgJ",
+            "EhUKDW93bmVyX2FkZHJlc3MYASABKAwSDAoEbmFtZRgCIAEoDBIMCgRhYmJy",
+            "GAMgASgMEhQKDHRvdGFsX3N1cHBseRgEIAEoAxJACg1mcm96ZW5fc3VwcGx5",
+            "GAUgAygLMikucHJvdG9jb2wuQXNzZXRJc3N1ZUNvbnRyYWN0LkZyb3plblN1",
+            "cHBseRIPCgd0cnhfbnVtGAYgASgFEhEKCXByZWNpc2lvbhgHIAEoBRILCgNu",
+            "dW0YCCABKAUSEgoKc3RhcnRfdGltZRgJIAEoAxIQCghlbmRfdGltZRgKIAEo",
+            "AxINCgVvcmRlchgLIAEoAxISCgp2b3RlX3Njb3JlGBAgASgFEhMKC2Rlc2Ny",
+            "aXB0aW9uGBQgASgMEgsKA3VybBgVIAEoDBIcChRmcmVlX2Fzc2V0X25ldF9s",
+            "aW1pdBgWIAEoAxIjChtwdWJsaWNfZnJlZV9hc3NldF9uZXRfbGltaXQYFyAB",
+            "KAMSIwobcHVibGljX2ZyZWVfYXNzZXRfbmV0X3VzYWdlGBggASgDEiMKG3B1",
+            "YmxpY19sYXRlc3RfZnJlZV9uZXRfdGltZRgZIAEoAxo6CgxGcm96ZW5TdXBw",
+            "bHkSFQoNZnJvemVuX2Ftb3VudBgBIAEoAxITCgtmcm96ZW5fZGF5cxgCIAEo",
+            "AyJuCh1QYXJ0aWNpcGF0ZUFzc2V0SXNzdWVDb250cmFjdBIVCg1vd25lcl9h",
+            "ZGRyZXNzGAEgASgMEhIKCnRvX2FkZHJlc3MYAiABKAwSEgoKYXNzZXRfbmFt",
+            "ZRgDIAEoDBIOCgZhbW91bnQYBCABKAMiowEKFUZyZWV6ZUJhbGFuY2VDb250",
+            "cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEhYKDmZyb3plbl9iYWxhbmNl",
+            "GAIgASgDEhcKD2Zyb3plbl9kdXJhdGlvbhgDIAEoAxIoCghyZXNvdXJjZRgK",
+            "IAEoDjIWLnByb3RvY29sLlJlc291cmNlQ29kZRIYChByZWNlaXZlcl9hZGRy",
+            "ZXNzGA8gASgMInQKF1VuZnJlZXplQmFsYW5jZUNvbnRyYWN0EhUKDW93bmVy",
+            "X2FkZHJlc3MYASABKAwSKAoIcmVzb3VyY2UYCiABKA4yFi5wcm90b2NvbC5S",
+            "ZXNvdXJjZUNvZGUSGAoQcmVjZWl2ZXJfYWRkcmVzcxgPIAEoDCIuChVVbmZy",
+            "ZWV6ZUFzc2V0Q29udHJhY3QSFQoNb3duZXJfYWRkcmVzcxgBIAEoDCIwChdX",
+            "aXRoZHJhd0JhbGFuY2VDb250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgM",
+            "InsKE1VwZGF0ZUFzc2V0Q29udHJhY3QSFQoNb3duZXJfYWRkcmVzcxgBIAEo",
+            "DBITCgtkZXNjcmlwdGlvbhgCIAEoDBILCgN1cmwYAyABKAwSEQoJbmV3X2xp",
+            "bWl0GAQgASgDEhgKEG5ld19wdWJsaWNfbGltaXQYBSABKAMiqAEKFlByb3Bv",
+            "c2FsQ3JlYXRlQ29udHJhY3QSFQoNb3duZXJfYWRkcmVzcxgBIAEoDBJECgpw",
+            "YXJhbWV0ZXJzGAIgAygLMjAucHJvdG9jb2wuUHJvcG9zYWxDcmVhdGVDb250",
+            "cmFjdC5QYXJhbWV0ZXJzRW50cnkaMQoPUGFyYW1ldGVyc0VudHJ5EgsKA2tl",
+            "eRgBIAEoAxINCgV2YWx1ZRgCIAEoAzoCOAEiXgoXUHJvcG9zYWxBcHByb3Zl",
+            "Q29udHJhY3QSFQoNb3duZXJfYWRkcmVzcxgBIAEoDBITCgtwcm9wb3NhbF9p",
+            "ZBgCIAEoAxIXCg9pc19hZGRfYXBwcm92YWwYAyABKAgiRAoWUHJvcG9zYWxE",
+            "ZWxldGVDb250cmFjdBIVCg1vd25lcl9hZGRyZXNzGAEgASgMEhMKC3Byb3Bv",
+            "c2FsX2lkGAIgASgDIocBChNDcmVhdGVTbWFydENvbnRyYWN0EhUKDW93bmVy",
+            "X2FkZHJlc3MYASABKAwSLQoMbmV3X2NvbnRyYWN0GAIgASgLMhcucHJvdG9j",
+            "b2wuU21hcnRDb250cmFjdBIYChBjYWxsX3Rva2VuX3ZhbHVlGAMgASgDEhAK",
+            "CHRva2VuX2lkGAQgASgDIpUBChRUcmlnZ2VyU21hcnRDb250cmFjdBIVCg1v",
+            "d25lcl9hZGRyZXNzGAEgASgMEhgKEGNvbnRyYWN0X2FkZHJlc3MYAiABKAwS",
+            "EgoKY2FsbF92YWx1ZRgDIAEoAxIMCgRkYXRhGAQgASgMEhgKEGNhbGxfdG9r",
+            "ZW5fdmFsdWUYBSABKAMSEAoIdG9rZW5faWQYBiABKAMiOgoSQnV5U3RvcmFn",
+            "ZUNvbnRyYWN0EhUKDW93bmVyX2FkZHJlc3MYASABKAwSDQoFcXVhbnQYAiAB",
+            "KAMiPwoXQnV5U3RvcmFnZUJ5dGVzQ29udHJhY3QSFQoNb3duZXJfYWRkcmVz",
+            "cxgBIAEoDBINCgVieXRlcxgCIAEoAyJDChNTZWxsU3RvcmFnZUNvbnRyYWN0",
+            "EhUKDW93bmVyX2FkZHJlc3MYASABKAwSFQoNc3RvcmFnZV9ieXRlcxgCIAEo",
+            "AyKbAQoWRXhjaGFuZ2VDcmVhdGVDb250cmFjdBIVCg1vd25lcl9hZGRyZXNz",
+            "GAEgASgMEhYKDmZpcnN0X3Rva2VuX2lkGAIgASgMEhsKE2ZpcnN0X3Rva2Vu",
+            "X2JhbGFuY2UYAyABKAMSFwoPc2Vjb25kX3Rva2VuX2lkGAQgASgMEhwKFHNl",
+            "Y29uZF90b2tlbl9iYWxhbmNlGAUgASgDImUKFkV4Y2hhbmdlSW5qZWN0Q29u",
+            "dHJhY3QSFQoNb3duZXJfYWRkcmVzcxgBIAEoDBITCgtleGNoYW5nZV9pZBgC",
+            "IAEoAxIQCgh0b2tlbl9pZBgDIAEoDBINCgVxdWFudBgEIAEoAyJnChhFeGNo",
+            "YW5nZVdpdGhkcmF3Q29udHJhY3QSFQoNb3duZXJfYWRkcmVzcxgBIAEoDBIT",
+            "CgtleGNoYW5nZV9pZBgCIAEoAxIQCgh0b2tlbl9pZBgDIAEoDBINCgVxdWFu",
+            "dBgEIAEoAyJ8ChtFeGNoYW5nZVRyYW5zYWN0aW9uQ29udHJhY3QSFQoNb3du",
+            "ZXJfYWRkcmVzcxgBIAEoDBITCgtleGNoYW5nZV9pZBgCIAEoAxIQCgh0b2tl",
+            "bl9pZBgDIAEoDBINCgVxdWFudBgEIAEoAxIQCghleHBlY3RlZBgFIAEoAyop",
+            "CgxSZXNvdXJjZUNvZGUSDQoJQkFORFdJRFRIEAASCgoGRU5FUkdZEAFCRgoP",
+            "b3JnLnRyb24ucHJvdG9zQghDb250cmFjdFopZ2l0aHViLmNvbS90cm9ucHJv",
+            "dG9jb2wvZ3JwYy1nYXRld2F5L2NvcmViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protocol.TronReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.ResourceCode), }, new pbr::GeneratedClrTypeInfo[] {
@@ -111,20 +117,21 @@ namespace Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.VoteAssetContract), global::Protocol.VoteAssetContract.Parser, new[]{ "OwnerAddress", "VoteAddress", "Support", "Count" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.VoteWitnessContract), global::Protocol.VoteWitnessContract.Parser, new[]{ "OwnerAddress", "Votes", "Support" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.VoteWitnessContract.Types.Vote), global::Protocol.VoteWitnessContract.Types.Vote.Parser, new[]{ "VoteAddress", "VoteCount" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.UpdateSettingContract), global::Protocol.UpdateSettingContract.Parser, new[]{ "OwnerAddress", "ContractAddress", "ConsumeUserResourcePercent" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.UpdateEnergyLimitContract), global::Protocol.UpdateEnergyLimitContract.Parser, new[]{ "OwnerAddress", "ContractAddress", "OriginEnergyLimit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.WitnessCreateContract), global::Protocol.WitnessCreateContract.Parser, new[]{ "OwnerAddress", "Url" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.WitnessUpdateContract), global::Protocol.WitnessUpdateContract.Parser, new[]{ "OwnerAddress", "UpdateUrl" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.AssetIssueContract), global::Protocol.AssetIssueContract.Parser, new[]{ "OwnerAddress", "Name", "Abbr", "TotalSupply", "FrozenSupply", "TrxNum", "Num", "StartTime", "EndTime", "Order", "VoteScore", "Description", "Url", "FreeAssetNetLimit", "PublicFreeAssetNetLimit", "PublicFreeAssetNetUsage", "PublicLatestFreeNetTime" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.AssetIssueContract.Types.FrozenSupply), global::Protocol.AssetIssueContract.Types.FrozenSupply.Parser, new[]{ "FrozenAmount", "FrozenDays" }, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.AssetIssueContract), global::Protocol.AssetIssueContract.Parser, new[]{ "Id", "OwnerAddress", "Name", "Abbr", "TotalSupply", "FrozenSupply", "TrxNum", "Precision", "Num", "StartTime", "EndTime", "Order", "VoteScore", "Description", "Url", "FreeAssetNetLimit", "PublicFreeAssetNetLimit", "PublicFreeAssetNetUsage", "PublicLatestFreeNetTime" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.AssetIssueContract.Types.FrozenSupply), global::Protocol.AssetIssueContract.Types.FrozenSupply.Parser, new[]{ "FrozenAmount", "FrozenDays" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.ParticipateAssetIssueContract), global::Protocol.ParticipateAssetIssueContract.Parser, new[]{ "OwnerAddress", "ToAddress", "AssetName", "Amount" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.FreezeBalanceContract), global::Protocol.FreezeBalanceContract.Parser, new[]{ "OwnerAddress", "FrozenBalance", "FrozenDuration", "Resource" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.UnfreezeBalanceContract), global::Protocol.UnfreezeBalanceContract.Parser, new[]{ "OwnerAddress", "Resource" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.FreezeBalanceContract), global::Protocol.FreezeBalanceContract.Parser, new[]{ "OwnerAddress", "FrozenBalance", "FrozenDuration", "Resource", "ReceiverAddress" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.UnfreezeBalanceContract), global::Protocol.UnfreezeBalanceContract.Parser, new[]{ "OwnerAddress", "Resource", "ReceiverAddress" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.UnfreezeAssetContract), global::Protocol.UnfreezeAssetContract.Parser, new[]{ "OwnerAddress" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.WithdrawBalanceContract), global::Protocol.WithdrawBalanceContract.Parser, new[]{ "OwnerAddress" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.UpdateAssetContract), global::Protocol.UpdateAssetContract.Parser, new[]{ "OwnerAddress", "Description", "Url", "NewLimit", "NewPublicLimit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.ProposalCreateContract), global::Protocol.ProposalCreateContract.Parser, new[]{ "OwnerAddress", "Parameters" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.ProposalApproveContract), global::Protocol.ProposalApproveContract.Parser, new[]{ "OwnerAddress", "ProposalId", "IsAddApproval" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.ProposalDeleteContract), global::Protocol.ProposalDeleteContract.Parser, new[]{ "OwnerAddress", "ProposalId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.CreateSmartContract), global::Protocol.CreateSmartContract.Parser, new[]{ "OwnerAddress", "NewContract" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.TriggerSmartContract), global::Protocol.TriggerSmartContract.Parser, new[]{ "OwnerAddress", "ContractAddress", "CallValue", "Data" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.CreateSmartContract), global::Protocol.CreateSmartContract.Parser, new[]{ "OwnerAddress", "NewContract", "CallTokenValue", "TokenId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.TriggerSmartContract), global::Protocol.TriggerSmartContract.Parser, new[]{ "OwnerAddress", "ContractAddress", "CallValue", "Data", "CallTokenValue", "TokenId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.BuyStorageContract), global::Protocol.BuyStorageContract.Parser, new[]{ "OwnerAddress", "Quant" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.BuyStorageBytesContract), global::Protocol.BuyStorageBytesContract.Parser, new[]{ "OwnerAddress", "Bytes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.SellStorageContract), global::Protocol.SellStorageContract.Parser, new[]{ "OwnerAddress", "StorageBytes" }, null, null, null),
@@ -876,6 +883,9 @@ namespace Protocol {
     /// <summary>Field number for the "asset_name" field.</summary>
     public const int AssetNameFieldNumber = 1;
     private pb::ByteString assetName_ = pb::ByteString.Empty;
+    /// <summary>
+    /// this field is token name before the proposal ALLOW_SAME_TOKEN_NAME is active, otherwise it is token id and token is should be in string format.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString AssetName {
       get { return assetName_; }
@@ -1780,6 +1790,191 @@ namespace Protocol {
 
   }
 
+  public sealed partial class UpdateEnergyLimitContract : pb::IMessage<UpdateEnergyLimitContract> {
+    private static readonly pb::MessageParser<UpdateEnergyLimitContract> _parser = new pb::MessageParser<UpdateEnergyLimitContract>(() => new UpdateEnergyLimitContract());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UpdateEnergyLimitContract> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateEnergyLimitContract() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateEnergyLimitContract(UpdateEnergyLimitContract other) : this() {
+      ownerAddress_ = other.ownerAddress_;
+      contractAddress_ = other.contractAddress_;
+      originEnergyLimit_ = other.originEnergyLimit_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateEnergyLimitContract Clone() {
+      return new UpdateEnergyLimitContract(this);
+    }
+
+    /// <summary>Field number for the "owner_address" field.</summary>
+    public const int OwnerAddressFieldNumber = 1;
+    private pb::ByteString ownerAddress_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString OwnerAddress {
+      get { return ownerAddress_; }
+      set {
+        ownerAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "contract_address" field.</summary>
+    public const int ContractAddressFieldNumber = 2;
+    private pb::ByteString contractAddress_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString ContractAddress {
+      get { return contractAddress_; }
+      set {
+        contractAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "origin_energy_limit" field.</summary>
+    public const int OriginEnergyLimitFieldNumber = 3;
+    private long originEnergyLimit_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long OriginEnergyLimit {
+      get { return originEnergyLimit_; }
+      set {
+        originEnergyLimit_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateEnergyLimitContract);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UpdateEnergyLimitContract other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (OwnerAddress != other.OwnerAddress) return false;
+      if (ContractAddress != other.ContractAddress) return false;
+      if (OriginEnergyLimit != other.OriginEnergyLimit) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (OwnerAddress.Length != 0) hash ^= OwnerAddress.GetHashCode();
+      if (ContractAddress.Length != 0) hash ^= ContractAddress.GetHashCode();
+      if (OriginEnergyLimit != 0L) hash ^= OriginEnergyLimit.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (OwnerAddress.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(OwnerAddress);
+      }
+      if (ContractAddress.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(ContractAddress);
+      }
+      if (OriginEnergyLimit != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(OriginEnergyLimit);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (OwnerAddress.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(OwnerAddress);
+      }
+      if (ContractAddress.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(ContractAddress);
+      }
+      if (OriginEnergyLimit != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(OriginEnergyLimit);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UpdateEnergyLimitContract other) {
+      if (other == null) {
+        return;
+      }
+      if (other.OwnerAddress.Length != 0) {
+        OwnerAddress = other.OwnerAddress;
+      }
+      if (other.ContractAddress.Length != 0) {
+        ContractAddress = other.ContractAddress;
+      }
+      if (other.OriginEnergyLimit != 0L) {
+        OriginEnergyLimit = other.OriginEnergyLimit;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            OwnerAddress = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            ContractAddress = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            OriginEnergyLimit = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class WitnessCreateContract : pb::IMessage<WitnessCreateContract> {
     private static readonly pb::MessageParser<WitnessCreateContract> _parser = new pb::MessageParser<WitnessCreateContract>(() => new WitnessCreateContract());
     private pb::UnknownFieldSet _unknownFields;
@@ -1788,7 +1983,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1945,7 +2140,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2102,7 +2297,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2119,12 +2314,14 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public AssetIssueContract(AssetIssueContract other) : this() {
+      id_ = other.id_;
       ownerAddress_ = other.ownerAddress_;
       name_ = other.name_;
       abbr_ = other.abbr_;
       totalSupply_ = other.totalSupply_;
       frozenSupply_ = other.frozenSupply_.Clone();
       trxNum_ = other.trxNum_;
+      precision_ = other.precision_;
       num_ = other.num_;
       startTime_ = other.startTime_;
       endTime_ = other.endTime_;
@@ -2142,6 +2339,17 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public AssetIssueContract Clone() {
       return new AssetIssueContract(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 41;
+    private string id_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Id {
+      get { return id_; }
+      set {
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
     }
 
     /// <summary>Field number for the "owner_address" field.</summary>
@@ -2209,6 +2417,17 @@ namespace Protocol {
       }
     }
 
+    /// <summary>Field number for the "precision" field.</summary>
+    public const int PrecisionFieldNumber = 7;
+    private int precision_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Precision {
+      get { return precision_; }
+      set {
+        precision_ = value;
+      }
+    }
+
     /// <summary>Field number for the "num" field.</summary>
     public const int NumFieldNumber = 8;
     private int num_;
@@ -2246,7 +2465,7 @@ namespace Protocol {
     public const int OrderFieldNumber = 11;
     private long order_;
     /// <summary>
-    /// the order of tokens of the same name
+    /// useless
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Order {
@@ -2346,12 +2565,14 @@ namespace Protocol {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Id != other.Id) return false;
       if (OwnerAddress != other.OwnerAddress) return false;
       if (Name != other.Name) return false;
       if (Abbr != other.Abbr) return false;
       if (TotalSupply != other.TotalSupply) return false;
       if(!frozenSupply_.Equals(other.frozenSupply_)) return false;
       if (TrxNum != other.TrxNum) return false;
+      if (Precision != other.Precision) return false;
       if (Num != other.Num) return false;
       if (StartTime != other.StartTime) return false;
       if (EndTime != other.EndTime) return false;
@@ -2369,12 +2590,14 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (OwnerAddress.Length != 0) hash ^= OwnerAddress.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Abbr.Length != 0) hash ^= Abbr.GetHashCode();
       if (TotalSupply != 0L) hash ^= TotalSupply.GetHashCode();
       hash ^= frozenSupply_.GetHashCode();
       if (TrxNum != 0) hash ^= TrxNum.GetHashCode();
+      if (Precision != 0) hash ^= Precision.GetHashCode();
       if (Num != 0) hash ^= Num.GetHashCode();
       if (StartTime != 0L) hash ^= StartTime.GetHashCode();
       if (EndTime != 0L) hash ^= EndTime.GetHashCode();
@@ -2420,6 +2643,10 @@ namespace Protocol {
         output.WriteRawTag(48);
         output.WriteInt32(TrxNum);
       }
+      if (Precision != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(Precision);
+      }
       if (Num != 0) {
         output.WriteRawTag(64);
         output.WriteInt32(Num);
@@ -2464,6 +2691,10 @@ namespace Protocol {
         output.WriteRawTag(200, 1);
         output.WriteInt64(PublicLatestFreeNetTime);
       }
+      if (Id.Length != 0) {
+        output.WriteRawTag(202, 2);
+        output.WriteString(Id);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2472,6 +2703,9 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (Id.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Id);
+      }
       if (OwnerAddress.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(OwnerAddress);
       }
@@ -2487,6 +2721,9 @@ namespace Protocol {
       size += frozenSupply_.CalculateSize(_repeated_frozenSupply_codec);
       if (TrxNum != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(TrxNum);
+      }
+      if (Precision != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Precision);
       }
       if (Num != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Num);
@@ -2532,6 +2769,9 @@ namespace Protocol {
       if (other == null) {
         return;
       }
+      if (other.Id.Length != 0) {
+        Id = other.Id;
+      }
       if (other.OwnerAddress.Length != 0) {
         OwnerAddress = other.OwnerAddress;
       }
@@ -2547,6 +2787,9 @@ namespace Protocol {
       frozenSupply_.Add(other.frozenSupply_);
       if (other.TrxNum != 0) {
         TrxNum = other.TrxNum;
+      }
+      if (other.Precision != 0) {
+        Precision = other.Precision;
       }
       if (other.Num != 0) {
         Num = other.Num;
@@ -2616,6 +2859,10 @@ namespace Protocol {
             TrxNum = input.ReadInt32();
             break;
           }
+          case 56: {
+            Precision = input.ReadInt32();
+            break;
+          }
           case 64: {
             Num = input.ReadInt32();
             break;
@@ -2658,6 +2905,10 @@ namespace Protocol {
           }
           case 200: {
             PublicLatestFreeNetTime = input.ReadInt64();
+            break;
+          }
+          case 330: {
+            Id = input.ReadString();
             break;
           }
         }
@@ -2838,7 +3089,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2893,7 +3144,7 @@ namespace Protocol {
     public const int AssetNameFieldNumber = 3;
     private pb::ByteString assetName_ = pb::ByteString.Empty;
     /// <summary>
-    /// the namekey of target asset, include name and order
+    /// this field is token name before the proposal ALLOW_SAME_TOKEN_NAME is active, otherwise it is token id and token is should be in string format.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString AssetName {
@@ -3057,7 +3308,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3078,6 +3329,7 @@ namespace Protocol {
       frozenBalance_ = other.frozenBalance_;
       frozenDuration_ = other.frozenDuration_;
       resource_ = other.resource_;
+      receiverAddress_ = other.receiverAddress_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3130,6 +3382,17 @@ namespace Protocol {
       }
     }
 
+    /// <summary>Field number for the "receiver_address" field.</summary>
+    public const int ReceiverAddressFieldNumber = 15;
+    private pb::ByteString receiverAddress_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString ReceiverAddress {
+      get { return receiverAddress_; }
+      set {
+        receiverAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as FreezeBalanceContract);
@@ -3147,6 +3410,7 @@ namespace Protocol {
       if (FrozenBalance != other.FrozenBalance) return false;
       if (FrozenDuration != other.FrozenDuration) return false;
       if (Resource != other.Resource) return false;
+      if (ReceiverAddress != other.ReceiverAddress) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3157,6 +3421,7 @@ namespace Protocol {
       if (FrozenBalance != 0L) hash ^= FrozenBalance.GetHashCode();
       if (FrozenDuration != 0L) hash ^= FrozenDuration.GetHashCode();
       if (Resource != 0) hash ^= Resource.GetHashCode();
+      if (ReceiverAddress.Length != 0) hash ^= ReceiverAddress.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3186,6 +3451,10 @@ namespace Protocol {
         output.WriteRawTag(80);
         output.WriteEnum((int) Resource);
       }
+      if (ReceiverAddress.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteBytes(ReceiverAddress);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3205,6 +3474,9 @@ namespace Protocol {
       }
       if (Resource != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Resource);
+      }
+      if (ReceiverAddress.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(ReceiverAddress);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3228,6 +3500,9 @@ namespace Protocol {
       }
       if (other.Resource != 0) {
         Resource = other.Resource;
+      }
+      if (other.ReceiverAddress.Length != 0) {
+        ReceiverAddress = other.ReceiverAddress;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3256,6 +3531,10 @@ namespace Protocol {
             resource_ = (global::Protocol.ResourceCode) input.ReadEnum();
             break;
           }
+          case 122: {
+            ReceiverAddress = input.ReadBytes();
+            break;
+          }
         }
       }
     }
@@ -3270,7 +3549,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3289,6 +3568,7 @@ namespace Protocol {
     public UnfreezeBalanceContract(UnfreezeBalanceContract other) : this() {
       ownerAddress_ = other.ownerAddress_;
       resource_ = other.resource_;
+      receiverAddress_ = other.receiverAddress_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3319,6 +3599,17 @@ namespace Protocol {
       }
     }
 
+    /// <summary>Field number for the "receiver_address" field.</summary>
+    public const int ReceiverAddressFieldNumber = 15;
+    private pb::ByteString receiverAddress_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString ReceiverAddress {
+      get { return receiverAddress_; }
+      set {
+        receiverAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as UnfreezeBalanceContract);
@@ -3334,6 +3625,7 @@ namespace Protocol {
       }
       if (OwnerAddress != other.OwnerAddress) return false;
       if (Resource != other.Resource) return false;
+      if (ReceiverAddress != other.ReceiverAddress) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3342,6 +3634,7 @@ namespace Protocol {
       int hash = 1;
       if (OwnerAddress.Length != 0) hash ^= OwnerAddress.GetHashCode();
       if (Resource != 0) hash ^= Resource.GetHashCode();
+      if (ReceiverAddress.Length != 0) hash ^= ReceiverAddress.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3363,6 +3656,10 @@ namespace Protocol {
         output.WriteRawTag(80);
         output.WriteEnum((int) Resource);
       }
+      if (ReceiverAddress.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteBytes(ReceiverAddress);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3376,6 +3673,9 @@ namespace Protocol {
       }
       if (Resource != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Resource);
+      }
+      if (ReceiverAddress.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(ReceiverAddress);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3393,6 +3693,9 @@ namespace Protocol {
       }
       if (other.Resource != 0) {
         Resource = other.Resource;
+      }
+      if (other.ReceiverAddress.Length != 0) {
+        ReceiverAddress = other.ReceiverAddress;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3413,6 +3716,10 @@ namespace Protocol {
             resource_ = (global::Protocol.ResourceCode) input.ReadEnum();
             break;
           }
+          case 122: {
+            ReceiverAddress = input.ReadBytes();
+            break;
+          }
         }
       }
     }
@@ -3427,7 +3734,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3556,7 +3863,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3685,7 +3992,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3926,7 +4233,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4075,7 +4382,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4263,7 +4570,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4420,7 +4727,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4439,6 +4746,8 @@ namespace Protocol {
     public CreateSmartContract(CreateSmartContract other) : this() {
       ownerAddress_ = other.ownerAddress_;
       NewContract = other.newContract_ != null ? other.NewContract.Clone() : null;
+      callTokenValue_ = other.callTokenValue_;
+      tokenId_ = other.tokenId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4469,6 +4778,28 @@ namespace Protocol {
       }
     }
 
+    /// <summary>Field number for the "call_token_value" field.</summary>
+    public const int CallTokenValueFieldNumber = 3;
+    private long callTokenValue_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long CallTokenValue {
+      get { return callTokenValue_; }
+      set {
+        callTokenValue_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "token_id" field.</summary>
+    public const int TokenIdFieldNumber = 4;
+    private long tokenId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long TokenId {
+      get { return tokenId_; }
+      set {
+        tokenId_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as CreateSmartContract);
@@ -4484,6 +4815,8 @@ namespace Protocol {
       }
       if (OwnerAddress != other.OwnerAddress) return false;
       if (!object.Equals(NewContract, other.NewContract)) return false;
+      if (CallTokenValue != other.CallTokenValue) return false;
+      if (TokenId != other.TokenId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4492,6 +4825,8 @@ namespace Protocol {
       int hash = 1;
       if (OwnerAddress.Length != 0) hash ^= OwnerAddress.GetHashCode();
       if (newContract_ != null) hash ^= NewContract.GetHashCode();
+      if (CallTokenValue != 0L) hash ^= CallTokenValue.GetHashCode();
+      if (TokenId != 0L) hash ^= TokenId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4513,6 +4848,14 @@ namespace Protocol {
         output.WriteRawTag(18);
         output.WriteMessage(NewContract);
       }
+      if (CallTokenValue != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(CallTokenValue);
+      }
+      if (TokenId != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(TokenId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4526,6 +4869,12 @@ namespace Protocol {
       }
       if (newContract_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(NewContract);
+      }
+      if (CallTokenValue != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(CallTokenValue);
+      }
+      if (TokenId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TokenId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4546,6 +4895,12 @@ namespace Protocol {
           newContract_ = new global::Protocol.SmartContract();
         }
         NewContract.MergeFrom(other.NewContract);
+      }
+      if (other.CallTokenValue != 0L) {
+        CallTokenValue = other.CallTokenValue;
+      }
+      if (other.TokenId != 0L) {
+        TokenId = other.TokenId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4569,6 +4924,14 @@ namespace Protocol {
             input.ReadMessage(newContract_);
             break;
           }
+          case 24: {
+            CallTokenValue = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            TokenId = input.ReadInt64();
+            break;
+          }
         }
       }
     }
@@ -4583,7 +4946,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4604,6 +4967,8 @@ namespace Protocol {
       contractAddress_ = other.contractAddress_;
       callValue_ = other.callValue_;
       data_ = other.data_;
+      callTokenValue_ = other.callTokenValue_;
+      tokenId_ = other.tokenId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4656,6 +5021,28 @@ namespace Protocol {
       }
     }
 
+    /// <summary>Field number for the "call_token_value" field.</summary>
+    public const int CallTokenValueFieldNumber = 5;
+    private long callTokenValue_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long CallTokenValue {
+      get { return callTokenValue_; }
+      set {
+        callTokenValue_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "token_id" field.</summary>
+    public const int TokenIdFieldNumber = 6;
+    private long tokenId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long TokenId {
+      get { return tokenId_; }
+      set {
+        tokenId_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as TriggerSmartContract);
@@ -4673,6 +5060,8 @@ namespace Protocol {
       if (ContractAddress != other.ContractAddress) return false;
       if (CallValue != other.CallValue) return false;
       if (Data != other.Data) return false;
+      if (CallTokenValue != other.CallTokenValue) return false;
+      if (TokenId != other.TokenId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4683,6 +5072,8 @@ namespace Protocol {
       if (ContractAddress.Length != 0) hash ^= ContractAddress.GetHashCode();
       if (CallValue != 0L) hash ^= CallValue.GetHashCode();
       if (Data.Length != 0) hash ^= Data.GetHashCode();
+      if (CallTokenValue != 0L) hash ^= CallTokenValue.GetHashCode();
+      if (TokenId != 0L) hash ^= TokenId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4712,6 +5103,14 @@ namespace Protocol {
         output.WriteRawTag(34);
         output.WriteBytes(Data);
       }
+      if (CallTokenValue != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(CallTokenValue);
+      }
+      if (TokenId != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(TokenId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4731,6 +5130,12 @@ namespace Protocol {
       }
       if (Data.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
+      }
+      if (CallTokenValue != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(CallTokenValue);
+      }
+      if (TokenId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TokenId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4754,6 +5159,12 @@ namespace Protocol {
       }
       if (other.Data.Length != 0) {
         Data = other.Data;
+      }
+      if (other.CallTokenValue != 0L) {
+        CallTokenValue = other.CallTokenValue;
+      }
+      if (other.TokenId != 0L) {
+        TokenId = other.TokenId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4782,6 +5193,14 @@ namespace Protocol {
             Data = input.ReadBytes();
             break;
           }
+          case 40: {
+            CallTokenValue = input.ReadInt64();
+            break;
+          }
+          case 48: {
+            TokenId = input.ReadInt64();
+            break;
+          }
         }
       }
     }
@@ -4796,7 +5215,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4956,7 +5375,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5116,7 +5535,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[24]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5273,7 +5692,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[25]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5514,7 +5933,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[26]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5727,7 +6146,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[27]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5940,7 +6359,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[28]; }
+      get { return global::Protocol.ContractReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

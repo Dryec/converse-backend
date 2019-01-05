@@ -176,5 +176,30 @@ namespace Client
         {
             return await _grpcClient.GetAccountResourceAsync(account);
         }
+
+        public async Task<TransactionExtention> ExchangeCreate(ExchangeCreateContract contract)
+        {
+            return  await _grpcClient.ExchangeCreateAsync(contract);
+        }
+
+        public async Task<TransactionExtention> ExchangeInject(ExchangeInjectContract contract)
+        {
+            return await _grpcClient.ExchangeInjectAsync(contract);
+        }
+
+        public async Task<TransactionExtention> ExchangeWithdraw(ExchangeWithdrawContract contract)
+        {
+            return await _grpcClient.ExchangeWithdrawAsync(contract);
+        }
+
+        public async Task<TransactionExtention> ExchangeTransaction(ExchangeTransactionContract contract)
+        {
+            return await _grpcClient.ExchangeTransactionAsync(contract);
+        }
+
+        public async Task<AssetIssueContract> GetAssetIssueByIdAsync(BytesMessage message)
+        {
+            return await _grpcClient.GetAssetIssueByIdAsync(message);
+        }
     }
 }
