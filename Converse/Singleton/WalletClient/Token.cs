@@ -13,11 +13,11 @@ namespace Converse.Singleton.WalletClient
 	{
 		private readonly Client.WalletClient _walletClient;
 		private readonly Logger _logger;
-		private readonly string _name;
+		public string Name { get; }
 
 		public Token(string name, Logger logger, Client.WalletClient walletClient)
 		{
-			_name = name.ToLower();
+			Name = name;
 			_logger = logger;
 			_walletClient = walletClient;
 		}

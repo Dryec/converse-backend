@@ -105,7 +105,7 @@ namespace Converse.Singleton.WalletClient
 			var contract = new Protocol.TransferAssetContract()
 			{
 				Amount = amount,
-				AssetName = ByteString.CopyFromUtf8(_token.ToString()),
+				AssetName = ByteString.CopyFromUtf8(_token.Name),
 				OwnerAddress = ByteString.CopyFrom(Client.WalletAddress.Decode58Check(PropertyAddress.Address)),
 				ToAddress = ByteString.CopyFrom(Client.WalletAddress.Decode58Check(receiver)),
 			};
