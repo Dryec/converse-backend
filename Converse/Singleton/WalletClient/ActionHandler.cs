@@ -37,7 +37,7 @@ namespace Converse.Singleton.WalletClient
 			}
 
 			var transferAssetContract = contract.Parameter.Unpack<TransferAssetContract>();
-			if (transferAssetContract.AssetName != _token.GetName())
+			if (transferAssetContract.AssetName.ToStringUtf8().ToLower() != _token.ToString())
 			{
 				return;
 			}

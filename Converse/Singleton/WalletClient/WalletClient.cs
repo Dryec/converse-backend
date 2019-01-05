@@ -129,13 +129,6 @@ namespace Converse.Singleton.WalletClient
 
 		private async void SynchronizeBlocks()
 		{
-			var hasUpdatedToken = await _token.Update();
-			if (!hasUpdatedToken)
-			{
-				_appLifeTime.StopApplication();
-				return;
-			}
-
 			var synchronizationCount = _blockConfiguration.SyncCount;
 
 			DatabaseContext databaseContext;
